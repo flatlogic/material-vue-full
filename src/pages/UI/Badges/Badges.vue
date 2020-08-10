@@ -1,8 +1,7 @@
 <template>
-  <v-container fluid class="icons-page">
+  <v-container fluid class="badge-page">
     <v-row no-gutters class="d-flex mt-10 mb-6">
       <h1 class="page-title">Badges</h1>
-
     </v-row>
     <v-row>
       <v-col lg=6 cols=12>

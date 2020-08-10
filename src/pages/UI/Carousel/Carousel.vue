@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="icons-page">
+  <v-container fluid class="carousel-page">
     <v-row no-gutters class="d-flex mt-10 mb-6">
       <h1 class="page-title">Carousel</h1>
     </v-row>

@@ -121,6 +121,7 @@ import {mapActions, mapState} from 'vuex'
               { title: 'Icons', icon: 'mdi-circle-small', link: '/icons'},
               { title: 'Badges', icon: 'mdi-circle-small', link: '/badges'},
               { title: 'Carousel', icon: 'mdi-circle-small', link: '/carousel'},
+              { title: 'Cards', icon: 'mdi-circle-small', link: '/cards'},
               { title: 'Charts', icon: 'mdi-circle-small', link: '/charts'},
               { title: 'Maps', icon: 'mdi-circle-small', link: '/maps'},
             ],

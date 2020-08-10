@@ -13,6 +13,7 @@ import Notifications from '@/pages/Notifications/Notifications'
 import Icons from '@/pages/UI/Icons/Icons'
 import Badges from "@/pages/UI/Badges/Badges"
 import Carousel from "@/pages/UI/Carousel/Carousel"
+import Cards from "@/pages/UI/Cards/Cards"
 
 import Charts from '@/pages/Charts/Charts'
 import Maps from '@/pages/Maps/Google'
@@ -68,6 +69,11 @@ export default new Router({
         path: 'carousel',
         name: 'Carousel',
         component: Carousel
+      },
+      {
+        path: 'cards',
+        name: 'Cards',
+        component: Cards
       },
       {
         path: 'charts',
