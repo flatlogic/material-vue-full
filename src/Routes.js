@@ -12,6 +12,7 @@ import Notifications from '@/pages/Notifications/Notifications'
 // UI
 import Icons from '@/pages/UI/Icons/Icons'
 import Badges from "@/pages/UI/Badges/Badges"
+import Carousel from "@/pages/UI/Carousel/Carousel"
 
 import Charts from '@/pages/Charts/Charts'
 import Maps from '@/pages/Maps/Google'
@@ -62,6 +63,11 @@ export default new Router({
         path: 'badges',
         name: 'Badges',
         component: Badges
+      },
+      {
+        path: 'carousel',
+        name: 'Carousel',
+        component: Carousel
       },
       {
         path: 'charts',
