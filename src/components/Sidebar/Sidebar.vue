@@ -119,6 +119,7 @@ import {mapActions, mapState} from 'vuex'
             model: false,
             children: [
               { title: 'Icons', icon: 'mdi-circle-small', link: '/icons'},
+              { title: 'Badges', icon: 'mdi-circle-small', link: '/badges'},
               { title: 'Charts', icon: 'mdi-circle-small', link: '/charts'},
               { title: 'Maps', icon: 'mdi-circle-small', link: '/maps'},
             ],

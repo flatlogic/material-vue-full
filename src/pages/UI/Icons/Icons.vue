@@ -93,6 +93,7 @@
 
 <script>
   export default {
+    name: 'Icons',
     data () {
       return {
         fontAwesome: [
@@ -393,4 +394,4 @@
   }
 </script>
 
-<style src="./Icons.scss" lang="scss"/>
+<style src="Icons.scss" lang="scss"/>

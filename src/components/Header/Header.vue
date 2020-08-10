@@ -5,7 +5,7 @@
       color='primary'
       dark
     >
-    <v-btn icon class="mr-2" @click.stop="TOGGLE_DRAWER">
+    <v-btn icon class="mx-1" @click.stop="TOGGLE_DRAWER">
         <template v-if="DRAWER_STATE">
             <v-icon  style="font-size: 28px">mdi-arrow-left</v-icon>
         </template>
@@ -46,7 +46,7 @@
                 >
                     <v-icon
                         style="font-size: 28px"
-                        color="rgba(255, 255, 255, 0.35)"
+                        :color="config.light.iconColor"
                     >mdi-bell-outline</v-icon>
                 </v-badge>
             </v-btn>
@@ -95,7 +95,7 @@
                     <v-icon
                         :color="config.light.iconColor"
                         style="font-size: 28px">
-                      mdi-email-outline</v-icon>
+                        mdi-email-outline</v-icon>
                 </v-badge>
             </v-btn>
         </template>

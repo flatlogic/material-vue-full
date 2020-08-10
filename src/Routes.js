@@ -1,18 +1,22 @@
-import Vue from 'vue';
-import Router from 'vue-router';
+import Vue from 'vue'
+import Router from 'vue-router'
 
-import Layout from '@/components/Layout/Layout';
+import Layout from '@/components/Layout/Layout'
 
 // Pages
-import Dashboard from '@/pages/Dashboard/Dashboard';
+import Dashboard from '@/pages/Dashboard/Dashboard'
 import Typography from '@/pages/Typography/Typography'
 import Tables from '@/pages/Tables/Basic'
 import Notifications from '@/pages/Notifications/Notifications'
-import Icons from '@/pages/Icons/Icons'
+
+// UI
+import Icons from '@/pages/UI/Icons/Icons'
+import Badges from "@/pages/UI/Badges/Badges"
+
 import Charts from '@/pages/Charts/Charts'
 import Maps from '@/pages/Maps/Google'
-import Error from "@/pages/Error/Error";
-import Login from "@/pages/Login/Login";
+import Error from "@/pages/Error/Error"
+import Login from "@/pages/Login/Login"
 
 Vue.use(Router);
 
@@ -53,6 +57,11 @@ export default new Router({
         path: 'icons',
         name: 'Icons',
         component: Icons
+      },
+      {
+        path: 'badges',
+        name: 'Badges',
+        component: Badges
       },
       {
         path: 'charts',
