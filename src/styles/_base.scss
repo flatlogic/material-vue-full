@@ -74,11 +74,17 @@
     font-weight: 400;
     margin-bottom: 16px;
   }
+
+  .fs-normal {
+    font-size: 1rem;
+  }
+
+
 }
+
 .mapContainer + footer.v-footer {
   display: none;
 }
-
 
 .toasted-container {
   .toasted {

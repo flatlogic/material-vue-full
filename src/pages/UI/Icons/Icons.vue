@@ -394,4 +394,4 @@
   }
 </script>
 
-<style src="Icons.scss" lang="scss"/>
+<style src="./Icons.scss" lang="scss"/>
