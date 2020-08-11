@@ -37,7 +37,7 @@
                     :key="i"
                     @click="() => {}"
                   >
-                    <v-list-item-title >{{ item }}</v-list-item-title>
+                    <v-list-item-title>{{ item }}</v-list-item-title>
                   </v-list-item>
                 </v-list>
               </v-menu>

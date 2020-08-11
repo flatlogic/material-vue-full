@@ -5,12 +5,13 @@ import Layout from '@/components/Layout/Layout'
 
 // Pages
 import Dashboard from '@/pages/Dashboard/Dashboard'
-import Typography from '@/pages/Core/Typography/Typography'
-import Tables from '@/pages/Tables/Basic'
-import Notifications from '@/pages/UI/Notifications/Notifications'
 
 // Core
+import Typography from '@/pages/Core/Typography/Typography'
 import Colors from "@/pages/Core/Colors/Colors"
+
+// Tables
+import Tables from '@/pages/Tables/Basic'
 
 // UI
 import Icons from '@/pages/UI/Icons/Icons'
@@ -18,13 +19,15 @@ import Badges from "@/pages/UI/Badges/Badges"
 import Carousel from "@/pages/UI/Carousel/Carousel"
 import Cards from "@/pages/UI/Cards/Cards"
 import Modal from "@/pages/UI/Modal/Modal"
-
+import Notifications from '@/pages/UI/Notifications/Notifications'
 
 // Maps
 import VectorMaps from "@/pages/Maps/Vector/Vector";
-
-import Charts from '@/pages/Charts/Charts'
 import GoogleMaps from '@/pages/Maps/Google/Google'
+
+// Charts
+import Charts from '@/pages/Charts/Charts'
+
 import Error from "@/pages/Error/Error"
 import Login from "@/pages/Login/Login"
 
@@ -44,44 +47,46 @@ export default new Router({
     component: Layout,
     children: [
       {
-        path: 'dashboard',
+        path: '/dashboard',
         name: 'Dashboard',
         component: Dashboard,
       },
+
+        // Tables
       {
-        path: 'tables',
+        path: '/tables/basic',
         name: 'Tables',
         component: Tables
       },
 
-       // UI Elements
+        // UI Elements
       {
-        path: 'icons',
+        path: '/ui/icons',
         name: 'Icons',
         component: Icons
       },
       {
-        path: 'badges',
+        path: '/ui/badges',
         name: 'Badges',
         component: Badges
       },
       {
-        path: 'carousel',
+        path: '/ui/carousel',
         name: 'Carousel',
         component: Carousel
       },
       {
-        path: 'cards',
+        path: '/ui/cards',
         name: 'Cards',
         component: Cards
       },
       {
-        path: 'modal',
+        path: '/ui/modal',
         name: 'Modal',
         component: Modal
       },
       {
-        path: 'notifications',
+        path: '/ui/notifications',
         name: 'Notifications',
         component: Notifications
       },
@@ -100,18 +105,18 @@ export default new Router({
 
         // Core
       {
-        path: 'core/typography',
+        path: '/core/typography',
         name: 'Typography',
         component: Typography,
       },
       {
-        path: 'core/colors',
+        path: '/core/colors',
         name: 'Colors',
         component: Colors
       },
 
       {
-        path: 'charts',
+        path: '/charts/overview',
         name: 'Charts',
         component: Charts
       },
