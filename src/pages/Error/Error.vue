@@ -17,7 +17,7 @@
                 dark
                 x-large
                 :color="config.light.primary"
-                to="dashboard"
+                to="/dashboard"
             >
               Back to Home
             </v-btn>

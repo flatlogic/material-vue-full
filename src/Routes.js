@@ -5,18 +5,26 @@ import Layout from '@/components/Layout/Layout'
 
 // Pages
 import Dashboard from '@/pages/Dashboard/Dashboard'
-import Typography from '@/pages/Typography/Typography'
+import Typography from '@/pages/Core/Typography/Typography'
 import Tables from '@/pages/Tables/Basic'
-import Notifications from '@/pages/Notifications/Notifications'
+import Notifications from '@/pages/UI/Notifications/Notifications'
+
+// Core
+import Colors from "@/pages/Core/Colors/Colors"
 
 // UI
 import Icons from '@/pages/UI/Icons/Icons'
 import Badges from "@/pages/UI/Badges/Badges"
 import Carousel from "@/pages/UI/Carousel/Carousel"
 import Cards from "@/pages/UI/Cards/Cards"
+import Modal from "@/pages/UI/Modal/Modal"
+
+
+// Maps
+import VectorMaps from "@/pages/Maps/Vector/Vector";
 
 import Charts from '@/pages/Charts/Charts'
-import Maps from '@/pages/Maps/Google'
+import GoogleMaps from '@/pages/Maps/Google/Google'
 import Error from "@/pages/Error/Error"
 import Login from "@/pages/Login/Login"
 
@@ -41,20 +49,12 @@ export default new Router({
         component: Dashboard,
       },
       {
-        path: 'typography',
-        name: 'Typography',
-        component: Typography,
-      },
-      {
         path: 'tables',
         name: 'Tables',
         component: Tables
       },
-      {
-        path: 'notifications',
-        name: 'Notifications',
-        component: Notifications
-      },
+
+       // UI Elements
       {
         path: 'icons',
         name: 'Icons',
@@ -76,14 +76,44 @@ export default new Router({
         component: Cards
       },
       {
+        path: 'modal',
+        name: 'Modal',
+        component: Modal
+      },
+      {
+        path: 'notifications',
+        name: 'Notifications',
+        component: Notifications
+      },
+
+        // Maps
+      {
+        path: '/maps/google',
+        name: 'googleMaps',
+        component: GoogleMaps
+      },
+      {
+        path: '/maps/vector',
+        name: 'vectorMaps',
+        component: VectorMaps
+      },
+
+        // Core
+      {
+        path: 'core/typography',
+        name: 'Typography',
+        component: Typography,
+      },
+      {
+        path: 'core/colors',
+        name: 'Colors',
+        component: Colors
+      },
+
+      {
         path: 'charts',
         name: 'Charts',
         component: Charts
-      },
-      {
-        path: 'maps',
-        name: 'Maps',
-        component: Maps
       },
     ],
   },

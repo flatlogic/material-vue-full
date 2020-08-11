@@ -42,10 +42,9 @@
                   v-else-if="item.children && DRAWER_STATE"
                   :key="item.title"
                   v-model="item.model"
-                  append-icon=""
               >
                   <template v-slot:prependIcon>
-                      <v-icon size="28">mdi-image-filter-none</v-icon>
+                      <v-icon size="28"> {{ item.icon }} </v-icon>
                   </template>
                   <template v-slot:activator >
                       <v-list-item-content >
@@ -62,7 +61,7 @@
                       :to="child.link"
                       link
                   >
-                      <v-list-item-action v-if="child.icon">
+                      <v-list-item-action class="mr-3" v-if="child.icon">
                           <v-icon size="">{{ child.icon }}</v-icon>
                       </v-list-item-action>
                       <v-list-item-content>
@@ -110,9 +109,10 @@ import {mapActions, mapState} from 'vuex'
       return {
         items: [
           { title: 'Dashboard', icon: 'mdi-home', link: '/dashboard' },
-          { title: 'Typography', icon: 'mdi-format-size', link: '/typography' },
           { title: 'Tables', icon: 'mdi-grid-large', link: '/tables' },
-          { title: 'Notifications', icon: 'mdi-bell-outline', link: '/notifications' },
+          { title: 'Charts', icon: 'mdi-chart-bar', link: '/charts'},
+          { divider: true },
+          { heading: 'TEMPLATE' },
           {
             title: 'UI Elements',
             icon: 'mdi-image-filter-none',
@@ -122,8 +122,26 @@ import {mapActions, mapState} from 'vuex'
               { title: 'Badges', icon: 'mdi-circle-small', link: '/badges'},
               { title: 'Carousel', icon: 'mdi-circle-small', link: '/carousel'},
               { title: 'Cards', icon: 'mdi-circle-small', link: '/cards'},
-              { title: 'Charts', icon: 'mdi-circle-small', link: '/charts'},
-              { title: 'Maps', icon: 'mdi-circle-small', link: '/maps'},
+              { title: 'Modal', icon: 'mdi-circle-small', link: '/modal'},
+              { title: 'Notifications', icon: 'mdi-circle-small', link: '/notifications' },
+            ],
+          },
+          {
+            title: 'Core',
+            icon: 'mdi-apps',
+            model: false,
+            children: [
+              { title: 'Typography', icon: 'mdi-circle-small', link: '/core/typography' },
+              { title: 'Colors', icon: 'mdi-circle-small', link: '/core/colors' },
+            ],
+          },
+          {
+            title: 'Maps',
+            icon: 'mdi-map',
+            model: false,
+            children: [
+              { title: 'Google Maps', icon: 'mdi-circle-small', link: '/maps/google' },
+              { title: 'Vector Maps', icon: 'mdi-circle-small', link: '/maps/vector' },
             ],
           },
           { divider: true },

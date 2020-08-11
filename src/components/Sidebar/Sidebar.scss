@@ -4,6 +4,10 @@
   top: 64px!important;
   height: calc(100vh - 64px)!important;
 
+  .v-list-group .v-list-group__header .v-list-item__icon.v-list-group__header__append-icon {
+    min-width: 25px;
+  }
+
   .v-navigation-drawer__content {
     &::-webkit-scrollbar {
       width: 6px;
@@ -67,5 +71,6 @@
 .v-navigation-drawer--temporary.v-navigation-drawer--clipped {
   z-index: 5;
 }
+
 
 
