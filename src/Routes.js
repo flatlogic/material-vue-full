@@ -22,6 +22,7 @@ import Modal from "@/pages/UI/Modal/Modal"
 import Notifications from '@/pages/UI/Notifications/Notifications'
 import Navbar from "@/pages/UI/Navbar/Navbar"
 import Tooltips from "@/pages/UI/Tooltips/Tooltips"
+import Tabs from "@/pages/Tabs/Tabs"
 
 // Maps
 import VectorMaps from "@/pages/Maps/Vector/Vector"
@@ -32,6 +33,7 @@ import Charts from '@/pages/Charts/Charts'
 
 import Error from "@/pages/Error/Error"
 import Login from "@/pages/Login/Login"
+
 
 Vue.use(Router);
 
@@ -101,6 +103,11 @@ export default new Router({
         path: '/ui/tooltips',
         name: 'Tooltips',
         component: Tooltips
+      },
+      {
+        path: '/ui/tabs',
+        name: 'Tabs',
+        component: Tabs
       },
 
         // Maps
