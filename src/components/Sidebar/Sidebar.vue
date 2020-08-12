@@ -143,6 +143,8 @@
               { title: 'Cards', icon: 'mdi-circle-small', link: '/ui/cards'},
               { title: 'Modal', icon: 'mdi-circle-small', link: '/ui/modal'},
               { title: 'Notifications', icon: 'mdi-circle-small', link: '/ui/notifications' },
+              { title: 'Navbar', icon: 'mdi-circle-small', link: '/ui/navbar' },
+              { title: 'Tooltips', icon: 'mdi-circle-small', link: '/ui/tooltips' },
             ],
           },
           {

@@ -15,11 +15,6 @@
     </v-btn>
     <v-toolbar-title>Vue Material Admin</v-toolbar-title>
     <v-spacer></v-spacer>
-    <v-btn
-        outlined
-        color="error"
-        class="d-none d-sm-flex mr-4"
-    >Unlock Full Version</v-btn>
 
     <Search />
 

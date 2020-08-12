@@ -1,0 +1,360 @@
+<template>
+  <v-container fluid class="tooltips-page">
+    <v-row no-gutters class="d-flex mt-10 mb-6">
+      <h1 class="page-title">Tooltips</h1>
+    </v-row>
+    <v-row>
+      <v-col lg=6 cols=12>
+        <v-card class="overflow-hidden mx-1 mb-1">
+          <v-card-title class="pa-5 pb-3">
+            <p>Tooltip Example</p>
+            <v-spacer></v-spacer>
+            <v-menu>
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                    icon
+                    v-bind="attrs"
+                    v-on="on"
+                >
+                  <v-icon color="textColor">mdi-dots-vertical</v-icon>
+                </v-btn>
+              </template>
+              <v-list>
+                <v-list-item
+                    v-for="(item, i) in menu"
+                    :key="i"
+                    @click="() => {}"
+                >
+                  <v-list-item-title >{{ item }}</v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+          </v-card-title>
+          <v-card-text class="pa-5 pt-0">
+            <p class="fs-normal card-dark-grey mb-5">Tooltips can wrap any element.</p>
+            <div class="text-center d-flex align-center justify-space-around">
+              <v-tooltip bottom>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn
+                      color="primary"
+                      dark
+                      v-bind="attrs"
+                      v-on="on"
+                  >Button</v-btn>
+                </template>
+                <span>Button Tooltip</span>
+              </v-tooltip>
+              <v-tooltip bottom>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-icon
+                      color="primary"
+                      dark
+                      large
+                      v-bind="attrs"
+                      v-on="on"
+                  >mdi-home</v-icon>
+                </template>
+                <span>Icon Tooltip</span>
+              </v-tooltip>
+              <v-tooltip bottom>
+                <template v-slot:activator="{ on, attrs }">
+                  <span class="fs-normal card-dark-grey align-center" v-bind="attrs" v-on="on">This text has a tooltip</span>
+                </template>
+                <span>Text Tooltip</span>
+              </v-tooltip>
+            </div>
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <v-col lg=6 cols=12>
+        <v-card class="overflow-hidden mx-1 mb-1">
+          <v-card-title class="pa-5 pb-3">
+            <p>Tooltip Directions</p>
+            <v-spacer></v-spacer>
+            <v-menu>
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                    icon
+                    v-bind="attrs"
+                    v-on="on"
+                >
+                  <v-icon color="textColor">mdi-dots-vertical</v-icon>
+                </v-btn>
+              </template>
+              <v-list>
+                <v-list-item
+                    v-for="(item, i) in menu"
+                    :key="i"
+                    @click="() => {}"
+                >
+                  <v-list-item-title >{{ item }}</v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+          </v-card-title>
+          <v-card-text class="pa-5 pt-0">
+            <p class="fs-normal card-dark-grey mb-5">A tooltip can be aligned to any of the four sides of the activator element</p>
+            <div class="text-center d-flex justify-space-between">
+              <v-tooltip left>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn
+                      color="primary"
+                      dark
+                      v-bind="attrs"
+                      v-on="on"
+                  >Tooltip on Left</v-btn>
+                </template>
+                <span>Left tooltip</span>
+              </v-tooltip>
+
+              <v-tooltip top>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn
+                      color="primary"
+                      dark
+                      v-bind="attrs"
+                      v-on="on"
+                  >Tooltip on  Top</v-btn>
+                </template>
+                <span>Top tooltip</span>
+              </v-tooltip>
+
+              <v-tooltip bottom>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn
+                      color="primary"
+                      dark
+                      v-bind="attrs"
+                      v-on="on"
+                  >Tooltip on Bottom</v-btn>
+                </template>
+                <span>Bottom tooltip</span>
+              </v-tooltip>
+
+              <v-tooltip right>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn
+                      color="primary"
+                      dark
+                      v-bind="attrs"
+                      v-on="on"
+                  >Tooltip on Right</v-btn>
+                </template>
+                <span>Right tooltip</span>
+              </v-tooltip>
+            </div>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col lg=6 cols=12>
+        <v-card class="overflow-hidden mx-1 mb-1">
+          <v-card-title class="pa-5 pb-3">
+            <p>Popover Example</p>
+            <v-spacer></v-spacer>
+            <v-menu>
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                    icon
+                    v-bind="attrs"
+                    v-on="on"
+                >
+                  <v-icon color="textColor">mdi-dots-vertical</v-icon>
+                </v-btn>
+              </template>
+              <v-list>
+                <v-list-item
+                    v-for="(item, i) in menu"
+                    :key="i"
+                    @click="() => {}"
+                >
+                  <v-list-item-title >{{ item }}</v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+          </v-card-title>
+          <v-card-text class="pa-5 pt-0">
+            <div class="text-center">
+              <v-menu
+                  v-model="popovers.popoverFirst"
+                  :close-on-content-click="false"
+                  offset-y
+                  nudge-left="35"
+              >
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn
+                      color="secondary"
+                      dark
+                      v-bind="attrs"
+                      v-on="on"
+                  >
+                    Menu as Popover
+                  </v-btn>
+                </template>
+
+                <v-card width="250">
+                  <v-card-text>
+                    <span class="fs-normal card-dark-grey mb-5">The content of the Popover.</span>
+                  </v-card-text>
+                </v-card>
+              </v-menu>
+            </div>
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <v-col lg=6 cols=12>
+        <v-card class="overflow-hidden mx-1 mb-1">
+          <v-card-title class="pa-5 pb-3">
+            <p>Popover Directions</p>
+            <v-spacer></v-spacer>
+            <v-menu>
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                    icon
+                    v-bind="attrs"
+                    v-on="on"
+                >
+                  <v-icon color="textColor">mdi-dots-vertical</v-icon>
+                </v-btn>
+              </template>
+              <v-list>
+                <v-list-item
+                    v-for="(item, i) in menu"
+                    :key="i"
+                    @click="() => {}"
+                >
+                  <v-list-item-title >{{ item }}</v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+          </v-card-title>
+          <v-card-text class="d-flex justify-space-between pa-5 pt-0">
+
+            <v-menu
+                v-model="popovers.popoverSecond"
+                :close-on-content-click="false"
+                offset-y
+                nudge-left="35"
+                nudge-top="90"
+            >
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                    color="secondary"
+                    dark
+                    v-bind="attrs"
+                    v-on="on"
+                >
+                  Popover on Top
+                </v-btn>
+              </template>
+
+              <v-card width="250">
+                <v-card-text>
+                  <span class="fs-normal card-dark-grey mb-5">The content of the Popover.</span>
+                </v-card-text>
+              </v-card>
+            </v-menu>
+
+            <v-menu
+                v-model="popovers.popoverFifth"
+                :close-on-content-click="false"
+                nudge-right="185"
+                nudge-top="10"
+            >
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                    color="secondary"
+                    dark
+                    v-bind="attrs"
+                    v-on="on"
+                >
+                  Popover on Right
+                </v-btn>
+              </template>
+
+              <v-card width="250">
+                <v-card-text>
+                  <span class="fs-normal card-dark-grey mb-5">The content of the Popover.</span>
+                </v-card-text>
+              </v-card>
+            </v-menu>
+
+            <v-menu
+                v-model="popovers.popoverThird"
+                :close-on-content-click="false"
+                offset-y
+                nudge-left="25"
+            >
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                    color="secondary"
+                    dark
+                    v-bind="attrs"
+                    v-on="on"
+                >
+                  Popover on Bottom
+                </v-btn>
+              </template>
+
+              <v-card width="250">
+                <v-card-text>
+                  <span class="fs-normal card-dark-grey mb-5">The content of the Popover.</span>
+                </v-card-text>
+              </v-card>
+            </v-menu>
+
+            <v-menu
+                v-model="popovers.popoverFourth"
+                :close-on-content-click="false"
+                nudge-left="250"
+                nudge-top="10"
+            >
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                    color="secondary"
+                    dark
+                    v-bind="attrs"
+                    v-on="on"
+                >
+                  Popover on Left
+                </v-btn>
+              </template>
+
+              <v-card width="250">
+                <v-card-text>
+                  <span class="fs-normal card-dark-grey mb-5">The content of the Popover.</span>
+                </v-card-text>
+              </v-card>
+            </v-menu>
+
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
+
+<script>
+
+export default {
+  name: 'Tooltips',
+  data () {
+    return {
+      menu: [
+        'Edit',
+        'Copy',
+        'Delete',
+        'Print'
+      ],
+      popovers: [
+        {popoverFirst: false},
+        {popoverSecond: false},
+        {popoverThird: false},
+        {popoverFourth: false},
+        {popoverFifth: false},
+      ]
+    }
+  }
+}
+</script>

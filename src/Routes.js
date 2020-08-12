@@ -20,9 +20,11 @@ import Carousel from "@/pages/UI/Carousel/Carousel"
 import Cards from "@/pages/UI/Cards/Cards"
 import Modal from "@/pages/UI/Modal/Modal"
 import Notifications from '@/pages/UI/Notifications/Notifications'
+import Navbar from "@/pages/UI/Navbar/Navbar"
+import Tooltips from "@/pages/UI/Tooltips/Tooltips"
 
 // Maps
-import VectorMaps from "@/pages/Maps/Vector/Vector";
+import VectorMaps from "@/pages/Maps/Vector/Vector"
 import GoogleMaps from '@/pages/Maps/Google/Google'
 
 // Charts
@@ -89,6 +91,16 @@ export default new Router({
         path: '/ui/notifications',
         name: 'Notifications',
         component: Notifications
+      },
+      {
+        path: '/ui/navbar',
+        name: 'Navbar',
+        component: Navbar
+      },
+      {
+        path: '/ui/tooltips',
+        name: 'Tooltips',
+        component: Tooltips
       },
 
         // Maps
