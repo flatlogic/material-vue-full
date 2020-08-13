@@ -155,9 +155,20 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <div class="text-center">
-
-            </div>
+            <v-expansion-panels
+                    v-model="panel"
+                    multiple
+            >
+              <v-expansion-panel
+                      v-for="(item,i) in 5"
+                      :key="i"
+              >
+                <v-expansion-panel-header>Header {{ item }}</v-expansion-panel-header>
+                <v-expansion-panel-content>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </v-expansion-panel-content>
+              </v-expansion-panel>
+            </v-expansion-panels>
           </v-card-text>
         </v-card>
       </v-col>
@@ -187,10 +198,24 @@
               </v-list>
             </v-menu>
           </v-card-title>
-          <v-card-text class="d-flex justify-space-between pa-5 pt-0">
-
-
-          </v-card-text>
+          <v-card-text class="pa-5 pt-0">
+              <v-expansion-panels
+                      v-model="customizePanel"
+                      multiple
+                      dark
+              >
+                <v-expansion-panel
+                        v-for="(item,i) in 5"
+                        :key="i"
+                        class="primary"
+                >
+                  <v-expansion-panel-header>Header {{ item }}</v-expansion-panel-header>
+                  <v-expansion-panel-content>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </v-expansion-panel-content>
+                </v-expansion-panel>
+              </v-expansion-panels>
+            </v-card-text>
         </v-card>
       </v-col>
     </v-row>
@@ -220,6 +245,8 @@ export default {
         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         tabs: 3,
       },
+      panel: [],
+      customizePanel: [],
     }
   }
 }

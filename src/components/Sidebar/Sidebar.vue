@@ -146,6 +146,8 @@
               { title: 'Navbar', icon: 'mdi-circle-small', link: '/ui/navbar' },
               { title: 'Tooltips', icon: 'mdi-circle-small', link: '/ui/tooltips' },
               { title: 'Tabs', icon: 'mdi-circle-small', link: '/ui/tabs' },
+              { title: 'Pagination', icon: 'mdi-circle-small', link: '/ui/pagination' },
+              { title: 'Progress', icon: 'mdi-circle-small', link: '/ui/progress' },
             ],
           },
           {

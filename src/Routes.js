@@ -22,7 +22,9 @@ import Modal from "@/pages/UI/Modal/Modal"
 import Notifications from '@/pages/UI/Notifications/Notifications'
 import Navbar from "@/pages/UI/Navbar/Navbar"
 import Tooltips from "@/pages/UI/Tooltips/Tooltips"
-import Tabs from "@/pages/Tabs/Tabs"
+import Tabs from "@/pages/UI/Tabs/Tabs"
+import Pagination from "@/pages/UI/Pagination/Pagination"
+import Progress from "@/pages/UI/Progress/Progress"
 
 // Maps
 import VectorMaps from "@/pages/Maps/Vector/Vector"
@@ -108,6 +110,16 @@ export default new Router({
         path: '/ui/tabs',
         name: 'Tabs',
         component: Tabs
+      },
+      {
+        path: '/ui/pagination',
+        name: 'Pagination',
+        component: Pagination
+      },
+      {
+        path: '/ui/progress',
+        name: 'Progress',
+        component: Progress
       },
 
         // Maps
