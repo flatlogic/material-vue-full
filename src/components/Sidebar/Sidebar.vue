@@ -75,7 +75,7 @@
           color="primary"
           v-else
           :key="item.text"
-          :to="item.link == '#' ? '' : item.link"
+          :to="item.link === '#' ? '' : item.link"
           link
         >
           <v-list-item-action>
@@ -121,6 +121,7 @@
             children: [
               { title: 'Typography', icon: 'mdi-circle-small', link: '/core/typography' },
               { title: 'Colors', icon: 'mdi-circle-small', link: '/core/colors' },
+              { title: 'Grid', icon: 'mdi-circle-small', link: '/core/grid' },
             ],
           },
           {
@@ -177,6 +178,30 @@
             children: [
               { title: 'Google Maps', icon: 'mdi-circle-small', link: '/maps/google' },
               { title: 'Vector Maps', icon: 'mdi-circle-small', link: '/maps/vector' },
+            ],
+          },
+          {
+            title: 'Extra',
+            icon: 'mdi-star',
+            model: false,
+            children: [
+              { title: 'Calendar', icon: 'mdi-circle-small', link: '/extra/calendar' },
+              { title: 'Invoice', icon: 'mdi-circle-small', link: '/extra/invoice' },
+              { title: 'Login Page', icon: 'mdi-circle-small', link: '/extra/login' },
+              { title: 'Error Page', icon: 'mdi-circle-small', link: '/extra/error' },
+              { title: 'Gallery', icon: 'mdi-circle-small', link: '/extra/gallery' },
+              { title: 'Search Result', icon: 'mdi-circle-small', link: '/extra/search-result' },
+              { title: 'Time Line', icon: 'mdi-circle-small', link: '/extra/time-line' },
+            ],
+          },
+          {
+            title: 'Menu Levels',
+            icon: 'mdi-folder',
+            model: false,
+            children: [
+              { title: 'Calendar', icon: 'mdi-circle-small', link: '/extra/calendar' },
+
+              { title: 'Invoice', icon: 'mdi-circle-small', link: '/extra/invoice' },
             ],
           },
           { divider: true },

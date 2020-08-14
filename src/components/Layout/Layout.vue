@@ -1,12 +1,12 @@
 <template>
-    <v-app class="pa-6">
-        <Header />
-        <Sidebar />
-        <v-main class="content">
-            <router-view />
-            <Footer />
-        </v-main>
-    </v-app>
+  <v-app class="pa-6">
+    <Header />
+    <Sidebar />
+    <v-main class="content">
+      <router-view />
+      <Footer />
+    </v-main>
+  </v-app>
 </template>
 
 <script>

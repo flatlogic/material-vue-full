@@ -9,6 +9,7 @@ import Dashboard from '@/pages/Dashboard/Dashboard'
 // Core
 import Typography from '@/pages/Core/Typography/Typography'
 import Colors from "@/pages/Core/Colors/Colors"
+import Grid from "@/pages/Core/Grid/Grid"
 
 // Tables
 import Tables from '@/pages/Tables/Basic'
@@ -30,12 +31,14 @@ import Progress from "@/pages/UI/Progress/Progress"
 import VectorMaps from "@/pages/Maps/Vector/Vector"
 import GoogleMaps from '@/pages/Maps/Google/Google'
 
+// Extra
+import Gallery from "@/pages/Extra/Gallery/Gallery"
+
 // Charts
 import Charts from '@/pages/Charts/Charts'
 
 import Error from "@/pages/Error/Error"
 import Login from "@/pages/Login/Login"
-
 
 Vue.use(Router);
 
@@ -134,6 +137,13 @@ export default new Router({
         component: VectorMaps
       },
 
+
+        // Extra
+      {
+        path: '/extra/gallery',
+        name: 'Gallery',
+        component: Gallery
+      },
         // Core
       {
         path: '/core/typography',
@@ -144,6 +154,11 @@ export default new Router({
         path: '/core/colors',
         name: 'Colors',
         component: Colors
+      },
+      {
+        path: '/core/grid',
+        name: 'Grid',
+        component: Grid
       },
 
       {

@@ -34,7 +34,7 @@
             <p class="fs-normal card-dark-grey mb-5">Using the <code>indeterminate</code> prop, <code>v-progress-linear</code> continuously animates.</p>
             <template v-for="prog in progress">
               <v-progress-linear
-                :key="prog.value"
+                :key="prog.id * 3"
                 v-model="prog.value"
                 :color="prog.color"
               ></v-progress-linear>
@@ -73,7 +73,7 @@
             <p class="fs-normal card-dark-grey mb-5">The progress linear component can have a determinate state modified by <code>v-model</code>.</p>
             <template v-for="prog in progress">
               <v-progress-linear
-                v-bind:key="prog.color"
+                :key="prog.id2 * 10"
                 indeterminate
                 :color="prog.color"
               ></v-progress-linear>
@@ -113,7 +113,7 @@
               that there is some action taking place. You can use any combination of <code>buffer-value</code> and <code>value</code> to achieve your design.</p>
             <template v-for="prog in progress">
               <v-progress-linear
-                v-bind:key="prog.color"
+                :key="prog.id"
                 :buffer-value="prog.value"
                 :value="prog.value - 10"
                 stream
@@ -155,7 +155,7 @@
               that there is some action taking place. You can use any combination of <code>buffer-value</code> and <code>value</code> to achieve your design.</p>
             <template v-for="prog in progress">
               <v-progress-linear
-                :key="prog.color"
+                :key="prog.id2"
                 :value="prog.value"
                 striped
                 height="20"
@@ -196,11 +196,11 @@
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
             <p class="fs-normal card-dark-grey mb-5">The <code>v-progress-circular</code> component is used to convey data circularly to
-              users. It also can be put into an indeterminate state to portray loading.</p>
+              users.</p>
             <div class="d-flex justify-space-around">
               <template v-for="circle in progressCircle">
                 <v-progress-circular
-                  :key="circle.color"
+                    :key="circle.id2 * 10"
                   :value="circle.value"
                   :color="circle.color"
                 ></v-progress-circular>
@@ -241,7 +241,7 @@
               <template v-for="circle in progressCircle">
                 <v-progress-circular
                   indeterminate
-                  :key="circle.color"
+                  :key="circle.id2"
                   :color="circle.color"
                 ></v-progress-circular>
               </template>
@@ -277,14 +277,14 @@
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
             <p class="fs-normal card-dark-grey mb-5">The <code>size</code> and <code>width</code> props allow you to easily
-              alter the size and width of the <code>v-progress-circular</code> component.</p>
+              alter the size and width of the component.</p>
             <div class="d-flex justify-space-around align-center">
               <template v-for="circle in progressCircle">
                 <v-progress-circular
                   :value="circle.value"
                   :width="circle.width"
                   :size="circle.size"
-                  :key="circle.color"
+                  :key="circle.id"
                   :color="circle.color"
                 ></v-progress-circular>
               </template>
@@ -353,48 +353,66 @@
         ],
         progress: [
           {
-              color: 'primary',
-              value: 15,
+            id: this.randomID(),
+            id2: this.randomID(),
+            color: 'primary',
+            value: 15,
           },
           {
-              color: 'warning',
-              value: 30,
+            id: this.randomID(),
+            id2: this.randomID(),
+            color: 'warning',
+            value: 30,
           },
           {
-              color: 'secondary',
-              value: 45
+            id: this.randomID(),
+            id2: this.randomID(),
+            color: 'secondary',
+            value: 45
           },
           {
-              color: 'success',
-              value: 60
+            id: this.randomID(),
+            id2: this.randomID(),
+            color: 'success',
+            value: 60
           },
         ],
         progressCircle: [
           {
+              id: this.randomID(),
+              id2: this.randomID(),
               color: 'primary',
               value: 15,
               size: 100,
               width: 15
           },
           {
+              id: this.randomID(),
+              id2: this.randomID(),
               color: 'warning',
               value: 30,
               size: 80,
               width: 10
           },
           {
+              id: this.randomID(),
+              id2: this.randomID(),
               color: 'secondary',
               value: 45,
               size: 60,
               width: 5
           },
           {
+              id: this.randomID(),
+              id2: this.randomID(),
               color: 'success',
               value: 60,
               size: 40,
               width: 3
           },
           {
+              id: this.randomID(),
+              id2: this.randomID(),
               color: 'info',
               value: 75,
               size: 20,
@@ -403,31 +421,31 @@
         ],
         progressCircleRotate: [
           {
-            id: 1,
+            id: this.randomID(),
             color: 'primary',
             value: this.value,
             rotate: 360
           },
           {
-            id: 2,
+            id: this.randomID(),
             color: 'warning',
             value: this.value,
             rotate: -90
           },
           {
-            id: 3,
+            id: this.randomID(),
             color: 'secondary',
             value: this.value,
             rotate: 90
           },
           {
-            id: 4,
+            id: this.randomID(),
             color: 'success',
             value: this.value,
             rotate: 360
           },
           {
-            id: 5,
+            id: this.randomID(),
             color: 'info',
             value: this.value,
             rotate: 180
@@ -435,6 +453,11 @@
         ],
         value: 0,
         interval: {}
+      }
+    },
+    methods: {
+      randomID() {
+        return Math.random()
       }
     },
     mounted () {

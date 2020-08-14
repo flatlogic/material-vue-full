@@ -535,7 +535,7 @@
 
 <script>
   import mock from './mock';
-  import Trend from "vuetrend"
+  import Trend from 'vuetrend'
   import ApexChart from 'vue-apexcharts'
 
   export default {
