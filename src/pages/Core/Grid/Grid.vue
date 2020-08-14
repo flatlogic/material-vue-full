@@ -9,9 +9,18 @@
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
             <p class="fs-normal card-dark-grey mb-10">Material UI’s grid system uses a series of containers, rows, and
-              columns to layout and align content. It’s built with flexbox and is fully responsive. Below is an example
-              and an in-depth look at how the grid comes together.</p>
-
+              columns to layout and align content. It’s built with flexbox and is fully responsive.</p>
+            <v-row justify="space-between">
+              <v-col cols="3" class="primary rounded ma-2 d-flex justify-center" style="height: 50px">
+                <h6 class="white--text">One of three</h6>
+              </v-col>
+              <v-col cols="3" class="secondary rounded ma-2 d-flex justify-center" style="height: 50px">
+                <h6 class="white--text">One of three</h6>
+              </v-col>
+              <v-col cols="3" class="warning rounded ma-2 d-flex justify-center" style="height: 50px">
+                <h6 class="white--text">One of three</h6>
+              </v-col>
+            </v-row>
           </v-card-text>
         </v-card>
       </v-col>
@@ -24,6 +33,14 @@
             <p class="fs-normal card-dark-grey mb-10">For example, here are two grid layouts that apply to every device
               and viewport, from xs to xl. Add any number of unit-less classes for each breakpoint you need and every
               column will be the same width.</p>
+            <v-row justify="space-between">
+              <v-col cols="5" class="primary rounded ma-2 d-flex justify-center" style="height: 50px">
+                <h6 class="white--text">1 of 2</h6>
+              </v-col>
+              <v-col cols="5" class="secondary rounded ma-2 d-flex justify-center" style="height: 50px">
+                <h6 class="white--text">1 of 2</h6>
+              </v-col>
+            </v-row>
           </v-card-text>
         </v-card>
       </v-col>
@@ -46,6 +63,21 @@
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
             <p class="fs-normal card-dark-grey mb-10">Use flexbox alignment utilities to vertically and horizontally align columns.</p>
+            <v-row justify="start">
+              <v-col cols="3" class="primary rounded ma-2 d-flex justify-center" style="height: 50px">
+                <h6 class="white--text">Start</h6>
+              </v-col>
+            </v-row>
+            <v-row justify="center">
+              <v-col cols="3" class="secondary rounded ma-2 d-flex justify-center" style="height: 50px">
+                <h6 class="white--text">Center</h6>
+              </v-col>
+            </v-row>
+            <v-row justify="end">
+              <v-col cols="3" class="warning rounded ma-2 d-flex justify-center" style="height: 50px">
+                <h6 class="white--text">End</h6>
+              </v-col>
+            </v-row>
           </v-card-text>
         </v-card>
       </v-col>
@@ -56,6 +88,33 @@
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
             <p class="fs-normal card-dark-grey mb-10">Use flexbox alignment utilities to vertically and horizontally align columns.</p>
+            <v-row justify="end">
+              <v-col cols="3" class="primary rounded ma-2 d-flex justify-center" style="height: 50px">
+                <h6 class="white--text">1</h6>
+              </v-col>
+              <v-col cols="3" class="secondary rounded ma-2 d-flex justify-center" style="height: 50px">
+                <h6 class="white--text">2</h6>
+              </v-col>
+            </v-row>
+            <v-row justify="space-around">
+              <v-col cols="3" class="primary rounded ma-2 d-flex justify-center" style="height: 50px">
+                <h6 class="white--text">1</h6>
+              </v-col>
+              <v-col cols="3" class="secondary rounded ma-2 d-flex justify-center" style="height: 50px">
+                <h6 class="white--text">2</h6>
+              </v-col>
+            </v-row>
+            <v-row justify="space-between">
+              <v-col cols="3" class="primary rounded ma-2 d-flex justify-center" style="height: 50px">
+                <h6 class="white--text">1</h6>
+              </v-col>
+              <v-col cols="3" class="secondary rounded ma-2 d-flex justify-center" style="height: 50px">
+                <h6 class="white--text">2</h6>
+              </v-col>
+              <v-col cols="3" class="warning rounded ma-2 d-flex justify-center" style="height: 50px">
+                <h6 class="white--text">3</h6>
+              </v-col>
+            </v-row>
           </v-card-text>
         </v-card>
       </v-col>
