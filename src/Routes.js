@@ -27,6 +27,9 @@ import Tabs from "@/pages/UI/Tabs/Tabs"
 import Pagination from "@/pages/UI/Pagination/Pagination"
 import Progress from "@/pages/UI/Progress/Progress"
 
+// Forms
+import FormsElements from "@/pages/Forms/FormsElements/FormsElements"
+
 // Maps
 import VectorMaps from "@/pages/Maps/Vector/Vector"
 import GoogleMaps from '@/pages/Maps/Google/Google'
@@ -123,6 +126,13 @@ export default new Router({
         path: '/ui/progress',
         name: 'Progress',
         component: Progress
+      },
+
+        // Forms
+      {
+        path: '/forms/forms-elements',
+        name: 'FormsElements',
+        component: FormsElements
       },
 
         // Maps

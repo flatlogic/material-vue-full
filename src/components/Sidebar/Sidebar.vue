@@ -156,7 +156,7 @@
             icon: 'mdi-file-document',
             model: false,
             children: [
-              { title: 'Form Elements', icon: 'mdi-circle-small', link: '/forms/form-elements' },
+              { title: 'Form Elements', icon: 'mdi-circle-small', link: '/forms/forms-elements' },
               { title: 'Form Validation', icon: 'mdi-circle-small', link: '/forms/form-validation' },
             ],
           },
