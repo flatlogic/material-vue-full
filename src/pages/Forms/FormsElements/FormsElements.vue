@@ -31,9 +31,7 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <v-form
-                ref="form"
-            >
+            <v-form ref="form">
               <v-row>
                 <v-col cols="5" class="d-flex align-center">
                   <p class="fs-normal card-dark-grey mb-0">Normal field</p>
@@ -62,14 +60,42 @@
                     label="Disable"
                 ></v-text-field></v-col>
                 <v-col cols="5" class="d-flex align-center">
+                  <p class="fs-normal card-dark-grey mb-0">Prepended input</p>
+                </v-col>
+                <v-col cols="7">
+                  <v-text-field
+                      label="Username"
+                      prepend-icon="mdi-account"
+                  ></v-text-field>
+                </v-col>
+                <v-col cols="5" class="d-flex align-center">
+                  <p class="fs-normal card-dark-grey mb-0">Password</p>
+                </v-col>
+                <v-col cols="7">
+                  <v-text-field
+                      type="password"
+                      label="Password"
+                      prepend-icon="mdi-lock"
+                  ></v-text-field>
+                </v-col>
+                <v-col cols="5" class="d-flex align-center">
+                  <p class="fs-normal card-dark-grey mb-0">Appended input</p>
+                </v-col>
+                <v-col cols="7">
+                  <v-text-field
+                    label="Append"
+                    append-icon="mdi-map-marker"
+                  ></v-text-field>
+                </v-col>
+                <v-col cols="5" class="d-flex align-center">
                   <p class="fs-normal card-dark-grey mb-0">Simple select</p>
                 </v-col>
                 <v-col cols="7"><v-select
-                    v-model="select"
-                    :items="items"
-                    :rules="[v => !!v || 'Item is required']"
-                    label="Item"
-                    required
+                  v-model="select"
+                  :items="items"
+                  :rules="[v => !!v || 'Item is required']"
+                  label="Item"
+                  required
                 ></v-select></v-col>
               </v-row>
             </v-form>
