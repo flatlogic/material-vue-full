@@ -8,6 +8,6 @@ export default {
       info: "#9013FE",
       textColor: "#B9B9B9",
       iconColor: "#FFFFFF59"
-  }
+    }
 };
 

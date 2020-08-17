@@ -129,8 +129,8 @@
             icon: 'mdi-grid-large',
             model: false,
             children: [
-              { title: 'Tables Basic', icon: 'mdi-circle-small', link: '/tables/basic' },
-              { title: 'Tables Dynamic', icon: 'mdi-circle-small', link: '/tables/dynamic' }
+              { title: 'Tables Basic', icon: 'mdi-circle-small', link: '/tables/table-basic' },
+              { title: 'Tables Dynamic', icon: 'mdi-circle-small', link: '/tables/table-dynamic' }
             ],
           },
           {

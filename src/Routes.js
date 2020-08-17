@@ -12,7 +12,8 @@ import Colors from "@/pages/Core/Colors/Colors"
 import Grid from "@/pages/Core/Grid/Grid"
 
 // Tables
-import Tables from '@/pages/Tables/Basic'
+import tableBasic from "./pages/Tables/tableBasic/tableBasic"
+import tableDynamic from "./pages/Tables/tableDynamic/tableDynamic"
 
 // UI
 import Icons from '@/pages/UI/Icons/Icons'
@@ -67,9 +68,14 @@ export default new Router({
 
         // Tables
       {
-        path: '/tables/basic',
+        path: '/tables/table-basic',
         name: 'Tables',
-        component: Tables
+        component: tableBasic
+      },
+      {
+        path: '/tables/table-dynamic',
+        name: 'tableDynamic',
+        component: tableDynamic
       },
 
         // UI Elements

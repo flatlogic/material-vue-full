@@ -117,7 +117,7 @@
 import mock from './mock'
 
 export default {
-  name: 'Tables',
+  name: 'tablesBasic',
   data() {
     return {
       mock
@@ -126,4 +126,4 @@ export default {
 }
 </script>
 
-<style src="./Basic.scss" lang="scss"></style>
+<style src="./tableBasic.scss" lang="scss"></style>
