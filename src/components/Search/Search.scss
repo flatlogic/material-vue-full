@@ -8,11 +8,11 @@ label {
     position: relative;
     background-color: transparent;
     padding: 5px 12px;
-    transition: all 300ms ease;
+    transition: all .3s ease;
     border-radius: 0;
 
     input {
-      transition: width 0.3s ease, opacity 0.3s ease 0.3s;
+      transition: width 0.2s ease, opacity 0.1s ease 0.2s;
       opacity: 1;
       margin-left: 10px;
       margin-right: -25px;
@@ -54,7 +54,7 @@ label {
         height: 35px;
         opacity: 0;
         cursor: pointer;
-        transition: opacity .3s ease, width .3s ease;
+        transition: opacity .2s ease, width .3s ease;
         -webkit-appearance:none
       }
     }
