@@ -1,0 +1,15 @@
+.elements-page {
+  .v-label {
+    height: 25px;
+    top: 0;
+  }
+  .v-text-field--outlined.v-input--dense .v-label {
+    top: 6px;
+  }
+  .v-text-field.v-text-field--solo .v-label {
+    top: 0;
+  }
+  .v-input--selection-controls.v-input {
+    flex: 1;
+  }
+}

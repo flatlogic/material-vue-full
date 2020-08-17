@@ -157,7 +157,7 @@
             model: false,
             children: [
               { title: 'Form Elements', icon: 'mdi-circle-small', link: '/forms/forms-elements' },
-              { title: 'Form Validation', icon: 'mdi-circle-small', link: '/forms/form-validation' },
+              { title: 'Form Validation', icon: 'mdi-circle-small', link: '/forms/forms-validation' },
             ],
           },
           {

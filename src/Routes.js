@@ -29,6 +29,7 @@ import Progress from "@/pages/UI/Progress/Progress"
 
 // Forms
 import FormsElements from "@/pages/Forms/FormsElements/FormsElements"
+import FormsValidation from "@/pages/Forms/FormsValidation/FormsValidation"
 
 // Maps
 import VectorMaps from "@/pages/Maps/Vector/Vector"
@@ -134,6 +135,11 @@ export default new Router({
         name: 'FormsElements',
         component: FormsElements
       },
+      {
+        path: '/forms/forms-validation',
+        name: 'FormsValidation',
+        component: FormsValidation
+      },
 
         // Maps
       {
@@ -170,7 +176,6 @@ export default new Router({
         name: 'Grid',
         component: Grid
       },
-
       {
         path: '/charts/overview',
         name: 'Charts',
