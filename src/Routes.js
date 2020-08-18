@@ -40,10 +40,14 @@ import GoogleMaps from '@/pages/Maps/Google/Google'
 import Gallery from "@/pages/Extra/Gallery/Gallery"
 
 // Charts
-import Charts from '@/pages/Charts/Charts'
+import ChartsOverview from "@/pages/Charts/Overview/ChartsOverview"
+import LineCharts from "@/pages/Charts/LineCharts/LineCharts"
+import BarCharts from "@/pages/Charts/BarCharts/BarCharts"
+import PieCharts from "@/pages/Charts/PieCharts/PieCharts"
 
 import Error from "@/pages/Error/Error"
 import Login from "@/pages/Login/Login"
+
 
 Vue.use(Router);
 
@@ -159,7 +163,6 @@ export default new Router({
         component: VectorMaps
       },
 
-
         // Extra
       {
         path: '/extra/gallery',
@@ -182,10 +185,27 @@ export default new Router({
         name: 'Grid',
         component: Grid
       },
+
+        // Charts
       {
         path: '/charts/overview',
-        name: 'Charts',
-        component: Charts
+        name: 'ChartsOverview',
+        component: ChartsOverview
+      },
+      {
+        path: '/charts/line-charts',
+        name: 'LineCharts',
+        component: LineCharts
+      },
+      {
+        path: '/charts/bar-charts',
+        name: 'BarCharts',
+        component: BarCharts
+      },
+      {
+        path: '/charts/pie-charts',
+        name: 'PieCharts',
+        component: PieCharts
       },
     ],
   },

@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
     <div class="charts-page">
-      <h1 class="page-title mt-10 mb-6">Charts</h1>
+      <h1 class="page-title mt-10 mb-6">Charts Overview</h1>
       <v-row>
         <v-col cols="12" md="6">
           <v-card class="mx-1 mb-1">
@@ -78,6 +78,86 @@
                     :options=heatMap.options
                     :series=heatMap.series
                   ></ApexChart>
+                </v-col>
+              </v-row>
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col cols="12" md="6" >
+          <v-card class="mx-1 mb-1">
+            <v-card-title class="pa-5 pb-3">
+              <p>Apex Radar Chart</p>
+              <v-spacer></v-spacer>
+              <v-menu>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn
+                          icon
+                          v-bind="attrs"
+                          v-on="on"
+                  >
+                    <v-icon color="textColor">mdi-dots-vertical</v-icon>
+                  </v-btn>
+                </template>
+                <v-list>
+                  <v-list-item
+                          v-for="(item, i) in menu"
+                          :key="i"
+                          @click="() => {}"
+                  >
+                    <v-list-item-title>{{ item }}</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+            </v-card-title>
+            <v-card-text class="pa-5 pt-0 pb-0">
+              <v-row no-gutters>
+                <v-col cols="12" class="my-auto">
+                  <ApexChart
+                    type="radar"
+                    height="350"
+                    :options="apexRadar.options"
+                    :series="apexRadar.series">
+                  </ApexChart>
+                </v-col>
+              </v-row>
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col cols="12" md="6" >
+          <v-card class="mx-1 mb-1">
+            <v-card-title class="pa-5 pb-3">
+              <p>Apex Bar Chart With Image</p>
+              <v-spacer></v-spacer>
+              <v-menu>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn
+                    icon
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    <v-icon color="textColor">mdi-dots-vertical</v-icon>
+                  </v-btn>
+                </template>
+                <v-list>
+                  <v-list-item
+                    v-for="(item, i) in menu"
+                    :key="i"
+                    @click="() => {}"
+                  >
+                    <v-list-item-title>{{ item }}</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+            </v-card-title>
+            <v-card-text class="pa-5 pt-0 pb-0">
+              <v-row no-gutters>
+                <v-col cols="12" class="my-auto">
+                  <ApexChart
+                      type="bar"
+                      height="350"
+                      :options="barChart.options"
+                      :series="barChart.series">
+                  </ApexChart>
                 </v-col>
               </v-row>
             </v-card-text>
@@ -170,10 +250,10 @@
 
 <script>
 import ApexChart from 'vue-apexcharts'
-import config from '../../config';
+import config from '../../../config';
 
 export default {
-  name: 'Charts',
+  name: 'ChartsOverview',
   components: {
     ApexChart
   },
@@ -192,7 +272,7 @@ export default {
               show: false,
             },
           },
-          colors: [config.light.primary, config.light.success],
+          colors: [config.light.primary],
           dataLabels: {
             enabled: false,
           },
@@ -216,11 +296,7 @@ export default {
           legend: {
             show: false,
           },
-          fill: {
-            type: 'solid',
-            opacity: 0.2,
-            colors: [config.light.primary, config.light.success],
-          },
+
           stroke: {
             width: 4,
             curve: 'smooth'
@@ -230,11 +306,7 @@ export default {
           {
             name: "series1",
             data: [31, 40, 28, 51, 42, 109, 100],
-          },
-          {
-            name: "series2",
-            data: [11, 32, 45, 32, 34, 52, 41],
-          },
+          }
         ],
       },
       apexPie: {
@@ -250,6 +322,83 @@ export default {
           }
         },
         series: this.generatePieSeries(),
+      },
+      apexRadar: {
+        series: [{
+          name: 'Series 1',
+          data: [80, 50, 30, 40, 100, 20],
+        }],
+        options: {
+          chart: {
+            type: 'radar',
+            toolbar: {
+              show: false,
+            },
+          },
+          colors: [config.light.primary],
+          xaxis: {
+            categories: ['January', 'February', 'March', 'April', 'May', 'June']
+          }
+        }
+      },
+      barChart: {
+        series: [{
+          name: 'coins',
+          data: [2, 4, 3, 4, 3, 5, 5, 6.5, 6, 5, 4, 5, 8, 7, 7, 8, 8, 10, 9, 9, 12, 12,
+            11, 12, 13, 14, 16, 14, 15, 17, 19, 21
+          ]
+        }],
+        options: {
+          chart: {
+            type: 'bar',
+            height: 350,
+            toolbar: {
+              show: false,
+            },
+            animations: {
+              enabled: false
+            }
+          },
+          plotOptions: {
+            bar: {
+              horizontal: true,
+              barHeight: '100%',
+            },
+          },
+          dataLabels: {
+            enabled: false,
+          },
+          stroke: {
+            colors: ["#fff"],
+            width: 0.2
+          },
+          labels: Array.apply(null, {length: 39}).map(function(el, index){
+            return index + 1;
+          }),
+          yaxis: {
+            axisBorder: {
+              show: false
+            },
+            axisTicks: {
+              show: false
+            },
+            labels: {
+              show: false
+            },
+          },
+          grid: {
+            position: 'back'
+          },
+          fill: {
+            type: 'image',
+            opacity: 0.87,
+            image: {
+              src: ['https://picsum.photos/400?blur=1'],
+              width: 466,
+              height: 406
+            }
+          },
+        },
       },
       apexLines: {
         options: {
