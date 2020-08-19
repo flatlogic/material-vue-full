@@ -38,6 +38,11 @@ import GoogleMaps from '@/pages/Maps/Google/Google'
 
 // Extra
 import Gallery from "@/pages/Extra/Gallery/Gallery"
+import Calendar from "@/pages/Extra/Calendar/Calendar"
+import LoginDemo from "@/pages/Extra/Login/Login"
+import ErrorDemo from "@/pages/Extra/Error/Error"
+import Invoice from "@/pages/Extra/Invoice/Invoice"
+import SearchResult from "@/pages/Extra/SearchResult/SearchResult"
 
 // Charts
 import ChartsOverview from "@/pages/Charts/Overview/ChartsOverview"
@@ -169,6 +174,32 @@ export default new Router({
         name: 'Gallery',
         component: Gallery
       },
+      {
+        path: '/extra/calendar',
+        name: 'Calendar',
+        component: Calendar
+      },
+      {
+        path: '/extra/login',
+        name: 'LoginDemo',
+        component: LoginDemo
+      },
+      {
+        path: '/extra/error',
+        name: 'ErrorDemo',
+        component: ErrorDemo
+      },
+      {
+        path: '/extra/invoice',
+        name: 'Invoice',
+        component: Invoice
+      },
+      {
+        path: '/extra/search-result',
+        name: 'SearchResult',
+        component: SearchResult
+      },
+
         // Core
       {
         path: '/core/typography',
