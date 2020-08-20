@@ -190,8 +190,8 @@
               { title: 'Login Page', icon: 'mdi-circle-small', link: '/extra/login' },
               { title: 'Error Page', icon: 'mdi-circle-small', link: '/extra/error' },
               { title: 'Gallery', icon: 'mdi-circle-small', link: '/extra/gallery' },
-              { title: 'SearchResult', icon: 'mdi-circle-small', link: '/extra/search-result' },
-              { title: 'Time Line', icon: 'mdi-circle-small', link: '/extra/time-line' },
+              { title: 'Search Result', icon: 'mdi-circle-small', link: '/extra/search-result' },
+              { title: 'Time Line', icon: 'mdi-circle-small', link: '/extra/timeline' },
             ],
           },
           {

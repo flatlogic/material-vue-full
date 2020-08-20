@@ -43,6 +43,7 @@ import LoginDemo from "@/pages/Extra/Login/Login"
 import ErrorDemo from "@/pages/Extra/Error/Error"
 import Invoice from "@/pages/Extra/Invoice/Invoice"
 import SearchResult from "@/pages/Extra/SearchResult/SearchResult"
+import TimeLine from "@/pages/Extra/TimeLine/TemeLine"
 
 // Charts
 import ChartsOverview from "@/pages/Charts/Overview/ChartsOverview"
@@ -198,6 +199,11 @@ export default new Router({
         path: '/extra/search-result',
         name: 'SearchResult',
         component: SearchResult
+      },
+      {
+        path: '/extra/timeline',
+        name: 'TimeLine',
+        component: TimeLine
       },
 
         // Core

@@ -155,7 +155,7 @@
                   <ApexChart
                     type="line"
                     height="350"
-                    ref="chart"
+                    ref="realtimeChart"
                     :options="apexDynamic.options"
                     :series="apexDynamic.series">
                   </ApexChart>
@@ -335,13 +335,10 @@ export default {
           }
         },
       },
-      TICKINTERVAL: 86400000,
-      XAXISRANGE: 777600000,
-      lastDate: 0,
-      data: [],
       apexDynamic: {
         series: [{
-          data: this.data
+          name: 'Desktops',
+          data: [10, 41, 35, 51, 49, 62, 69, 91, 99]
         }],
         options: {
           chart: {
@@ -352,7 +349,7 @@ export default {
               enabled: true,
               easing: 'linear',
               dynamicAnimation: {
-                speed: 1000
+                speed: 3000
               }
             },
             toolbar: {
@@ -370,10 +367,6 @@ export default {
           },
           markers: {
             size: 0
-          },
-          xaxis: {
-            type: 'datetime',
-            range: this.XAXISRANGE,
           },
           yaxis: {
             max: 100
@@ -395,66 +388,25 @@ export default {
       }
       return dates;
     },
-    getDayWiseTimeSeries(baseval, count, yrange) {
-      let i = 0;
-      while (i < count) {
-        let x = baseval;
-        let y = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
-
-        this.data.push({
-          x, y
-        });
-        this.lastDate = baseval
-        baseval += this.TICKINTERVAL;
-        i++;
-      }
-    },
-    getNewSeries(baseval, yrange) {
-      let newDate = baseval + this.TICKINTERVAL;
-      this.lastDate = newDate
-
-      for(var i = 0; i< this.data.length - 10; i++) {
-      // IMPORTANT
-      // we reset the x and y of the data which is out of drawing area
-      // to prevent memory leaks
-      this.data[i].x = newDate - this.XAXISRANGE - this.TICKINTERVAL
-      this.data[i].y = 0
-    }
-      this.data.push(
-          {
-        x: newDate,
-        y: Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min
-      }
-      )
-
-    },
-    resetData(){
-      this.data = this.data.slice(this.data.length - 10, this.data.length);
-    }
+    // getRandomArbitrary () {
+    //   return Math.floor(Math.random() * 99)
+    // },
+    // setDataLineChart () {
+    //   setInterval(() => {
+    //     this.apexDynamic.series[0].data.splice(0, 1)
+    //     this.apexDynamic.series[0].data.push(this.getRandomArbitrary())
+    //     this.updateSeriesLine()
+    //   }, 3000)
+    // },
+    // updateSeriesLine () {
+    //   this.$refs.realtimeChart.updateSeries([{
+    //     data: this.apexDynamic.series[0].data
+    //   }], false, true)
+    // }
   },
+
   mounted: function () {
-    this.getDayWiseTimeSeries(new Date('11 Feb 2020 GMT').getTime(), 10, {
-      min: 10,
-      max: 90
-    }),
-
-    window.setInterval(function () {
-      this.getNewSeries(this.lastDate, {
-        min: 10,
-        max: 90
-      })
-
-      this.$refs.chart.updateSeries([{
-        data: this.data
-      }])
-    }, 1000)
-
-    window.setInterval(function () {
-      this.resetData()
-      this.$refs.chart.updateSeries([{
-        data: this.data
-      }], false, true)
-    }, 60000)
+    // this.setDataLineChart()
   }
 };
 </script>
