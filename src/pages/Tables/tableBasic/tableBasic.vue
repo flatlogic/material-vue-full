@@ -55,57 +55,57 @@
               </v-menu>
             </v-card-title>
             <v-simple-table>
-                <template v-slot:default>
-                  <thead>
+              <template v-slot:default>
+                <thead>
                   <tr>
-                    <th class="text-left pa-6">NAME</th>
-                    <th class="text-left">EMAIL</th>
-                    <th class="text-left">PRODUCT</th>
-                    <th class="text-left">PRICE</th>
-                    <th class="text-left">DATE</th>
-                    <th class="text-left">CITY</th>
-                    <th class="text-left">STATUS</th>
-                  </tr>
-                  </thead>
-                  <tbody>
+                  <th class="text-left pa-6">NAME</th>
+                  <th class="text-left">EMAIL</th>
+                  <th class="text-left">PRODUCT</th>
+                  <th class="text-left">PRICE</th>
+                  <th class="text-left">DATE</th>
+                  <th class="text-left">CITY</th>
+                  <th class="text-left">STATUS</th>
+                </tr>
+                </thead>
+                <tbody>
                   <tr v-for="item in mock.materialUITable" :key="item.name">
-                    <td class="pa-6">{{ item.name }}</td>
-                    <td>{{ item.email }}</td>
-                    <td>{{ item.product }}</td>
-                    <td>{{ item.price }}</td>
-                    <td>{{ item.date }}</td>
-                    <td>{{ item.city }}</td>
-                    <td v-if="item.status === 'Sent'">
-                      <v-chip
-                        link
-                        color="success"
-                        class="ma-2 ml-0"
-                      >
-                        Sent
-                      </v-chip>
-                    </td>
-                    <td v-else-if="item.status === 'Pending'">
-                      <v-chip
-                        link
-                        color="warning"
-                        class="ma-2 ml-0"
-                      >
-                        Pending
-                      </v-chip>
-                    </td>
-                    <td v-else-if="item.status === 'Declined'">
-                      <v-chip
-                        link
-                        color="secondary"
-                        class="ma-2 ml-0"
-                      >
-                        Declined
-                      </v-chip>
-                    </td>
-                  </tr>
-                  </tbody>
-                </template>
-              </v-simple-table>
+                  <td class="pa-6">{{ item.name }}</td>
+                  <td>{{ item.email }}</td>
+                  <td>{{ item.product }}</td>
+                  <td>{{ item.price }}</td>
+                  <td>{{ item.date }}</td>
+                  <td>{{ item.city }}</td>
+                  <td v-if="item.status === 'Sent'">
+                    <v-chip
+                      link
+                      color="success"
+                      class="ma-2 ml-0"
+                    >
+                      Sent
+                    </v-chip>
+                  </td>
+                  <td v-else-if="item.status === 'Pending'">
+                    <v-chip
+                      link
+                      color="warning"
+                      class="ma-2 ml-0"
+                    >
+                      Pending
+                    </v-chip>
+                  </td>
+                  <td v-else-if="item.status === 'Declined'">
+                    <v-chip
+                      link
+                      color="secondary"
+                      class="ma-2 ml-0"
+                    >
+                      Declined
+                    </v-chip>
+                  </td>
+                </tr>
+                </tbody>
+              </template>
+            </v-simple-table>
           </v-card>
         </v-col>
       </v-row>

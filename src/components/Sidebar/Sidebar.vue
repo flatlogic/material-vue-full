@@ -47,10 +47,8 @@
             <v-icon size="24" class="mr-0"> {{ item.icon }} </v-icon>
           </template>
           <template v-slot:activator >
-            <v-list-item-content >
-                  <v-list-item-title
-                      class="grey--text"
-                  >
+            <v-list-item-content>
+                  <v-list-item-title>
                       {{ item.title }}
                   </v-list-item-title>
               </v-list-item-content>
@@ -60,12 +58,13 @@
             :key="i"
             :to="child.link"
             link
+            class="pl-12"
           >
-            <v-list-item-action class="mr-3" v-if="child.icon">
+            <v-list-item-action class="mr-2" v-if="child.icon">
               <v-icon size="">{{ child.icon }}</v-icon>
             </v-list-item-action>
             <v-list-item-content>
-              <v-list-item-title class="grey--text">
+              <v-list-item-title>
                 {{ child.title }}
               </v-list-item-title>
             </v-list-item-content>
@@ -86,7 +85,6 @@
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title
-              class="grey--text"
               link
             >
               {{ item.title }}
