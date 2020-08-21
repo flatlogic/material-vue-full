@@ -44,7 +44,7 @@
           v-model="item.model"
         >
           <template v-slot:prependIcon>
-            <v-icon size="28"> {{ item.icon }} </v-icon>
+            <v-icon size="24" class="mr-0"> {{ item.icon }} </v-icon>
           </template>
           <template v-slot:activator >
             <v-list-item-content >
@@ -78,9 +78,9 @@
           :to="item.link === '#' ? '' : item.link"
           link
         >
-          <v-list-item-action>
+          <v-list-item-action class="mr-6">
             <v-icon
-              size="28"
+              size="24"
               :color="item.color ? item.color : ''"
             >{{ item.icon }}</v-icon>
           </v-list-item-action>
@@ -109,7 +109,16 @@
       return {
         items: [
           { title: 'Dashboard', icon: 'mdi-home', link: '/dashboard' },
-          { title: 'E-commerce', icon: 'mdi-cart', link: '/e-commerce'},
+          {
+            title: 'E-commerce',
+            icon: 'mdi-cart',
+            model: false,
+            children: [
+              { title: 'Product Management', icon: 'mdi-circle-small', link: '/e-commerce/management' },
+              { title: 'Product Grid', icon: 'mdi-circle-small', link: '/e-commerce/grid' },
+              { title: 'Product Page', icon: 'mdi-circle-small', link: '/e-commerce/page' }
+            ],
+          },
           { title: 'User', icon: 'mdi-account', link: '/user'},
           { title: 'Documentation', icon: 'mdi-file-document', link: '/documentation'},
           { divider: true },

@@ -54,6 +54,8 @@ import PieCharts from "@/pages/Charts/PieCharts/PieCharts"
 import Error from "@/pages/Error/Error"
 import Login from "@/pages/Login/Login"
 
+// E-Commerce
+import ProductManagement from "@/pages/E-commerce/ProductManagement/ProductManagement"
 
 Vue.use(Router);
 
@@ -243,6 +245,13 @@ export default new Router({
         path: '/charts/pie-charts',
         name: 'PieCharts',
         component: PieCharts
+      },
+
+      // E-Commerce
+      {
+        path: '/e-commerce/management',
+        name: 'ProductManagement',
+        component: ProductManagement
       },
     ],
   },
