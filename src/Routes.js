@@ -56,6 +56,7 @@ import Login from "@/pages/Login/Login"
 
 // E-Commerce
 import ProductManagement from "@/pages/E-commerce/ProductManagement/ProductManagement"
+import ProductsGrid from "@/pages/E-commerce/ProductGrid/ProductsGrid"
 
 Vue.use(Router);
 
@@ -252,6 +253,11 @@ export default new Router({
         path: '/e-commerce/management',
         name: 'ProductManagement',
         component: ProductManagement
+      },
+      {
+        path: '/e-commerce/grid',
+        name: 'ProductsGrid',
+        component: ProductsGrid
       },
     ],
   },
