@@ -155,7 +155,7 @@
           this.products = [
             {
               id: '1',
-              image: require('@/assets/img/e-commerce/1.png'),
+              image: require('@/assets/img/e-commerce/low/1.png'),
               title: 'Trainers',
               subtitle: 'Trainers in white',
               price: '$80',
@@ -164,7 +164,7 @@
             },
             {
               id: '2',
-              image: require('@/assets/img/e-commerce/2.png'),
+              image: require('@/assets/img/e-commerce/low/2.png'),
               title: 'Boots',
               subtitle: 'Trainers in blue',
               price: '$37',
@@ -173,7 +173,7 @@
             },
             {
               id: '3',
-              image: require('@/assets/img/e-commerce/3.png'),
+              image: require('@/assets/img/e-commerce/low/3.png'),
               title: 'Flat sandals',
               subtitle: 'Trainers in white',
               price: '$70',
@@ -182,7 +182,7 @@
             },
             {
               id: '4',
-              image: require('@/assets/img/e-commerce/4.png'),
+              image: require('@/assets/img/e-commerce/low/4.png'),
               title: 'Trainers',
               subtitle: 'Trainers in blue',
               price: '$85',
@@ -191,7 +191,7 @@
             },
             {
               id: '5',
-              image: require('@/assets/img/e-commerce/5.png'),
+              image: require('@/assets/img/e-commerce/low/5.png'),
               title: 'Flat sandals',
               subtitle: 'Trainers in white',
               price: '$12',
@@ -200,7 +200,7 @@
             },
             {
               id: '6',
-              image: require('@/assets/img/e-commerce/6.png'),
+              image: require('@/assets/img/e-commerce/low/6.png'),
               title: 'Flat sandals',
               subtitle: 'Trainers in blue',
               price: '$76',
@@ -209,7 +209,7 @@
             },
             {
               id: '7',
-              image: require('@/assets/img/e-commerce/1.png'),
+              image: require('@/assets/img/e-commerce/low/1.png'),
               title: 'Trainers',
               subtitle: 'Trainers in white',
               price: '$80',
@@ -218,7 +218,7 @@
             },
             {
               id: '8',
-              image: require('@/assets/img/e-commerce/2.png'),
+              image: require('@/assets/img/e-commerce/low/2.png'),
               title: 'Boots',
               subtitle: 'Trainers in blue',
               price: '$37',
@@ -227,7 +227,7 @@
             },
             {
               id: '9',
-              image: require('@/assets/img/e-commerce/3.png'),
+              image: require('@/assets/img/e-commerce/low/3.png'),
               title: 'Flat sandals',
               subtitle: 'Trainers in white',
               price: '$70',
@@ -236,7 +236,7 @@
             },
             {
               id: '10',
-              image: require('@/assets/img/e-commerce/4.png'),
+              image: require('@/assets/img/e-commerce/low/4.png'),
               title: 'Trainers',
               subtitle: 'Trainers in blue',
               price: '$85',
@@ -245,7 +245,7 @@
             },
             {
               id: '11',
-              image: require('@/assets/img/e-commerce/5.png'),
+              image: require('@/assets/img/e-commerce/low/5.png'),
               title: 'Flat sandals',
               subtitle: 'Trainers in white',
               price: '$12',
@@ -254,7 +254,7 @@
             },
             {
               id: '12',
-              image: require('@/assets/img/e-commerce/6.png'),
+              image: require('@/assets/img/e-commerce/low/6.png'),
               title: 'Flat sandals',
               subtitle: 'Trainers in blue',
               price: '$76',
