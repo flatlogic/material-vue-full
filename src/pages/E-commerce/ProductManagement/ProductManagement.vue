@@ -47,6 +47,13 @@
                             <v-col cols="12" sm="6" md="4">
                               <v-text-field v-model="editedItem.rating" label="Rating"></v-text-field>
                             </v-col>
+                            <v-col cols="12" sm="6" md="4">
+                              <v-select :items="images" v-model="editedItem.image" label="Image">
+                                <template v-slot:item="{ item }">
+                                  <v-img :src="item" width="50" style="margin: 2px"></v-img>
+                                </template>
+                              </v-select>
+                            </v-col>
                           </v-row>
                         </v-container>
                       </v-card-text>
@@ -70,7 +77,7 @@
                   <span class="warning--text" style="font-size: 1rem">{{ item.rating }} </span><v-icon color="warning">mdi-star</v-icon>
                 </div>
               </template>
-              <template v-slot:item.actions>
+              <template v-slot:item.actions="{ item }">
                 <v-btn
                   class="mr-3"
                   @click="editItem(item)"
@@ -121,16 +128,26 @@
           editedIndex: -1,
           editedItem: {
             title: '',
+            image: '',
             subtitle: '',
-            price: 0,
-            rating: 0,
+            price: '',
+            rating: '',
           },
           defaultItem: {
             title: '',
-            subtitle: 0,
-            price: 0,
-            rating: 0,
+            image: '',
+            subtitle: '',
+            price: '',
+            rating: '',
           },
+          images: [
+            require('@/assets/img/e-commerce/low/1.png'),
+            require('@/assets/img/e-commerce/low/2.png'),
+            require('@/assets/img/e-commerce/low/3.png'),
+            require('@/assets/img/e-commerce/low/4.png'),
+            require('@/assets/img/e-commerce/low/5.png'),
+            require('@/assets/img/e-commerce/low/6.png')
+         ]
         }
       },
 

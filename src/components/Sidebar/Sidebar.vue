@@ -114,7 +114,7 @@
             children: [
               { title: 'Product Management', icon: 'mdi-circle-small', link: '/e-commerce/management' },
               { title: 'Product Grid', icon: 'mdi-circle-small', link: '/e-commerce/grid' },
-              { title: 'Product Page', icon: 'mdi-circle-small', link: '/e-commerce/page' }
+              { title: 'Product Page', icon: 'mdi-circle-small', link: '/e-commerce/detail' }
             ],
           },
           { title: 'User', icon: 'mdi-account', link: '/user'},
