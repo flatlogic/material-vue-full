@@ -89,20 +89,92 @@
               </li>
             </ul>
           </v-col>
-          <v-col cols="12" md="4">
-            <h3>Product Code</h3>
-            <p>135234</p>
-            <h3>Technology</h3>
-            <ul>
-              <li>Ollie patch</li>
-              <li>Cup soles</li>
-              <li>Vulcanized rubber soles</li>
-            </ul>
+          <v-col cols="12" md="7" offset-lg="1">
+            <v-row no-gutters>
+              <v-col cols="12" md="6">
+                <h3>Product Code</h3>
+                <p>135234</p>
+              </v-col>
+              <v-col cols="12" md="6">
+                <h3>Share</h3>
+                <p>Share photo with a tag <a href="#">#whitetrainers</a></p>
+                <v-btn icon  class="mr-3">
+                  <v-icon small>mdi-facebook</v-icon>
+                </v-btn>
+                <v-btn icon class="mr-3">
+                  <v-icon small>mdi-instagram</v-icon>
+                </v-btn>
+                <v-btn icon>
+                  <v-icon small>mdi-twitter</v-icon>
+                </v-btn>
+              </v-col>
+            </v-row>
+            <v-row no-gutters>
+              <v-col cols="6">
+                <h3>Technology</h3>
+                <ul>
+                  <li>Ollie patch</li>
+                  <li>Cup soles</li>
+                  <li>Vulcanized rubber soles</li>
+                </ul>
+              </v-col>
+              <v-col cols="6">
+                <h3 class="mb-0">Rating & Reviews</h3>
+                <div class="d-flex align-center my-4">
+
+                  <span class="warning--text" style="font-size: 1.5rem">4.6</span><v-icon color="warning">mdi-star</v-icon>
+                </div>
+
+                <p>32 Reviews</p>
+                <a href="">Read All</a>
+              </v-col>
+            </v-row>
           </v-col>
-          <v-col cols="12" md="4"></v-col>
         </v-row>
       </v-card-text>
     </v-card>
+    <v-row no-gutters class="d-flex mt-10 mb-6">
+      <h2 class="page-title">You may also like</h2>
+    </v-row>
+    <v-row>
+      <template v-for="(card, i) in cards">
+        <v-col
+          cols="12"
+          md="6"
+          lg="3"
+          :key="i">
+          <v-card
+            class="mx-1 mb-1"
+            link
+            replace
+            :key="i">
+            <v-img
+              height="200"
+              :src="card.src"
+            ></v-img>
+            <v-chip v-if="card.badge"
+              :color="card.badge.color"
+            >
+              {{ card.badge.content }}
+            </v-chip>
+            <v-card-title>
+              {{ card.title }}
+            </v-card-title>
+            <v-card-subtitle>
+              {{ card.subtitle }}
+            </v-card-subtitle>
+            <v-card-actions class="pa-4">
+              <span>{{ '$' + card.price }}</span>
+              <v-spacer></v-spacer>
+              <div class="d-flex align-center">
+                <span class="warning--text" style="font-size: 1rem">{{ card.rating }}&#160;&#160;</span>
+                <v-icon color="warning">mdi-star</v-icon>
+              </div>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+      </template>
+    </v-row>
   </v-container>
 </template>
 
@@ -120,7 +192,53 @@ export default {
       },
       selectItems: [
           1,2,3,4,5
-      ]
+      ],
+      cards: [
+        {
+          id: 1,
+          title: 'Trainers',
+          subtitle: 'Trainers in white',
+          src: require('@/assets/img/e-commerce/medium/1.png'),
+          price: '48',
+          rating: '4.6',
+          badge: {
+            color: 'primary',
+            content: 'New'
+          }
+        },
+        {
+          id: 2,
+          title: 'Boots',
+          subtitle: 'Trainers in blue',
+          src: require('@/assets/img/e-commerce/medium/2.png'),
+          price: '69',
+          rating: '4.6',
+          badge: {
+            color: 'secondary',
+            content: 'Sale'
+          }
+        },
+        {
+          id: 3,
+          title: 'Flat sandals',
+          subtitle: 'Trainers in white',
+          src: require('@/assets/img/e-commerce/medium/3.png'),
+          price: '78',
+          rating: '4.6',
+        },
+        {
+          id: 4,
+          title: 'Trainers',
+          subtitle: 'Trainers in blue',
+          src: require('@/assets/img/e-commerce/medium/4.png'),
+          price: '78',
+          rating: '4.6',
+          badge: {
+            color: 'primary',
+            content: 'New'
+          }
+        }
+      ],
     }
   }
 }

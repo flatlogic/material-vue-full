@@ -117,7 +117,16 @@
               { title: 'Product Page', icon: 'mdi-circle-small', link: '/e-commerce/detail' }
             ],
           },
-          { title: 'User', icon: 'mdi-account', link: '/user'},
+          {
+            title: 'User',
+            icon: 'mdi-account',
+            model: false,
+            children: [
+              { title: 'User List', icon: 'mdi-circle-small', link: '/user/list' },
+              { title: 'User Add', icon: 'mdi-circle-small', link: '/user/add' },
+              { title: 'User Edit', icon: 'mdi-circle-small', link: '/user/edit' }
+            ],
+          },
           { title: 'Documentation', icon: 'mdi-file-document', link: '/documentation'},
           { divider: true },
           { heading: 'TEMPLATE' },
@@ -206,9 +215,16 @@
             icon: 'mdi-folder',
             model: false,
             children: [
-              { title: 'Calendar', icon: 'mdi-circle-small', link: '/extra/calendar' },
-
-              { title: 'Invoice', icon: 'mdi-circle-small', link: '/extra/invoice' },
+              { title: 'Level 1.1', icon: 'mdi-circle-small', },
+              {
+                title: 'Level 1.2',
+                icon: 'mdi-folder',
+                model: false,
+                children: [
+                  { title: 'Calendar', icon: 'mdi-circle-small', link: '/extra/calendar' },
+                  { title: 'Invoice', icon: 'mdi-circle-small', link: '/extra/invoice' },
+                ],
+              },
             ],
           },
           { divider: true },

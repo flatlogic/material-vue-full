@@ -59,6 +59,11 @@ import ProductManagement from "@/pages/E-commerce/ProductManagement/ProductManag
 import ProductsGrid from "@/pages/E-commerce/ProductGrid/ProductsGrid"
 import ProductDetail from "@/pages/E-commerce/ProductDetail/ProductDetail"
 
+//User
+import List from "@/pages/User/List/List"
+import Add from "@/pages/User/Add/Add"
+import Edit from "@/pages/User/Edit/Edit"
+
 Vue.use(Router);
 
 export default new Router({
@@ -264,6 +269,23 @@ export default new Router({
         path: '/e-commerce/detail',
         name: 'ProductDetail',
         component: ProductDetail
+      },
+
+      // User
+      {
+        path: '/user/list',
+        name: 'UserList',
+        component: List
+      },
+      {
+        path: '/user/add',
+        name: 'UserAdd',
+        component: Add
+      },
+      {
+        path: '/user/edit',
+        name: 'UserEdit',
+        component: Edit
       },
     ],
   },
