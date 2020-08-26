@@ -15,4 +15,25 @@
       }
     }
   }
+  .v-image {
+    position: relative;
+    p {
+      position: absolute;
+      left: 5px;
+      color: white;
+      font-weight: 600;
+      &.folder-title {
+        font-size: 18px;
+        bottom: 15px;
+
+      }
+      &.folder-subtitle-1 {
+        bottom: -5px;
+        font-size: 13px;
+      }
+    }
+  }
+  .chart-title {
+
+  }
 }

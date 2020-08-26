@@ -111,10 +111,23 @@
                   </v-menu>
                 </v-card-title>
                 <v-card-text class="pa-5 pt-0">
-                  <v-row no-gutters class="pb-6">
-
+                  <v-row no-gutters class="pb-0">
+                    <v-col cols="12">
+                      <ApexChart
+                        v-if="apexLoading"
+                        height="250"
+                        type="donut"
+                        :options="apexPie.options"
+                        :series="generatePieSeries()">
+                      </ApexChart>
+                    </v-col>
+                    <v-col cols="12" class="d-flex flex-column align-end mt-3">
+                      <v-btn
+                        color="primary"
+                        outlined
+                      >Detail</v-btn>
+                    </v-col>
                   </v-row>
-
                 </v-card-text>
               </v-card>
             </v-col>
@@ -166,56 +179,34 @@
                     <v-tabs-slider></v-tabs-slider>
 
                     <v-tab
-                        :href="`#tab-work`"
+                        v-for="(tab, i) in tabs"
+                        :key="i"
+                        :href="'#tab-' + tab.tabName.toLocaleLowerCase()"
                     >
-                      Work
-                    </v-tab>
-                    <v-tab
-                        :href="`#tab-private`"
-                    >
-                      Private
-                    </v-tab>
-                    <v-tab
-                        :href="`#tab-social`"
-                    >
-                      Social
+                      {{ tab.tabName }}
                     </v-tab>
 
                     <v-tab-item
-                        :value="'tab-work'"
+                        v-for="(tab, i) in tabs"
+                        :key="i"
+                        :value="'tab-' + tab.tabName.toLocaleLowerCase()"
                     >
-                      <v-row class="overflow-auto mt-4">
-                        <v-img src="@/assets/img/user/profile/folder-blue.svg" width="141" height="106" contain>
-                          <p>UX</p>
-                          <p>178 files</p>
-                        </v-img>
-                        <v-img src="@/assets/img/user/profile/folder-pink.svg" width="141" height="106" contain></v-img>
-                        <v-img src="@/assets/img/user/profile/folder-green.svg" width="141" height="106" contain></v-img>
-                        <v-img src="@/assets/img/user/profile/folder-yellow.svg" width="141" height="106" contain></v-img>
-                      </v-row>
-                    </v-tab-item>
-                    <v-tab-item
-                        :value="'tab-private'"
-                    >
-                      <v-row class="mt-4">
-                        <v-img src="@/assets/img/user/profile/folder-blue.svg" width="141" height="106" contain></v-img>
-                        <v-img src="@/assets/img/user/profile/folder-pink.svg" width="141" height="106" contain></v-img>
-                        <v-img src="@/assets/img/user/profile/folder-green.svg" width="141" height="106" contain></v-img>
-                        <v-img src="@/assets/img/user/profile/folder-yellow.svg" width="141" height="106" contain></v-img>
-                      </v-row>
-                    </v-tab-item>
-                    <v-tab-item
-                        :value="'tab-social'"
-                    >
-                      <v-row class="mt-4">
-                        <v-img src="@/assets/img/user/profile/folder-blue.svg" width="141" height="106" contain></v-img>
-                        <v-img src="@/assets/img/user/profile/folder-pink.svg" width="141" height="106" contain></v-img>
-                        <v-img src="@/assets/img/user/profile/folder-green.svg" width="141" height="106" contain></v-img>
-                        <v-img src="@/assets/img/user/profile/folder-yellow.svg" width="141" height="106" contain></v-img>
+                      <v-row justify="space-between" class="flex-nowrap overflow-hidden pa-4">
+                        <div
+                             v-for="(img, i) in images"
+                             :key="i">
+                          <v-img
+                              :src="img.src"
+                              width="141" height="106" contain
+                              class="folder-image mr-3"
+                          >
+                            <p class="folder-title"> {{ img.title }} </p>
+                            <p class="folder-subtitle-1"> {{img.subtitle}} </p>
+                          </v-img>
+                        </div>
                       </v-row>
                     </v-tab-item>
                   </v-tabs>
-
                 </v-card-text>
               </v-card>
             </v-col>
@@ -257,36 +248,69 @@
             <v-col cols="12" md="6">
               <v-row no-gutters>
                 <v-col cols="12" class="mb-6">
-                  <v-card class="mx-1" height="200">
-                    <v-card-title class="pa-5 pb-3">
-                      <p>Calendar</p>
-                      <v-spacer></v-spacer>
-                      <v-menu>
-                        <template v-slot:activator="{ on, attrs }">
-                          <v-btn
-                              icon
-                              v-bind="attrs"
-                              v-on="on"
-                          >
-                            <v-icon color="textColor">mdi-dots-vertical</v-icon>
-                          </v-btn>
-                        </template>
-                        <v-list>
-                          <v-list-item
-                              v-for="(item, i) in mock.menu"
-                              :key="i"
-                              @click="() => {}"
-                          >
-                            <v-list-item-title>{{ item }}</v-list-item-title>
-                          </v-list-item>
-                        </v-list>
-                      </v-menu>
-                    </v-card-title>
-                    <v-card-text class="pa-5 pt-0">
-                      <v-row no-gutters class="pb-6">
+                  <v-card class="mx-1">
 
-                      </v-row>
-                    </v-card-text>
+                    <v-col>
+                      <v-sheet height="64">
+                        <v-toolbar flat color="white">
+                          <v-btn fab text small color="grey darken-2" @click="prev">
+                            <v-icon small>mdi-chevron-left</v-icon>
+                          </v-btn>
+                          <v-btn fab text small color="grey darken-2" @click="next">
+                            <v-icon small>mdi-chevron-right</v-icon>
+                          </v-btn>
+                          <v-toolbar-title v-if="$refs.calendar">
+                            {{ $refs.calendar.title }}
+                          </v-toolbar-title>
+                          <v-spacer></v-spacer>
+                        </v-toolbar>
+                      </v-sheet>
+                      <v-sheet height="600">
+                        <v-calendar
+                            ref="calendar"
+                            v-model="focus"
+                            color="primary"
+                            type="month"
+                        ></v-calendar>
+                        <v-menu
+
+                            offset-x
+                        >
+                          <v-card
+                              color="grey lighten-4"
+                              min-width="350px"
+                              flat
+                          >
+                            <v-toolbar
+                                dark
+                            >
+                              <v-btn icon>
+                                <v-icon>mdi-pencil</v-icon>
+                              </v-btn>
+
+                              <v-spacer></v-spacer>
+                              <v-btn icon>
+                                <v-icon>mdi-heart</v-icon>
+                              </v-btn>
+                              <v-btn icon>
+                                <v-icon>mdi-dots-vertical</v-icon>
+                              </v-btn>
+                            </v-toolbar>
+                            <v-card-text>
+
+                            </v-card-text>
+                            <v-card-actions>
+                              <v-btn
+                                  text
+                                  color="secondary"
+                              >
+                                Cancel
+                              </v-btn>
+                            </v-card-actions>
+                          </v-card>
+                        </v-menu>
+                      </v-sheet>
+                    </v-col>
                   </v-card>
                 </v-col>
                 <v-col cols="12" class="mb-6">
@@ -335,13 +359,18 @@
 <script>
 import mock from './mock'
 import config from "@/config"
+import ApexChart from 'vue-apexcharts'
 
 export default {
   name: 'Profile',
+  components: {
+    ApexChart
+  },
   data() {
     return {
       mock,
       config,
+      apexLoading: false,
       chips: [
         {
           title: 'UI/UX',
@@ -369,8 +398,55 @@ export default {
           bgColor: [60, 212, 160]
         },
       ],
-      buttons: ['mdi-facebook', 'mdi-basketball', 'mdi-instagram', 'mdi-github', 'mdi-twitter' ]
+      buttons: ['mdi-facebook', 'mdi-basketball', 'mdi-instagram', 'mdi-github', 'mdi-twitter' ],
+      tabs: [
+        {
+          tabName: 'Work',
+        },
+        {
+          tabName: 'Private',
+        },
+        {
+          tabName: 'Social',
 
+        },
+      ],
+      images: [
+        {
+          src: require('@/assets/img/user/profile/folder-blue.svg'),
+          title: 'UX',
+          subtitle: '178 files'
+        },
+        {
+          src: require('@/assets/img/user/profile/folder-pink.svg'),
+          title: 'Design',
+          subtitle: '154 files'
+        },
+        {
+          src: require('@/assets/img/user/profile/folder-yellow.svg'),
+          title: 'Mobile',
+          subtitle: '98 files'
+        },
+        {
+          src: require('@/assets/img/user/profile/folder-green.svg'),
+          title: 'Illustration',
+          subtitle: '68 files'
+        },
+      ],
+      apexPie: {
+        options: {
+          dataLabels: {
+            enabled: false
+          },
+          colors: [config.light.primary, config.light.secondary, config.light.success, config.light.warning],
+          labels: ["New", "Progress", "Completed", "Canceled"],
+          legend: {
+            position: 'bottom'
+          },
+        },
+
+      },
+      focus: '',
     }
   },
   methods: {
@@ -379,7 +455,26 @@ export default {
       return {
         backgroundColor: `rgba(${r},${g},${b}, 0.2)`
       };
-    }
+    },
+    generatePieSeries() {
+      let series = [];
+      for (let i = 0; i < 4; i++) {
+        let y = Math.floor(Math.random() * (500 - 100 + 100)) + 100;
+        series.push(y)
+      }
+      return series;
+    },
+    prev () {
+      this.$refs.calendar.prev()
+    },
+    next () {
+      this.$refs.calendar.next()
+    },
+  },
+  mounted() {
+    setTimeout(() => {
+      this.apexLoading = true
+    })
   }
 }
 </script>
