@@ -106,6 +106,7 @@
     data(){
       return {
         items: [
+          { title: 'Profile', icon: 'mdi-account-circle', link: '/user/profile' },
           { title: 'Dashboard', icon: 'mdi-home', link: '/dashboard' },
           {
             title: 'E-commerce',

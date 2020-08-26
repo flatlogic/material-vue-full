@@ -1,0 +1,18 @@
+@import "src/styles/variables";
+
+.profile-page {
+  .user-card {
+    .avatar-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 185px;
+      height: 185px;
+      border-radius: 50%;
+      border: 3px dotted $error;
+      .user-avatar {
+        border-radius: 50%;
+      }
+    }
+  }
+}

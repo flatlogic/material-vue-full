@@ -63,6 +63,7 @@ import ProductDetail from "@/pages/E-commerce/ProductDetail/ProductDetail"
 import List from "@/pages/User/List/List"
 import Add from "@/pages/User/Add/Add"
 import Edit from "@/pages/User/Edit/Edit"
+import Profile from "@/pages/User/Profile/Profile"
 
 Vue.use(Router);
 
@@ -286,6 +287,11 @@ export default new Router({
         path: '/user/edit',
         name: 'UserEdit',
         component: Edit
+      },
+      {
+        path: '/user/profile',
+        name: 'UserProfile',
+        component: Profile
       },
     ],
   },

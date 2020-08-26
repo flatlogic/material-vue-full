@@ -19,7 +19,6 @@
           </v-tab>
           <v-tab
               :href="`#tab-profile`"
-
           >
             <v-icon>mdi-account-outline</v-icon>
             Profile
