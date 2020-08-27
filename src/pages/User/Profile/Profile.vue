@@ -218,7 +218,7 @@
           </v-row>
           <v-row>
             <v-col cols="12" md="6">
-              <v-card class="mx-1">
+              <v-card class="tasks-card mx-1">
                 <v-card-title class="pa-5 pb-3">
                   <p>Tasks</p>
                   <v-spacer></v-spacer>
@@ -251,27 +251,94 @@
                       <v-tab
                           v-for="(tab, i) in taskTabs"
                           :key="i"
-                          :href="'#tab-' + tab.tabName.toLocaleLowerCase()"
+                          :href="'#tab-' + tab.tabLink"
                       >
                         {{ tab.tabName }}
                       </v-tab>
 
                       <v-tab-item
-                        v-for="(tab, i) in taskTabs"
-                        :key="i"
-                        :value="'tab-' + tab.tabName.toLocaleLowerCase()"
+                        value="tab-today"
                         class="pt-1"
                       >
-                        <v-row class="flex-column flex-nowrap overflow-hidden pr-0"
-                            v-for="(task, i) in tasks"
-                            :key="i"
-                            style="width: 100%"
+                        <v-row class="flex-column flex-nowrap overflow-hidden pr-0 "
+                          v-for="(task, i) in tasks.tasksToday"
+                          :key="i"
+                          style="width: 100%"
+                          :class="{ done:task.done }"
+                          @click="$set(task, 'done', !task.done)"
                            >
-                          <v-col cols="12" class="d-flex justify-space-between align-center pr-0 mr-0">
+                          <v-col
+                              cols="12"
+                              class="d-flex justify-space-between align-center pr-0 mr-0">
                             <div class="d-flex">
-                              <p class="mb-0">{{ task.time }}</p>
-                              <v-icon>mdi-circle-small</v-icon>
-                              <p class="mb-0">{{ task.task }}</p>
+                              <p
+                                class="task-time mb-0 "
+                                style="font-size: 10px"
+                              >{{ task.time }}</p>
+                              <v-icon class="task-circle ml-1" :color="task.color">mdi-circle-medium</v-icon>
+                              <p class="task-text mb-0 font-weight-medium" style="color: #4a4a4a; line-height: 25px;">{{ task.task }}</p>
+                            </div>
+                            <div>
+                              <v-btn icon>
+                                <v-icon color="textColor" class="right">mdi-dots-vertical</v-icon>
+                              </v-btn>
+                            </div>
+                          </v-col>
+                          <v-divider></v-divider>
+                        </v-row>
+                      </v-tab-item>
+                      <v-tab-item
+                        value="tab-week"
+                        class="pt-1"
+                      >
+                        <v-row class="flex-column flex-nowrap overflow-hidden pr-0 "
+                         v-for="(task, i) in tasks.tasksWeek"
+                         :key="i * 10"
+                         style="width: 100%"
+                         :class="{ done:task.done }"
+                         @click="$set(task, 'done', !task.done)"
+                        >
+                          <v-col
+                              cols="12"
+                              class="d-flex justify-space-between align-center pr-0 mr-0">
+                            <div class="d-flex">
+                              <p
+                                  class="task-time mb-0 "
+                                  style="font-size: 10px"
+                              >{{ task.time }}</p>
+                              <v-icon class="task-circle ml-1" :color="task.color">mdi-circle-medium</v-icon>
+                              <p class="task-text mb-0 font-weight-medium" style="color: #4a4a4a; line-height: 25px;">{{ task.task }}</p>
+                            </div>
+                            <div>
+                              <v-btn icon>
+                                <v-icon color="textColor" class="right">mdi-dots-vertical</v-icon>
+                              </v-btn>
+                            </div>
+                          </v-col>
+                          <v-divider></v-divider>
+                        </v-row>
+                      </v-tab-item>
+                      <v-tab-item
+                        value="tab-month"
+                        class="pt-1"
+                      >
+                        <v-row class="flex-column flex-nowrap overflow-hidden pr-0 "
+                         v-for="(task, i) in tasks.tasksMonth"
+                         :key="i * 100"
+                         style="width: 100%"
+                         :class="{ done:task.done }"
+                         @click="$set(task, 'done', !task.done)"
+                        >
+                          <v-col
+                              cols="12"
+                              class="d-flex justify-space-between align-center pr-0 mr-0">
+                            <div class="d-flex">
+                              <p
+                                  class="task-time mb-0 "
+                                  style="font-size: 10px"
+                              >{{ task.time }}</p>
+                              <v-icon class="task-circle ml-1" :color="task.color">mdi-circle-medium</v-icon>
+                              <p class="task-text mb-0 font-weight-medium" style="color: #4a4a4a; line-height: 25px;">{{ task.task }}</p>
                             </div>
                             <div>
                               <v-btn icon>
@@ -450,49 +517,171 @@ export default {
       ],
       taskTabs: [
         {
+          tabLink: 'today',
           tabName: 'Today',
         },
         {
+          tabLink: 'week',
           tabName: 'This Week',
         },
         {
+          tabLink: 'month',
           tabName: 'This Month',
         },
       ],
-      tasks: [
-        {
-          time: '10:21',
-          task: 'Call conference with a New Client'
-        },
-        {
-          time: '11:30',
-          task: 'Presentation Demo Ecological Project'
-        },
-        {
-          time: '12:30',
-          task: 'Call with PR Manager'
-        },
-        {
-          time: '14:00',
-          task: 'Interview with a new UI/UX'
-        },
-        {
-          time: '15:00',
-          task: 'Call conference with a New Client'
-        },
-        {
-          time: '15:45',
-          task: 'Presentation Demo Ecological Project'
-        },
-        {
-          time: '16:00',
-          task: 'Interview with a new UI/UX'
-        },
-        {
-          time: '17:00',
-          task: 'Call conference with a New Client'
-        }
-      ],
+      tasks: {
+        tasksToday: [
+          {
+            time: '10:21',
+            task: 'Call conference with a New Client',
+            color: 'warning',
+            done: true
+          },
+          {
+            time: '11:30',
+            task: 'Presentation Demo Ecological Project',
+            color: 'primary',
+            done: true
+          },
+          {
+            time: '12:30',
+            task: 'Call with PR Manager',
+            color: 'warning',
+            done: false
+          },
+          {
+            time: '14:00',
+            task: 'Interview with a new UI/UX',
+            color: 'success',
+            done: false
+          },
+          {
+            time: '15:00',
+            task: 'Call conference with a New Client',
+            color: 'secondary',
+            done: false
+          },
+          {
+            time: '15:45',
+            task: 'Presentation Demo Ecological Project',
+            color: 'warning',
+            done: false
+          },
+          {
+            time: '16:00',
+            task: 'Interview with a new UI/UX',
+            color: 'primary',
+            done: false
+          },
+          {
+            time: '17:00',
+            task: 'Call conference with a New Client',
+            color: 'warning',
+            done: false
+          }
+        ],
+        tasksWeek: [
+          {
+            time: '10:21',
+            task: 'Call conference with a New Client',
+            color: 'warning',
+            done: true
+          },
+          {
+            time: '11:30',
+            task: 'Presentation Demo Ecological Project',
+            color: 'primary',
+            done: true
+          },
+          {
+            time: '12:30',
+            task: 'Call with PR Manager',
+            color: 'warning',
+            done: false
+          },
+          {
+            time: '14:00',
+            task: 'Interview with a new UI/UX',
+            color: 'success',
+            done: false
+          },
+          {
+            time: '15:00',
+            task: 'Call conference with a New Client',
+            color: 'secondary',
+            done: false
+          },
+          {
+            time: '15:45',
+            task: 'Presentation Demo Ecological Project',
+            color: 'warning',
+            done: false
+          },
+          {
+            time: '16:00',
+            task: 'Interview with a new UI/UX',
+            color: 'primary',
+            done: false
+          },
+          {
+            time: '17:00',
+            task: 'Call conference with a New Client',
+            color: 'warning',
+            done: false
+          }
+        ],
+        tasksMonth: [
+          {
+            time: '10:21',
+            task: 'Call conference with a New Client',
+            color: 'warning',
+            done: true
+          },
+          {
+            time: '11:30',
+            task: 'Presentation Demo Ecological Project',
+            color: 'primary',
+            done: true
+          },
+          {
+            time: '12:30',
+            task: 'Call with PR Manager',
+            color: 'warning',
+            done: false
+          },
+          {
+            time: '14:00',
+            task: 'Interview with a new UI/UX',
+            color: 'success',
+            done: false
+          },
+          {
+            time: '15:00',
+            task: 'Call conference with a New Client',
+            color: 'secondary',
+            done: false
+          },
+          {
+            time: '15:45',
+            task: 'Presentation Demo Ecological Project',
+            color: 'warning',
+            done: false
+          },
+          {
+            time: '16:00',
+            task: 'Interview with a new UI/UX',
+            color: 'primary',
+            done: false
+          },
+          {
+            time: '17:00',
+            task: 'Call conference with a New Client',
+            color: 'warning',
+            done: false
+          }
+        ],
+      },
+
       images: [
         {
           src: require('@/assets/img/user/profile/folder-blue.svg'),
@@ -553,6 +742,7 @@ export default {
         ],
       },
       focus: '',
+      selected: []
     }
   },
   methods: {

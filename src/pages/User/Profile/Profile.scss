@@ -50,6 +50,20 @@
       border: none;
     }
   }
+  .tasks-card {
+    .done {
+      .task-text, .task-time {
+        color: rgba(110, 110, 110, 0.6)!important;
+        text-decoration: line-through;
+      }
+      .task-circle {
+        color: rgba(110, 110, 110, 0.6)!important;
+      }
+    }
+    .v-slide-group__prev.v-slide-group__prev--disabled {
+      display: none!important;
+    }
+  }
   .v-image {
     position: relative;
     p {
