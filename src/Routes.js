@@ -65,6 +65,19 @@ import Add from "@/pages/User/Add/Add"
 import Edit from "@/pages/User/Edit/Edit"
 import Profile from "@/pages/User/Profile/Profile"
 
+// Documentation
+import DocLayout from "@/pages/Documentation/components/Layout/DocLayout"
+import Overview from '@/pages/Documentation/pages/Overview/Overview'
+import Licences from '@/pages/Documentation/pages/Licences/Licences'
+import QuickStart from '@/pages/Documentation/pages/QuickStart/QuickStart'
+import Charts from '@/pages/Documentation/pages/Charts/Charts'
+import Forms from '@/pages/Documentation/pages/Forms/Forms'
+import UI from '@/pages/Documentation/pages/UI/UI'
+import Maps from '@/pages/Documentation/pages/Maps/Maps'
+import Tables from '@/pages/Documentation/pages/Tables/Tables'
+import Structure from '@/pages/Documentation/pages/Structure/Structure'
+import Libs from '@/pages/Documentation/pages/Libs/Libs'
+
 Vue.use(Router);
 
 export default new Router({
@@ -74,6 +87,66 @@ export default new Router({
       name: 'Login',
       component: Login
     },
+
+    {
+      name: 'Documentation',
+      path: '/documentation',
+      redirect: '/documentation/overview',
+      component: DocLayout,
+      children: [
+        {
+          path: '/documentation/overview',
+          name: 'Overview',
+          component: Overview
+        },
+        {
+          path: '/documentation/licences',
+          name: 'Licences',
+          component: Licences
+        },
+        {
+          path: '/documentation/quick-start',
+          name: 'QuickStart',
+          component: QuickStart
+        },
+        {
+          path: '/documentation/charts',
+          name: 'Charts',
+          component: Charts
+        },
+        {
+          path: '/documentation/forms',
+          name: 'Forms',
+          component: Forms
+        },
+        {
+          path: '/documentation/ui',
+          name: 'UI',
+          component: UI
+        },
+        {
+          path: '/documentation/maps',
+          name: 'Maps',
+          component: Maps
+        },
+        {
+          path: '/documentation/tables',
+          name: 'Tables',
+          component: Tables
+        },
+        {
+          path: '/documentation/structure',
+          name: 'Structure',
+          component: Structure
+        },
+        {
+          path: '/documentation/libs',
+          name: 'Libs',
+          component: Libs
+        },
+      ],
+    },
+
     {
     path: '/',
     redirect: 'login',
@@ -89,7 +162,7 @@ export default new Router({
         // Tables
       {
         path: '/tables/table-basic',
-        name: 'Tables',
+        name: 'DocTables',
         component: tableBasic
       },
       {

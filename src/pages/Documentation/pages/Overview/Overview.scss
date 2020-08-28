@@ -1,0 +1,27 @@
+@import "@/styles/app";
+
+.docs {
+  .v-card {
+    .v-card__text {
+      p.text-h5 {
+        color: $text-color;
+      }
+      p, ul {
+        color: $title-grey;
+      }
+      a {
+        color: $primary;
+        text-decoration: none;
+      }
+      code {
+        display: flex;
+        background-color: #F3F5FF;
+        color: $title-grey;
+        padding: 0.5rem 1rem;
+        font-weight: 400;
+        margin-bottom: 12px;
+        font-size: 0.875rem;
+      }
+    }
+  }
+}
