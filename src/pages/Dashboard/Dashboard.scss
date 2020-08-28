@@ -1,11 +1,10 @@
 @import "../../styles/app";
 
 .dashboard-page {
-  .page-title {
-    padding-bottom: 20px;
-    @include media-breakpoint-up(sm) {
-      padding-bottom: 0;
-    }
+  .main-page-title {
+    font-size: 20px;
+    color: $text-color;
+    font-weight: 500;
   }
   .apexcharts-legend-series {
     padding: 2px 5px 3px;

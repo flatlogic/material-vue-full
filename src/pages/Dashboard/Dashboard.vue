@@ -1,19 +1,28 @@
 <template>
   <v-container fluid>
     <div class="dashboard-page">
-      <v-row no-gutters class="d-flex justify-space-between mt-14 mb-6">
-        <h1 class="page-title">Dashboard</h1>
-        <v-menu offset-y>
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn
+      <v-row no-gutters >
+        <v-card class="d-flex align-center mt-10 mb-6 px-5 py-2 flex-fill">
+          <h1 class="main-page-title mb-0 mr-4">Dashboard</h1>
+          <v-tabs color="secondary">
+            <v-tab
+                class="text-capitalize"
+                v-for="tab in tabs"
+                :key="tab">
+              {{ tab }}</v-tab>
+          </v-tabs>
+          <v-menu offset-y>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn
                 v-bind="attrs"
                 v-on="on"
                 color="error"
                 class="text-capitalize button-shadow"
-            >Latest Reports</v-btn>
-          </template>
+              >Latest Reports</v-btn>
+            </template>
 
-        </v-menu>
+          </v-menu>
+        </v-card>
       </v-row>
       <v-row>
         <v-col lg=3 sm=6 md=4 cols=12>
@@ -550,6 +559,7 @@
         value: this.getRandomInt(10,90),
         value2: this.getRandomInt(10,90),
         mainApexAreaSelect: 'Daily',
+        tabs: ['Today', 'This Week', 'This Month', 'This Year']
       };
     },
     methods: {

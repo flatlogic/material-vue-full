@@ -81,7 +81,7 @@
           v-on="on"
           style="font-size: 28px"
           icon
-          class="mr-2">
+          class="mr-3">
             <v-badge
               :value="messageBadge"
               color="warning"
@@ -141,17 +141,16 @@
       nudge-bottom="10"
     >
       <template v-slot:activator="{ on, attrs }">
-        <v-btn
-          icon
+        <v-avatar
+          size="40"
           v-bind="attrs"
           v-on="on"
-          class="mr-1"
+          class="mr-3">
+          <img
+              src="@/assets/img/user/avatars/avatar.png"
+              alt="John"
           >
-          <v-icon
-            style="font-size: 28px"
-            :color="config.light.iconColor"
-          >mdi-account</v-icon>
-        </v-btn>
+        </v-avatar>
       </template>
       <v-list >
         <div class="text-h5 grey--text text--darken-3 px-4 pt-4">John Smith</div>
@@ -183,7 +182,9 @@
           >Sing Out</v-btn>
         </div>
       </v-list>
+
     </v-menu>
+    <div class="greeting-text mr-3">Hi, <span>John Smith</span></div>
 
   </v-app-bar>
 </template>

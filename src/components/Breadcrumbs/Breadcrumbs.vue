@@ -9,8 +9,8 @@
       </template>
       <template
         v-slot:item="{ item }">
-        <v-breadcrumbs-item class="text-capitalize">
-          {{ item }}
+        <v-breadcrumbs-item  :to="item.to" link class="text-capitalize">
+          {{ item.text }}
         </v-breadcrumbs-item>
       </template>
     </v-breadcrumbs>
@@ -23,8 +23,15 @@ export default {
     breadcrumbsGen() {
       let pathArray = this.$route.path.split("/");
       pathArray.shift();
-      pathArray.unshift('App');
-      return pathArray;
+      let breadcrumbs = pathArray.reduce((breadcrumbArray, patch) => {
+        breadcrumbArray.push({
+          text: patch,
+          to: null
+        })
+        return breadcrumbArray;
+      }, [])
+      breadcrumbs.unshift({text: 'App', to: '/dashboard'});
+      return breadcrumbs;
     }
   },
   methods: {

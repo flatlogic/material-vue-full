@@ -167,12 +167,12 @@ export default new Router({
 
         // Tables
       {
-        path: '/tables/table-basic',
+        path: '/tables/basic',
         name: 'Tables',
         component: tableBasic
       },
       {
-        path: '/tables/table-dynamic',
+        path: '/tables/dynamic',
         name: 'tableDynamic',
         component: tableDynamic
       },
@@ -236,12 +236,12 @@ export default new Router({
 
         // Forms
       {
-        path: '/forms/forms-elements',
+        path: '/forms/elements',
         name: 'FormsElements',
         component: FormsElements
       },
       {
-        path: '/forms/forms-validation',
+        path: '/forms/validation',
         name: 'FormsValidation',
         component: FormsValidation
       },

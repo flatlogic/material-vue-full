@@ -1,10 +1,13 @@
 @import "../../styles/app";
 
-.v-breadcrumbs {
-
+ul.v-breadcrumbs {
+  li:last-child div{
+    color: $primary;
+  }
   .v-breadcrumbs__item {
     font-size: 1.125rem;
     color: $text-color;
+    cursor: pointer;
   }
   .v-breadcrumbs__divider {
     padding: 0 6px!important;

@@ -146,8 +146,8 @@
             icon: 'mdi-grid-large',
             model: false,
             children: [
-              { title: 'Tables Basic', icon: 'mdi-circle-small', link: '/tables/table-basic' },
-              { title: 'Tables Dynamic', icon: 'mdi-circle-small', link: '/tables/table-dynamic' }
+              { title: 'Tables Basic', icon: 'mdi-circle-small', link: '/tables/basic' },
+              { title: 'Tables Dynamic', icon: 'mdi-circle-small', link: '/tables/dynamic' }
             ],
           },
           {
@@ -173,8 +173,8 @@
             icon: 'mdi-file-document',
             model: false,
             children: [
-              { title: 'Form Elements', icon: 'mdi-circle-small', link: '/forms/forms-elements' },
-              { title: 'Form Validation', icon: 'mdi-circle-small', link: '/forms/forms-validation' },
+              { title: 'Form Elements', icon: 'mdi-circle-small', link: '/forms/elements' },
+              { title: 'Form Validation', icon: 'mdi-circle-small', link: '/forms/validation' },
             ],
           },
           {
