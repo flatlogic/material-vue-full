@@ -1,8 +1,5 @@
 <template>
-  <v-container fluid class="badge-page">
-    <v-row no-gutters class="d-flex mt-10 mb-6">
-      <h1 class="page-title">Badges</h1>
-    </v-row>
+  <v-container fluid class="badge-page mt-3">
     <v-row>
       <v-col lg=6 cols=12>
         <v-card class="overflow-hidden mx-1 mb-1">

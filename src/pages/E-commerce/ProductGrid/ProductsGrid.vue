@@ -1,8 +1,5 @@
 <template>
-  <v-container fluid class="product-grid-page">
-    <v-row no-gutters class="d-flex mt-10 mb-6">
-      <h1 class="page-title">Products Grid</h1>
-    </v-row>
+  <v-container fluid class="product-grid-page mt-3">
     <v-row>
       <v-col
           v-for="(select, i) in selects"

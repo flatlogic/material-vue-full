@@ -1,7 +1,6 @@
 <template>
   <v-container fluid>
-    <div class="tables-basic">
-      <h1 class="page-title mt-10 mb-6">Tables</h1>
+    <div class="tables-basic mt-3">
       <v-row>
         <v-col cols="12">
           <v-card class="employee-list mb-1">

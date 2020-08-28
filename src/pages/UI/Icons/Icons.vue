@@ -1,32 +1,5 @@
 <template>
-  <v-container fluid class="icons-page">
-    <v-row no-gutters class="d-flex justify-space-between mt-10 mb-6">
-      <h1 class="page-title">Icons</h1>
-      <v-menu
-          offset-y
-      >
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn
-              v-bind="attrs"
-              v-on="on"
-              color="error"
-              class="text-capitalize button-shadow"
-          >Actions</v-btn>
-        </template>
-        <v-list>
-          <v-list-item
-              link
-              v-for="(item, index) in lastReports"
-              :key="index"
-          >
-            <v-list-item-icon>
-              <v-icon v-text="item.icon"></v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
-    </v-row>
+  <v-container fluid class="icons-page mt-3">
     <v-row>
       <v-col cols="12">
         <v-tabs
@@ -377,12 +350,6 @@
           "mdi-yeast",
           "mdi-yin-yang",
           "mdi-zip-box"
-        ],
-        lastReports: [
-          {title: 'Print PDF', icon: 'mdi-printer'},
-          {title: 'Download', icon: 'mdi-download'},
-          {title: 'Sand by mail', icon: 'mdi-email'},
-          {title: 'Share', icon: 'mdi-share-variant'}
         ],
       }
     },

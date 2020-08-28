@@ -1,9 +1,6 @@
 <template>
   <v-container fluid>
     <div class="profile-page">
-      <v-row no-gutters class="d-flex justify-space-between mt-14 mb-6">
-        <h1 class="page-title">Profile</h1>
-      </v-row>
       <v-row>
         <v-col md=5 cols=12>
           <v-row>

@@ -1,6 +1,5 @@
 <template>
-  <v-container fluid class="typography-page">
-    <h1 class="page-title mt-10 mb-6">Typography</h1>
+  <v-container fluid class="typography-page mt-3">
     <v-row>
       <v-col lg=6 cols=12>
         <v-card class="mx-1 mb-1">

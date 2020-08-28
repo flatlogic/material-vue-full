@@ -1,12 +1,16 @@
 <template>
   <v-card>
-    <v-breadcrumbs :items="items" class="mt-3">
-      <template v-slot:item="{ item }">
-        <v-breadcrumbs-item
-            :href="item.href"
-            :disabled="item.disabled"
-        >
-          {{ item.text.toUpperCase() }}
+    <v-breadcrumbs
+      v-if="!homePage()"
+      class="mt-10 px-5 py-3"
+      :items="breadcrumbsGen">
+      <template v-slot:divider >
+        <v-icon size="22">mdi-chevron-right</v-icon>
+      </template>
+      <template
+        v-slot:item="{ item }">
+        <v-breadcrumbs-item class="text-capitalize">
+          {{ item }}
         </v-breadcrumbs-item>
       </template>
     </v-breadcrumbs>
@@ -15,25 +19,21 @@
 
 <script>
 export default {
-  data: () => ({
-    items: [
-      {
-        text: 'Dashboard',
-        disabled: false,
-        href: 'breadcrumbs_dashboard',
-      },
-      {
-        text: 'Link 1',
-        disabled: false,
-        href: 'breadcrumbs_link_1',
-      },
-      {
-        text: 'Link 2',
-        disabled: true,
-        href: 'breadcrumbs_link_2',
-      },
-    ],
-  }),
+  computed: {
+    breadcrumbsGen() {
+      let pathArray = this.$route.path.split("/");
+      pathArray.shift();
+      pathArray.unshift('App');
+      return pathArray;
+    }
+  },
+  methods: {
+    homePage() {
+      return this.$route.path === "/" || this.$route.path === "/dashboard";
+    },
+  },
 }
 </script>
+
+<style src="./Breadcrumbs.scss" lang="scss"></style>
 

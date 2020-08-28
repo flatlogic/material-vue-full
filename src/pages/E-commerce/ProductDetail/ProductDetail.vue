@@ -1,8 +1,5 @@
 <template>
-  <v-container fluid class="detail-page">
-    <v-row no-gutters class="d-flex mt-10 mb-6">
-      <h1 class="page-title">Product Detail</h1>
-    </v-row>
+  <v-container fluid class="detail-page mt-6">
     <v-card>
       <v-row no-gutters>
         <v-col cols="12" md="6">

@@ -1,0 +1,12 @@
+@import "../../styles/app";
+
+.v-breadcrumbs {
+
+  .v-breadcrumbs__item {
+    font-size: 1.125rem;
+    color: $text-color;
+  }
+  .v-breadcrumbs__divider {
+    padding: 0 6px!important;
+  }
+}

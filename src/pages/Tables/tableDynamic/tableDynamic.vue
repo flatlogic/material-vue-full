@@ -1,7 +1,6 @@
 <template>
   <v-container fluid>
-    <div class="tables-dynamic">
-      <h1 class="page-title mt-10 mb-6">Tables Dynamic</h1>
+    <div class="tables-dynamic mt-3">
       <v-row>
         <v-col cols="12">
           <v-card class="mb-1">

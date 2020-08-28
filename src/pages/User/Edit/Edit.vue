@@ -1,8 +1,5 @@
 <template>
-  <v-container fluid class="icons-page">
-    <v-row no-gutters class="d-flex mt-10 mb-6">
-      <h1 class="page-title">User Edit</h1>
-    </v-row>
+  <v-container fluid class="icons-page mt-3">
     <v-row>
       <v-col cols="12">
         <v-tabs
