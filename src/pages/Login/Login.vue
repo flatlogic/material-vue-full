@@ -169,18 +169,15 @@
     methods: {
       login(){
         window.localStorage.setItem('authenticated', true);
-        this.$router.push('/dashboard');
+        this.$router.push('/user/profile');
       }
     },
     created() {
       if (window.localStorage.getItem('authenticated') === 'true') {
-        this.$router.push('/dashboard');
+        this.$router.push('/user/profile');
       }
     }
   }
-
-
-
 
 </script>
 

@@ -49,6 +49,13 @@
     .v-calendar-weekly .v-calendar-weekly__day {
       border: none;
     }
+    .v-calendar-weekly__day.v-present {
+      button {
+        margin-top: 2px;
+        height: 25px;
+        width: 25px;
+      }
+    }
   }
   .tasks-card {
     .done {
@@ -80,6 +87,25 @@
         bottom: -5px;
         font-size: 13px;
       }
+    }
+  }
+  .view-card {
+    .views-value {
+      font-size: 1.5rem;
+      color: $title-grey;
+    }
+    .views-percent {
+      font-size: 0.7rem;
+    }
+  }
+  .pie-card {
+    .apexcharts-legend.position-bottom.apexcharts-align-center {
+      justify-content: flex-start;
+    }
+  }
+  .update-card {
+    .upd-text {
+      font-size: 1.125rem;
     }
   }
   .chart-title {

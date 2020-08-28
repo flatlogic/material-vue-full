@@ -103,7 +103,7 @@
               </v-card>
             </v-col>
             <v-col cols="6">
-              <v-card class="mx-1" min-height="296">
+              <v-card class="pie-card mx-1" min-height="296">
                 <v-card-title class="pa-5 pb-3">
                   <p>Projects</p>
                   <v-spacer></v-spacer>
@@ -136,7 +136,7 @@
                         height="194"
                         type="donut"
                         :options="apexPie.options"
-                        :series="generatePieSeries()">
+                        :series="apexPie.series">
                       </ApexChart>
                     </v-col>
                     <v-col cols="12" class="d-flex flex-column align-end mt-3">
@@ -196,7 +196,7 @@
                         :value="'tab-' + tab.tabName.toLocaleLowerCase()"
                         class="pt-1"
                     >
-                      <v-row justify="space-between" class="flex-nowrap overflow-hidden pa-4">
+                      <v-row justify="space-around" class="flex-nowrap overflow-hidden pa-4">
                         <div
                              v-for="(img, i) in images"
                              :key="i">
@@ -217,7 +217,7 @@
             </v-col>
           </v-row>
           <v-row>
-            <v-col cols="12" md="6">
+            <v-col cols="12" md="7">
               <v-card class="tasks-card mx-1">
                 <v-card-title class="pa-5 pb-3">
                   <p>Tasks</p>
@@ -263,7 +263,7 @@
                         <v-row class="flex-column flex-nowrap overflow-hidden pr-0 "
                           v-for="(task, i) in tasks.tasksToday"
                           :key="i"
-                          style="width: 100%"
+                          style="width: 100%; cursor:pointer;"
                           :class="{ done:task.done }"
                           @click="$set(task, 'done', !task.done)"
                            >
@@ -294,7 +294,7 @@
                         <v-row class="flex-column flex-nowrap overflow-hidden pr-0 "
                          v-for="(task, i) in tasks.tasksWeek"
                          :key="i * 10"
-                         style="width: 100%"
+                         style="width: 100%; cursor:pointer;"
                          :class="{ done:task.done }"
                          @click="$set(task, 'done', !task.done)"
                         >
@@ -325,7 +325,7 @@
                         <v-row class="flex-column flex-nowrap overflow-hidden pr-0 "
                          v-for="(task, i) in tasks.tasksMonth"
                          :key="i * 100"
-                         style="width: 100%"
+                         style="width: 100%; cursor:pointer;"
                          :class="{ done:task.done }"
                          @click="$set(task, 'done', !task.done)"
                         >
@@ -354,7 +354,7 @@
                 </v-card-text>
               </v-card>
             </v-col>
-            <v-col cols="12" md="6">
+            <v-col cols="12" md="5">
               <v-row no-gutters>
                 <v-col cols="12" class="mb-6">
                   <v-card class="calendar-card mx-1">
@@ -392,7 +392,7 @@
                   </v-card>
                 </v-col>
                 <v-col cols="12" class="mb-6">
-                  <v-card class="mx-1">
+                  <v-card class="view-card mx-1">
                     <v-card-title class="pa-5 pb-3">
                       <p>Views</p>
                       <v-spacer></v-spacer>
@@ -419,9 +419,9 @@
                     </v-card-title>
                     <v-card-text class="pa-5 pt-0">
                       <v-row no-gutters>
-                        <v-col cols="3" class="my-auto">
-                          <p class="text-h5 mb-0">7,156</p>
-                          <p class="subtitle-1 mb-0">7%</p>
+                        <v-col cols="4" class="my-auto">
+                          <p class="views-value text-h5 mb-0">7,156</p>
+                          <p class="views-percent success--text mb-4">7.2%</p>
                           <v-btn
                             color="primary"
                             outlined
@@ -429,7 +429,7 @@
                             class="text-capitalize"
                           >See More</v-btn>
                         </v-col>
-                        <v-col cols="9">
+                        <v-col cols="6" offset="2" class="d-flex align-end">
                           <ApexChart v-if="apexLoading"  height="80" type="area" :options="apexArea1.options" :series="apexArea1.series"></ApexChart>
                         </v-col>
                       </v-row>
@@ -439,13 +439,19 @@
                 <v-col cols="12" class="mb-6">
                   <v-card class="primary mx-1" height="80">
                     <v-row no-gutters align="center" justify="center" class="pa-5 pt-0">
-                      <v-col cols="12" class="d-flex align-center justify-start" style="height: 80px">
-                        <v-img
-                          src="@/assets/img/user/profile/update-icon.svg"
-                          height="36"
-                          contain
-                          aspect-ratio="1"
-                        ></v-img>
+                      <v-col cols="12" class="d-flex align-center" style="height: 80px">
+                        <div class="image-wrapper" style="height: 36px">
+                          <v-img
+                            src="@/assets/img/user/profile/update-icon.svg"
+                            contain
+                          ></v-img>
+                        </div>
+                        <p class="upd-text white--text mb-0 ml-3">Updates</p>
+                        <v-spacer></v-spacer>
+                        <v-btn
+                          outlined
+                          class=" white--text text-capitalize"
+                          >Detail</v-btn>
                       </v-col>
                     </v-row>
                   </v-card>
@@ -715,7 +721,7 @@ export default {
             position: 'bottom'
           },
         },
-
+        series: this.generatePieSeries()
       },
       apexArea1: {
         options: {
