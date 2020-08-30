@@ -1,6 +1,5 @@
 <template xmlns:div="http://www.w3.org/1999/html">
-  <v-container fluid class="notification-page">
-    <h1 class="page-title mt-10 mb-6">Notifications</h1>
+  <v-container fluid class="notification-page mt-3">
     <v-row class="mb-5">
       <v-card width="100%" class="d-flex flex-row mx-3">
        <v-row no-gutters>
