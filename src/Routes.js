@@ -97,9 +97,6 @@ export default new Router({
         {
           path: '/documentation/overview',
           name: 'Overview',
-          meta: {
-            breadCrumb: 'Overview'
-          },
           component: Overview
         },
         {
@@ -135,9 +132,6 @@ export default new Router({
         {
           path: '/documentation/tables',
           name: 'DocTables',
-          meta: {
-            breadCrumb: 'Tables'
-          },
           component: Tables
         },
         {

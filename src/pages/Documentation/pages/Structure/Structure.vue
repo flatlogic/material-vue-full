@@ -1,8 +1,5 @@
 <template>
-  <v-container fluid class="docs">
-    <v-row no-gutters class="d-flex justify-space-between mt-14 mb-6">
-      <h1 class="page-title">Structure</h1>
-    </v-row>
+  <v-container fluid class="docs mt-4">
     <v-row>
       <v-col cols=12>
         <v-card class="mx-1 mb-1">

@@ -356,29 +356,29 @@
             color: 'primary'
           },
           {
-            id: 2,
+            id: 3,
             title: 'Secondary',
             color: 'secondary'
           },
           {
-            id: 3,
+            id: 4,
             title: 'Info',
             color: 'info'
           },
           {
-            id: 4,
+            id: 5,
             title: 'Success',
             color: 'success'
           },
           {
-            id: 5,
+            id: 6,
             title: 'Warning',
             color: 'warning'
           },
         ],
         chipsWithIcons: [
           {
-            id: 2,
+            id: 1,
             title: 'Premium',
             color: 'primary',
             position: {

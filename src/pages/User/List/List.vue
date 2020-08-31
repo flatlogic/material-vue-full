@@ -9,7 +9,7 @@
               :headers="headers"
               :items="products"
               sort-by="calories"
-              items-per-page="5"
+              :items-per-page="itemPerPage"
             >
               <template v-slot:top>
                 <v-toolbar flat color="white">
@@ -147,7 +147,8 @@ export default {
         require('@/assets/img/user/avatars/3.png'),
         require('@/assets/img/user/avatars/4.png'),
         require('@/assets/img/user/avatars/5.png'),
-      ]
+      ],
+      itemPerPage: 5
     }
   },
 
