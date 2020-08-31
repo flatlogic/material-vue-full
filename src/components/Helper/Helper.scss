@@ -1,0 +1,18 @@
+.helper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 120px;
+  right: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 50% 0 0 50%;
+  border-right: none;
+
+}
+div.helper-card {
+  .v-input--radio-group__input {
+    flex-direction: row;
+  }
+}

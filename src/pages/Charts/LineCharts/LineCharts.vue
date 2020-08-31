@@ -125,7 +125,7 @@
         <v-col cols="12" md="6">
           <v-card class="mx-1 mb-1">
             <v-card-title class="pa-5 pb-3">
-              <p>Dynamic Updating Chart</p>
+              <p>Gradient Chart</p>
               <v-spacer></v-spacer>
               <v-menu>
                 <template v-slot:activator="{ on, attrs }">
@@ -150,10 +150,10 @@
             </v-card-title>
             <v-card-text class="pa-5 pt-0">
               <v-row no-gutters>
-                <v-col cols="12" class="pb-7">
+                <v-col cols="12" class="pb-0">
                   <ApexChart
                     type="line"
-                    height="350"
+                    height="330"
                     ref="realtimeChart"
                     :options="apexDynamic.options"
                     :series="apexDynamic.series">
@@ -246,7 +246,7 @@ export default {
               show: false
             }
           },
-          colors: [ config.light.primary, config.light.info ],
+          colors: [config.light.primary, config.light.info],
           dataLabels: {
             enabled: true,
           },
@@ -336,21 +336,12 @@ export default {
       },
       apexDynamic: {
         series: [{
-          name: 'Desktops',
-          data: [10, 41, 35, 51, 49, 62, 69, 91, 99]
+          name: 'Likes',
+          data: [4, 3, 10, 9, 29, 19, 22, 9, 12, 7, 19, 5, 13, 9, 17, 2, 7, 5]
         }],
         options: {
           chart: {
-            id: 'realtime',
-            height: 350,
             type: 'line',
-            animations: {
-              enabled: true,
-              easing: 'linear',
-              dynamicAnimation: {
-                speed: 3000
-              }
-            },
             toolbar: {
               show: false
             },
@@ -361,21 +352,44 @@ export default {
           dataLabels: {
             enabled: false
           },
+          fill: {
+            type: 'gradient',
+            gradient: {
+              shade: 'dark',
+              gradientToColors: [ config.light.success],
+              shadeIntensity: 1,
+              type: 'horizontal',
+              opacityFrom: 1,
+              opacityTo: 1,
+              stops: [0, 100, 100, 100]
+            },
+          },
           stroke: {
+            width: 7,
             curve: 'smooth'
           },
           markers: {
-            size: 0
+            size: 4,
+            colors: [config.light.warning],
+            strokeColors: "#fff",
+            strokeWidth: 2,
+            hover: {
+              size: 7,
+            }
           },
           yaxis: {
-            max: 100
+            min: -10,
+            max: 40,
+          },
+          xaxis: {
+            type: 'datetime',
+            categories: ['1/11/2000', '2/11/2000', '3/11/2000', '4/11/2000', '5/11/2000', '6/11/2000', '7/11/2000', '8/11/2000', '9/11/2000', '10/11/2000', '11/11/2000', '12/11/2000', '1/11/2001', '2/11/2001', '3/11/2001','4/11/2001' ,'5/11/2001' ,'6/11/2001'],
           },
           legend: {
             show: false
           },
-        },
-      },
-
+        }
+      }
     }
   },
   methods: {
@@ -387,25 +401,6 @@ export default {
       }
       return dates;
     },
-    // getRandomArbitrary () {
-    //   return Math.floor(Math.random() * 99)
-    // },
-    // setDataLineChart () {
-    //   setInterval(() => {
-    //     this.apexDynamic.series[0].data.splice(0, 1)
-    //     this.apexDynamic.series[0].data.push(this.getRandomArbitrary())
-    //     this.updateSeriesLine()
-    //   }, 3000)
-    // },
-    // updateSeriesLine () {
-    //   this.$refs.realtimeChart.updateSeries([{
-    //     data: this.apexDynamic.series[0].data
-    //   }], false, true)
-    // }
-  },
-
-  mounted: function () {
-    // this.setDataLineChart()
   }
 };
 </script>
