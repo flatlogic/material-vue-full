@@ -1,29 +1,66 @@
 <template>
   <v-container fluid>
     <div class="dashboard-page">
-      <v-row no-gutters >
-        <v-card class="d-flex align-center mt-10 mb-6 px-5 py-2 flex-fill">
-          <h1 class="main-page-title mb-0 mr-4">Dashboard</h1>
-          <v-tabs color="secondary">
-            <v-tab
-                class="text-capitalize"
-                v-for="tab in tabs"
-                :key="tab">
-              {{ tab }}</v-tab>
-          </v-tabs>
-          <v-menu offset-y>
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn
-                v-bind="attrs"
-                v-on="on"
-                color="error"
-                class="text-capitalize button-shadow"
-              >Latest Reports</v-btn>
-            </template>
-
-          </v-menu>
-        </v-card>
-      </v-row>
+      <v-card width="100%">
+        <v-row no-gutters class="d-flex align-center mt-10 mb-6 px-5 py-1">
+          <v-col cols="12" md="6" class="d-sm-flex justify-md-start justify-space-between align-center">
+            <h1 class="main-page-title mb-0 mr-2">Dashboard</h1>
+            <div>
+              <v-tabs color="secondary">
+                <v-tab
+                    class="text-capitalize"
+                    v-for="tab in tabs"
+                    :key="tab">
+                  {{ tab }}</v-tab>
+              </v-tabs>
+            </div>
+          </v-col>
+          <v-col cols="12" md="6" class="d-sm-flex justify-space-between align-center justify-md-end">
+            <div class="mb-3 mb-sm-0">
+              <v-menu
+                  ref="menu"
+                  v-model="menu"
+                  :close-on-content-click="false"
+                  transition="scale-transition"
+                  offset-y
+              >
+                <template v-slot:activator="{ on, attrs }">
+                  <v-text-field
+                      :value="computedDate"
+                      prepend-icon="mdi-calendar"
+                      color="primary"
+                      full-width
+                      style="height: 38px; width: 250px"
+                      readonly
+                      single-line
+                      solo
+                      flat
+                      dense
+                      class="mr-5"
+                      v-bind="attrs"
+                      v-on="on"
+                  ></v-text-field>
+                </template>
+                <v-date-picker v-model="date" no-title scrollable>
+                  <v-spacer></v-spacer>
+                  <v-btn text color="primary" @click="menu = false">Cancel</v-btn>
+                  <v-btn text color="primary" @click="$refs.menu.save(date)">OK</v-btn>
+                </v-date-picker>
+              </v-menu>
+            </div>
+            <v-menu offset-y>
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                  v-bind="attrs"
+                  v-on="on"
+                  color="error"
+                  class="text-capitalize button-shadow mb-3 mb-sm-0"
+                >Latest Reports</v-btn>
+              </template>
+            </v-menu>
+          </v-col>
+        </v-row>
+      </v-card>
       <v-row>
         <v-col lg=3 sm=6 md=4 cols=12>
           <v-card class="mx-1 mb-1">
@@ -546,6 +583,7 @@
   import mock from './mock';
   import Trend from 'vuetrend'
   import ApexChart from 'vue-apexcharts'
+  import moment from 'moment'
 
   export default {
     name: 'Dashboard',
@@ -559,7 +597,10 @@
         value: this.getRandomInt(10,90),
         value2: this.getRandomInt(10,90),
         mainApexAreaSelect: 'Daily',
-        tabs: ['Today', 'This Week', 'This Month', 'This Year']
+        tabs: ['Today', 'This Week', 'This Month', 'This Year'],
+        date: new Date().toISOString().substr(0, 10),
+        menu: false,
+
       };
     },
     methods: {
@@ -582,6 +623,11 @@
       getRandomInt(min, max) {
         let rand = min - 0.5 + Math.random() * (max - min + 1);
         return Math.round(rand);
+      },
+    },
+    computed: {
+      computedDate() {
+        return this.date ? moment(this.date).format('Do MMM YYYY, dddd') : ''
       },
     },
     mounted() {

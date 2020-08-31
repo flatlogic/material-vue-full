@@ -208,7 +208,7 @@
               { title: 'Error Page', icon: 'mdi-circle-small', link: '/extra/error' },
               { title: 'Gallery', icon: 'mdi-circle-small', link: '/extra/gallery' },
               { title: 'Search Result', icon: 'mdi-circle-small', link: '/extra/search-result' },
-              { title: 'Time Line', icon: 'mdi-circle-small', link: '/extra/timeline' },
+              { title: 'Time Line', icon: 'mdi-circle-small', link: '/extra/timeLine' },
             ],
           },
           {

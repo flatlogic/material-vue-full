@@ -1,8 +1,5 @@
 <template>
-  <v-container fluid class="calendar-page">
-    <v-row no-gutters class="d-flex mt-10 mb-6">
-      <h1 class="page-title">Calendar</h1>
-    </v-row>
+  <v-container fluid class="calendar-page mt-6">
     <v-row>
       <v-col cols="12" lg="6">
         <v-card>

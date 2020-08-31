@@ -1,8 +1,5 @@
 <template>
-  <v-container>
-    <v-row no-gutters class="d-flex mt-10 mb-6">
-      <h1 class="page-title">Invoice</h1>
-    </v-row>
+  <v-container class="mt-6">
     <v-row>
       <v-col cols="12">
         <v-row class="invoice-page">

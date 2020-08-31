@@ -290,7 +290,7 @@ export default new Router({
         component: SearchResult
       },
       {
-        path: '/extra/timeline',
+        path: '/extra/timeLine',
         name: 'TimeLine',
         component: TimeLine
       },

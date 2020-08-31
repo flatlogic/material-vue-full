@@ -1,8 +1,5 @@
 <template>
-  <v-container fluid class="search-result-page">
-    <v-row no-gutters class="d-flex mt-10 mb-6">
-      <h1 class="page-title">Search Result</h1>
-    </v-row>
+  <v-container fluid class="search-result-page mt-6">
     <v-row>
       <v-col>
         <div class="d-inline-flex">

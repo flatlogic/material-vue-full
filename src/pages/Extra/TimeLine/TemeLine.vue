@@ -1,8 +1,5 @@
 <template>
-  <v-container fluid class="timeline-title-page">
-    <v-row no-gutters class="d-flex mt-10 mb-6">
-      <h1 class="page-title">Time Line</h1>
-    </v-row>
+  <v-container fluid class="timeline-title-page mt-6">
     <v-timeline reverse align-top :dense="$vuetify.breakpoint.smAndDown">
       <v-timeline-item
         v-for="(item, i) in items"

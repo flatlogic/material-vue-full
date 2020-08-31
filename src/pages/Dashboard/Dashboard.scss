@@ -39,6 +39,14 @@
       }
     }
   }
+  .v-tabs {
+    .v-item-group.v-slide-group.v-tabs-bar {
+      .v-slide-group__prev--disabled {
+        display: none!important;
+      }
+    }
+  }
+
 }
 
 .v-menu__content {

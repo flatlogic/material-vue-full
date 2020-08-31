@@ -1,8 +1,5 @@
 <template>
-  <v-container fluid class="gallery-page">
-    <v-row no-gutters class="d-flex mt-10 mb-6">
-      <h1 class="page-title">Gallery</h1>
-    </v-row>
+  <v-container fluid class="gallery-page mt-6">
     <v-row>
       <template v-for="card in cards">
         <v-col

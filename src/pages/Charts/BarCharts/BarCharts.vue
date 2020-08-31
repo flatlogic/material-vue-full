@@ -1,7 +1,6 @@
 <template>
-  <v-container fluid>
+  <v-container fluid class="mt-6">
     <div class="barCharts-page">
-      <h1 class="page-title mt-10 mb-6">Bar Charts</h1>
       <v-row>
         <v-col cols="12" md="6">
           <v-card class="mx-1 mb-1">
