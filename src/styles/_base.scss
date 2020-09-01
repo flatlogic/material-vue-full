@@ -7,7 +7,7 @@
   }
   .v-card {
     box-shadow: $card-shadow!important;
-    .v-card__title p{
+    .v-card__title p {
       color: $card-title-color;
       line-height: 1.33;
       margin: 0;
@@ -82,6 +82,14 @@
   //.v-main .v-card .v-card__text button.v-btn {
   //  box-shadow: $button-shadow;
   //}
+}
+
+.v-application.theme--dark {
+  .v-card {
+    .v-card__title p {
+      color: white;
+    }
+  }
 }
 
 .mapContainer + footer.v-footer {

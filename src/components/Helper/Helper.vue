@@ -30,9 +30,9 @@
           <v-list-item>
             <v-list-item-action class="justify-center mr-0" style="width: 100%">
               <v-radio-group v-model="radios">
-                <v-radio color="primary" value="radio-1" class="mb-0 mr-5" @change="$vuetify.theme.dark = !$vuetify.theme.dark"></v-radio>
-                <v-radio color="secondary" value="radio-2" class="mb-0 mr-5"></v-radio>
-                <v-radio color="success" value="radio-3" class="mb-0"></v-radio>
+                <v-radio color="primary" value="radio-1" class="mb-0 mr-5" @change="$vuetify.theme.themes.light.primary = config.light.primary"></v-radio>
+                <v-radio color="secondary" value="radio-2" class="mb-0 mr-5" @change="$vuetify.theme.themes.light.primary = config.light.secondary"></v-radio>
+                <v-radio color="success" value="radio-3" class="mb-0" @change="$vuetify.theme.themes.light.primary = config.light.success"></v-radio>
               </v-radio-group>
             </v-list-item-action>
           </v-list-item>
@@ -45,11 +45,9 @@
             </v-list-item-content>
           </v-list-item>
           <v-list-item>
-
             <v-list-item-action class="justify-center mr-0" style="width: 100%">
               <v-switch v-model="$vuetify.theme.dark" color="secondary"></v-switch>
             </v-list-item-action>
-
           </v-list-item>
         </v-list>
         <v-card-actions>

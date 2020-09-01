@@ -4,10 +4,6 @@
 $drawer-items-padding:                     32px !default;
 $navigation-drawer-mini-variant-width:     96px!important;
 
-// Layout //
-$body-bg: #F6F7FF !default;
-$content-padding:                           24px;
-
 // Colors //
 $primary:           #536DFE;
 $secondary:         #FF5C93;
@@ -20,6 +16,11 @@ $text-grey:         #b9b9b9;
 $title-grey:        #4a4a4a;
 
 $card-title-color:  $text-color;
+
+// Layout //
+$body-bg-dark: #13131a;
+$body-bg: #F6F7FF !default;
+$content-padding:                           24px;
 
 // Typography //
 $h1-font-size:                3rem !default;      // 28px

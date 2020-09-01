@@ -8,7 +8,9 @@ Vue.use(Vuetify);
 export default new Vuetify({
     theme: {
         themes: {
-            light: config.light
+            light: config.light,
+            secondary: config.secondary,
+            third: config.third
         }
     }
 });

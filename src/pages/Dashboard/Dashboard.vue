@@ -2,7 +2,7 @@
   <v-container fluid>
     <div class="dashboard-page">
       <v-card width="100%">
-        <v-row no-gutters class="d-flex align-center mt-10 mb-6 px-5 py-1">
+        <v-row no-gutters class="d-flex align-center mt-8 mb-3 px-5 py-1">
           <v-col cols="12" md="6" class="d-sm-flex justify-md-start justify-space-between align-center">
             <h1 class="main-page-title mb-0 mr-2">Dashboard</h1>
             <div>
@@ -63,7 +63,7 @@
       </v-card>
       <v-row>
         <v-col lg=3 sm=6 md=4 cols=12>
-          <v-card class="mx-1 mb-1">
+          <v-card class="ma-1">
             <v-card-title class="pa-5 pb-3">
               <p>Visits Today</p>
               <v-spacer></v-spacer>
@@ -121,7 +121,7 @@
           </v-card>
         </v-col>
         <v-col lg=3 sm=6 md=8 cols=12>
-          <v-card class="mx-1 mb-1">
+          <v-card class="ma-1">
             <v-card-title class="pa-5 pb-3">
               <p>App Performance</p>
               <v-spacer></v-spacer>
@@ -181,7 +181,7 @@
           </v-card>
         </v-col>
         <v-col lg=3 sm=6 md=8 cols=12>
-          <v-card  class="mx-1 mb-1">
+          <v-card  class="ma-1">
             <v-card-title class="pa-5 pb-3">
               <p>Server Overview</p>
               <v-spacer></v-spacer>
@@ -235,7 +235,7 @@
           </v-card>
         </v-col>
         <v-col lg=3 sm=6 md=4 cols=12>
-          <v-card  class="mx-1 mb-1">
+          <v-card  class="ma-1">
             <v-card-title class="pa-5 pb-3">
               <p>Revenue Breakdown</p>
               <v-spacer></v-spacer>
@@ -270,7 +270,7 @@
           </v-card>
         </v-col>
         <v-col cols=12>
-            <v-card class="mx-1 mb-1">
+            <v-card class="ma-1">
               <v-card-title class="pa-4 pb-0">
                 <v-row no-gutters>
                   <v-col cols="7" sm="4" md="4" lg="5" class="d-flex align-center">
@@ -319,7 +319,7 @@
             </v-card>
           </v-col>
         <v-col lg=4 sm=6 cols=12>
-          <v-card class="mx-1 mb-1">
+          <v-card class="ma-1">
             <v-card-title class="pa-5 pb-3">
               <p>Light Blue</p>
               <v-spacer></v-spacer>
@@ -377,7 +377,7 @@
           </v-card>
         </v-col>
         <v-col lg=4 sm=6 cols=12>
-          <v-card class="mx-1 mb-1">
+          <v-card class="ma-1">
             <v-card-title class="pa-5 pb-3">
               <p>Sing App</p>
               <v-spacer></v-spacer>
@@ -435,7 +435,7 @@
           </v-card>
         </v-col>
         <v-col lg=4 sm=6 cols=12>
-          <v-card class="mx-1 mb-1">
+          <v-card class="ma-1">
             <v-card-title class="pa-5 pb-3">
               <p>RNS</p>
               <v-spacer></v-spacer>
@@ -493,7 +493,7 @@
           </v-card>
         </v-col>
         <v-col cols=12>
-          <v-card class="mx-1 mb-1">
+          <v-card class="ma-1">
             <v-card-title class="pa-5 pb-0">
               <p>Support Requests</p>
               <v-spacer></v-spacer>

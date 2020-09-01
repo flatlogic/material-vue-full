@@ -1,8 +1,8 @@
 <template>
-  <v-app class="pa-6">
+  <v-app>
     <Header />
     <Sidebar />
-    <v-main class="content">
+    <v-main class="content mx-2">
       <Breadcrumbs />
       <router-view />
       <Footer />
@@ -20,7 +20,7 @@
 
     export default {
         name: 'Layout',
-        components: {Helper, Footer, Header, Sidebar, Breadcrumbs },
+        components: { Helper, Footer, Header, Sidebar, Breadcrumbs },
     };
 </script>
 

@@ -2,7 +2,7 @@
   <v-card>
     <v-breadcrumbs
       v-if="!homePage()"
-      class="mt-10 px-5 py-3"
+      class="mt-8 px-5 py-3"
       :items="breadcrumbsGen">
       <template v-slot:divider >
         <v-icon size="22">mdi-chevron-right</v-icon>

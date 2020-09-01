@@ -5,23 +5,23 @@
         <v-col md=5 cols=12>
           <v-row>
             <v-col cols="12">
-              <v-card class="user-card mx-1">
+              <v-card class="user-card ma-1">
                 <v-card-text class="pa-5 fill-height">
                   <v-row no-gutters class="fill-height">
                     <v-col cols="6" class="d-flex justify-center align-center flex-column">
                       <div
-                          class="avatar-wrapper">
+                        class="avatar-wrapper">
                         <v-img
-                            class="user-avatar"
-                            contain
-                            :height="$vuetify.breakpoint.mdAndDown ? '140px' : '164px'"
-                            :width="$vuetify.breakpoint.mdAndDown ? '140px' : '164px'"
-                            src="@/assets/img/user/profile/photo.png"></v-img>
+                          class="user-avatar"
+                          contain
+                          :height="$vuetify.breakpoint.mdAndDown ? '140px' : '164px'"
+                          :width="$vuetify.breakpoint.mdAndDown ? '140px' : '164px'"
+                          src="@/assets/img/user/profile/photo.png"></v-img>
                       </div>
                       <v-chip
-                          small
-                          class="mr-2 mt-4"
-                          color="error"
+                        small
+                        class="mr-2 mt-4"
+                        color="error"
                       >Pro</v-chip>
                     </v-col>
                     <v-col cols="6" class="pl-2">
@@ -48,7 +48,7 @@
               </v-card>
             </v-col>
             <v-col cols="6">
-              <v-card class="media-card mx-1" min-height="296">
+              <v-card class="media-card ma-1" min-height="296">
                 <v-card-title class="pa-5 pb-3">
                   <p>Media</p>
                   <v-spacer></v-spacer>
@@ -100,7 +100,7 @@
               </v-card>
             </v-col>
             <v-col cols="6">
-              <v-card class="pie-card mx-1" min-height="296">
+              <v-card class="pie-card ma-1" min-height="296">
                 <v-card-title class="pa-5 pb-3">
                   <p>Projects</p>
                   <v-spacer></v-spacer>
@@ -147,7 +147,7 @@
               </v-card>
             </v-col>
             <v-col cols="12">
-              <v-card class="text-card mx-1">
+              <v-card class="text-card ma-1">
                 <v-card-title class="pa-5 pb-3">
                   <p>Top 5 react native starter kits</p>
                 </v-card-title>
@@ -171,7 +171,7 @@
         <v-col md=7 cols=12>
           <v-row>
             <v-col cols="12">
-              <v-card class="mx-1" min-height="282">
+              <v-card class="folder-card ma-1" min-height="282">
                 <v-card-title class="pa-5 pb-3">
                   <p>Files</p>
                 </v-card-title>
@@ -215,7 +215,7 @@
           </v-row>
           <v-row>
             <v-col cols="12" md="7">
-              <v-card class="tasks-card mx-1">
+              <v-card class="tasks-card ma-1">
                 <v-card-title class="pa-5 pb-3">
                   <p>Tasks</p>
                   <v-spacer></v-spacer>
@@ -335,7 +335,7 @@
                                   style="font-size: 10px"
                               >{{ task.time }}</p>
                               <v-icon class="task-circle ml-1" :color="task.color">mdi-circle-medium</v-icon>
-                              <p class="task-text mb-0 font-weight-medium" style="color: #4a4a4a; line-height: 25px;">{{ task.task }}</p>
+                              <p class="task-text mb-0 font-weight-medium">{{ task.task }}</p>
                             </div>
                             <div>
                               <v-btn icon>
@@ -354,10 +354,10 @@
             <v-col cols="12" md="5">
               <v-row no-gutters>
                 <v-col cols="12" class="mb-6">
-                  <v-card class="calendar-card mx-1">
+                  <v-card class="calendar-card ma-1">
                     <v-col>
                       <v-sheet height="64">
-                        <v-toolbar flat color="white">
+                        <v-toolbar flat>
                           <v-btn fab text small @click="prev">
                             <v-icon class="grey--text" >mdi-chevron-left</v-icon>
                           </v-btn>
@@ -389,7 +389,7 @@
                   </v-card>
                 </v-col>
                 <v-col cols="12" class="mb-6">
-                  <v-card class="view-card mx-1">
+                  <v-card class="view-card ma-1">
                     <v-card-title class="pa-5 pb-3">
                       <p>Views</p>
                       <v-spacer></v-spacer>
@@ -434,7 +434,7 @@
                   </v-card>
                 </v-col>
                 <v-col cols="12" class="mb-6">
-                  <v-card class="primary mx-1" height="80">
+                  <v-card class="primary ma-1" height="80">
                     <v-row no-gutters align="center" justify="center" class="pa-5 pt-0">
                       <v-col cols="12" class="d-flex align-center" style="height: 80px">
                         <div class="image-wrapper" style="height: 36px">

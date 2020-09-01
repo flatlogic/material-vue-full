@@ -9,7 +9,14 @@ ul.v-breadcrumbs {
     color: $text-color;
     cursor: pointer;
   }
-  .v-breadcrumbs__divider {
-
+}
+.v-application.theme--dark {
+  ul.v-breadcrumbs {
+    li:last-child div{
+      color: $primary;
+    }
+    .v-breadcrumbs__item {
+      color: white;
+    }
   }
 }

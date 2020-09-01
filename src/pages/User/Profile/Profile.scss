@@ -20,6 +20,12 @@
       font-size: 28px;
 
     }
+
+    &.theme--dark {
+      .user-name {
+        color: white;
+      }
+    }
   }
   .media-card {
     .media-title {
@@ -56,6 +62,10 @@
         width: 25px;
       }
     }
+    // dark
+    .theme--dark.v-sheet, .v-calendar-weekly {
+      background-color: transparent;
+    }
   }
   .tasks-card {
     .done {
@@ -67,8 +77,36 @@
         color: rgba(110, 110, 110, 0.6)!important;
       }
     }
+    .task-text {
+      line-height: 25px;
+    }
     .v-slide-group__prev.v-slide-group__prev--disabled {
       display: none!important;
+    }
+
+    &.theme--dark {
+      .v-tabs > .v-tabs-bar {
+        background-color: transparent;
+        .v-tab--active {
+          color: white;
+        }
+      }
+      .v-item-group.v-tabs-items {
+        background-color: transparent;
+      }
+      .done {
+        .task-text, .task-time {
+          color: rgba(110, 110, 110, 0.6)!important;
+          text-decoration: line-through;
+        }
+        .task-circle {
+          color: rgba(110, 110, 110, 0.6)!important;
+        }
+      }
+      .task-text {
+        color: #d6d6d6!important;
+      }
+
     }
   }
   .v-image {
@@ -110,5 +148,16 @@
   }
   .chart-title {
 
+  }
+  .folder-card {
+    .theme--dark.v-tabs > .v-tabs-bar {
+      background-color: transparent;
+      .v-tab--active {
+        color: white;
+      }
+    }
+    .v-item-group.theme--dark.v-tabs-items {
+      background-color: transparent;
+    }
   }
 }

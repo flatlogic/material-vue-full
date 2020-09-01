@@ -16,3 +16,8 @@ div.helper-card {
     flex-direction: row;
   }
 }
+.v-application.theme--dark {
+  .v-menu__content.theme--dark {
+    box-shadow: none!important;
+  }
+}
