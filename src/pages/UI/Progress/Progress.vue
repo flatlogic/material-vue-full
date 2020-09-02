@@ -13,7 +13,7 @@
                         v-bind="attrs"
                         v-on="on"
                 >
-                  <v-icon color="textColor">mdi-dots-vertical</v-icon>
+                  <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
               </template>
               <v-list>
@@ -52,7 +52,7 @@
                         v-bind="attrs"
                         v-on="on"
                 >
-                  <v-icon color="textColor">mdi-dots-vertical</v-icon>
+                  <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
               </template>
               <v-list>
@@ -91,7 +91,7 @@
                         v-bind="attrs"
                         v-on="on"
                 >
-                  <v-icon color="textColor">mdi-dots-vertical</v-icon>
+                  <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
               </template>
               <v-list>
@@ -133,7 +133,7 @@
                         v-bind="attrs"
                         v-on="on"
                 >
-                  <v-icon color="textColor">mdi-dots-vertical</v-icon>
+                  <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
               </template>
               <v-list>
@@ -177,7 +177,7 @@
                   v-bind="attrs"
                   v-on="on"
                 >
-                  <v-icon color="textColor">mdi-dots-vertical</v-icon>
+                  <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
               </template>
               <v-list>
@@ -218,7 +218,7 @@
                   v-bind="attrs"
                   v-on="on"
                 >
-                  <v-icon color="textColor">mdi-dots-vertical</v-icon>
+                  <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
               </template>
               <v-list>
@@ -258,7 +258,7 @@
                   v-bind="attrs"
                   v-on="on"
                 >
-                  <v-icon color="textColor">mdi-dots-vertical</v-icon>
+                  <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
               </template>
               <v-list>
@@ -301,7 +301,7 @@
                         v-bind="attrs"
                         v-on="on"
                 >
-                  <v-icon color="textColor">mdi-dots-vertical</v-icon>
+                  <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
               </template>
               <v-list>

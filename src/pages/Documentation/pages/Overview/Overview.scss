@@ -4,10 +4,10 @@
   .v-card {
     .v-card__text {
       p.text-h5 {
-        color: $text-color;
+        color: $grey-medium;
       }
       p, ul {
-        color: $title-grey;
+        color: $grey-bold;
       }
       a {
         color: $primary;
@@ -15,7 +15,7 @@
       }
       code, pre {
         background-color: #F3F5FF;
-        color: $title-grey;
+        color: $grey-bold;
         padding: 0.5rem 1rem;
         font-weight: 400;
         margin-bottom: 12px;

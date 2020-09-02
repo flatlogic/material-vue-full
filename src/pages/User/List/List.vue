@@ -16,11 +16,11 @@
                   <v-dialog v-model="dialog" max-width="500px">
                     <template v-slot:activator="{ on, attrs }">
                       <v-btn
-                          color="success"
-                          dark
-                          class="mb-2"
-                          v-bind="attrs"
-                          v-on="on"
+                        color="success"
+                        dark
+                        class="button-shadow mb-2"
+                        v-bind="attrs"
+                        v-on="on"
                       >
                         <v-icon class="mr-3">mdi-plus</v-icon>
                          Add</v-btn>
@@ -74,13 +74,14 @@
               </template>
               <template v-slot:item.actions="{ item }">
                 <v-btn
-                  class="mr-3"
+                  class="button-shadow mr-3"
                   @click="editItem(item)"
                   small
                   color="success"
                 >Edit
                 </v-btn>
                 <v-btn
+                    class="button-shadow"
                   @click="deleteItem(item)"
                   small
                   color="secondary"

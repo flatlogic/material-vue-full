@@ -6,16 +6,14 @@
           <v-row>
             <v-col cols="12">
               <v-card class="user-card ma-1">
-                <v-card-text class="pa-5 fill-height">
+                <v-card-text class="pa-5 pt-9 fill-height">
                   <v-row no-gutters class="fill-height">
-                    <v-col cols="6" class="d-flex justify-center align-center flex-column">
+                    <v-col cols="5" lg="6" class="d-flex justify-center align-center flex-column">
                       <div
                         class="avatar-wrapper">
                         <v-img
                           class="user-avatar"
                           contain
-                          :height="$vuetify.breakpoint.mdAndDown ? '140px' : '164px'"
-                          :width="$vuetify.breakpoint.mdAndDown ? '140px' : '164px'"
                           src="@/assets/img/user/profile/photo.png"></v-img>
                       </div>
                       <v-chip
@@ -24,9 +22,9 @@
                         color="error"
                       >Pro</v-chip>
                     </v-col>
-                    <v-col cols="6" class="pl-2">
-                      <p class="user-name text-h4">Julee Cruise</p>
-                      <p class="subtitle-2 ma-0">Product Designer</p>
+                    <v-col cols="7" lg="6" class="pl-2">
+                      <p class="user-name greyBold--text font-weight-bold">Julee Cruise</p>
+                      <p class="user-work greyTint--text ma-0">Product Designer</p>
                       <a class="body-1">NewGenerArt.com</a>
                       <div class="mt-5">
                         <v-chip v-for="(chip, i) in chips"
@@ -38,8 +36,11 @@
                         >{{ chip.title }}</v-chip>
                       </div>
                       <div class="mt-5">
-                        <v-btn v-for="(btn, i) in buttons" :key="i" icon>
-                          <v-icon :color="config.light.textColor">{{ btn }}</v-icon>
+                        <v-btn v-for="(btn, i) in buttons"
+                           :key="i"
+                           icon
+                        >
+                          <v-icon color="greyTint">{{ btn }}</v-icon>
                         </v-btn>
                       </div>
                     </v-col>
@@ -55,11 +56,11 @@
                   <v-menu>
                     <template v-slot:activator="{ on, attrs }">
                       <v-btn
-                          icon
-                          v-bind="attrs"
-                          v-on="on"
+                        icon
+                        v-bind="attrs"
+                        v-on="on"
                       >
-                        <v-icon color="textColor">mdi-dots-vertical</v-icon>
+                        <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                       </v-btn>
                     </template>
                     <v-list>
@@ -77,22 +78,22 @@
                   <v-row no-gutters class="pb-6">
                     <v-col cols="6" class="d-flex align-center flex-column">
                       <v-img src="@/assets/img/user/profile/media/posts.svg" height="30" width="30"></v-img>
-                      <p class="media-title text-h6 mb-n2">198</p>
+                      <p class="greyBold--text text-h6 mb-n2">198</p>
                       <p class="media-subtitle">Posts</p>
                     </v-col>
                     <v-col cols="6" class="d-flex align-center flex-column">
                       <v-img src="@/assets/img/user/profile/media/projects.svg" height="30" width="30"></v-img>
-                      <p class="media-title text-h6 mb-n2">554</p>
+                      <p class="greyBold--text text-h6 mb-n2">554</p>
                       <p class="media-subtitle">Projects</p>
                     </v-col>
                     <v-col cols="6" class="d-flex align-center flex-column">
                       <v-img src="@/assets/img/user/profile/media/followers.svg" height="30" width="30"></v-img>
-                      <p class="media-title text-h6 mb-n2">12.8k</p>
+                      <p class="greyBold--text text-h6 mb-n2">12.8k</p>
                       <p class="media-subtitle">Followers</p>
                     </v-col>
                     <v-col cols="6" class="d-flex align-center flex-column">
                       <v-img src="@/assets/img/user/profile/media/following.svg" height="30" width="30"></v-img>
-                      <p class="media-title text-h6 mb-n2">1.1k</p>
+                      <p class="greyBold--text text-h6 mb-n2">1.1k</p>
                       <p class="media-subtitle">Following</p>
                     </v-col>
                   </v-row>
@@ -107,18 +108,18 @@
                   <v-menu>
                     <template v-slot:activator="{ on, attrs }">
                       <v-btn
-                          icon
-                          v-bind="attrs"
-                          v-on="on"
+                        icon
+                        v-bind="attrs"
+                        v-on="on"
                       >
-                        <v-icon color="textColor">mdi-dots-vertical</v-icon>
+                        <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                       </v-btn>
                     </template>
                     <v-list>
                       <v-list-item
-                          v-for="(item, i) in mock.menu"
-                          :key="i"
-                          @click="() => {}"
+                        v-for="(item, i) in mock.menu"
+                        :key="i"
+                        @click="() => {}"
                       >
                         <v-list-item-title>{{ item }}</v-list-item-title>
                       </v-list-item>
@@ -147,7 +148,7 @@
               </v-card>
             </v-col>
             <v-col cols="12">
-              <v-card class="text-card ma-1">
+              <v-card class="article-card ma-1">
                 <v-card-title class="pa-5 pb-3">
                   <p>Top 5 react native starter kits</p>
                 </v-card-title>
@@ -157,10 +158,10 @@
                       <v-img src="@/assets/img/user/profile/article-logo.png"></v-img>
                     </v-col>
                     <v-col>
-                      <p class="article-writer">Nastassia Ovchinnikova</p>
-                      <p class="article-text">React Native allows us to create a boilerplate that have been crafted for both platforms.
+                      <p class="article-writer greyTint--text">Nastassia Ovchinnikova</p>
+                      <p class="article-text greyBold--text">React Native allows us to create a boilerplate that have been crafted for both platforms.
                         The ability to create an app both for Android and iOS...</p>
-                      <p class="article-info"> 11 Feb 2019 | 5 min read</p>
+                      <p class="article-info greyTint--text"> 11 Feb 2019 | 5 min read</p>
                     </v-col>
                   </v-row>
                 </v-card-text>
@@ -178,7 +179,6 @@
                 <v-card-text class="pa-5 pt-0">
                   <v-tabs color="secondary">
                     <v-tabs-slider></v-tabs-slider>
-
                     <v-tab
                         v-for="(tab, i) in tabs"
                         :key="i"
@@ -198,7 +198,7 @@
                              v-for="(img, i) in images"
                              :key="i">
                           <v-img
-                              :src="img.src"
+                              :src="$vuetify.theme.dark ? img.srcDark : img.src"
                               width="141" height="106" contain
                               class="folder-image mr-3"
                           >
@@ -222,11 +222,11 @@
                   <v-menu>
                     <template v-slot:activator="{ on, attrs }">
                       <v-btn
-                          icon
-                          v-bind="attrs"
-                          v-on="on"
+                        icon
+                        v-bind="attrs"
+                        v-on="on"
                       >
-                        <v-icon color="textColor">mdi-dots-vertical</v-icon>
+                        <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                       </v-btn>
                     </template>
                     <v-list>
@@ -257,7 +257,7 @@
                         value="tab-today"
                         class="pt-1"
                       >
-                        <v-row class="flex-column flex-nowrap overflow-hidden pr-0 "
+                        <v-row no-gutters class="flex-column flex-nowrap overflow-hidden pr-0"
                           v-for="(task, i) in tasks.tasksToday"
                           :key="i"
                           style="width: 100%; cursor:pointer;"
@@ -266,18 +266,18 @@
                            >
                           <v-col
                               cols="12"
-                              class="d-flex justify-space-between align-center pr-0 mr-0">
+                              class="d-flex justify-space-between align-center py-3">
                             <div class="d-flex">
                               <p
                                 class="task-time mb-0 "
                                 style="font-size: 10px"
                               >{{ task.time }}</p>
                               <v-icon class="task-circle ml-1" :color="task.color">mdi-circle-medium</v-icon>
-                              <p class="task-text mb-0 font-weight-medium" style="color: #4a4a4a; line-height: 25px;">{{ task.task }}</p>
+                              <p class="task-text greyBold--text mb-0 font-weight-medium" style="line-height: 25px;">{{ task.task }}</p>
                             </div>
                             <div>
                               <v-btn icon>
-                                <v-icon color="textColor" class="right">mdi-dots-vertical</v-icon>
+                                <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                               </v-btn>
                             </div>
                           </v-col>
@@ -288,7 +288,7 @@
                         value="tab-week"
                         class="pt-1"
                       >
-                        <v-row class="flex-column flex-nowrap overflow-hidden pr-0 "
+                        <v-row no-gutters class="flex-column flex-nowrap overflow-hidden pr-0"
                          v-for="(task, i) in tasks.tasksWeek"
                          :key="i * 10"
                          style="width: 100%; cursor:pointer;"
@@ -297,18 +297,18 @@
                         >
                           <v-col
                               cols="12"
-                              class="d-flex justify-space-between align-center pr-0 mr-0">
+                              class="d-flex justify-space-between align-center py-3">
                             <div class="d-flex">
                               <p
-                                  class="task-time mb-0 "
-                                  style="font-size: 10px"
+                                class="task-time mb-0 "
+                                style="font-size: 10px"
                               >{{ task.time }}</p>
                               <v-icon class="task-circle ml-1" :color="task.color">mdi-circle-medium</v-icon>
-                              <p class="task-text mb-0 font-weight-medium" style="color: #4a4a4a; line-height: 25px;">{{ task.task }}</p>
+                              <p class="task-text greyBold--text mb-0 font-weight-medium" style="line-height: 25px;">{{ task.task }}</p>
                             </div>
                             <div>
                               <v-btn icon>
-                                <v-icon color="textColor" class="right">mdi-dots-vertical</v-icon>
+                                <v-icon color="greyTint" class="right">mdi-dots-vertical</v-icon>
                               </v-btn>
                             </div>
                           </v-col>
@@ -319,7 +319,7 @@
                         value="tab-month"
                         class="pt-1"
                       >
-                        <v-row class="flex-column flex-nowrap overflow-hidden pr-0 "
+                        <v-row no-gutters class="flex-column flex-nowrap overflow-hidden"
                          v-for="(task, i) in tasks.tasksMonth"
                          :key="i * 100"
                          style="width: 100%; cursor:pointer;"
@@ -328,18 +328,18 @@
                         >
                           <v-col
                               cols="12"
-                              class="d-flex justify-space-between align-center pr-0 mr-0">
+                              class="d-flex justify-space-between align-center py-3">
                             <div class="d-flex">
                               <p
-                                  class="task-time mb-0 "
-                                  style="font-size: 10px"
+                                class="task-time mb-0"
+                                style="font-size: 10px"
                               >{{ task.time }}</p>
                               <v-icon class="task-circle ml-1" :color="task.color">mdi-circle-medium</v-icon>
-                              <p class="task-text mb-0 font-weight-medium">{{ task.task }}</p>
+                              <p class="task-text greyBold--text mb-0 font-weight-medium">{{ task.task }}</p>
                             </div>
                             <div>
                               <v-btn icon>
-                                <v-icon color="textColor" class="right">mdi-dots-vertical</v-icon>
+                                <v-icon color="greyTint" class="right">mdi-dots-vertical</v-icon>
                               </v-btn>
                             </div>
                           </v-col>
@@ -356,35 +356,12 @@
                 <v-col cols="12" class="mb-6">
                   <v-card class="calendar-card ma-1">
                     <v-col>
-                      <v-sheet height="64">
-                        <v-toolbar flat>
-                          <v-btn fab text small @click="prev">
-                            <v-icon class="grey--text" >mdi-chevron-left</v-icon>
-                          </v-btn>
-                          <v-spacer></v-spacer>
-                          <v-toolbar-title
-                              v-if="$refs.calendar"
-                              class="font-weight-bold"
-                              style="font-size: 1rem; color: #6E6E6E"
-                          >
-                            {{ $refs.calendar.title }}
-                          </v-toolbar-title>
-                          <v-spacer></v-spacer>
-                          <v-btn fab text small @click="next">
-                            <v-icon class="grey--text">mdi-chevron-right</v-icon>
-                          </v-btn>
-                        </v-toolbar>
-                      </v-sheet>
-                      <v-sheet>
-                        <v-calendar
-                            ref="calendar"
-                            v-model="focus"
-                            hide-header
-                            locale="en"
-                            color="primary"
-                            type="month"
-                        ></v-calendar>
-                      </v-sheet>
+                      <v-date-picker
+                        v-model="picker"
+                        full-width
+                        flat
+                        no-title
+                      ></v-date-picker>
                     </v-col>
                   </v-card>
                 </v-col>
@@ -396,11 +373,11 @@
                       <v-menu>
                         <template v-slot:activator="{ on, attrs }">
                           <v-btn
-                              icon
-                              v-bind="attrs"
-                              v-on="on"
+                            icon
+                            v-bind="attrs"
+                            v-on="on"
                           >
-                            <v-icon color="textColor">mdi-dots-vertical</v-icon>
+                            <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                           </v-btn>
                         </template>
                         <v-list>
@@ -417,7 +394,7 @@
                     <v-card-text class="pa-5 pt-0">
                       <v-row no-gutters>
                         <v-col cols="4" class="my-auto">
-                          <p class="views-value text-h5 mb-0">7,156</p>
+                          <p class="views-value greyBold--text text-h5 mb-0">7,156</p>
                           <p class="views-percent success--text mb-4">7.2%</p>
                           <v-btn
                             color="primary"
@@ -688,21 +665,25 @@ export default {
       images: [
         {
           src: require('@/assets/img/user/profile/folder-blue.svg'),
+          srcDark: require('@/assets/img/user/profile/folder-dark-blue.svg'),
           title: 'UX',
           subtitle: '178 files'
         },
         {
           src: require('@/assets/img/user/profile/folder-pink.svg'),
+          srcDark: require('@/assets/img/user/profile/folder-dark-pink.svg'),
           title: 'Design',
           subtitle: '154 files'
         },
         {
           src: require('@/assets/img/user/profile/folder-yellow.svg'),
+          srcDark: require('@/assets/img/user/profile/folder-dark-yellow.svg'),
           title: 'Mobile',
           subtitle: '98 files'
         },
         {
           src: require('@/assets/img/user/profile/folder-green.svg'),
+          srcDark: require('@/assets/img/user/profile/folder-dark-green.svg'),
           title: 'Illustration',
           subtitle: '68 files'
         },
@@ -745,7 +726,8 @@ export default {
         ],
       },
       focus: '',
-      selected: []
+      selected: [],
+      picker: new Date().toISOString().substr(0, 10),
     }
   },
   methods: {

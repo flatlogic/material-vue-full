@@ -167,7 +167,7 @@
               ></v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <v-list-item-title :color='config.light.textColor' v-text="item.text"></v-list-item-title>
+              <v-list-item-title color="greyTint" v-text="item.text"></v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list-item-group>
@@ -213,9 +213,9 @@
         { text: 'LD', name: 'Liana Dutti', message: 'Good news from sale department', time: '14:56', color: 'primary'  },
       ],
       account: [
-        { text: 'Profile', icon: 'mdi-account', color: 'textColor' },
-        { text: 'Tasks', icon: 'mdi-thumb-up', color: 'textColor'  },
-        { text: 'Messages', icon: 'mdi-flag', color: 'textColor'  }
+        { text: 'Profile', icon: 'mdi-account', color: 'greyTint' },
+        { text: 'Tasks', icon: 'mdi-thumb-up', color: 'greyTint'  },
+        { text: 'Messages', icon: 'mdi-flag', color: 'greyTint'  }
       ],
       notificationsBadge: true,
       messageBadge: true

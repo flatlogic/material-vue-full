@@ -2,23 +2,44 @@
 
 .profile-page {
   .user-card {
+
     .avatar-wrapper {
+      width: 115px;
+      height: 115px;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 185px;
-      height: 185px;
       border-radius: 50%;
       border: 3px dotted $error;
+      @include media-breakpoint-up(md) {
+        width: 125px;
+        height: 125px;
+      }
+      @include media-breakpoint-up(lg) {
+        width: 185px;
+        height: 185px;
+      }
+
       .user-avatar {
+        height: 94px;
+        width: 94px;
         border-radius: 50%;
+        @include media-breakpoint-up(md) {
+          height: 104px;
+          width: 104px;
+        }
+        @include media-breakpoint-up(lg) {
+          height: 154px;
+          width: 154px;
+        }
       }
     }
-    .user-name {
-      color: $title-grey;
-      font-weight: 600;
-      font-size: 28px;
 
+    .user-name {
+      font-size: 1.75rem;
+    }
+    .user-work {
+      font-size: 0.75rem;
     }
 
     &.theme--dark {
@@ -28,53 +49,58 @@
     }
   }
   .media-card {
-    .media-title {
-      color: $title-grey;
-    }
     .media-subtitle {
-      font-size: 0.75rem;
-      font-weight: 500;
+      font-size: .75rem;
     }
+
   }
-  .text-card {
+  .article-card {
     .article-writer, .article-info {
-      color: $text-grey;
       font-weight: 500;
       font-size: 12px;
     }
     .article-text {
       font-size: 14px;
       font-weight: 500;
-      color: $title-grey;
     }
   }
   .calendar-card {
-    .v-calendar {
-      border: none;
-    }
-    .v-calendar-weekly .v-calendar-weekly__day {
-      border: none;
-    }
-    .v-calendar-weekly__day.v-present {
-      button {
-        margin-top: 2px;
-        height: 25px;
-        width: 25px;
+    .v-picker.v-card {
+      box-shadow: none!important;
+      .v-date-picker-header, .v-date-picker-table {
+        padding: 0;
+        height: 100%;
+        .v-date-picker-header__value .accent--text button{
+          color: $grey-medium;
+        }
       }
     }
-    // dark
-    .theme--dark.v-sheet, .v-calendar-weekly {
-      background-color: transparent;
+
+    &.theme--dark {
+
+      .v-picker.v-card {
+        box-shadow: none!important;
+        .v-picker__body {
+          background-color: transparent;
+        }
+        .v-date-picker-header, .v-date-picker-table {
+          padding: 0;
+          height: 100%;
+          .v-date-picker-header__value .accent--text button{
+            color: white;
+          }
+        }
+      }
     }
   }
   .tasks-card {
     .done {
       .task-text, .task-time {
-        color: rgba(110, 110, 110, 0.6)!important;
+        color: $grey-tint!important;
         text-decoration: line-through;
       }
       .task-circle {
-        color: rgba(110, 110, 110, 0.6)!important;
+        color: $grey-tint!important;
       }
     }
     .task-text {
@@ -96,15 +122,12 @@
       }
       .done {
         .task-text, .task-time {
-          color: rgba(110, 110, 110, 0.6)!important;
+          color: $grey-tint!important;
           text-decoration: line-through;
         }
         .task-circle {
-          color: rgba(110, 110, 110, 0.6)!important;
+          color: $grey-tint!important;
         }
-      }
-      .task-text {
-        color: #d6d6d6!important;
       }
 
     }
@@ -130,7 +153,6 @@
   .view-card {
     .views-value {
       font-size: 1.5rem;
-      color: $title-grey;
     }
     .views-percent {
       font-size: 0.7rem;
@@ -139,6 +161,11 @@
   .pie-card {
     .apexcharts-legend.position-bottom.apexcharts-align-center {
       justify-content: flex-start;
+    }
+    &.theme--dark {
+      .apexcharts-legend-series .apexcharts-legend-text{
+        color: $grey-tint!important;
+      }
     }
   }
   .update-card {

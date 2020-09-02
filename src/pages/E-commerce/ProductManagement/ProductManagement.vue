@@ -1,26 +1,36 @@
 <template>
-  <v-container fluid class="mt-3">
+  <v-container fluid class="product-management mt-3">
     <v-row>
       <v-col cols="12">
         <v-card class="mb-1">
           <v-card-title class="pa-5 pb-3">
-            <p>Products</p>
+            <p>Products</p><pre>&nbsp;</pre><span class="grey--text font-weight-regular subtitle-2 pt-1">({{ products.length }} total) </span>
+            <v-spacer></v-spacer>
+            <v-text-field
+                v-model="search"
+                append-icon="mdi-magnify"
+                label="Search"
+                single-line
+                hide-details
+                style="width: 5%;"
+            ></v-text-field>
           </v-card-title>
-          <v-card-text>
+          <v-card-text class="px-5">
             <v-data-table
               show-select
               :headers="headers"
               :items="products"
+              :search="search"
               sort-by="calories"
             >
               <template v-slot:top>
-                <v-toolbar flat color="white">
+                <v-toolbar flat color="white" class="ml-n3">
                   <v-dialog v-model="dialog" max-width="500px">
                     <template v-slot:activator="{ on, attrs }">
                       <v-btn
-                        color="primary"
+                        color="success"
                         dark
-                        class="mb-2"
+                        class="mb-2 button-shadow"
                         v-bind="attrs"
                         v-on="on"
                       >Create Product</v-btn>
@@ -76,7 +86,7 @@
               </template>
               <template v-slot:item.actions="{ item }">
                 <v-btn
-                  class="mr-3"
+                  class="mr-3 button-shadow"
                   @click="editItem(item)"
                   small
                   color="success"
@@ -85,6 +95,7 @@
                 <v-btn
                   @click="deleteItem(item)"
                   small
+                  class="button-shadow"
                   color="secondary"
                 >Delete
                 </v-btn>
@@ -105,6 +116,7 @@
     name: 'ProductManagement',
       data() {
         return {
+          search: '',
           dialog: false,
           headers: [
             {
@@ -308,3 +320,5 @@
       },
   }
 </script>
+
+<style src="./ProductManagement.scss" lang="scss"/>

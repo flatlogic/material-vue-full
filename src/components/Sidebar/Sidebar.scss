@@ -21,7 +21,7 @@
       background: transparent;
     }
     &::-webkit-scrollbar-thumb {
-      background-color: $text-grey;
+      background-color: $grey-tint;
       border-radius: 36px;
       border: none;
     }
@@ -29,7 +29,7 @@
 
   .v-list-item:not(.v-list-item--active) {
     .v-icon {
-      color: $text-grey;
+      color: $grey-tint;
     }
   }
   .v-list-item .v-list-item__title {
@@ -39,7 +39,7 @@
   .v-list-item--active {
     .v-list-item__content {
       .v-list-item__title {
-        color: $title-grey!important;
+        color: $grey-bold!important;
       }
     }
   }
@@ -48,7 +48,7 @@
     .v-list {
       div, a {
         &.v-list-item {
-          color: $text-color;
+          color: $grey-medium;
           transition: 300ms all;
         }
       }
@@ -66,7 +66,7 @@
   }
 
   .subheader {
-    color: $text-grey;
+    color: $grey-tint;
     transition: 300ms all;
   }
   .hide {
@@ -90,7 +90,7 @@
 
   .v-list-item:not(.v-list-item--active) {
     .v-icon {
-      color: $title-grey;
+      color: $grey-bold;
     }
   }
   .v-list-item {
@@ -98,14 +98,14 @@
       background-color: #13131A!important;
     }
     .v-list-item__title {
-      color: $text-grey!important;
+      color: $grey-tint!important;
     }
   }
   .v-list-item--active {
     background-color: #23232D!important;
     .v-list-item__content {
       .v-list-item__title {
-        color: $text-grey!important;
+        color: $grey-tint!important;
       }
     }
   }

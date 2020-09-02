@@ -1,8 +1,19 @@
 @import '../../styles/app.scss';
 
-.v-main__wrap {
-  padding: 70px $content-padding $content-padding;
+body {
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $grey-tint;
+    border-radius: 36px;
+    border: none;
+  }
 }
+
 div.v-application {
   .content {
     background-color: $body-bg;

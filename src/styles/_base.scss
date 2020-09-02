@@ -1,8 +1,7 @@
-
 .v-application {
   .page-title {
     font-size: 2.4rem;
-    color: $text-grey;
+    color: $grey-tint;
     margin-bottom: 0;
   }
   .v-card {
@@ -15,10 +14,10 @@
       font-weight: 400;
     }
     .card-dark-grey {
-      color: $title-grey!important;
+      color: $grey-bold!important;
     }
     .card-light-grey {
-      color: $text-color!important;
+      color: $grey-medium!important;
     }
   }
   .v-navigation-drawer {
@@ -122,9 +121,7 @@
     }
 
     .action {
-      color: $text-color;
+      color: $grey-medium;
     }
   }
 }
-
-

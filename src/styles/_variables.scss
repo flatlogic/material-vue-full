@@ -11,16 +11,16 @@ $error:             #ff4081;
 $warning:           #FFC260;
 $success:           #3CD4A0;
 $info:              #9013FE;
-$text-color:        #6e6e6e;
-$text-grey:         #b9b9b9;
-$title-grey:        #4a4a4a;
+$grey-bold:         #4a4a4a;
+$grey-medium:       #6e6e6e;
+$grey-tint:         #b9b9b9;
 
-$card-title-color:  $text-color;
+$card-title-color:  $grey-medium;
 
 // Layout //
 $body-bg-dark: #13131a;
 $body-bg: #F6F7FF !default;
-$content-padding:                           24px;
+$content-padding:             24px;
 
 // Typography //
 $h1-font-size:                3rem !default;      // 28px

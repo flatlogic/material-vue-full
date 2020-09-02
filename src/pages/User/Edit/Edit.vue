@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="icons-page mt-3">
+  <v-container fluid class="user-edit mt-3">
     <v-row>
       <v-col cols="12">
         <v-tabs
@@ -381,5 +381,14 @@ export default {
 <style>
 .v-input .v-label {
   height: 23px;
+}
+.user-edit .v-item-group.v-slide-group.v-tabs-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  height: 70px;
+}
+.user-edit .v-slide-group__wrapper {
+  height: 50px;
 }
 </style>

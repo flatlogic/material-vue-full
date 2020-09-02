@@ -19,7 +19,7 @@
                 :key="icon.icon"
                 :href="icon.link"
                 class="mr-1"
-                :color=config.light.textColor
+                color="greyTint"
                 icon
         >
           <v-icon size="24px">{{ icon.icon }}</v-icon>

@@ -1,6 +1,6 @@
 <template>
-  <v-container fluid class="product-grid-page mt-3">
-    <v-row>
+  <v-container fluid class="product-grid-page mt-5">
+    <v-row class="mb-n3">
       <v-col
           v-for="(select, i) in selects"
           :key="i"
@@ -22,7 +22,7 @@
           lg="3"
           :key="i">
           <v-card
-            class="mx-1 mb-1"
+            class="ma-2"
             link
             replace
             :key="i">
