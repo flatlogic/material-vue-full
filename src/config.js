@@ -14,8 +14,9 @@ export default {
   dark: {
     primary: "#536dfe",
     secondary: "#FF5C93",
+    error: "#FF4081",
+    greyMedium: '#ffffff',
     greyBold: '#d6d6d6',
-    greyMedium: '#6e6e6e',
     greyTint: '#b9b9b9',
     }
 };

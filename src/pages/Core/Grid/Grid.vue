@@ -7,7 +7,7 @@
             <p>How it works</p>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal card-dark-grey mb-10">Material UI’s grid system uses a series of containers, rows, and
+            <p class="fs-normal greyBold--text mb-10">Material UI’s grid system uses a series of containers, rows, and
               columns to layout and align content. It’s built with flexbox and is fully responsive.</p>
             <v-row justify="space-between">
               <v-col cols="3" class="primary rounded ma-2 d-flex justify-center" style="height: 50px">
@@ -29,7 +29,7 @@
             <p>Equal width</p>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal card-dark-grey mb-10">For example, here are two grid layouts that apply to every device
+            <p class="fs-normal greyBold--text mb-10">For example, here are two grid layouts that apply to every device
               and viewport, from xs to xl. Add any number of unit-less classes for each breakpoint you need and every
               column will be the same width.</p>
             <v-row justify="space-between">
@@ -49,7 +49,7 @@
             <p>Grid options</p>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal card-dark-grey mb-10">While Material UI grid uses ems or rems for defining most sizes, pxs are used for grid breakpoints and
+            <p class="fs-normal greyBold--text mb-10">While Material UI grid uses ems or rems for defining most sizes, pxs are used for grid breakpoints and
               container widths. This is because the viewport width is in pixels and does not change with the font size.
               See how aspects of the Material UI grid system work across multiple devices with a handy table.</p>
           </v-card-text>
@@ -61,7 +61,7 @@
             <p>Vertical Alignment</p>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal card-dark-grey mb-10">Use flexbox alignment utilities to vertically and horizontally align columns.</p>
+            <p class="fs-normal greyBold--text mb-10">Use flexbox alignment utilities to vertically and horizontally align columns.</p>
             <v-row justify="start">
               <v-col cols="3" class="primary rounded ma-2 d-flex justify-center" style="height: 50px">
                 <h6 class="white--text">Start</h6>
@@ -86,7 +86,7 @@
             <p>Vertical Alignment</p>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal card-dark-grey mb-10">Use flexbox alignment utilities to vertically and horizontally align columns.</p>
+            <p class="fs-normal greyBold--text mb-10">Use flexbox alignment utilities to vertically and horizontally align columns.</p>
             <v-row justify="end">
               <v-col cols="3" class="primary rounded ma-2 d-flex justify-center" style="height: 50px">
                 <h6 class="white--text">1</h6>

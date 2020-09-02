@@ -28,7 +28,7 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal card-dark-grey mb-5">The <code>v-tabs</code> component is used for hiding content behind a selectable item. This can also be used as a pseudo-navigation for a page, where the tabs are links and the tab-items are the content.</p>
+            <p class="fs-normal greyBold--text mb-5">The <code>v-tabs</code> component is used for hiding content behind a selectable item. This can also be used as a pseudo-navigation for a page, where the tabs are links and the tab-items are the content.</p>
             <v-tabs
                 v-model="tabExample.tab"
                 background-color="primary"
@@ -89,7 +89,7 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal card-dark-grey mb-5"><code>v-tab</code>'s can contain icons as well as text. This increases the <code>v-tabs</code> height to 72px.</p>
+            <p class="fs-normal greyBold--text mb-5"><code>v-tab</code>'s can contain icons as well as text. This increases the <code>v-tabs</code> height to 72px.</p>
             <v-tabs
               v-model="tabWithIcons.tab"
               background-color="primary"

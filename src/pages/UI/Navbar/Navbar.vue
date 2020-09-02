@@ -29,7 +29,7 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal card-dark-grey mb-5">App bar displays yours app links by importing and inserting AppBar component.
+            <p class="fs-normal greyBold--text mb-5">App bar displays yours app links by importing and inserting AppBar component.
               To swap links style add attribute within Button component.</p>
             <v-app-bar
               color="primary"
@@ -59,7 +59,7 @@
                 </v-btn>
 
               </v-app-bar>
-            <p class="fs-normal card-dark-grey mb-5">With menu</p>
+            <p class="fs-normal greyBold--text mb-5">With menu</p>
             <v-app-bar
                 color="secondary"
                 dark
@@ -122,7 +122,7 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal card-dark-grey mb-5">Search icon makes UX more flexible. To start using search icon,
+            <p class="fs-normal greyBold--text mb-5">Search icon makes UX more flexible. To start using search icon,
               make sure you got all relative functions.</p>
             <v-app-bar
               color="primary"
@@ -137,7 +137,7 @@
 
                   <Search />
               </v-app-bar>
-            <p class="fs-normal card-dark-grey mb-5">Navbar can contain background images. You can set source via the src prop.
+            <p class="fs-normal greyBold--text mb-5">Navbar can contain background images. You can set source via the src prop.
               If you need to customize the v-img properties, the navbar provides you with an img slot.</p>
             <v-app-bar
               color="primary"

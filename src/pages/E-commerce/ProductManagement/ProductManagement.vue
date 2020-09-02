@@ -12,7 +12,7 @@
                 label="Search"
                 single-line
                 hide-details
-                style="width: 5%;"
+                style="width: 5%"
             ></v-text-field>
           </v-card-title>
           <v-card-text class="px-5">
@@ -24,7 +24,7 @@
               sort-by="calories"
             >
               <template v-slot:top>
-                <v-toolbar flat color="white" class="ml-n3">
+                <v-toolbar flat color="transparent" class="ml-n3">
                   <v-dialog v-model="dialog" max-width="500px">
                     <template v-slot:activator="{ on, attrs }">
                       <v-btn

@@ -28,7 +28,7 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal card-dark-grey mb-5">Tooltips can wrap any element.</p>
+            <p class="fs-normal greyBold--text mb-5">Tooltips can wrap any element.</p>
             <div class="text-center d-flex align-center justify-space-around">
               <v-tooltip bottom>
                 <template v-slot:activator="{ on, attrs }">
@@ -55,7 +55,7 @@
               </v-tooltip>
               <v-tooltip bottom>
                 <template v-slot:activator="{ on, attrs }">
-                  <span class="fs-normal card-dark-grey align-center" v-bind="attrs" v-on="on">This text has a tooltip</span>
+                  <span class="fs-normal greyBold--text align-center" v-bind="attrs" v-on="on">This text has a tooltip</span>
                 </template>
                 <span>Text Tooltip</span>
               </v-tooltip>
@@ -90,7 +90,7 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal card-dark-grey mb-5">The v-tooltip component is useful for conveying information when a user hovers over an element.</p>
+            <p class="fs-normal greyBold--text mb-5">The v-tooltip component is useful for conveying information when a user hovers over an element.</p>
             <div class="text-center">
               <v-menu
                   v-model="popovers.popoverFirst"
@@ -111,7 +111,7 @@
 
                 <v-card width="250">
                   <v-card-text>
-                    <span class="fs-normal card-dark-grey mb-5">The content of the Popover.</span>
+                    <span class="fs-normal greyBold--text mb-5">The content of the Popover.</span>
                   </v-card-text>
                 </v-card>
               </v-menu>
@@ -149,7 +149,7 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal card-dark-grey mb-5">A tooltip can be aligned to any of the four sides of the activator element</p>
+            <p class="fs-normal greyBold--text mb-5">A tooltip can be aligned to any of the four sides of the activator element</p>
             <v-col cols="12" >
               <v-tooltip left>
                 <template v-slot:activator="{ on, attrs }">
@@ -233,7 +233,7 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal card-dark-grey mb-5">Tooltip visibility can be programmatically changed using v-model.</p>
+            <p class="fs-normal greyBold--text mb-5">Tooltip visibility can be programmatically changed using v-model.</p>
             <v-col cols="12">
 
               <v-menu
@@ -257,7 +257,7 @@
 
                 <v-card width="250">
                   <v-card-text>
-                    <span class="fs-normal card-dark-grey mb-5">The content of the Popover.</span>
+                    <span class="fs-normal greyBold--text mb-5">The content of the Popover.</span>
                   </v-card-text>
                 </v-card>
               </v-menu>
@@ -281,7 +281,7 @@
 
                 <v-card width="250">
                   <v-card-text>
-                    <span class="fs-normal card-dark-grey mb-5">The content of the Popover.</span>
+                    <span class="fs-normal greyBold--text mb-5">The content of the Popover.</span>
                   </v-card-text>
                 </v-card>
               </v-menu>
@@ -305,7 +305,7 @@
 
                 <v-card width="250">
                   <v-card-text>
-                    <span class="fs-normal card-dark-grey mb-5">The content of the Popover.</span>
+                    <span class="fs-normal greyBold--text mb-5">The content of the Popover.</span>
                   </v-card-text>
                 </v-card>
               </v-menu>
@@ -329,7 +329,7 @@
 
                 <v-card width="250">
                   <v-card-text>
-                    <span class="fs-normal card-dark-grey mb-5">The content of the Popover.</span>
+                    <span class="fs-normal greyBold--text mb-5">The content of the Popover.</span>
                   </v-card-text>
                 </v-card>
               </v-menu>

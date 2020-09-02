@@ -28,7 +28,7 @@
                         </v-menu>
                     </v-card-title>
                     <v-card-text class="pa-5 pt-0">
-                        <p class="fs-normal card-dark-grey mb-5">The <code>v-pagination</code> component is used to separate
+                        <p class="fs-normal greyBold--text mb-5">The <code>v-pagination</code> component is used to separate
                             long sets of data so that it is easier for a user to consume information.</p>
                         <div class="text-center">
                             <v-pagination
@@ -66,7 +66,7 @@
                         </v-menu>
                     </v-card-title>
                     <v-card-text class="pa-5 pt-0">
-                        <p class="fs-normal card-dark-grey mb-5">Using the <code>length</code> prop you can set the length of <code>v-pagination</code>, if the number of
+                        <p class="fs-normal greyBold--text mb-5">Using the <code>length</code> prop you can set the length of <code>v-pagination</code>, if the number of
                             page buttons exceeds the parent container, it will truncate the list.</p>
                         <div class="text-center">
                             <v-container>
@@ -115,7 +115,7 @@
                         </v-menu>
                     </v-card-title>
                     <v-card-text class="pa-5 pt-0">
-                        <p class="fs-normal card-dark-grey mb-5">The <code>circle</code> prop gives you an alternate style for pagination buttons.</p>
+                        <p class="fs-normal greyBold--text mb-5">The <code>circle</code> prop gives you an alternate style for pagination buttons.</p>
                         <div class="text-center">
                             <v-pagination
                                 v-model="pageCircle"
@@ -154,7 +154,7 @@
                         </v-menu>
                     </v-card-title>
                     <v-card-text class="pa-5 pt-0">
-                        <p class="fs-normal card-dark-grey mb-5">Pagination items can be manually deactivated using the <code>disabled</code> prop.</p>
+                        <p class="fs-normal greyBold--text mb-5">Pagination items can be manually deactivated using the <code>disabled</code> prop.</p>
                         <div class="text-center">
                             <v-pagination
                                 length="3"

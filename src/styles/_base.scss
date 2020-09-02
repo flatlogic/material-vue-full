@@ -1,20 +1,25 @@
+@import "./variables";
+
 .v-application {
   .page-title {
     font-size: 2.4rem;
     color: $grey-tint;
     margin-bottom: 0;
   }
+
   .v-card {
     box-shadow: $card-shadow!important;
     .v-card__title p {
-      color: $card-title-color;
+      color: $grey-medium;
       line-height: 1.33;
       margin: 0;
       font-size: 20px;
       font-weight: 400;
     }
-    .card-dark-grey {
-      color: $grey-bold!important;
+    &.theme--dark {
+      .v-card__title p {
+        color: white;
+      }
     }
     .card-light-grey {
       color: $grey-medium!important;
@@ -76,18 +81,6 @@
 
   .fs-normal {
     font-size: 1rem;
-  }
-
-  //.v-main .v-card .v-card__text button.v-btn {
-  //  box-shadow: $button-shadow;
-  //}
-}
-
-.v-application.theme--dark {
-  .v-card {
-    .v-card__title p {
-      color: white;
-    }
   }
 }
 

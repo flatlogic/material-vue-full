@@ -28,7 +28,7 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal card-dark-grey mb-10">Badge generates a small badge to the top-right of its child(ren)</p>
+            <p class="fs-normal greyBold--text mb-10">Badge generates a small badge to the top-right of its child(ren)</p>
             <template v-for="badge in badgeExample" >
               <v-badge
                   :color="badge.content.toLocaleLowerCase()"
@@ -40,7 +40,7 @@
               </v-badge>
               <br :key="badge.content">
             </template>
-            <p class="fs-normal card-dark-grey mb-4">Badges can be used as part of links or buttons to provide a counter.</p>
+            <p class="fs-normal greyBold--text mb-4">Badges can be used as part of links or buttons to provide a counter.</p>
             <div class="w-100 d-flex justify-center">
               <v-badge
                   color="success"
@@ -85,7 +85,7 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal card-dark-grey">Badge can also be used as a parent of a icon</p>
+            <p class="fs-normal greyBold--text">Badge can also be used as a parent of a icon</p>
             <div class="d-flex justify-center mb-6">
               <template v-for="icon in iconBadges" >
                 <v-badge
@@ -135,7 +135,7 @@
                 </v-tabs>
               </v-toolbar>
             </template>
-            <p class="fs-normal card-dark-grey">You may to use dot badge via <code>dot</code> props</p>
+            <p class="fs-normal greyBold--text">You may to use dot badge via <code>dot</code> props</p>
             <div class="d-flex justify-center mb-8">
               <template v-for="icon in dotBadges" >
                 <v-badge
@@ -150,7 +150,7 @@
                 </v-badge>
               </template>
             </div>
-            <p class="fs-normal card-dark-grey">You can use the <code>bottom/top</code> and <code>left/right</code> properties to
+            <p class="fs-normal greyBold--text">You can use the <code>bottom/top</code> and <code>left/right</code> properties to
               move the badge to any corner of the wrapped element.</p>
             <div class="d-flex justify-center mb-2 ">
               <template v-for="badge in positionBadges" >
@@ -198,7 +198,7 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal card-dark-grey">Chips allow users to enter information, make selections, filter content, or trigger actions.</p>
+            <p class="fs-normal greyBold--text">Chips allow users to enter information, make selections, filter content, or trigger actions.</p>
             <div class="text-center mb-8">
               <template v-for="chip in chips">
                 <v-chip
@@ -210,7 +210,7 @@
                 </v-chip>
             </template>
             </div>
-            <p class="fs-normal card-dark-grey">Chips can use text or any icon available in the Material Icons font library.</p>
+            <p class="fs-normal greyBold--text">Chips can use text or any icon available in the Material Icons font library.</p>
             <div class="text-center">
               <template v-for="chip in chipsWithIcons">
                 <v-chip

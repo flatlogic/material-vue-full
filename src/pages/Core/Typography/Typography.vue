@@ -8,7 +8,7 @@
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
             <v-row no-gutters class="typography-widget pb-6">
-              <v-col cols="12" class="card-dark-grey">
+              <v-col cols="12" class="greyBold--text">
                 <h1>h1. Heading</h1>
                 <h2>h2. Heading</h2>
                 <h3>h3. Heading</h3>
@@ -27,7 +27,7 @@
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
             <v-row no-gutters class="typography-widget pb-6">
-              <v-col cols="12" class="card-dark-grey">
+              <v-col cols="12" class="greyBold--text">
                 <h1 class="primary--text">h1. Heading</h1>
                 <h2 class="success--text">h2. Heading</h2>
                 <h3 class="secondary--text">h3. Heading</h3>
@@ -48,7 +48,7 @@
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
             <v-row no-gutters class="typography-widget pb-6">
-              <v-col cols="12" class="card-dark-grey">
+              <v-col cols="12" class="greyBold--text">
                 <p class="font-weight-regular">Basic text</p>
                 <p class="font-weight-light">Basic light text</p>
                 <p class="font-weight-medium">Basic medium text</p>
@@ -69,7 +69,7 @@
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
             <v-row no-gutters class="typography-widget pb-6">
-              <v-col cols="12" class="card-dark-grey">
+              <v-col cols="12" class="greyBold--text">
                 <p class="text-caption">Heading Typography SM Font Size</p>
                 <p class="text-body-1">Heading Typography Regular Font Size</p>
                 <p class="text-h5">Heading Typography MD Font Size</p>

@@ -44,7 +44,7 @@
           </v-card-title>
           <v-card-text class="pa-5">
             <v-row no-gutters class="typography-widget pb-6">
-              <v-col cols="12" class="card-dark-grey">
+              <v-col cols="12" class="greyBold--text">
                 <h1 class="primary--text">h1. Heading</h1>
                 <h2 class="success--text">h2. Heading</h2>
                 <h3 class="secondary--text">h3. Heading</h3>

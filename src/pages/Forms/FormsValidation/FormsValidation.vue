@@ -35,7 +35,7 @@
             >
               <v-row>
                 <v-col cols="5" class="d-flex align-center">
-                  <p class="fs-normal card-dark-grey mb-0">Normal field</p>
+                  <p class="fs-normal greyBold--text mb-0">Normal field</p>
                 </v-col>
                 <v-col cols="7">
                   <v-text-field
@@ -47,7 +47,7 @@
                   ></v-text-field>
                 </v-col>
                 <v-col cols="5" class="d-flex align-center">
-                  <p class="fs-normal card-dark-grey mb-0">Email input</p>
+                  <p class="fs-normal greyBold--text mb-0">Email input</p>
                 </v-col>
                 <v-col cols="7"><v-text-field
                         v-model="firstForm.email"
@@ -56,7 +56,7 @@
                         required
                 ></v-text-field></v-col>
                 <v-col cols="5" class="d-flex align-center">
-                  <p class="fs-normal card-dark-grey mb-0">Simple select</p>
+                  <p class="fs-normal greyBold--text mb-0">Simple select</p>
                 </v-col>
                 <v-col cols="7"><v-select
                         v-model="firstForm.select"

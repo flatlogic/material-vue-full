@@ -1,16 +1,16 @@
 <template>
   <v-container fluid>
     <div class="dashboard-page">
-      <v-card width="100%">
-        <v-row no-gutters class="d-flex align-center mt-8 mb-3 px-5 py-1">
+      <v-card width="100%" class="breadcrumbs mx-1">
+        <v-row no-gutters class="d-flex align-center mt-8 mb-3 px-5 py-1 mx-1">
           <v-col cols="12" md="6" class="d-sm-flex justify-md-start justify-space-between align-center">
-            <h1 class="main-page-title mb-0 mr-2">Dashboard</h1>
+            <h1 class="main-page-title greyMedium--text mb-0 mr-2">Dashboard</h1>
             <div>
               <v-tabs color="secondary">
                 <v-tab
-                    class="text-capitalize"
-                    v-for="tab in tabs"
-                    :key="tab">
+                  class="text-capitalize font-weight-regular"
+                  v-for="tab in tabs"
+                  :key="tab">
                   {{ tab }}</v-tab>
               </v-tabs>
             </div>
@@ -91,7 +91,7 @@
             <v-card-text class="pa-5 pt-0">
               <v-row no-gutters class="pb-6">
                 <v-col cols="5" class="my-auto">
-                  <span class="font-weight-medium card-dark-grey" style="font-size: 24px;">12, 678</span>
+                  <span class="font-weight-medium greyBold--text" style="font-size: 24px;">12, 678</span>
                 </v-col>
                 <v-col cols="6">
                   <Trend
@@ -105,16 +105,16 @@
               </v-row>
               <v-row no-gutters class="justify-space-between pb-2">
                 <v-col cols="4" lg="5">
-                  <div class="card-light-grey">Registrations</div>
-                  <div class="text-h6 card-dark-grey font-weight-regular">860</div>
+                  <div class="greyMedium--text">Registrations</div>
+                  <div class="text-h6 greyBold--text font-weight-regular">860</div>
                 </v-col>
                 <v-col cols="3">
                   <div class="card-light-grey">Sign Out</div>
-                  <div class="text-h6 card-dark-grey font-weight-regular">32</div>
+                  <div class="text-h6 greyBold--text font-weight-regular">32</div>
                 </v-col>
                 <v-col cols="3">
                   <div class="card-light-grey">Rate</div>
-                  <div class=" text-h6 card-dark-grey font-weight-regular">3.25%</div>
+                  <div class=" text-h6 greyBold--text font-weight-regular">3.25%</div>
                 </v-col>
               </v-row>
             </v-card-text>
@@ -208,26 +208,26 @@
             </v-card-title>
             <v-card-text class="pa-5 pt-0">
               <v-row no-gutters>
-                <v-col cols="6" class="my-auto">
+                <v-col cols="8" class="my-auto">
                   <span>60% / 37°С / 3.3 Ghz</span>
                 </v-col>
-                <v-col cols="6">
+                <v-col cols="4">
                   <ApexChart v-if="apexLoading"  height="43" type="area" :options="mock.apexArea1.options" :series="mock.apexArea1.series"></ApexChart>
                 </v-col>
               </v-row>
               <v-row no-gutters>
-                <v-col cols="6" class="my-auto">
+                <v-col cols="8" class="my-auto">
                   <span>54% / 31°С / 3.3 Ghz</span>
                 </v-col >
-                <v-col cols="6">
+                <v-col cols="4">
                   <ApexChart v-if="apexLoading" height="43" type="area" :options="mock.apexArea2.options" :series="mock.apexArea2.series"></ApexChart>
                 </v-col>
               </v-row>
               <v-row no-gutters>
-                <v-col cols="6" class="my-auto">
+                <v-col cols="8" class="my-auto">
                   <span>57% / 21°С / 3.3 Ghz</span>
                 </v-col>
-                <v-col cols="6">
+                <v-col cols="4">
                   <ApexChart v-if="apexLoading" height="43" type="area" :options="mock.apexArea3.options" :series="mock.apexArea3.series"></ApexChart>
                 </v-col>
               </v-row>
@@ -277,9 +277,9 @@
                     <p>Daily Line Chart</p>
                   </v-col>
                   <v-col sm="6" md="6" lg="5" class="d-none d-sm-flex align-center">
-                    <v-icon color="warning">mdi-circle-medium</v-icon><span class="card-dark-grey font-weight-regular" style="font-size: 18px">Tablet</span>
-                    <v-icon color="primary">mdi-circle-medium</v-icon><span class="card-dark-grey font-weight-regular" style="font-size: 18px">Mobile</span>
-                    <v-icon color="#B1BCFF">mdi-circle-medium</v-icon><span class="card-dark-grey font-weight-regular" style="font-size: 18px">Desktop</span>
+                    <v-icon color="warning">mdi-circle-medium</v-icon><span class="greyBold--text font-weight-regular" style="font-size: 18px">Tablet</span>
+                    <v-icon color="primary">mdi-circle-medium</v-icon><span class="greyBold--text font-weight-regular" style="font-size: 18px">Mobile</span>
+                    <v-icon color="#B1BCFF">mdi-circle-medium</v-icon><span class="greyBold--text font-weight-regular" style="font-size: 18px">Desktop</span>
                   </v-col>
                   <v-col cols="5" sm="2" md="2" lg="1" offset-lg="1">
                     <v-menu>
@@ -347,7 +347,7 @@
             <v-card-text class="pa-5 pt-0">
               <v-row no-gutters>
                 <v-col cols="6" class="my-auto">
-                  <span class="" style="font-size: 42px">199 <span class="caption error--text">-3.7%</span> </span>
+                  <span class="greyMedium--text" style="font-size: 42px">199 <span class="caption error--text">-3.7%</span> </span>
                 </v-col>
                 <v-col cols="6">
                   <ApexChart

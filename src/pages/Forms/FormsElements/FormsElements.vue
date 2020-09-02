@@ -28,11 +28,11 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal card-dark-grey mb-5">A simple text field with placeholder and/or label.</p>
+            <p class="fs-normal greyBold--text mb-5">A simple text field with placeholder and/or label.</p>
             <v-form ref="form">
               <v-row>
                 <v-col cols="5" class="d-flex align-center">
-                  <p class="fs-normal card-dark-grey mb-0">Normal field</p>
+                  <p class="fs-normal greyBold--text mb-0">Normal field</p>
                 </v-col>
                 <v-col cols="7">
                   <v-text-field
@@ -40,7 +40,7 @@
                 ></v-text-field>
                 </v-col>
                 <v-col cols="5" class="d-flex align-center">
-                  <p class="fs-normal card-dark-grey mb-0">Label hint</p>
+                  <p class="fs-normal greyBold--text mb-0">Label hint</p>
                 </v-col>
                 <v-col cols="7">
                   <v-text-field
@@ -50,7 +50,7 @@
                 ></v-text-field>
                 </v-col>
                 <v-col cols="5" class="d-flex align-center">
-                  <p class="fs-normal card-dark-grey mb-0">Disable input</p>
+                  <p class="fs-normal greyBold--text mb-0">Disable input</p>
                 </v-col>
                 <v-col cols="7">
                   <v-text-field
@@ -58,7 +58,7 @@
                     label="Disable"
                 ></v-text-field></v-col>
                 <v-col cols="5" class="d-flex align-center">
-                  <p class="fs-normal card-dark-grey mb-0">Prepended input</p>
+                  <p class="fs-normal greyBold--text mb-0">Prepended input</p>
                 </v-col>
                 <v-col cols="7">
                   <v-text-field
@@ -67,7 +67,7 @@
                   ></v-text-field>
                 </v-col>
                 <v-col cols="5" class="d-flex align-center">
-                  <p class="fs-normal card-dark-grey mb-0">Password</p>
+                  <p class="fs-normal greyBold--text mb-0">Password</p>
                 </v-col>
                 <v-col cols="7">
                   <v-text-field
@@ -77,7 +77,7 @@
                   ></v-text-field>
                 </v-col>
                 <v-col cols="5" class="d-flex align-center">
-                  <p class="fs-normal card-dark-grey mb-0">Appended input</p>
+                  <p class="fs-normal greyBold--text mb-0">Appended input</p>
                 </v-col>
                 <v-col cols="7">
                   <v-text-field
@@ -117,10 +117,10 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal card-dark-grey mb-5">You can reduces the text field height with <code>dense</code> prop.</p>
+            <p class="fs-normal greyBold--text mb-5">You can reduces the text field height with <code>dense</code> prop.</p>
             <v-row>
               <v-col cols="5" class="d-flex align-center">
-                <p class="fs-normal card-dark-grey mb-0">Normal field</p>
+                <p class="fs-normal greyBold--text mb-0">Normal field</p>
               </v-col>
               <v-col cols="7">
                 <v-text-field
@@ -129,7 +129,7 @@
                 ></v-text-field>
               </v-col>
               <v-col cols="5" class="d-flex align-center">
-                <p class="fs-normal card-dark-grey mb-0">Filled field</p>
+                <p class="fs-normal greyBold--text mb-0">Filled field</p>
               </v-col>
               <v-col cols="7">
                 <v-text-field
@@ -139,7 +139,7 @@
                 ></v-text-field>
               </v-col>
               <v-col cols="5" class="d-flex align-center">
-                <p class="fs-normal card-dark-grey mb-0">Dense & Rounded</p>
+                <p class="fs-normal greyBold--text mb-0">Dense & Rounded</p>
               </v-col>
               <v-col cols="7">
                 <v-text-field
@@ -151,7 +151,7 @@
                 ></v-text-field>
               </v-col>
               <v-col cols="5" class="d-flex align-center">
-                <p class="fs-normal card-dark-grey mb-0">Solo</p>
+                <p class="fs-normal greyBold--text mb-0">Solo</p>
               </v-col>
               <v-col cols="7">
                 <v-text-field
@@ -161,7 +161,7 @@
                 ></v-text-field>
               </v-col>
               <v-col cols="5" class="d-flex align-center">
-                <p class="fs-normal card-dark-grey mb-0">Outlined</p>
+                <p class="fs-normal greyBold--text mb-0">Outlined</p>
               </v-col>
               <v-col cols="7">
                 <v-text-field
@@ -171,7 +171,7 @@
                 ></v-text-field>
               </v-col>
               <v-col cols="5" class="d-flex align-center">
-                <p class="fs-normal card-dark-grey mb-0">Outlined</p>
+                <p class="fs-normal greyBold--text mb-0">Outlined</p>
               </v-col>
               <v-col cols="7">
                 <v-text-field

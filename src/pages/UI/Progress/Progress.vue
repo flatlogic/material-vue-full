@@ -28,7 +28,7 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal card-dark-grey mb-5">Using the <code>indeterminate</code> prop, <code>v-progress-linear</code> continuously animates.</p>
+            <p class="fs-normal greyBold--text mb-5">Using the <code>indeterminate</code> prop, <code>v-progress-linear</code> continuously animates.</p>
             <template v-for="prog in progress">
               <v-progress-linear
                 :key="prog.id * 3"
@@ -67,7 +67,7 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal card-dark-grey mb-5">The progress linear component can have a determinate state modified by <code>v-model</code>.</p>
+            <p class="fs-normal greyBold--text mb-5">The progress linear component can have a determinate state modified by <code>v-model</code>.</p>
             <template v-for="prog in progress">
               <v-progress-linear
                 :key="prog.id2 * 10"
@@ -106,7 +106,7 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal card-dark-grey mb-5">The <code>stream</code> property works with buffer-value to convey to the user
+            <p class="fs-normal greyBold--text mb-5">The <code>stream</code> property works with buffer-value to convey to the user
               that there is some action taking place. You can use any combination of <code>buffer-value</code> and <code>value</code> to achieve your design.</p>
             <template v-for="prog in progress">
               <v-progress-linear
@@ -148,7 +148,7 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal card-dark-grey mb-5">The <code>stream</code> property works with buffer-value to convey to the user
+            <p class="fs-normal greyBold--text mb-5">The <code>stream</code> property works with buffer-value to convey to the user
               that there is some action taking place. You can use any combination of <code>buffer-value</code> and <code>value</code> to achieve your design.</p>
             <template v-for="prog in progress">
               <v-progress-linear
@@ -192,7 +192,7 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal card-dark-grey mb-5">The <code>v-progress-circular</code> component is used to convey data circularly to
+            <p class="fs-normal greyBold--text mb-5">The <code>v-progress-circular</code> component is used to convey data circularly to
               users.</p>
             <div class="d-flex justify-space-around">
               <template v-for="circle in progressCircle">
@@ -233,7 +233,7 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal card-dark-grey mb-5">Using the <code>indeterminate</code> prop, a <code>v-progress-circular</code> continues to animate indefinitely.</p>
+            <p class="fs-normal greyBold--text mb-5">Using the <code>indeterminate</code> prop, a <code>v-progress-circular</code> continues to animate indefinitely.</p>
             <div class="d-flex justify-space-around">
               <template v-for="circle in progressCircle">
                 <v-progress-circular
@@ -273,7 +273,7 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal card-dark-grey mb-5">The <code>size</code> and <code>width</code> props allow you to easily
+            <p class="fs-normal greyBold--text mb-5">The <code>size</code> and <code>width</code> props allow you to easily
               alter the size and width of the component.</p>
             <div class="d-flex justify-space-around align-center">
               <template v-for="circle in progressCircle">
@@ -316,7 +316,7 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal card-dark-grey mb-5">The <code>rotate</code> prop gives you the ability to customize the <code>v-progress-circular</code>'s origin.</p>
+            <p class="fs-normal greyBold--text mb-5">The <code>rotate</code> prop gives you the ability to customize the <code>v-progress-circular</code>'s origin.</p>
             <div class="d-flex justify-space-around align-center">
               <template v-for="circle in progressCircleRotate">
                 <v-progress-circular

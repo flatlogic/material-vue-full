@@ -9,10 +9,10 @@
     >
     <v-btn icon class="mx-1" @click.stop="TOGGLE_DRAWER">
       <template v-if="DRAWER_STATE">
-        <v-icon  style="font-size: 28px">mdi-arrow-left</v-icon>
+        <v-icon size="28">mdi-arrow-left</v-icon>
       </template>
       <template v-else>
-        <v-icon style="font-size: 28px">mdi-menu</v-icon>
+        <v-icon size="28">mdi-menu</v-icon>
       </template>
     </v-btn>
     <v-toolbar-title>Vue Material Admin</v-toolbar-title>
@@ -42,7 +42,7 @@
             overlap
           >
             <v-icon
-              style="font-size: 28px"
+              size="28"
               :color="config.light.iconColor"
             >mdi-bell-outline</v-icon>
           </v-badge>

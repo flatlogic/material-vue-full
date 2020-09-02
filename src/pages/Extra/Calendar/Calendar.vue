@@ -7,7 +7,7 @@
             <p>Drag and Drop</p>
           </v-card-title>
           <v-card-text>
-            <p class="fs-normal card-dark-grey mb-5">This is an example of an event calendar where you can drag events, extend their length, and create events.</p>
+            <p class="fs-normal greyBold--text mb-5">This is an example of an event calendar where you can drag events, extend their length, and create events.</p>
             <v-sheet height="686">
               <v-calendar
                       ref="calendar"
@@ -46,7 +46,7 @@
             <p>Events</p>
           </v-card-title>
           <v-card-text>
-            <p class="fs-normal card-dark-grey mb-5">This is an example of a planner with additional event handlers and external components controlling the display of the calendar.</p>
+            <p class="fs-normal greyBold--text mb-5">This is an example of a planner with additional event handlers and external components controlling the display of the calendar.</p>
             <v-sheet height="64">
               <v-toolbar flat color="white">
                 <v-btn outlined class="mr-4" color="grey darken-2" @click="setToday">

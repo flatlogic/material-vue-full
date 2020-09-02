@@ -1,9 +1,22 @@
 @import "../../styles/app";
 
 .dashboard-page {
+  .breadcrumbs {
+    .theme--dark.v-tabs > .v-tabs-bar {
+      background-color: transparent;
+      .v-tab--active {
+        color: white;
+      }
+    }
+    .theme--dark.v-text-field--solo > .v-input__control > .v-input__slot {
+      background-color: transparent;
+    }
+    .v-text-field.v-text-field--solo.v-input--dense {
+      margin-top: 9px;
+    }
+  }
   .main-page-title {
     font-size: 20px;
-    color: $grey-medium;
     font-weight: 500;
   }
   .apexcharts-legend-series {
@@ -54,4 +67,7 @@
 }
 .button-shadow {
   box-shadow: $button-shadow;
+  &.theme--dark {
+    box-shadow: none;
+  }
 }
