@@ -105,15 +105,15 @@
               </v-row>
               <v-row no-gutters class="justify-space-between pb-2">
                 <v-col cols="4" lg="5">
-                  <div class="greyMedium--text">Registrations</div>
+                  <div class="greyTint--text">Registrations</div>
                   <div class="text-h6 greyBold--text font-weight-regular">860</div>
                 </v-col>
                 <v-col cols="3">
-                  <div class="card-light-grey">Sign Out</div>
+                  <div class="greyTint--text">Sign Out</div>
                   <div class="text-h6 greyBold--text font-weight-regular">32</div>
                 </v-col>
                 <v-col cols="3">
-                  <div class="card-light-grey">Rate</div>
+                  <div class="greyTint--text">Rate</div>
                   <div class=" text-h6 greyBold--text font-weight-regular">3.25%</div>
                 </v-col>
               </v-row>
@@ -150,16 +150,16 @@
               <v-row no-gutters class="pb-3">
                 <div class="mr-4">
                   <v-icon color="primary" class="ml-n2"> mdi-circle-medium </v-icon>
-                  <span class="card-light-grey">Integration</span>
+                  <span class="greyTint--text">Integration</span>
                 </div>
                 <div>
                   <v-icon color="warning"> mdi-circle-medium </v-icon>
-                  <span class="card-light-grey">SDK</span>
+                  <span class="greyTint--text">SDK</span>
                 </div>
               </v-row>
               <v-row no-gutters class="pb-3">
                 <v-col>
-                  <div class="text-h6 card-light-grey font-weight-regular">Integration</div>
+                  <div class="text-h6 greyBold--text font-weight-regular">Integration</div>
                   <v-progress-linear
                     :value=value
                     background-color="#ececec"
@@ -169,7 +169,7 @@
               </v-row>
               <v-row no-gutters class="pb-3">
                 <v-col>
-                  <div class="text-h6 card-light-grey font-weight-regular">SDK</div>
+                  <div class="text-h6 greyBold--text font-weight-regular">SDK</div>
                   <v-progress-linear
                     :value=value2
                     background-color="#ececec"
@@ -209,7 +209,7 @@
             <v-card-text class="pa-5 pt-0">
               <v-row no-gutters>
                 <v-col cols="8" class="my-auto">
-                  <span>60% / 37°С / 3.3 Ghz</span>
+                  <span class="greyBold--text">60% / 37°С / 3.3 Ghz</span>
                 </v-col>
                 <v-col cols="4">
                   <ApexChart v-if="apexLoading"  height="43" type="area" :options="mock.apexArea1.options" :series="mock.apexArea1.series"></ApexChart>
@@ -217,7 +217,7 @@
               </v-row>
               <v-row no-gutters>
                 <v-col cols="8" class="my-auto">
-                  <span>54% / 31°С / 3.3 Ghz</span>
+                  <span class="greyBold--text">54% / 31°С / 3.3 Ghz</span>
                 </v-col >
                 <v-col cols="4">
                   <ApexChart v-if="apexLoading" height="43" type="area" :options="mock.apexArea2.options" :series="mock.apexArea2.series"></ApexChart>
@@ -225,7 +225,7 @@
               </v-row>
               <v-row no-gutters>
                 <v-col cols="8" class="my-auto">
-                  <span>57% / 21°С / 3.3 Ghz</span>
+                  <span class="greyBold--text">57% / 21°С / 3.3 Ghz</span>
                 </v-col>
                 <v-col cols="4">
                   <ApexChart v-if="apexLoading" height="43" type="area" :options="mock.apexArea3.options" :series="mock.apexArea3.series"></ApexChart>
@@ -235,7 +235,7 @@
           </v-card>
         </v-col>
         <v-col lg=3 sm=6 md=4 cols=12>
-          <v-card  class="ma-1">
+          <v-card class="ma-1">
             <v-card-title class="pa-5 pb-3">
               <p>Revenue Breakdown</p>
               <v-spacer></v-spacer>
@@ -263,7 +263,7 @@
             <v-card-text class="pa-5 pt-0">
               <v-row no-gutters>
                 <v-col >
-                  <ApexChart v-if="apexLoading" height="126" type="donut" :options="mock.apexPie.options" :series="generatePieSeries()"></ApexChart>
+                  <ApexChart v-if="apexLoading" height="126" type="donut" :options="mock.apexPie.options" :series="mock.apexPie.series"></ApexChart>
                 </v-col>
               </v-row>
             </v-card-text>
@@ -347,7 +347,7 @@
             <v-card-text class="pa-5 pt-0">
               <v-row no-gutters>
                 <v-col cols="6" class="my-auto">
-                  <span class="greyMedium--text" style="font-size: 42px">199 <span class="caption error--text">-3.7%</span> </span>
+                  <span class="" style="font-size: 42px">199 <span class="caption error--text">-3.7%</span> </span>
                 </v-col>
                 <v-col cols="6">
                   <ApexChart

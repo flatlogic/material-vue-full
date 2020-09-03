@@ -123,7 +123,10 @@ export default {
           height: 12,
           radius: 3
         }
-      }
+      },
+      stroke: {
+        show: false,
+      },
     },
     series: [400, 300, 300, 200],
   },

@@ -18,11 +18,8 @@
     }
     &.theme--dark {
       .v-card__title p {
-        color: white;
+        color: $grey-tint;
       }
-    }
-    .card-light-grey {
-      color: $grey-medium!important;
     }
   }
   .v-navigation-drawer {

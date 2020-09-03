@@ -10,12 +10,12 @@
            <v-card-text class="pa-5 pt-0">
              <p>There are few position options available for notifications. You can click any of them to change notifications position:</p>
              <div class="location-selector">
-               <div class="bit top left" :class="position === 'top-left' ? 'active' : ''" @click="toggleLocation('top-left')"/>
-               <div class="bit top right" :class="position === 'top-right' ? 'active' : ''" @click="toggleLocation('top-right')"/>
-               <div class="bit top center" :class="position === 'top-center' ? 'active' : ''" @click="toggleLocation('top-center')"/>
-               <div class="bit bottom left" :class="position === 'bottom-left' ? 'active' : ''" @click="toggleLocation('bottom-left')"/>
-               <div class="bit bottom right" :class="position === 'bottom-right' ? 'active' : ''" @click="toggleLocation('bottom-right')"/>
-               <div class="bit bottom center" :class="position === 'bottom-center' ? 'active' : ''" @click="toggleLocation('bottom-center')"/>
+               <div class="bit top left" :class="(y === 'top' && x === 'left') ? 'active' : ''" @click="toggleLocation('top', 'left')"/>
+               <div class="bit top right" :class="(y === 'top' && x === 'right') ? 'active' : ''" @click="toggleLocation('top', 'right')"/>
+               <div class="bit top center" :class="(y === 'top' && x === 'center') ? 'active' : ''" @click="toggleLocation('top', 'center')"/>
+               <div class="bit bottom left" :class="(y === 'bottom' && x === 'left') ? 'active' : ''" @click="toggleLocation('bottom', 'left')"/>
+               <div class="bit bottom right" :class="(y === 'bottom' && x === 'right') ? 'active' : ''" @click="toggleLocation('bottom', 'right')"/>
+               <div class="bit bottom center" :class="(y === 'bottom' && x === 'center') ? 'active' : ''" @click="toggleLocation('bottom', 'center')"/>
               <div class="text-position">Click any position</div>
              </div>
            </v-card-text>
@@ -156,10 +156,33 @@ import "vue-toastification/dist/index.css";</span>
         </v-card>
       </v-col>
     </v-row>
+    <v-snackbar
+        v-model="snackbar"
+        :bottom="y === 'bottom'"
+        :color="color"
+        :left="x === 'left'"
+        :right="x === 'right'"
+        :top="y === 'top'"
+    >
+      {{ text }}
+
+      <template v-slot:action="{ attrs }">
+        <v-btn
+            dark
+            text
+            v-bind="attrs"
+            @click="snackbar = false"
+        >
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
   </v-container>
 </template>
 
 <script>
+
+import config from "@/config";
 
 export default {
   name: 'Notifications',
@@ -273,58 +296,37 @@ export default {
           color: '#eedcff',
         },
       ],
-      position: 'top-right'
+
+      color: '',
+      snackbar: false,
+      text: 'Hello, I\'m a snackbar',
+      timeout: 6000,
+      x: 'center',
+      y: 'top',
     }
   },
   methods: {
     addInfoNotification() {
-      this.$toast.info("New user feedback received", {
-        position: this.position,
-        timeout: 6000,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        draggablePercent: 0.6,
-        showCloseButtonOnHover: false,
-        hideProgressBar: true,
-        closeButton: "button",
-        icon: true
-      });
+      this.snackbar = true;
+      this.color = config.light.primary;
+      this.text = "New user feedback received";
     },
     addErrorNotification() {
-      this.$toast.error("Message was not sent!", {
-        position: this.position,
-        timeout: 6000,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        draggablePercent: 0.6,
-        showCloseButtonOnHover: false,
-        hideProgressBar: true,
-        closeButton: "button",
-        icon: true
-      });
+      this.snackbar = true;
+      this.color = config.light.secondary;
+      this.text = "Message was not sent!";
     },
     addSuccessNotification() {
-      this.$toast.success("The item was shipped", {
-        position: this.position,
-        timeout: 6000,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        draggablePercent: 0.6,
-        showCloseButtonOnHover: false,
-        hideProgressBar: true,
-        closeButton: "button",
-        icon: true
-      });
+      this.snackbar = true;
+      this.color = config.light.success;
+      this.text = "The item was shipped";
     },
 
-    toggleLocation(position) {
-      this.position = position;
-      this.$toasted.options.position = this.position;
-      this.$toasted.show(null);
+    toggleLocation(y,x) {
+      this.x = x;
+      this.y = y;
     },
+
   }
 };
 

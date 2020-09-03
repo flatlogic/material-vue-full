@@ -7,10 +7,10 @@
   resolved "https://registry.yarnpkg.com/@amcharts/amcharts4-geodata/-/amcharts4-geodata-4.1.17.tgz#4c2a3c46254763f8abce887375f4ba9185bff94f"
   integrity sha512-ylzshiOq/aMRlVrRq8dOznZP7fp4xg/XkmhTjGm2dN6O1WqvoVBBOOnGyzrmb2gBlqN5zj59PQyOqSDyQUNe/Q==
 
-"@amcharts/amcharts4@^4.9.35":
-  version "4.9.35"
-  resolved "https://registry.yarnpkg.com/@amcharts/amcharts4/-/amcharts4-4.9.35.tgz#8f6a65d96815ad9db67222af7399aa4b05666bed"
-  integrity sha512-+iYmGxXjpZUZeCN6oB3LpeBuJgmavIOphmLuDEpsPx8GKGOObm0QRq/bUz2GJwgncpR3sQ7rxOghJMRYvlgNcg==
+"@amcharts/amcharts4@^4.9.37":
+  version "4.10.0"
+  resolved "https://registry.yarnpkg.com/@amcharts/amcharts4/-/amcharts4-4.10.0.tgz#60b962d50b3b623ca4e15234afbc287f4175e71b"
+  integrity sha512-hZEc0+j1kNV3d5EOPSWYoFJZI/8h62U1HnbwfRUb9Fe7JJ0VA3+1637UT78VviRNNYwApgYJDeWHaf3Q8cA7Gg==
   dependencies:
     "@babel/runtime" "^7.6.3"
     "@types/regression" "^2.0.0"
@@ -4574,10 +4574,10 @@ highcharts-vue@^1.3.5:
   resolved "https://registry.yarnpkg.com/highcharts-vue/-/highcharts-vue-1.3.5.tgz#9a3e5f6050bf0227c19238433abfb17ab7262db3"
   integrity sha512-By1kc3m8XoI20pMshs/ue69j4rH6eQioDPoIrtC20RTti4QyvNAx8DisGSO3GAWe9sn50hPk8NsyxcwZIGaz3Q==
 
-highcharts@^8.1.2:
-  version "8.1.2"
-  resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-8.1.2.tgz#a4e7d74a6140028e676a3a54f5fd0ea6ccbcc90e"
-  integrity sha512-Q124Lj+2+bVY2MKMd7d8uSVAmhZVzWgknUUzUBEC27S94dCyK6PBgahuwiMP/ET4w7qSFBBi4OC77ZUb0Vnuyg==
+highcharts@^8.2.0:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-8.2.0.tgz#3d4893015caf1a7c9ed85284d983911e844649f3"
+  integrity sha512-s3R7UEaMWUDJNxFfdjuiOtI8rnSvhEZUNN4TA7LiDRc9Tw7DUKvTv5WXSTYzxojokLbybwwlf9t3jg/meAUTnQ==
 
 highlight.js@^9.6.0:
   version "9.18.3"
@@ -8994,10 +8994,10 @@ vue-loader@^15.9.2:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
-vue-router@^3.4.2:
-  version "3.4.2"
-  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.4.2.tgz#541221d7ac467786c1c9381bcf36019d883b9cf8"
-  integrity sha512-n3Ok70hW0EpcJF4lcWIwSHAQbFTnIOLl/fhO8+oTs4jHNtBNsovcVvPZeTOyKEd8C3xF1Crft2ASuOiVT5K1mw==
+vue-router@^3.4.3:
+  version "3.4.3"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.4.3.tgz#fa93768616ee338aa174f160ac965167fa572ffa"
+  integrity sha512-BADg1mjGWX18Dpmy6bOGzGNnk7B/ZA0RxuA6qedY/YJwirMfKXIDzcccmHbQI0A6k5PzMdMloc0ElHfyOoX35A==
 
 vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
   version "4.1.2"
@@ -9019,11 +9019,6 @@ vue-template-es2015-compiler@^1.9.0:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
-
-vue-toastification@^1.7.6:
-  version "1.7.6"
-  resolved "https://registry.yarnpkg.com/vue-toastification/-/vue-toastification-1.7.6.tgz#c720ed5a2e0182f1fd45c562a7858f45539a9918"
-  integrity sha512-+Nezz/mXglufIaZ+0EAUDYm4Qc4sRPKu7bOX1WMoc0PrYAOVGzEafN7xW7KlVERijk7wUbMtAP9dP1tSMWV4Yw==
 
 vue2-google-maps@^0.10.7:
   version "0.10.7"
