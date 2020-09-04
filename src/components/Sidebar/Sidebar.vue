@@ -48,11 +48,14 @@
           </template>
           <template v-slot:activator >
             <v-list-item-content>
+                <v-badge v-if="item.badge" content="new" color="secondary" style="position: absolute">
                   <v-list-item-title>
-                      {{ item.title }}
-                  </v-list-item-title>
+                        {{ item.title }}
+                    </v-list-item-title>
+                </v-badge>
               </v-list-item-content>
           </template>
+
           <v-list-item
             v-for="(child, i) in item.children"
             :key="i"
@@ -64,9 +67,13 @@
               <v-icon size="">{{ child.icon }}</v-icon>
             </v-list-item-action>
             <v-list-item-content>
-              <v-list-item-title>
-                {{ child.title }}
-              </v-list-item-title>
+
+                <v-list-item-title>
+                  {{ child.title }}
+                </v-list-item-title>
+
+
+
             </v-list-item-content>
           </v-list-item>
         </v-list-group>
@@ -122,6 +129,7 @@
             title: 'User',
             icon: 'mdi-account',
             model: false,
+            badge: true,
             children: [
               { title: 'User List', icon: 'mdi-circle-small', link: '/user/list' },
               { title: 'User Add', icon: 'mdi-circle-small', link: '/user/add' },

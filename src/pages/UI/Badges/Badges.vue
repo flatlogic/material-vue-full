@@ -31,10 +31,10 @@
             <p class="fs-normal greyBold--text mb-10">Badge generates a small badge to the top-right of its child(ren)</p>
             <template v-for="badge in badgeExample" >
               <v-badge
-                  :color="badge.content.toLocaleLowerCase()"
-                  :content="badge.content"
-                  :key="badge.id"
-                  class="mb-2"
+                :color="badge.content.toLocaleLowerCase()"
+                :content="badge.content"
+                :key="badge.id"
+                class="mb-2"
               >
                 <div v-html="badge.html"></div>
               </v-badge>
