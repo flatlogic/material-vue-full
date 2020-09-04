@@ -63,9 +63,9 @@
       </v-card>
       <v-row>
         <v-col lg=3 sm=6 md=4 cols=12>
-          <v-card class="ma-1">
-            <v-card-title class="pa-5 pb-3">
-              <p>Visits Today</p>
+          <v-card class="ma-1" height="240">
+            <v-card-title class="pa-5 pb-0">
+              <p>Support Tracker</p>
               <v-spacer></v-spacer>
               <v-menu>
                 <template v-slot:activator="{ on, attrs }">
@@ -89,33 +89,41 @@
               </v-menu>
             </v-card-title>
             <v-card-text class="pa-5 pt-0">
-              <v-row no-gutters class="pb-6">
+              <v-row no-gutters class="pb-0">
                 <v-col cols="5" class="my-auto">
-                  <span class="font-weight-medium greyBold--text" style="font-size: 24px;">12, 678</span>
+                  <span class="font-weight-medium greyBold--text" style="font-size: 24px;">543</span>
+                  <p class="greyBold--text mb-0">Tickets</p>
                 </v-col>
                 <v-col cols="6">
-                  <Trend
-                    :data="getRandomDataForTrends()"
-                    :gradient="mock.trend.gradient"
-                    :height="40"
-                    stroke-width="4"
-                    smooth
-                  />
+                  <ApexChart v-if="apexLoading" height="120" :options="mock.apexPie1.options" :series="mock.apexPie1.series"></ApexChart>
                 </v-col>
               </v-row>
-              <v-row no-gutters class="justify-space-between pb-2">
-                <v-col cols="4" lg="5">
-                  <div class="greyTint--text">Registrations</div>
-                  <div class="text-h6 greyBold--text font-weight-regular">860</div>
+              <v-row no-gutters class="pb-0" justify="space-between">
+
+                <v-col cols="4" lg="5" class="d-flex flex-column align-center">
+                  <p class="greyTint--text my-0" style="font-size: 12px">New Tickets</p>
+                  <div class="">
+                    <span class="greyBold--text font-weight-regular" style="font-size: 16px">45</span>
+                    <v-icon color="success">mdi-circle-small</v-icon>
+                  </div>
                 </v-col>
-                <v-col cols="3">
-                  <div class="greyTint--text">Sign Out</div>
-                  <div class="text-h6 greyBold--text font-weight-regular">32</div>
+
+                <v-col cols="2" lg="4" class="d-flex flex-column align-center">
+                  <p class="greyTint--text my-0" style="font-size: 12px">Open</p>
+                  <div class="d-flex flex-row justify-start">
+                    <span class="greyBold--text font-weight-regular"  style="font-size: 16px">147</span>
+                    <v-icon color="warning">mdi-circle-small</v-icon>
+                  </div>
                 </v-col>
-                <v-col cols="3">
-                  <div class="greyTint--text">Rate</div>
-                  <div class=" text-h6 greyBold--text font-weight-regular">3.25%</div>
+
+                <v-col cols="3" class="d-flex flex-column align-center">
+                  <p class="greyTint--text my-0" style="font-size: 12px">Rate</p>
+                  <div class="">
+                    <span class="greyBold--text font-weight-regular"  style="font-size: 16px">351</span>
+                    <v-icon class="pl-0" color="primary">mdi-circle-small</v-icon>
+                  </div>
                 </v-col>
+
               </v-row>
             </v-card-text>
           </v-card>
@@ -147,7 +155,7 @@
               </v-menu>
             </v-card-title>
             <v-card-text class="pa-5 pt-0">
-              <v-row no-gutters class="pb-3">
+              <v-row no-gutters class="pb-6">
                 <div class="mr-4">
                   <v-icon color="primary" class="ml-n2"> mdi-circle-medium </v-icon>
                   <span class="greyTint--text">Integration</span>
@@ -157,7 +165,7 @@
                   <span class="greyTint--text">SDK</span>
                 </div>
               </v-row>
-              <v-row no-gutters class="pb-3">
+              <v-row no-gutters class="pb-4">
                 <v-col>
                   <div class="text-h6 greyBold--text font-weight-regular">Integration</div>
                   <v-progress-linear
@@ -167,7 +175,7 @@
                   ></v-progress-linear>
                 </v-col>
               </v-row>
-              <v-row no-gutters class="pb-3">
+              <v-row no-gutters class="pb-4">
                 <v-col>
                   <div class="text-h6 greyBold--text font-weight-regular">SDK</div>
                   <v-progress-linear
@@ -207,7 +215,7 @@
               </v-menu>
             </v-card-title>
             <v-card-text class="pa-5 pt-0">
-              <v-row no-gutters>
+              <v-row class="mb-2" no-gutters>
                 <v-col cols="8" class="my-auto">
                   <span class="greyBold--text">60% / 37°С / 3.3 Ghz</span>
                 </v-col>
@@ -215,7 +223,7 @@
                   <ApexChart v-if="apexLoading"  height="43" type="area" :options="mock.apexArea1.options" :series="mock.apexArea1.series"></ApexChart>
                 </v-col>
               </v-row>
-              <v-row no-gutters>
+              <v-row class="mb-2" no-gutters>
                 <v-col cols="8" class="my-auto">
                   <span class="greyBold--text">54% / 31°С / 3.3 Ghz</span>
                 </v-col >
@@ -223,7 +231,7 @@
                   <ApexChart v-if="apexLoading" height="43" type="area" :options="mock.apexArea2.options" :series="mock.apexArea2.series"></ApexChart>
                 </v-col>
               </v-row>
-              <v-row no-gutters>
+              <v-row class="mb-2" no-gutters>
                 <v-col cols="8" class="my-auto">
                   <span class="greyBold--text">57% / 21°С / 3.3 Ghz</span>
                 </v-col>
@@ -235,7 +243,7 @@
           </v-card>
         </v-col>
         <v-col lg=3 sm=6 md=4 cols=12>
-          <v-card class="ma-1">
+          <v-card class="ma-1" height="240">
             <v-card-title class="pa-5 pb-3">
               <p>Revenue Breakdown</p>
               <v-spacer></v-spacer>
@@ -263,7 +271,13 @@
             <v-card-text class="pa-5 pt-0">
               <v-row no-gutters>
                 <v-col >
-                  <ApexChart v-if="apexLoading" height="126" type="donut" :options="mock.apexPie.options" :series="mock.apexPie.series"></ApexChart>
+                  <ApexChart
+                    v-if="apexLoading"
+                    height="120"
+                    type="donut"
+                    :options="mock.apexPie.options"
+                    :series="mock.apexPie.series">
+                  </ApexChart>
                 </v-col>
               </v-row>
             </v-card-text>
@@ -580,15 +594,14 @@
 </template>
 
 <script>
-  import mock from './mock';
-  import Trend from 'vuetrend'
+  import mock from './mock'
   import ApexChart from 'vue-apexcharts'
   import moment from 'moment'
 
   export default {
     name: 'Dashboard',
     components: {
-      Trend, ApexChart
+      ApexChart
     },
     data() {
       return {

@@ -42,9 +42,6 @@ export default {
       },
     },
   ],
-  trend: {
-    gradient: [config.light.success]
-  },
   table: [
     {
       id: 0,
@@ -112,6 +109,9 @@ export default {
   select: ['Daily', 'Weekly', 'Monthly'],
   apexPie: {
     options: {
+      chart: {
+        height: 150
+      },
       dataLabels: {
         enabled: false
       },
@@ -129,6 +129,44 @@ export default {
       },
     },
     series: [400, 300, 300, 200],
+  },
+  apexPie1: {
+    options: {
+      chart: {
+        type: 'radialBar'
+      },
+      dataLabels: {
+        enabled: false
+      },
+      colors: [config.light.primary],
+      legend: {
+        show: false,
+      },
+      stroke: {
+        dashArray: 4
+      },
+      plotOptions: {
+        radialBar: {
+          startAngle: -180,
+          endAngle: 180,
+          hollow: {
+            size: '55',
+          },
+          dataLabels: {
+            name: {
+              show: false,
+            },
+            value: {
+              show: true,
+              offsetY: 8,
+              fontSize: '16px',
+              color: config.light.greyTint
+            },
+          }
+        }
+      }
+    },
+    series: [64],
   },
   apexArea1: {
     options: {
