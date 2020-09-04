@@ -3,21 +3,43 @@
     <v-row>
       <v-col lg=6 cols=12>
         <v-card class="mx-1 mb-1">
-          <v-card-title class="pa-5 pb-3">
+          <v-card-title class="pa-5 pb-4">
             <p>How it works</p>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal greyBold--text mb-10">Material UI’s grid system uses a series of containers, rows, and
+            <p class="fs-normal greyBold--text mb-5">Vuetify's grid system uses a series of containers, rows, and
               columns to layout and align content. It’s built with flexbox and is fully responsive.</p>
             <v-row justify="space-between">
-              <v-col cols="3" class="primary rounded ma-2 d-flex justify-center" style="height: 50px">
-                <h6 class="white--text">One of three</h6>
+              <v-col cols="3" class="primary rounded ma-2 d-flex justify-center">
+                <h6 class="white--text mb-0">One of three</h6>
               </v-col>
-              <v-col cols="3" class="secondary rounded ma-2 d-flex justify-center" style="height: 50px">
-                <h6 class="white--text">One of three</h6>
+              <v-col cols="3" class="secondary rounded ma-2 d-flex justify-center">
+                <h6 class="white--text mb-0">One of three</h6>
               </v-col>
               <v-col cols="3" class="warning rounded ma-2 d-flex justify-center" style="height: 50px">
                 <h6 class="white--text">One of three</h6>
+              </v-col>
+              <v-col cols="12" class="mt-3">
+                            <pre>
+&lt;<span>v-row</span> <span>justify</span>=<span><span>"</span><span>space-between</span><span>"</span></span>&gt;
+  &lt;<span>v-col</span> <span>cols</span>=<span><span>"3"</span></span> <span>class</span>=<span>"<span>primary</span>"</span>&gt;
+    &lt;<span>h6</span><span> <span>class=</span><span class="pl-pds">"white--text"</span></span>&gt;
+      One of three
+    &lt;<span>h6/</span>&gt;
+  &lt;<span>v-col</span>&gt;
+
+  &lt;<span>v-col</span> <span>cols</span>=<span><span>"3"</span></span> <span>class</span>=<span>"<span>primary</span>"</span>&gt;
+    &lt;<span>h6</span><span> <span>class=</span><span class="pl-pds">"white--text"</span></span>&gt;
+      One of three
+    &lt;<span>h6/</span>&gt;
+  &lt;<span>v-col</span>&gt;
+
+  &lt;<span>v-col</span> <span>cols</span>=<span><span>"3"</span></span> <span>class</span>=<span>"<span>primary</span>"</span>&gt;
+    &lt;<span>h6</span><span> <span>class=</span><span class="pl-pds">"white--text"</span></span>&gt;
+      One of three
+    &lt;<span>h6/</span>&gt;
+  &lt;<span>v-col</span>&gt;
+&lt;/<span>v-row</span>&gt;</pre>
               </v-col>
             </v-row>
           </v-card-text>
@@ -25,19 +47,35 @@
       </v-col>
       <v-col lg=6 cols=12>
         <v-card class="mx-1 mb-1">
-          <v-card-title class="pa-5 pb-3">
+          <v-card-title class="pa-5 pb-4">
             <p>Equal width</p>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal greyBold--text mb-10">For example, here are two grid layouts that apply to every device
+            <p class="fs-normal greyBold--text mb-5">For example, here are two grid layouts that apply to every device
               and viewport, from xs to xl. Add any number of unit-less classes for each breakpoint you need and every
               column will be the same width.</p>
             <v-row justify="space-between">
-              <v-col cols="5" class="primary rounded ma-2 d-flex justify-center" style="height: 50px">
-                <h6 class="white--text">1 of 2</h6>
+              <v-col cols="5" class="primary rounded ma-2 d-flex justify-center">
+                <h6 class="white--text mb-0">1 of 2</h6>
               </v-col>
-              <v-col cols="5" class="secondary rounded ma-2 d-flex justify-center" style="height: 50px">
-                <h6 class="white--text">1 of 2</h6>
+              <v-col cols="5" class="secondary rounded ma-2 d-flex justify-center">
+                <h6 class="white--text mb-0">1 of 2</h6>
+              </v-col>
+              <v-col cols="12" class="mt-3">
+                            <pre>
+&lt;<span>v-row</span> <span>justify</span>=<span><span>"</span><span>space-between</span><span>"</span></span>&gt;
+  &lt;<span>v-col</span> <span>cols</span>=<span><span>"3"</span></span> <span>class</span>=<span>"<span>primary</span>"</span>&gt;
+    &lt;<span>h6</span><span> <span>class=</span><span class="pl-pds">"white--text"</span></span>&gt;
+      1 of 2
+    &lt;<span>h6/</span>&gt;
+  &lt;<span>v-col</span>&gt;
+
+  &lt;<span>v-col</span> <span>cols</span>=<span><span>"3"</span></span> <span>class</span>=<span>"<span>primary</span>"</span>&gt;
+    &lt;<span>h6</span><span> <span>class=</span><span class="pl-pds">"white--text"</span></span>&gt;
+      1 of 2
+    &lt;<span>h6/</span>&gt;
+  &lt;<span>v-col</span>&gt;
+&lt;/<span>v-row</span>&gt;</pre>
               </v-col>
             </v-row>
           </v-card-text>
@@ -49,9 +87,92 @@
             <p>Grid options</p>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal greyBold--text mb-10">While Material UI grid uses ems or rems for defining most sizes, pxs are used for grid breakpoints and
+            <p class="fs-normal greyBold--text mb-3">While Material UI grid uses ems or rems for defining most sizes, pxs are used for grid breakpoints and
               container widths. This is because the viewport width is in pixels and does not change with the font size.
               See how aspects of the Material UI grid system work across multiple devices with a handy table.</p>
+            <div class="mb-6 v-sheet v-sheet--outlined">
+              <div class="v-data-table">
+                <div class="v-data-table__wrapper">
+                  <table>
+                    <caption class="pa-4">Material Design Viewport Breakpoints</caption>
+                    <thead>
+                    <tr class="text-left">
+                      <th>Device</th>
+                      <th>Code</th>
+                      <th>Types</th>
+                      <th>Range</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>
+                        <i aria-hidden="true" class="v-icon notranslate v-icon--left mdi mdi-cellphone-iphone"></i>
+                        <span>Extra small</span>
+                      </td>
+                      <td>
+                        <strong>xs</strong>
+                      </td>
+                      <td>small to large handset</td>
+                      <td>&lt; 600px</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <i aria-hidden="true" class="v-icon notranslate v-icon--left mdi mdi-tablet"></i>
+                        <span>Small</span>
+                      </td>
+                      <td>
+                        <strong>sm</strong>
+                      </td>
+                      <td>small to medium tablet</td>
+                      <td>600px &gt; &lt; 960px</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <i aria-hidden="true" class="v-icon notranslate v-icon--left mdi mdi-laptop"></i>
+                        <span>Medium</span>
+                      </td>
+                      <td>
+                        <strong>md</strong>
+                      </td>
+                      <td>large tablet to laptop</td>
+                      <td>960px &gt; &lt; 1264px*</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <i aria-hidden="true" class="v-icon notranslate v-icon--left mdi mdi-monitor"></i>
+                        <span>Large</span>
+                      </td>
+                      <td>
+                        <strong>lg</strong>
+                      </td>
+                      <td>desktop</td>
+                      <td>1264px* &gt; &lt; 1904px*</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <i aria-hidden="true" class="v-icon notranslate v-icon--left mdi mdi-television"></i>
+                        <span>Extra large</span>
+                      </td>
+                      <td>
+                        <strong>xl</strong>
+                      </td>
+                      <td>4k and ultra-wides</td>
+                      <td>&gt; 1904px*</td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                      <td colspan="4" class="text-center">
+                        <small>
+                          <em class="grey--text">* -16px on Desktop</em>
+                        </small>
+                      </td>
+                    </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+            </div>
           </v-card-text>
         </v-card>
       </v-col>

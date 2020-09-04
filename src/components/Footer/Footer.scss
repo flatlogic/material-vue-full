@@ -5,5 +5,10 @@
     @include media-breakpoint-up(sm) {
       justify-content: space-between;
     }
+    .v-btn {
+      .v-btn__content {
+        letter-spacing: 0.01em;
+      }
+    }
   }
 }

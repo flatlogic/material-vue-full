@@ -91,32 +91,32 @@ export default {
       statesColors: [
         {
           state: 'Primary',
-          preview: '<v-button color="primary">',
-          example: '<v-button color="primary">',
+          preview: '<v-btn color="primary">',
+          example: '<v-btn color="primary">',
           hex: '#536DFE'
         },
         {
           state: 'Secondary',
-          preview: '<Button color="secondary">',
-          example: '<Button color="secondary">',
+          preview: '<v-btn color="secondary">',
+          example: '<v-btn color="secondary">',
           hex: '#FF5C93'
         },
         {
           state: 'Warning',
-          preview: '<Button color="warning">',
-          example: '<Button color="warning">',
+          preview: '<v-btn color="warning">',
+          example: '<v-btn color="warning">',
           hex: '#FFC260'
         },
         {
           state: 'Success',
-          preview: '<Button color="success">',
-          example: '<Button color="success">',
+          preview: '<v-btn color="success">',
+          example: '<v-btn color="success">',
           hex: '#3CD4A0'
         },
         {
           state: 'Info',
-          preview: '<Button color="info">',
-          example: '<Button color="info">',
+          preview: '<v-btn color="info">',
+          example: '<v-btn color="info">',
           hex: '#9013FE'
         },
       ],
@@ -124,3 +124,5 @@ export default {
   }
 }
 </script>
+
+<style src="./Colors.scss" lang="scss"></style>

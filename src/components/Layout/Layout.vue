@@ -2,7 +2,7 @@
   <v-app>
     <Header />
     <Sidebar />
-    <v-main class="content ml-2 pr-2">
+    <v-main class="content pr-2">
       <Breadcrumbs />
       <router-view />
       <Footer />

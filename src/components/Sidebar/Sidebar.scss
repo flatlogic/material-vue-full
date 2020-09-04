@@ -27,6 +27,20 @@
     }
   }
 
+  .v-list-item {
+    min-height: 38px;
+    .v-list-item__action {
+      margin: 9px 0;
+    }
+    .v-list-item__content {
+      padding: 9px 0;
+    }
+  }
+  .v-list-group {
+    .v-list-item__icon.v-list-group__header__prepend-icon {
+      margin: 11px 0;
+    }
+  }
   .v-list-item:not(.v-list-item--active) {
     .v-icon {
       color: $grey-tint;

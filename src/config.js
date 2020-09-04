@@ -17,7 +17,7 @@ export default {
     error: "#FF4081",
     greyMedium: '#d6d6d6',
     greyBold: '#fff',
-    greyTint: '#b9b9b9',
+    greyTint: '#76767b',
     }
 };
 

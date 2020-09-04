@@ -26,16 +26,37 @@
     .apexcharts-legend-marker {
       margin-right: 8px;
     }
+    .apexcharts-legend-text {
+      color: $grey-medium!important;
+    }
   }
   .main-chart-select {
     margin-right: 10px;
     fieldset {
-      border-width: 1px!important;
-      border-color: $grey-tint!important;
+      &:focus {
+        //border: none;
+      }
+      //border: none;
       color: $grey-tint!important;
     }
-    .v-select__selection {
-      color: $grey-medium!important;
+    .v-select__slot {
+      width: 100%;
+      .v-select__selections {
+        color: $grey-medium!important;
+        font-size: $fs-base;
+        font-weight: 400;
+        input {
+
+        }
+      }
+    }
+
+  }
+  .support-table {
+    &.theme--dark {
+      .v-data-table {
+        background-color: transparent;
+      }
     }
   }
   .v-card {
@@ -59,15 +80,17 @@
       }
     }
   }
+}
+.support-card {
+  &.theme--dark {
+    #apexcharts-radialbarTrack-0 {
+      stroke-opacity: 0;
+    }
+  }
 
 }
 
 .v-menu__content {
   box-shadow: $card-shadow!important;
 }
-.button-shadow {
-  box-shadow: $button-shadow;
-  &.theme--dark {
-    box-shadow: none;
-  }
-}
+

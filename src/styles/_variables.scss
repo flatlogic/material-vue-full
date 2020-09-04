@@ -23,15 +23,24 @@ $body-bg: #F6F7FF !default;
 $content-padding:             24px;
 
 // Typography //
-$h1-font-size:                3rem !default;      // 28px
-$h2-font-size:                2rem !default;       // 24px
-$h3-font-size:                1.64rem !default;     // 22px
-$h4-font-size:                1.5rem !default;     // 20px
-$h5-font-size:                1.285rem !default;         // 16px
-$h6-font-size:                1.142rem !default;     // 14px
+$h1-font-size:               3rem !default;         // 28px
+$h2-font-size:               2rem !default;         // 24px
+$h3-font-size:               1.64rem !default;      // 22px
+$h4-font-size:               1.5rem !default;       // 20px
+$h5-font-size:               1.285rem !default;     // 16px
+$h6-font-size:               1.142rem !default;     // 14px
 
-$fs-normal:                   1rem!default;
-$fs-medium:                   0.875rem!default;
+$fs-larger:                 1.125rem !default;   // 18px
+$fs-base:                   1rem !default;       // 16px
+$fs-medium:                 0.875rem !default;   // 14px
+$fs-index:                  0.75rem !default;    // 12px
+
+//$font-size-lg:            1.25rem !default;
+//$font-size-larger:        1.1rem;
+//$font-size-base:          1rem !default;
+//$font-size-mini:          0.9rem;
+//$font-size-sm:            0.875rem !default;
+
 
 // Card //
 $card-shadow: 0 3px 11px 0 #E8EAFC, 0 3px 3px -2px #B2B2B21A, 0 1px 8px 0 #9A9A9A1A;

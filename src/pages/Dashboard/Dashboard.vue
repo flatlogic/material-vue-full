@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container fluid class="ml-2">
     <div class="dashboard-page">
       <v-card width="100%" class="breadcrumbs mx-1">
         <v-row no-gutters class="d-flex align-center mt-8 mb-3 px-5 py-1 mx-1">
@@ -26,19 +26,19 @@
               >
                 <template v-slot:activator="{ on, attrs }">
                   <v-text-field
-                      :value="computedDate"
-                      prepend-icon="mdi-calendar"
-                      color="primary"
-                      full-width
-                      style="height: 38px; width: 250px"
-                      readonly
-                      single-line
-                      solo
-                      flat
-                      dense
-                      class="mr-5"
-                      v-bind="attrs"
-                      v-on="on"
+                    :value="computedDate"
+                    prepend-icon="mdi-calendar"
+                    color="primary"
+                    full-width
+                    style="height: 38px; width: 250px"
+                    readonly
+                    single-line
+                    solo
+                    flat
+                    dense
+                    class="mr-5"
+                    v-bind="attrs"
+                    v-on="on"
                   ></v-text-field>
                 </template>
                 <v-date-picker v-model="date" no-title scrollable>
@@ -63,7 +63,7 @@
       </v-card>
       <v-row>
         <v-col lg=3 sm=6 md=4 cols=12>
-          <v-card class="ma-1" height="240">
+          <v-card class="support-card ma-1" height="240">
             <v-card-title class="pa-5 pb-0">
               <p>Support Tracker</p>
               <v-spacer></v-spacer>
@@ -253,15 +253,16 @@
                     icon
                     v-bind="attrs"
                     v-on="on"
+                    class="ml-n1"
                   >
                     <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                   </v-btn>
                 </template>
                 <v-list>
                   <v-list-item
-                          v-for="(item, i) in mock.menu"
-                          :key="i"
-                          @click="() => {}"
+                      v-for="(item, i) in mock.menu"
+                      :key="i"
+                      @click="() => {}"
                   >
                     <v-list-item-title>{{ item }}</v-list-item-title>
                   </v-list-item>
@@ -284,86 +285,87 @@
           </v-card>
         </v-col>
         <v-col cols=12>
-            <v-card class="ma-1">
-              <v-card-title class="pa-4 pb-0">
-                <v-row no-gutters>
-                  <v-col cols="7" sm="4" md="4" lg="5" class="d-flex align-center">
-                    <p>Daily Line Chart</p>
-                  </v-col>
-                  <v-col sm="6" md="6" lg="5" class="d-none d-sm-flex align-center">
-                    <v-icon color="warning">mdi-circle-medium</v-icon><span class="greyBold--text font-weight-regular" style="font-size: 18px">Tablet</span>
-                    <v-icon color="primary">mdi-circle-medium</v-icon><span class="greyBold--text font-weight-regular" style="font-size: 18px">Mobile</span>
-                    <v-icon color="#B1BCFF">mdi-circle-medium</v-icon><span class="greyBold--text font-weight-regular" style="font-size: 18px">Desktop</span>
-                  </v-col>
-                  <v-col cols="5" sm="2" md="2" lg="1" offset-lg="1">
-                    <v-menu>
-                      <template v-slot:activator="{ on, attrs }">
-                        <v-select
-                                class="main-chart-select"
-                                v-model="mainApexAreaSelect"
-                                v-bind="attrs"
-                                v-on="on"
-                                dense
-                                flat
-                                single-line
-                                hide-details
-                                :items="mock.select"
-                                outlined
-                        ></v-select>
-                      </template>
-                    </v-menu>
-                  </v-col>
-                </v-row>
-              </v-card-title>
-              <v-card-text class="pa-4">
-                <v-row>
-                  <v-col >
-                    <ApexChart
-                        v-if="apexLoading"
-                        height="350"
-                        type="area"
-                        :options="mock.mainApexArea.options"
-                        :series="mainApexAreaSelect === 'Daily' ?
-                        mock.mainApexArea.series :mainApexAreaSelect === 'Weekly' ?
-                        mock.mainApexArea.series2 : mock.mainApexArea.series3"
-                    ></ApexChart>
-                  </v-col>
-                </v-row>
-              </v-card-text>
-            </v-card>
-          </v-col>
+          <v-card class="ma-1">
+            <v-card-title class="pa-5 pb-0">
+              <v-row no-gutters>
+                <v-col cols="7" sm="4" md="4" lg="5" class="d-flex align-center">
+                  <p>Daily Line Chart</p>
+                </v-col>
+                <v-col sm="6" md="6" lg="5" class="d-none d-sm-flex align-center">
+                  <v-icon color="warning">mdi-circle-small</v-icon><span class="greyBold--text font-weight-regular fs-medium">Tablet</span>
+                  <v-icon color="primary">mdi-circle-small</v-icon><span class="greyBold--text font-weight-regular fs-medium">Mobile</span>
+                  <v-icon color="secondary">mdi-circle-small</v-icon><span class="greyBold--text font-weight-regular fs-medium">Desktop</span>
+                </v-col>
+                <v-col cols="5" sm="2" md="2" lg="1" offset-lg="1">
+                  <v-menu>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-select
+                        class="main-chart-select"
+                        v-model="mainApexAreaSelect"
+                        v-bind="attrs"
+                        v-on="on"
+                        dense
+                        flat
+                        single-line
+                        hide-details
+                        :items="mock.select"
+                        outlined
+                      ></v-select>
+                    </template>
+                  </v-menu>
+                </v-col>
+              </v-row>
+            </v-card-title>
+            <v-card-text class="pa-4 pb-0">
+              <v-row>
+                <v-col >
+                  <ApexChart
+                    v-if="apexLoading"
+                    height="350"
+                    type="area"
+                    :options="mock.mainApexArea.options"
+                    :series="mainApexAreaSelect === 'Daily' ?
+                    mock.mainApexArea.series :mainApexAreaSelect === 'Weekly' ?
+                    mock.mainApexArea.series2 : mock.mainApexArea.series3"
+                  ></ApexChart>
+                </v-col>
+              </v-row>
+            </v-card-text>
+          </v-card>
+        </v-col>
         <v-col lg=4 sm=6 cols=12>
           <v-card class="ma-1">
             <v-card-title class="pa-5 pb-3">
-              <p>Light Blue</p>
-              <v-spacer></v-spacer>
-              <v-menu>
-                <template v-slot:activator="{ on, attrs }">
-                  <v-btn
-                    icon
-                    v-bind="attrs"
-                    v-on="on"
-                  >
-                    <v-icon color="greyTint">mdi-dots-vertical</v-icon>
-                  </v-btn>
-                </template>
-                <v-list>
-                  <v-list-item
-                    v-for="(item, i) in mock.menu"
-                    :key="i"
-                    @click="() => {}"
-                  >
-                    <v-list-item-title>{{ item }}</v-list-item-title>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
+              <v-row no-gutters>
+                <v-col cols="6" md="7" xl="8">
+                  <p>Light Blue</p>
+                </v-col>
+                <v-col cols="6" md="5" xl="4"  >
+                  <v-menu>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-select
+                        class="main-chart-select"
+                        v-model="mainApexAreaSelect"
+                        v-bind="attrs"
+                        v-on="on"
+                        dense
+                        flat
+                        single-line
+                        hide-details
+                        :items="mock.select"
+                        outlined
+                      ></v-select>
+                    </template>
+                  </v-menu>
+                </v-col>
+              </v-row>
             </v-card-title>
             <v-card-text class="pa-5 pt-0">
               <v-row no-gutters>
-                <v-col cols="6" class="my-auto">
-                  <span class="" style="font-size: 42px">199 <span class="caption error--text">-3.7%</span> </span>
+                <v-col cols="6" md="8" lg="7" class="my-auto">
+                  <span class="greyBold--text" style="font-size: 42px">199 <span class="caption error--text">-3.7%</span> </span>
                 </v-col>
-                <v-col cols="6">
+                <v-col cols="6" md="4" lg="5"  >
                   <ApexChart
                     height="100"
                     type="bar"
@@ -375,16 +377,16 @@
               </v-row>
               <v-row no-gutters class="justify-space-between">
                 <div>
-                  <div class="subtext">33 <v-icon color="success"> mdi-arrow-top-right</v-icon> </div>
-                  <div class="subtext-index">Registrations</div>
+                  <div class="greyMedium--text fs-large">33<v-icon color="success">mdi-arrow-top-right</v-icon></div>
+                  <div class="greyTint--text fs-index">Registrations</div>
                 </div>
                 <div>
-                  <div class="subtext">3.25%<v-icon color="success"> mdi-arrow-top-right</v-icon></div>
-                  <div class="subtext-index">Bounce Rate</div>
+                  <div class="greyMedium--text fs-large">3.25%<v-icon color="success"> mdi-arrow-top-right</v-icon></div>
+                  <div class="greyTint--text fs-index">Bounce Rate</div>
                 </div>
                 <div >
-                  <div class="subtext">330<v-icon color="error"> mdi-arrow-bottom-right</v-icon></div>
-                  <div  class="subtext-index">Views</div>
+                  <div class="greyMedium--text fs-large">330<v-icon color="error"> mdi-arrow-bottom-right</v-icon></div>
+                  <div  class="greyTint--text fs-index">Views</div>
                 </div>
               </v-row>
             </v-card-text>
@@ -393,35 +395,36 @@
         <v-col lg=4 sm=6 cols=12>
           <v-card class="ma-1">
             <v-card-title class="pa-5 pb-3">
-              <p>Sing App</p>
-              <v-spacer></v-spacer>
-              <v-menu>
-                <template v-slot:activator="{ on, attrs }">
-                  <v-btn
-                          icon
-                          v-bind="attrs"
-                          v-on="on"
-                  >
-                    <v-icon color="greyTint">mdi-dots-vertical</v-icon>
-                  </v-btn>
-                </template>
-                <v-list>
-                  <v-list-item
-                          v-for="(item, i) in mock.menu"
-                          :key="i"
-                          @click="() => {}"
-                  >
-                    <v-list-item-title>{{ item }}</v-list-item-title>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
+              <v-row no-gutters>
+                <v-col cols="6" md="7" xl="8">
+                  <p>Sing App</p>
+                </v-col>
+                <v-col cols="6" md="5" xl="4"  >
+                  <v-menu>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-select
+                              class="main-chart-select"
+                              v-model="mainApexAreaSelect"
+                              v-bind="attrs"
+                              v-on="on"
+                              dense
+                              flat
+                              single-line
+                              hide-details
+                              :items="mock.select"
+                              outlined
+                      ></v-select>
+                    </template>
+                  </v-menu>
+                </v-col>
+              </v-row>
             </v-card-title>
             <v-card-text class="pa-5 pt-0">
               <v-row no-gutters>
-                <v-col cols="7" class="my-auto">
-                  <span class="" style="font-size: 42px">121 <span class="error--text caption">-3.2%</span> </span>
+                <v-col cols="6" md="8" lg="8" class="my-auto">
+                  <span class="greyBold--text" style="font-size: 42px">121 <span class="error--text caption">-3.2%</span> </span>
                 </v-col>
-                <v-col cols="5">
+                <v-col cols="6" md="4" lg="4">
                   <ApexChart
                     height="100"
                     type="bar"
@@ -433,16 +436,16 @@
               </v-row>
               <v-row no-gutters class="justify-space-between">
                 <div>
-                  <div class="subtext">15<v-icon color="success"> mdi-arrow-top-right</v-icon></div>
-                  <div class="subtext-index">Registrations</div>
+                  <div class="greyMedium--text fs-large">15<v-icon color="success"> mdi-arrow-top-right</v-icon></div>
+                  <div class="greyTint--text fs-index">Registrations</div>
                 </div>
                 <div>
-                  <div class="subtext">3.01%<v-icon color="success"> mdi-arrow-top-right</v-icon></div>
-                  <div class="subtext-index">Bounce Rate</div>
+                  <div class="greyMedium--text fs-large">3.01%<v-icon color="success"> mdi-arrow-top-right</v-icon></div>
+                  <div class="greyTint--text fs-index">Bounce Rate</div>
                 </div>
                 <div>
-                  <div class="subtext">302<v-icon color="success"> mdi-arrow-top-right</v-icon></div>
-                  <div class="subtext-index">Views</div>
+                  <div class="greyMedium--text fs-large">302<v-icon color="success"> mdi-arrow-top-right</v-icon></div>
+                  <div class="greyTint--text fs-index">Views</div>
                 </div>
               </v-row>
             </v-card-text>
@@ -451,35 +454,36 @@
         <v-col lg=4 sm=6 cols=12>
           <v-card class="ma-1">
             <v-card-title class="pa-5 pb-3">
-              <p>RNS</p>
-              <v-spacer></v-spacer>
-              <v-menu>
-                <template v-slot:activator="{ on, attrs }">
-                  <v-btn
-                          icon
-                          v-bind="attrs"
-                          v-on="on"
-                  >
-                    <v-icon color="greyTint">mdi-dots-vertical</v-icon>
-                  </v-btn>
-                </template>
-                <v-list>
-                  <v-list-item
-                          v-for="(item, i) in mock.menu"
-                          :key="i"
-                          @click="() => {}"
-                  >
-                    <v-list-item-title>{{ item }}</v-list-item-title>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
+              <v-row no-gutters>
+                <v-col cols="6" md="7" xl="8">
+                  <p>RNS</p>
+                </v-col>
+                <v-col cols="6" md="5" xl="4"  >
+                  <v-menu>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-select
+                              class="main-chart-select"
+                              v-model="mainApexAreaSelect"
+                              v-bind="attrs"
+                              v-on="on"
+                              dense
+                              flat
+                              single-line
+                              hide-details
+                              :items="mock.select"
+                              outlined
+                      ></v-select>
+                    </template>
+                  </v-menu>
+                </v-col>
+              </v-row>
             </v-card-title>
             <v-card-text class="pa-5 pt-0">
               <v-row no-gutters>
-                <v-col cols="7" class="my-auto">
-                  <span class="" style="font-size: 42px">175 <span class="error--text caption">-3.1%</span> </span>
+                <v-col cols="6" md="8" lg="8" class="my-auto">
+                  <span class="greyBold--text" style="font-size: 42px">175 <span class="error--text caption">-3.1%</span> </span>
                 </v-col>
-                <v-col cols="5">
+                <v-col cols="6" md="4" lg="4">
                   <ApexChart
                     height="100"
                     type="bar"
@@ -491,23 +495,23 @@
               </v-row>
               <v-row no-gutters class="justify-space-between">
                 <div>
-                  <div class="subtext">31 <v-icon color="error"> mdi-arrow-bottom-right</v-icon></div>
-                  <div class="subtext-index">Registrations</div>
+                  <div class="greyMedium--text fs-large">31 <v-icon color="error"> mdi-arrow-bottom-right</v-icon></div>
+                  <div class="greyTint--text fs-index">Registrations</div>
                 </div>
                 <div>
-                  <div class="subtext">3.23%<v-icon color="success"> mdi-arrow-top-right</v-icon></div>
-                  <div class="subtext-index">Bounce Rate</div>
+                  <div class="greyMedium--text fs-large">3.23%<v-icon color="success"> mdi-arrow-top-right</v-icon></div>
+                  <div class="greyTint--text fs-index">Bounce Rate</div>
                 </div>
                 <div>
-                  <div class="subtext">301<v-icon color="success"> mdi-arrow-top-right</v-icon></div>
-                  <div class="subtext-index">Views</div>
+                  <div class="greyMedium--text fs-large">301<v-icon color="success"> mdi-arrow-top-right</v-icon></div>
+                  <div class="greyTint--text fs-index">Views</div>
                 </div>
               </v-row>
             </v-card-text>
           </v-card>
         </v-col>
         <v-col cols=12>
-          <v-card class="ma-1">
+          <v-card class="support-table ma-1">
             <v-card-title class="pa-5 pb-0">
               <p>Support Requests</p>
               <v-spacer></v-spacer>
@@ -536,18 +540,18 @@
               <v-simple-table>
                 <template v-slot:default>
                   <thead class="pl-2">
-                  <tr>
-                    <th class="text-left pa-6">NAME</th>
-                    <th class="text-left">EMAIL</th>
-                    <th class="text-left">PRODUCT</th>
-                    <th class="text-left">PRICE</th>
-                    <th class="text-left">DATE</th>
-                    <th class="text-left">CITY</th>
-                    <th class="text-left">STATUS</th>
+                    <tr class="">
+                    <th class="text-left greyTint--text fs-medium pa-6">NAME</th>
+                    <th class="text-left greyTint--text fs-medium">EMAIL</th>
+                    <th class="text-left greyTint--text fs-medium">PRODUCT</th>
+                    <th class="text-left greyTint--text fs-medium">PRICE</th>
+                    <th class="text-left greyTint--text fs-medium">DATE</th>
+                    <th class="text-left greyTint--text fs-medium">CITY</th>
+                    <th class="text-left greyTint--text fs-medium">STATUS</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr v-for="item in mock.table" :key="item.name">
+                  <tr v-for="item in mock.table" :key="item.name" class="greyBold--text">
                     <td class="pa-6">{{ item.name }}</td>
                     <td>{{ item.email }}</td>
                     <td>{{ item.product }}</td>

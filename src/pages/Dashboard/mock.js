@@ -118,11 +118,7 @@ export default {
       colors: [config.light.primary, config.light.secondary, config.light.success, config.light.warning],
       labels: ["Group A", "Group B", "Group C", "Group D"],
       legend: {
-        markers: {
-          width: 26,
-          height: 12,
-          radius: 3
-        }
+
       },
       stroke: {
         show: false,
@@ -365,7 +361,7 @@ export default {
       },
       plotOptions: {
         bar: {
-          columnWidth: "40%",
+          columnWidth: "50%",
           distributed: true,
           endingShape: "rounded",
           startingShape: "rounded",
@@ -427,7 +423,7 @@ export default {
       },
       plotOptions: {
         bar: {
-          columnWidth: "35%",
+          columnWidth: "45%",
           distributed: true,
           endingShape: "rounded",
           startingShape: "rounded",
@@ -496,7 +492,7 @@ export default {
       },
       plotOptions: {
         bar: {
-          columnWidth: "35%",
+          columnWidth: "45%",
           distributed: true,
           endingShape: "rounded",
           startingShape: "rounded",
