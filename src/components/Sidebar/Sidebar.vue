@@ -48,10 +48,11 @@
           </template>
           <template v-slot:activator >
             <v-list-item-content>
+                <v-badge v-if="item.badge" content="new" color="secondary">
+                </v-badge>
                   <v-list-item-title>
-                        {{ item.title }}
-                    </v-list-item-title>
-
+                    {{ item.title }}
+                  </v-list-item-title>
               </v-list-item-content>
           </template>
 
@@ -66,13 +67,9 @@
               <v-icon size="">{{ child.icon }}</v-icon>
             </v-list-item-action>
             <v-list-item-content>
-
                 <v-list-item-title>
                   {{ child.title }}
                 </v-list-item-title>
-
-
-
             </v-list-item-content>
           </v-list-item>
         </v-list-group>

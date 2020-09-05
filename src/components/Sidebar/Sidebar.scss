@@ -34,6 +34,11 @@
     }
     .v-list-item__content {
       padding: 9px 0;
+      .v-badge {
+        position: absolute;
+        right: 140px;
+        top: 14px;
+      }
     }
   }
   .v-list-group {
