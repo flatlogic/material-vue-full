@@ -48,11 +48,10 @@
           </template>
           <template v-slot:activator >
             <v-list-item-content>
-                <v-badge v-if="item.badge" content="new" color="secondary" style="position: absolute">
                   <v-list-item-title>
                         {{ item.title }}
                     </v-list-item-title>
-                </v-badge>
+
               </v-list-item-content>
           </template>
 
