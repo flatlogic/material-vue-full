@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="detail-page mt-6">
+  <v-container fluid class="detail-page mt-6 px-2">
     <v-card>
       <v-row no-gutters>
         <v-col cols="12" md="6">

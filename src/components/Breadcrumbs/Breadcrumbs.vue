@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-1">
+  <v-card class="mx-2">
     <v-breadcrumbs
       v-if="!homePage()"
       class="mt-8 px-4 py-2"

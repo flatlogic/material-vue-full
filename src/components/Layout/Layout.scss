@@ -14,22 +14,3 @@ body {
   }
 }
 
-div.v-application {
-  .content {
-    background-color: $body-bg;
-  }
-}
-
-div.v-application.theme--dark {
-  .main-header.theme--dark {
-    background-color: #31313c!important;
-  }
-  .content {
-    background-color: $body-bg-dark;
-    .v-card {
-      background-color: #23232D;
-      box-shadow: none!important;
-    }
-  }
-}
-

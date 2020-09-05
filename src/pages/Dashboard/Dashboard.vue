@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="ml-2">
+  <v-container fluid class="mx-1">
     <div class="dashboard-page">
       <v-card width="100%" class="breadcrumbs mx-1">
         <v-row no-gutters class="d-flex align-center mt-8 mb-3 px-5 py-1 mx-1">

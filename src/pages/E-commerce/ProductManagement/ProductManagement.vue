@@ -1,10 +1,10 @@
 <template>
-  <v-container fluid class="product-management mt-3">
+  <v-container fluid class="product-management mt-4 px-1">
     <v-row>
       <v-col cols="12">
         <v-card class="mb-1">
           <v-card-title class="pa-5 pb-3">
-            <p>Products</p><pre>&nbsp;</pre><span class="grey--text font-weight-regular subtitle-2 pt-1">({{ products.length }} total) </span>
+            <p>Products</p><span class="grey--text font-weight-regular subtitle-2 pt-1">({{ products.length }} total ) </span>
             <v-spacer></v-spacer>
             <v-text-field
                 v-model="search"
@@ -108,14 +108,36 @@
         </v-card>
       </v-col>
     </v-row>
+    <v-snackbar
+        v-model="snackbar"
+        color="success"
+        right
+        top
+        style="top: 50px"
+    >
+      {{ text }}
+      <template v-slot:action="{ attrs }">
+        <v-btn
+          dark
+          text
+          v-bind="attrs"
+          @click="snackbar = false"
+        >
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
   </v-container>
 </template>
 
 <script>
+  import config from "@/config";
+
   export default {
     name: 'ProductManagement',
       data() {
         return {
+          snackbar: null,
           search: '',
           dialog: false,
           headers: [
@@ -173,7 +195,8 @@
       },
 
       created () {
-        this.initialize()
+        this.initialize(),
+        this.addSuccessNotification()
       },
 
       methods: {
@@ -316,6 +339,12 @@
             this.products.push(this.editedItem)
           }
           this.close()
+        },
+
+        addSuccessNotification() {
+          this.snackbar = true;
+          this.color = config.light.success;
+          this.text = "This page is only available in React Material Admin Full with Node.js integration!";
         },
       },
   }

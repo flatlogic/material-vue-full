@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container fluid class="px-1">
     <div class="profile-page">
       <v-row>
         <v-col md=5 cols=12>

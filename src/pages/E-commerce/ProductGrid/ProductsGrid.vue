@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="product-grid-page mt-5">
+  <v-container fluid class="product-grid-page mt-5 px-2">
     <v-row class="mb-n3">
       <v-col
           v-for="(select, i) in selects"

@@ -321,12 +321,10 @@ export default {
       this.color = config.light.success;
       this.text = "The item was shipped";
     },
-
     toggleLocation(y,x) {
       this.x = x;
       this.y = y;
     },
-
   }
 };
 
