@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="icons-page mt-3">
     <v-row>
-      <v-col cols="12">
+      <v-col cols="12" class="mx-1">
         <v-tabs
           light
           centered
