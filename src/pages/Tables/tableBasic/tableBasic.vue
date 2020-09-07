@@ -53,22 +53,26 @@
                 </v-list>
               </v-menu>
             </v-card-title>
-            <v-simple-table>
+            <v-simple-table class="material-table">
               <template v-slot:default>
                 <thead>
                   <tr>
-                  <th class="text-left pa-6">NAME</th>
-                  <th class="text-left">EMAIL</th>
-                  <th class="text-left">PRODUCT</th>
-                  <th class="text-left">PRICE</th>
-                  <th class="text-left">DATE</th>
-                  <th class="text-left">CITY</th>
-                  <th class="text-left">STATUS</th>
-                </tr>
+                    <th class="text-left pa-6">NAME</th>
+                    <th class="text-left">EMAIL</th>
+                    <th class="text-left">PRODUCT</th>
+                    <th class="text-left">PRICE</th>
+                    <th class="text-left">DATE</th>
+                    <th class="text-left">CITY</th>
+                    <th class="text-left">STATUS</th>
+                  </tr>
                 </thead>
                 <tbody>
                   <tr v-for="item in mock.materialUITable" :key="item.name">
-                  <td class="pa-6">{{ item.name }}</td>
+                  <td class="pa-4">
+                    <v-avatar :color="item.avatar.color" size="40" class="mr-2">
+                      <span class="white--text headline">{{ item.avatar.name }}</span>
+                    </v-avatar>
+                    {{ item.name }}</td>
                   <td>{{ item.email }}</td>
                   <td>{{ item.product }}</td>
                   <td>{{ item.price }}</td>

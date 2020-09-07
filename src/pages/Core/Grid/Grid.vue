@@ -2,7 +2,7 @@
   <v-container fluid class="grid-page mt-3">
     <v-row>
       <v-col lg=6 cols=12>
-        <v-card class="mx-1 mb-1">
+        <v-card class="mb-4 mr-4">
           <v-card-title class="pa-5 pb-4">
             <p>How it works</p>
           </v-card-title>
@@ -16,8 +16,8 @@
               <v-col cols="3" class="secondary rounded ma-2 d-flex justify-center">
                 <h6 class="white--text mb-0">One of three</h6>
               </v-col>
-              <v-col cols="3" class="warning rounded ma-2 d-flex justify-center" style="height: 50px">
-                <h6 class="white--text">One of three</h6>
+              <v-col cols="3" class="warning rounded ma-2 d-flex justify-center">
+                <h6 class="white--text mb-0">One of three</h6>
               </v-col>
               <v-col cols="12" class="mt-3">
                             <pre>
@@ -46,7 +46,7 @@
         </v-card>
       </v-col>
       <v-col lg=6 cols=12>
-        <v-card class="mx-1 mb-1">
+        <v-card class="mb-4">
           <v-card-title class="pa-5 pb-4">
             <p>Equal width</p>
           </v-card-title>
@@ -82,7 +82,7 @@
         </v-card>
       </v-col>
       <v-col cols=12>
-        <v-card class="mx-1 mb-1">
+        <v-card class="mx-1 mb-4">
           <v-card-title class="pa-5 pb-3">
             <p>Grid options</p>
           </v-card-title>
@@ -177,25 +177,53 @@
         </v-card>
       </v-col>
       <v-col lg=6 cols=12>
-        <v-card class="mx-1 mb-1">
+        <v-card class="mx-1 mb-4 mr-4">
           <v-card-title class="pa-5 pb-3">
             <p>Vertical Alignment</p>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
             <p class="fs-normal greyBold--text mb-10">Use flexbox alignment utilities to vertically and horizontally align columns.</p>
             <v-row justify="start">
-              <v-col cols="3" class="primary rounded ma-2 d-flex justify-center" style="height: 50px">
-                <h6 class="white--text">Start</h6>
+              <v-col cols="3" class="primary rounded ma-2 d-flex justify-center">
+                <h6 class="white--text mb-0">Start</h6>
               </v-col>
             </v-row>
             <v-row justify="center">
-              <v-col cols="3" class="secondary rounded ma-2 d-flex justify-center" style="height: 50px">
-                <h6 class="white--text">Center</h6>
+              <v-col cols="3" class="secondary rounded ma-2 d-flex justify-center">
+                <h6 class="white--text mb-0">Center</h6>
               </v-col>
             </v-row>
             <v-row justify="end">
-              <v-col cols="3" class="warning rounded ma-2 d-flex justify-center" style="height: 50px">
-                <h6 class="white--text">End</h6>
+              <v-col cols="3" class="warning rounded ma-2 d-flex justify-center">
+                <h6 class="white--text mb-0">End</h6>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12" class="mt-3">
+                            <pre>
+&lt;<span>v-row</span> <span>justify</span>=<span><span>"</span><span>start</span><span>"</span></span>&gt;
+  &lt;<span>v-col</span> <span>cols</span>=<span><span>"3"</span></span> <span>class</span>=<span>"<span>primary</span>"</span>&gt;
+    &lt;<span>h6</span><span> <span>class=</span><span class="pl-pds">"white--text"</span></span>&gt;
+      Start
+    &lt;<span>h6/</span>&gt;
+  &lt;<span>v-col</span>&gt;
+&lt;/<span>v-row</span>&gt;
+
+ &lt;<span>v-row</span> <span>justify</span>=<span><span>"</span><span>center</span><span>"</span></span>&gt;
+  &lt;<span>v-col</span> <span>cols</span>=<span><span>"3"</span></span> <span>class</span>=<span>"<span>secondary</span>"</span>&gt;
+    &lt;<span>h6</span><span> <span>class=</span><span class="pl-pds">"white--text"</span></span>&gt;
+      Center
+    &lt;<span>h6/</span>&gt;
+  &lt;<span>v-col</span>&gt;
+&lt;/<span>v-row</span>&gt;
+
+ &lt;<span>v-row</span> <span>justify</span>=<span><span>"</span><span>end</span><span>"</span></span>&gt;
+  &lt;<span>v-col</span> <span>cols</span>=<span><span>"3"</span></span> <span>class</span>=<span>"<span>warning</span>"</span>&gt;
+    &lt;<span>h6</span><span> <span>class=</span><span class="pl-pds">"white--text"</span></span>&gt;
+      End
+    &lt;<span>h6/</span>&gt;
+  &lt;<span>v-col</span>&gt;
+&lt;/<span>v-row</span>&gt;</pre>
               </v-col>
             </v-row>
           </v-card-text>
@@ -209,30 +237,82 @@
           <v-card-text class="pa-5 pt-0">
             <p class="fs-normal greyBold--text mb-10">Use flexbox alignment utilities to vertically and horizontally align columns.</p>
             <v-row justify="end">
-              <v-col cols="3" class="primary rounded ma-2 d-flex justify-center" style="height: 50px">
-                <h6 class="white--text">1</h6>
+              <v-col cols="3" class="primary rounded ma-2 d-flex justify-center">
+                <h6 class="white--text mb-0">1</h6>
               </v-col>
-              <v-col cols="3" class="secondary rounded ma-2 d-flex justify-center" style="height: 50px">
-                <h6 class="white--text">2</h6>
+              <v-col cols="3" class="secondary rounded ma-2 d-flex justify-center">
+                <h6 class="white--text mb-0">2</h6>
               </v-col>
             </v-row>
             <v-row justify="space-around">
-              <v-col cols="3" class="primary rounded ma-2 d-flex justify-center" style="height: 50px">
-                <h6 class="white--text">1</h6>
+              <v-col cols="3" class="primary rounded ma-2 d-flex justify-center">
+                <h6 class="white--text mb-0">1</h6>
               </v-col>
-              <v-col cols="3" class="secondary rounded ma-2 d-flex justify-center" style="height: 50px">
-                <h6 class="white--text">2</h6>
+              <v-col cols="3" class="secondary rounded ma-2 d-flex justify-center">
+                <h6 class="white--text mb-0">2</h6>
               </v-col>
             </v-row>
             <v-row justify="space-between">
-              <v-col cols="3" class="primary rounded ma-2 d-flex justify-center" style="height: 50px">
-                <h6 class="white--text">1</h6>
+              <v-col cols="3" class="primary rounded ma-2 d-flex justify-center" >
+                <h6 class="white--text mb-0">1</h6>
               </v-col>
-              <v-col cols="3" class="secondary rounded ma-2 d-flex justify-center" style="height: 50px">
-                <h6 class="white--text">2</h6>
+              <v-col cols="3" class="secondary rounded ma-2 d-flex justify-center" >
+                <h6 class="white--text mb-0">2</h6>
               </v-col>
-              <v-col cols="3" class="warning rounded ma-2 d-flex justify-center" style="height: 50px">
-                <h6 class="white--text">3</h6>
+              <v-col cols="3" class="warning rounded ma-2 d-flex justify-center" >
+                <h6 class="white--text mb-0">3</h6>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12" class="mt-3">
+                            <pre>
+&lt;<span>v-row</span> <span>justify</span>=<span><span>"</span><span>end</span><span>"</span></span>&gt;
+  &lt;<span>v-col</span> <span>cols</span>=<span><span>"3"</span></span> <span>class</span>=<span>"<span>primary</span>"</span>&gt;
+    &lt;<span>h6</span><span> <span>class=</span><span class="pl-pds">"white--text"</span></span>&gt;
+      1
+    &lt;<span>h6/</span>&gt;
+  &lt;<span>v-col</span>&gt;
+
+  &lt;<span>v-col</span> <span>cols</span>=<span><span>"3"</span></span> <span>class</span>=<span>"<span>secondary</span>"</span>&gt;
+    &lt;<span>h6</span><span> <span>class=</span><span class="pl-pds">"white--text"</span></span>&gt;
+      2
+    &lt;<span>h6/</span>&gt;
+  &lt;<span>v-col</span>&gt;
+&lt;/<span>v-row</span>&gt;
+
+ &lt;<span>v-row</span> <span>justify</span>=<span><span>"</span><span>space-around</span><span>"</span></span>&gt;
+  &lt;<span>v-col</span> <span>cols</span>=<span><span>"3"</span></span> <span>class</span>=<span>"<span>primary</span>"</span>&gt;
+    &lt;<span>h6</span><span> <span>class=</span><span class="pl-pds">"white--text"</span></span>&gt;
+      1
+    &lt;<span>h6/</span>&gt;
+  &lt;<span>v-col</span>&gt;
+
+  &lt;<span>v-col</span> <span>cols</span>=<span><span>"3"</span></span> <span>class</span>=<span>"<span>secondary</span>"</span>&gt;
+    &lt;<span>h6</span><span> <span>class=</span><span class="pl-pds">"white--text"</span></span>&gt;
+      2
+    &lt;<span>h6/</span>&gt;
+  &lt;<span>v-col</span>&gt;
+&lt;/<span>v-row</span>&gt;
+
+ &lt;<span>v-row</span> <span>justify</span>=<span><span>"</span><span>space-around</span><span>"</span></span>&gt;
+  &lt;<span>v-col</span> <span>cols</span>=<span><span>"3"</span></span> <span>class</span>=<span>"<span>primary</span>"</span>&gt;
+    &lt;<span>h6</span><span> <span>class=</span><span class="pl-pds">"white--text"</span></span>&gt;
+      1
+    &lt;<span>h6/</span>&gt;
+  &lt;<span>v-col</span>&gt;
+
+  &lt;<span>v-col</span> <span>cols</span>=<span><span>"3"</span></span> <span>class</span>=<span>"<span>secondary</span>"</span>&gt;
+    &lt;<span>h6</span><span> <span>class=</span><span class="pl-pds">"white--text"</span></span>&gt;
+      2
+    &lt;<span>h6/</span>&gt;
+  &lt;<span>v-col</span>&gt;
+
+  &lt;<span>v-col</span> <span>cols</span>=<span><span>"3"</span></span> <span>class</span>=<span>"<span>warning</span>"</span>&gt;
+    &lt;<span>h6</span><span> <span>class=</span><span class="pl-pds">"white--text"</span></span>&gt;
+      3
+    &lt;<span>h6/</span>&gt;
+  &lt;<span>v-col</span>&gt;
+&lt;/<span>v-row</span>&gt;</pre>
               </v-col>
             </v-row>
           </v-card-text>

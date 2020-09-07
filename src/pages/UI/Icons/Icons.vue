@@ -10,7 +10,7 @@
           <v-tabs-slider></v-tabs-slider>
 
           <v-tab
-               :href="`#tab-font-awesome`"
+             :href="`#tab-font-awesome`"
           >
             Font Awesome
           </v-tab>
@@ -31,8 +31,8 @@
                 <v-row no-gutters>
                   <template v-for="icon in materialIcons" >
                     <v-col md="3" lg="2" sm="6" cols="12" :key="icon" class="mb-5">
-                      <v-icon class="mr-3"> {{ icon }} </v-icon>
-                      <span> {{ icon }}</span>
+                      <v-icon class="mx-3">{{ icon }}</v-icon>
+                      <span>{{ icon }}</span>
                     </v-col>
                   </template>
                 </v-row>
@@ -50,7 +50,7 @@
                 <v-row no-gutters>
                   <template v-for="icon in fontAwesome" >
                     <v-col md="3" lg="2" sm="6" cols="12" :key="icon" class="mb-5">
-                      <v-icon class="mr-3"> {{ toFontAwesomeText(icon) }} </v-icon>
+                      <v-icon class="mx-3"> {{ toFontAwesomeText(icon) }} </v-icon>
                       <span> {{ icon }}</span>
                     </v-col>
                   </template>

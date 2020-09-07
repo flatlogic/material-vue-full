@@ -2,7 +2,7 @@
   <v-container fluid class="mt-3">
     <v-row>
       <v-col cols="12">
-        <v-card class="mb-1">
+        <v-card class="ma-1">
           <v-card-text>
             <v-data-table
               show-select

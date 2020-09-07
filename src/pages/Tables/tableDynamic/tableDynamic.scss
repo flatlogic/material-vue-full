@@ -1,0 +1,31 @@
+@import '../../../styles/app';
+.tables-dynamic {
+  .v-data-table {
+    background-color: transparent!important;
+    div.v-data-table__wrapper {
+      table {
+        thead tr th {
+          font-size: 15px;
+          font-weight: 500;
+          color: $grey-bold!important;
+        }
+        tbody tr td {
+          height: 58px;
+        }
+      }
+    }
+    .v-data-footer {
+      font-size: $fs-medium;
+    }
+    &.theme--dark {
+      .v-data-table__wrapper {
+        table {
+          thead tr th {
+            color: #fff!important;
+          }
+        }
+      }
+    }
+  }
+}
+

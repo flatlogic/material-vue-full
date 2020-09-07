@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="user-add-page mt-3">
+  <v-container fluid class="user-add-page mt-3 mx-1">
     <v-row>
       <v-col cols="12">
         <v-stepper v-model="e1" class="transparent elevation-0">

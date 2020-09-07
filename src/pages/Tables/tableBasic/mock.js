@@ -130,6 +130,10 @@ export default {
         {
             id: 0,
             name: 'Mark Otto',
+            avatar: {
+                name: 'M',
+                color: 'success'
+            },
             email: 'ottoto@wxample.com',
             product: 'ON the Road',
             price: '$25 224.2',
@@ -140,6 +144,10 @@ export default {
         {
             id: 1,
             name: 'Jacob Thornton',
+            avatar: {
+                name: 'J',
+                color: 'success'
+            },
             email: 'thornton@wxample.com',
             product: 'HP Core i7',
             price: '$1 254.2',
@@ -150,6 +158,10 @@ export default {
         {
             id: 2,
             name: 'Larry the Bird',
+            avatar: {
+                name: 'L',
+                color: 'warning'
+            },
             email: 'bird@wxample.com',
             product: 'Air Pro',
             price: '$1 570.0',
@@ -160,6 +172,10 @@ export default {
         {
             id: 3,
             name: 'Joseph May',
+            avatar: {
+                name: 'J',
+                color: 'secondary'
+            },
             email: 'josephmay@wxample.com',
             product: 'Version Control',
             price: '$5 224.5',
@@ -170,6 +186,10 @@ export default {
         {
             id: 4,
             name: 'Peter Horadnia',
+            avatar: {
+                name: 'P',
+                color: 'success'
+            },
             email: 'horadnia@wxample.com',
             product: 'Let\'s Dance',
             price: '$43 594.7',

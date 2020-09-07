@@ -1,20 +1,24 @@
 @import "./variables";
 body {
   div.v-application {
-    background-color: $body-bg!important;
+    background-color: $body-bg !important;
     // Font Size
     .fs-base {
       font-size: $fs-base;
     }
+
     .fs-medium {
       font-size: $fs-medium;
     }
+
     .fs-large {
       font-size: $fs-larger;
     }
+
     .fs-lg {
       font-size: $fs-lg;
     }
+
     .fs-index {
       font-size: $fs-index;
     }
@@ -24,8 +28,10 @@ body {
       color: $grey-tint;
       margin-bottom: 0;
     }
+
     .v-card {
-      box-shadow: $card-shadow!important;
+      box-shadow: $card-shadow !important;
+
       .v-card__title {
         p {
           color: $grey-medium;
@@ -34,16 +40,19 @@ body {
           font-size: 20px;
           font-weight: 400;
         }
+
         .v-btn.v-btn--flat.v-btn--icon.v-btn--round {
           &:hover {
             transition: 300ms all;
             background-color: $primary;
+
             .v-icon {
-              color: rgba(255, 255, 255, 0.35)!important;
+              color: rgba(255, 255, 255, 0.35) !important;
             }
           }
         }
       }
+
       &.theme--dark {
         .v-card__title p {
           color: $grey-tint;
@@ -52,17 +61,21 @@ body {
 
 
     }
+
     .v-navigation-drawer {
       .v-navigation-drawer__content {
         .v-list {
           .v-list-item--active {
             background-color: #F3F5FF;
+
             &:before {
               opacity: 0;
             }
           }
+
           .v-list-item:hover {
             background-color: #F3F5FF;
+
             &:before {
               opacity: 0;
             }
@@ -77,29 +90,34 @@ body {
       margin-bottom: 16px;
       line-height: 1;
     }
+
     h2 {
       font-size: $h2-font-size;
       font-weight: 400;
       margin-bottom: 16px;
       line-height: 1;
     }
+
     h3 {
       font-size: $h3-font-size;
       font-weight: 400;
       margin-bottom: 16px;
       line-height: 1;
     }
+
     h4 {
       font-size: $h4-font-size;
       font-weight: 400;
       margin-bottom: 16px;
       line-height: 1;
     }
+
     h5 {
       font-size: $h5-font-size;
       font-weight: 400;
       margin-bottom: 16px;
     }
+
     h6 {
       font-size: $h6-font-size;
       font-weight: 400;
@@ -112,6 +130,7 @@ body {
 
     .button-shadow {
       box-shadow: $button-shadow;
+
       &.theme--dark {
         box-shadow: none;
       }
@@ -123,9 +142,21 @@ body {
       padding: 7px;
       font-weight: 500;
     }
+
     pre {
       padding: 0.9rem;
       font-size: 0.75rem;
+    }
+
+    .v-btn.default {
+      &.theme--dark {
+        .v-btn__content {
+          color: #000;
+        }
+      }
+      .v-btn__content {
+        color: $grey-bold;
+      }
     }
   }
   div.v-application.theme--dark {
@@ -143,9 +174,6 @@ body {
   }
 }
 
-
 .mapContainer + footer.v-footer {
   display: none;
 }
-
-

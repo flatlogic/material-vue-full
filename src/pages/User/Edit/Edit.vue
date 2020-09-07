@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="user-edit mt-3">
+  <v-container fluid class="user-edit mt-3 mx-1">
     <v-row>
       <v-col cols="12">
         <v-tabs

@@ -29,23 +29,24 @@
           </v-card-title>
           <v-card-text class="pa-0">
             <v-carousel
-                  cycle
-                  height="450"
-                  hide-delimiter-background
-                  show-arrows-on-hover
+              cycle
+              height="315"
+              hide-delimiter-background
+              show-arrows-on-hover
               >
                 <v-carousel-item
-                    v-for="(slide, i) in firstSlideShow.slides"
-                    :key="i"
+                  v-for="(slide, i) in firstSlideShow.slides"
+                  :key="i"
+                  :src="slide.src"
                 >
                   <v-sheet
-                      :color="firstSlideShow.colors[i]"
-                      height="100%"
+                    :color="firstSlideShow.colors[i]"
+                    height="100%"
                   >
                     <v-row
-                        class="fill-height"
-                        align="center"
-                        justify="center"
+                      class="fill-height"
+                      align="center"
+                      justify="center"
                     >
                       <div class="display-3">{{ slide }} Slide</div>
                     </v-row>
@@ -82,11 +83,11 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-0">
-            <v-carousel hide-delimiters height="450">
+            <v-carousel hide-delimiters height="315">
                 <v-carousel-item
-                    v-for="(item,i) in secondSlideShow.items"
-                    :key="i"
-                    :src="item.src"
+                  v-for="(item,i) in secondSlideShow.items"
+                  :key="i"
+                  :src="item.src"
                 ></v-carousel-item>
               </v-carousel>
           </v-card-text>
@@ -121,9 +122,9 @@
           <v-card-text class="pa-0">
             <v-carousel hide-delimiters height="450">
               <v-carousel-item
-                  v-for="(item,i) in secondSlideShow.items"
-                  :key="i"
-                  :src="item.src"
+                v-for="(item,i) in secondSlideShow.items"
+                :key="i"
+                :src="item.src"
               ></v-carousel-item>
             </v-carousel>
           </v-card-text>
@@ -163,16 +164,13 @@ export default {
       secondSlideShow: {
         items: [
           {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+            src: require('@/assets/img/carusel/small-1.png'),
           },
           {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+            src: require('@/assets/img/carusel/small-2.png'),
           },
           {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
-          },
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+            src: require('@/assets/img/carusel/small-3.png'),
           },
         ]
       }
