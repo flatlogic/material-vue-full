@@ -4,10 +4,10 @@
       <v-col cols=12>
         <v-card class="overflow-hidden mx-1 mb-1">
           <v-img
-              :src="cards[0].src"
-              class="white--text align-end"
-              gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-              height="250px"
+            :src="cards[0].src"
+            class="white--text align-start"
+            gradient="to top, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+            height="500"
           >
             <v-card-text class="pa-5">
               <h5>13 Mar</h5>
@@ -15,17 +15,15 @@
               <p>A lifestyle brand is a company that markets its products or services to embody the interests, attitudes,
                 and opinions of a group or a culture. Lifestyle brands seek to inspire, guide, and motivate people, with
                 the goal of their products contributing to the definition of the consumer's way of life.</p>
-            </v-card-text>
-
-            <v-card-actions>
               <v-btn
-                text
-                dark
+                  color="primary"
+                  dark
+                  class="button-shadow"
               >
                 Learn More
               </v-btn>
+            </v-card-text>
 
-            </v-card-actions>
           </v-img>
         </v-card>
       </v-col>
@@ -34,25 +32,25 @@
       <v-col cols="12" md="4">
         <v-card class="overflow-hidden mx-1 mb-1">
           <v-img
-              :src="cards[0].src"
-              class="white--text align-end"
-              gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-              height="140px"
+            :src="cards[1].src"
+            class="white--text align-end"
+            height="215"
           ></v-img>
-          <v-card-title>Lifestyle brand</v-card-title>
           <v-card-text class="pa-5">
-            <p>A lifestyle brand is a company that markets its products or services to embody the interests, attitudes,
-              and opinions of a group or a culture. Lifestyle brands seek to inspire, guide, and motivate people, with
-              the goal of their products contributing to the definition of the consumer's way of life.</p>
+            <p class="text-h4">Lizard</p>
+            <p>Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all
+              continents except Antarctica</p>
           </v-card-text>
           <v-card-actions class="ma-2">
             <v-btn
-                color="primary"
+              color="primary"
+              class="button-shadow"
             >
               Share
             </v-btn>
             <v-btn
-                color="error"
+              color="error"
+              class="button-shadow"
             >
               Learn More
             </v-btn>
@@ -87,6 +85,7 @@
           <v-card-actions class="ma-2">
             <v-btn
                 color="success"
+                class="button-shadow"
             >
               Write a review
             </v-btn>
@@ -97,8 +96,8 @@
             <v-list-item class="grow">
               <v-list-item-avatar color="grey darken-3">
                 <v-img
-                    class="elevation-6"
-                    src="https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=White&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light"
+                  class="elevation-6"
+                  src="https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=White&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light"
                 ></v-img>
               </v-list-item-avatar>
               <v-list-item-content>
@@ -108,10 +107,9 @@
             </v-list-item>
           </v-card-text>
           <v-img
-              :src="cards[0].src"
-              class="white--text align-end"
-              gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-              height="140px"
+            :src="cards[2].src"
+            class="white--text align-end"
+            height="215"
           >
           </v-img>
           <v-card-text class="pa-5">
@@ -133,10 +131,9 @@
       <v-col cols="12" md="4">
         <v-card class="overflow-hidden mx-1 mb-1">
           <v-img
-              :src="cards[0].src"
-              class="white--text align-end"
-              gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-              height="140px"
+            :src="cards[3].src"
+            class="white--text align-end"
+            height="215"
           ></v-img>
           <v-card-title>Technologies</v-card-title>
           <v-card-subtitle>React Native Starter</v-card-subtitle>
@@ -146,6 +143,7 @@
             <v-spacer></v-spacer>
             <v-btn
                 color="success"
+                class="button-shadow"
             >
               Read More
             </v-btn>
@@ -168,9 +166,10 @@ export default {
         'Print'
       ],
       cards: [
-        { title: 'Pre-fab homes', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
-        { title: 'Favorite road trips', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 6 },
-        { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6 },
+        { title: 'Pre-fab homes', src: require('@/assets/img/cards/mac.png'), flex: 12 },
+        { title: 'Lizard', src: require('@/assets/img/cards/candy.png'), flex: 6 },
+        { title: 'Best airlines', src: require('@/assets/img/cards/city.png'), flex: 6 },
+        { title: 'Best airlines', src: require('@/assets/img/cards/rns.png'), flex: 6 },
       ],
     }
   }

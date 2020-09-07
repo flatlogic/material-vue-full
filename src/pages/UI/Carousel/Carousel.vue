@@ -70,15 +70,6 @@ export default {
         'Delete',
         'Print'
       ],
-      firstSlideShow: {
-        slides: [
-          'First',
-          'Second',
-          'Third',
-          'Fourth',
-          'Fifth',
-        ]
-      },
       secondSlideShow: {
         items: [
           {
