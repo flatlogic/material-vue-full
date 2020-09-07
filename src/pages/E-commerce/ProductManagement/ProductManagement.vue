@@ -73,6 +73,9 @@
                   </v-dialog>
                 </v-toolbar>
               </template>
+              <template v-slot:item.data-table-select="{ item }">
+                <v-simple-checkbox color="secondary" v-model="item.select"></v-simple-checkbox>
+              </template>
               <template v-slot:item.image="{ item }">
                 <v-img class="my-3" width="100" :src=item.image></v-img>
               </template>
@@ -204,6 +207,7 @@
           this.products = [
             {
               id: '1',
+              select: false,
               image: require('@/assets/img/e-commerce/low/1.png'),
               title: 'Trainers',
               subtitle: 'Trainers in white',
@@ -213,6 +217,7 @@
             },
             {
               id: '2',
+              select: false,
               image: require('@/assets/img/e-commerce/low/2.png'),
               title: 'Boots',
               subtitle: 'Trainers in blue',
@@ -222,6 +227,7 @@
             },
             {
               id: '3',
+              select: false,
               image: require('@/assets/img/e-commerce/low/3.png'),
               title: 'Flat sandals',
               subtitle: 'Trainers in white',
@@ -231,6 +237,7 @@
             },
             {
               id: '4',
+              select: false,
               image: require('@/assets/img/e-commerce/low/4.png'),
               title: 'Trainers',
               subtitle: 'Trainers in blue',
@@ -240,6 +247,7 @@
             },
             {
               id: '5',
+              select: false,
               image: require('@/assets/img/e-commerce/low/5.png'),
               title: 'Flat sandals',
               subtitle: 'Trainers in white',
@@ -249,6 +257,7 @@
             },
             {
               id: '6',
+              select: false,
               image: require('@/assets/img/e-commerce/low/6.png'),
               title: 'Flat sandals',
               subtitle: 'Trainers in blue',
@@ -258,6 +267,7 @@
             },
             {
               id: '7',
+              select: false,
               image: require('@/assets/img/e-commerce/low/1.png'),
               title: 'Trainers',
               subtitle: 'Trainers in white',
@@ -267,6 +277,7 @@
             },
             {
               id: '8',
+              select: false,
               image: require('@/assets/img/e-commerce/low/2.png'),
               title: 'Boots',
               subtitle: 'Trainers in blue',
@@ -276,6 +287,7 @@
             },
             {
               id: '9',
+              select: false,
               image: require('@/assets/img/e-commerce/low/3.png'),
               title: 'Flat sandals',
               subtitle: 'Trainers in white',
@@ -285,6 +297,7 @@
             },
             {
               id: '10',
+              select: false,
               image: require('@/assets/img/e-commerce/low/4.png'),
               title: 'Trainers',
               subtitle: 'Trainers in blue',
@@ -294,6 +307,7 @@
             },
             {
               id: '11',
+              select: false,
               image: require('@/assets/img/e-commerce/low/5.png'),
               title: 'Flat sandals',
               subtitle: 'Trainers in white',
@@ -303,6 +317,7 @@
             },
             {
               id: '12',
+              select: false,
               image: require('@/assets/img/e-commerce/low/6.png'),
               title: 'Flat sandals',
               subtitle: 'Trainers in blue',

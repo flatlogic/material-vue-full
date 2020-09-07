@@ -9,7 +9,7 @@
           <div class="pa-3">
             <v-card-title class="d-flex align-center mb-3">
               <h2 class="mb-0">{{ mainInfo.title }}</h2>
-              <span class="warning--text ml-5" style="font-size: 1.5rem">{{ mainInfo.rating }} </span><v-icon color="warning">mdi-star</v-icon>
+              <span class="warning--text fs-lg ml-5">{{ mainInfo.rating }} </span><v-icon color="warning">mdi-star</v-icon>
             </v-card-title>
             <v-card-subtitle>
               {{ mainInfo.subtitle}}
@@ -27,12 +27,13 @@
               </v-row>
               <v-row>
                 <v-col cols="12" md="6">
-                  <v-btn block color="primary">Add to bag
-                  <v-icon class="ml-3">mdi-cart</v-icon>
+                  <v-btn block color="primary" class="button-shadow">
+                    Add to bag
+                    <v-icon class="ml-3">mdi-cart</v-icon>
                   </v-btn>
                 </v-col>
                 <v-col cols="12" md="6">
-                  <v-btn block color="error">
+                  <v-btn block color="error" class="button-shadow">
                     Add to wishlist
                     <v-icon class="ml-3">mdi-heart</v-icon>
                   </v-btn>
@@ -92,7 +93,7 @@
                 <h3>Product Code</h3>
                 <p>135234</p>
               </v-col>
-              <v-col cols="12" md="6">
+              <v-col cols="12" md="6" class="mb-3">
                 <h3>Share</h3>
                 <p>Share photo with a tag <a href="#">#whitetrainers</a></p>
                 <v-btn icon  class="mr-3">
@@ -130,8 +131,8 @@
         </v-row>
       </v-card-text>
     </v-card>
-    <v-row no-gutters class="d-flex mt-10 mb-6">
-      <h2 class="page-title">You may also like</h2>
+    <v-row no-gutters class="d-flex mt-12 mb-0">
+      <h3 class="greyTint--text">You may also like</h3>
     </v-row>
     <v-row>
       <template v-for="(card, i) in cards">

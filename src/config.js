@@ -9,6 +9,7 @@ export default {
     greyBold: '#4a4a4a',
     greyMedium: '#6e6e6e',
     greyTint: '#b9b9b9',
+    default: '#e0e0e0',
     iconColor: "#FFFFFF59"
     },
   dark: {
@@ -18,6 +19,7 @@ export default {
     greyMedium: '#d6d6d6',
     greyBold: '#fff',
     greyTint: '#76767b',
+    default: '#e0e0e0',
     }
 };
 

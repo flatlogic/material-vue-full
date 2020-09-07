@@ -2,7 +2,7 @@
   <v-container fluid class="colors-page mt-3">
     <v-row>
       <v-col cols=12>
-        <v-card class="overflow-hidden mx-1 mb-1">
+        <v-card class="overflow-hidden ma-1 mb-4">
           <v-card-title>
             <p>States Colors</p>
           </v-card-title>
@@ -38,7 +38,7 @@
         </v-card>
       </v-col>
       <v-col cols=6>
-        <v-card class="mx-1 mb-1">
+        <v-card class="ma-1 mr-4">
           <v-card-title class="pa-5 pb-3">
             <p>Typography Colors</p>
           </v-card-title>
@@ -57,7 +57,7 @@
         </v-card>
       </v-col>
       <v-col cols=6>
-        <v-card class="overflow-hidden mx-1 mb-1">
+        <v-card class="overflow-hidden ma-1">
           <v-card-title>
             <p>Example buttons</p>
           </v-card-title>
@@ -91,31 +91,26 @@ export default {
       statesColors: [
         {
           state: 'Primary',
-          preview: '<v-btn color="primary">',
           example: '<v-btn color="primary">',
           hex: '#536DFE'
         },
         {
           state: 'Secondary',
-          preview: '<v-btn color="secondary">',
           example: '<v-btn color="secondary">',
           hex: '#FF5C93'
         },
         {
           state: 'Warning',
-          preview: '<v-btn color="warning">',
           example: '<v-btn color="warning">',
           hex: '#FFC260'
         },
         {
           state: 'Success',
-          preview: '<v-btn color="success">',
           example: '<v-btn color="success">',
           hex: '#3CD4A0'
         },
         {
           state: 'Info',
-          preview: '<v-btn color="info">',
           example: '<v-btn color="info">',
           hex: '#9013FE'
         },
