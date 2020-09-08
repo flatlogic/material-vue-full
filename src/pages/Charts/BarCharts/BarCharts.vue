@@ -364,7 +364,7 @@ export default {
             type: 'image',
             opacity: 0.87,
             image: {
-              src: ['https://picsum.photos/400?blur=1'],
+              src: [require('@/assets/img/charts/2.png')],
               width: 466,
               height: 406
             }

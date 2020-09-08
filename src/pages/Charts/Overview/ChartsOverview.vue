@@ -19,9 +19,9 @@
                 </template>
                 <v-list>
                   <v-list-item
-                          v-for="(item, i) in menu"
-                          :key="i"
-                          @click="() => {}"
+                    v-for="(item, i) in menu"
+                    :key="i"
+                    @click="() => {}"
                   >
                     <v-list-item-title>{{ item }}</v-list-item-title>
                   </v-list-item>
@@ -152,10 +152,10 @@
               <v-row no-gutters>
                 <v-col cols="12" class="my-auto">
                   <ApexChart
-                      type="bar"
-                      height="350"
-                      :options="barChart.options"
-                      :series="barChart.series">
+                    type="bar"
+                    height="350"
+                    :options="barChart.options"
+                    :series="barChart.series">
                   </ApexChart>
                 </v-col>
               </v-row>
@@ -392,7 +392,7 @@ export default {
             type: 'image',
             opacity: 0.87,
             image: {
-              src: ['https://picsum.photos/400?blur=1'],
+              src: [require('@/assets/img/charts/1.jpg')],
               width: 466,
               height: 406
             }

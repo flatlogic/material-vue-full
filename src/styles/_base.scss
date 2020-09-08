@@ -171,6 +171,19 @@ body {
         box-shadow: none!important;
       }
     }
+
+    //ApexCharts
+
+    .v-card {
+      .apexcharts-legend-text {
+        color: #76767b!important;
+      }
+      .apexcharts-text {
+        &.apexcharts-xaxis-label, &.apexcharts-yaxis-label {
+          fill: #76767b;
+        }
+      }
+    }
   }
 }
 

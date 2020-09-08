@@ -122,13 +122,13 @@
             </v-card-text>
             <v-card-actions class="pb-5">
               <v-spacer></v-spacer>
-              <v-btn color="primary" @click="randomize">Randomize</v-btn>
+              <v-btn class="button-shadow" color="primary" @click="randomize">Randomize</v-btn>
               <v-spacer></v-spacer>
-              <v-btn color="secondary" @click="appendData">Add</v-btn>
+              <v-btn class="button-shadow" color="secondary" @click="appendData">Add</v-btn>
               <v-spacer></v-spacer>
-              <v-btn color="warning" @click="removeData">Remove</v-btn>
+              <v-btn class="button-shadow" color="warning" @click="removeData">Remove</v-btn>
               <v-spacer></v-spacer>
-              <v-btn color="success" @click="reset">Reset</v-btn>
+              <v-btn class="button-shadow" color="success" @click="reset">Reset</v-btn>
               <v-spacer></v-spacer>
             </v-card-actions>
           </v-card>
