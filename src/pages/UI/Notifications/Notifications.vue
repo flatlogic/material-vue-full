@@ -1,5 +1,5 @@
 <template xmlns:div="http://www.w3.org/1999/html">
-  <v-container fluid class="notification-page mt-3">
+  <v-container fluid class="notification-page mt-4">
     <v-row class="mb-5">
       <v-card width="100%" class="d-flex flex-row mx-3">
        <v-row no-gutters>
@@ -61,7 +61,7 @@
              <v-row no-gutters class="">
                <v-col cols="12">
                  <v-col cols="12" class="mt-0">
-                            <pre>
+                    <pre>
 &lt;<span>v-snackbar</span>
   <span>v-model</span>=<span><span>"</span><span>snackbar</span><span>"</span></span>&gt;
 
@@ -71,7 +71,6 @@
 </pre>
                    <p class="pt-4">For more API information refer to the library documentation</p>
                  </v-col>
-
                </v-col>
              </v-row>
            </v-card-text>
@@ -214,7 +213,7 @@ export default {
         },
         {
           icon: 'mdi-briefcase-variant',
-          text: 'The order was deliver',
+          text: 'The order was delivered',
           color: 'primary'
         },
         {
