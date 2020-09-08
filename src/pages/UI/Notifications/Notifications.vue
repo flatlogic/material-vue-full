@@ -57,18 +57,21 @@
              <p>Usage</p>
            </v-card-title>
            <v-card-text class="pa-5 pt-0">
-             <p>Notifications are created with the help of <a href="https://maronato.github.io/vue-toastification/">vue-toastification</a></p>
+             <p>Notifications are created with the <a href="https://vuetifyjs.com/ru/components/snackbars/">v-snackbar</a> component.</p>
              <v-row no-gutters class="">
                <v-col cols="12">
-              <pre class='text-caption pa-3' style="background-color: #F3F5FF"><span>// register the plugin on vue</span>
-<span>import Toast from "vue-toastification";
-import "vue-toastification/dist/index.css";</span>
+                 <v-col cols="12" class="mt-0">
+                            <pre>
+&lt;<span>v-snackbar</span>
+  <span>v-model</span>=<span><span>"</span><span>snackbar</span><span>"</span></span>&gt;
 
-<span>Vue.use(Toast)</span>
+    {{<span>text</span><span>}}</span>
 
-<span>// you can call like this in your component</span>
-<span>this.$toast.show("I'm a toast!", {options})</span></pre>
-                 <p class="pt-4">For more API information refer to the library documentation</p>
+&lt;<span>/v-snackbar</span>&gt;
+</pre>
+                   <p class="pt-4">For more API information refer to the library documentation</p>
+                 </v-col>
+
                </v-col>
              </v-row>
            </v-card-text>
@@ -92,7 +95,7 @@ import "vue-toastification/dist/index.css";</span>
                     :color="item.color"
                     :key="item.text"
                   >
-                    <v-icon left size="28" color="rgba(255,255,255, 0.5)" class="ml-0 mr-2">{{ item.icon }}</v-icon>
+                    <v-icon left size="26" color="rgba(255,255,255, 0.5)" class="ml-0 mr-2">{{ item.icon }}</v-icon>
                     {{  item.text }}
                   </v-chip>
                 </template>
@@ -111,13 +114,13 @@ import "vue-toastification/dist/index.css";</span>
               <v-col cols="12">
                 <template v-for="item in notificationsTypeLight" >
                   <v-chip
-                      large
-                      text-color="black"
-                      class="d-block mt-4 font-weight-regular"
-                      :color="item.color"
-                      :key="item.text"
+                    large
+                    text-color="black"
+                    class="d-block mt-4 font-weight-regular"
+                    :color="item.color"
+                    :key="item.text"
                   >
-                    <v-icon :color="item.iconColor" left size="28" class="ml-0 mr-2">{{ item.icon }}</v-icon>
+                    <v-icon :color="item.iconColor" left size="26" class="ml-0 mr-2">{{ item.icon }}</v-icon>
                     {{  item.text }}
                   </v-chip>
                 </template>
@@ -145,7 +148,7 @@ import "vue-toastification/dist/index.css";</span>
                     elevation="0"
                     :color="item.color"
                   >
-                    <v-icon size="28" :color="item.iconColor">{{ item.icon }}</v-icon>
+                    <v-icon size="26" :color="item.iconColor">{{ item.icon }}</v-icon>
                   </v-btn>
                   <span>{{ item.text }}</span>
                   </div>
