@@ -9,9 +9,9 @@
             <v-menu>
               <template v-slot:activator="{ on, attrs }">
                 <v-btn
-                    icon
-                    v-bind="attrs"
-                    v-on="on"
+                  icon
+                  v-bind="attrs"
+                  v-on="on"
                 >
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
@@ -30,33 +30,29 @@
           <v-card-text class="pa-5 pt-0">
             <p class="fs-normal greyBold--text mb-5">The <code>v-tabs</code> component is used for hiding content behind a selectable item. This can also be used as a pseudo-navigation for a page, where the tabs are links and the tab-items are the content.</p>
             <v-tabs
-                v-model="tabExample.tab"
-                background-color="primary"
-                class="elevation-2"
-                fixed-tabs
-                dark
+              v-model="tabExample.tab"
+              fixed-tabs
+              class="tab-example"
             >
               <v-tabs-slider></v-tabs-slider>
 
               <v-tab
-                  v-for="i in tabExample.tabs"
-                  :key="i"
-                  :href="`#tab-${i}`"
+                v-for="i in tabExample.tabs"
+                :key="i"
+                :href="`#tab-${i}`"
+
               >
                 Tab {{ i }}
               </v-tab>
 
               <v-tab-item
-                  v-for="i in tabExample.tabs"
-                  :key="i"
-                  :value="'tab-' + i"
+                v-for="i in tabExample.tabs"
+                :key="i"
+                :value="'tab-' + i"
               >
-                <v-card
-                    flat
-                    tile
-                >
-                  <v-card-text>{{ tabExample.text }}</v-card-text>
-                </v-card>
+                <v-sheet class="py-5 px-3">
+                  <p>{{ tabExample.text }}</p>
+                </v-sheet>
               </v-tab-item>
             </v-tabs>
           </v-card-text>
@@ -92,11 +88,9 @@
             <p class="fs-normal greyBold--text mb-5"><code>v-tab</code>'s can contain icons as well as text. This increases the <code>v-tabs</code> height to 72px.</p>
             <v-tabs
               v-model="tabWithIcons.tab"
-              background-color="primary"
-              class="elevation-2"
               fixed-tabs
               icons-and-text
-              dark
+              class="tab-icons"
             >
               <v-tabs-slider></v-tabs-slider>
               <v-tab
@@ -108,16 +102,13 @@
                 <v-icon> {{ tabWithIcons.icon[i - 1] }} </v-icon>
               </v-tab>
               <v-tab-item
-                  v-for="i in tabWithIcons.tabs"
-                  :key="i"
-                  :value="'tab-' + i"
+                v-for="i in tabWithIcons.tabs"
+                :key="i"
+                :value="'tab-' + i"
               >
-                <v-card
-                    flat
-                    tile
-                >
-                  <v-card-text>{{ tabWithIcons.text }}</v-card-text>
-                </v-card>
+                <v-sheet class="py-5 px-3">
+                  <p>{{ tabWithIcons.text }}</p>
+                </v-sheet>
               </v-tab-item>
             </v-tabs>
           </v-card-text>
@@ -133,9 +124,9 @@
             <v-menu>
               <template v-slot:activator="{ on, attrs }">
                 <v-btn
-                    icon
-                    v-bind="attrs"
-                    v-on="on"
+                  icon
+                  v-bind="attrs"
+                  v-on="on"
                 >
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
@@ -249,3 +240,5 @@ export default {
 }
 
 </script>
+
+<style src="./Tabs.scss" lang="scss"></style>
