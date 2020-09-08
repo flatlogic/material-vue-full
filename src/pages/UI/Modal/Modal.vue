@@ -1,7 +1,7 @@
 <template>
-  <v-container fluid class="modal-page mt-3">
+  <v-container fluid class="modal-page mt-4">
     <v-row>
-      <v-col cols=6>
+      <v-col cols="12" md="6">
         <v-row>
           <v-col cols="12" class="pt-0">
             <v-card class="overflow-hidden mx-1 mb-1">
@@ -9,11 +9,11 @@
                 <p>Live Demo</p>
               </v-card-title>
               <v-card-text>
-                <p class="body-2">Toggle a working modal demo by clicking the button below. It will slide down and fade in from the top of the page.</p>
-                <v-btn color="primary" class="mr-4" @click="liveDemo = !liveDemo">DEMO</v-btn>
+                <p class="greyBold--text">Toggle a working modal demo by clicking the button below. It will slide down and fade in from the top of the page.</p>
+                <v-btn color="primary button-shadow" class="mr-4" @click="liveDemo = !liveDemo">DEMO</v-btn>
                 <v-dialog
-                    v-model="liveDemo"
-                    max-width="390"
+                  v-model="liveDemo"
+                  max-width="390"
                 >
                   <v-card>
                     <v-card-title class="headline">Use Google's location service?</v-card-title>
@@ -46,9 +46,10 @@
                 <v-dialog v-model="scrollingLongContent" width="600px">
                   <template v-slot:activator="{ on, attrs }">
                     <v-btn
-                        color="secondary"
-                        v-bind="attrs"
-                        v-on="on"
+                      class="button-shadow"
+                      color="secondary"
+                      v-bind="attrs"
+                      v-on="on"
                     >
                       Scrolling long content
                     </v-btn>
@@ -84,15 +85,15 @@
                 <p>Optional Sizes</p>
               </v-card-title>
               <v-card-text>
-                <p>To appoint modal's width size, by max-width attribute</p>
+                <p class="greyBold--text">To appoint modal's width size, by max-width attribute</p>
                 <v-dialog v-model="largeModal" persistent max-width="690">
                   <template v-slot:activator="{ on, attrs }">
                     <v-btn
-                        color="primary"
-                        dark
-                        v-bind="attrs"
-                        v-on="on"
-                        class="mr-4"
+                      color="primary"
+                      dark
+                      v-bind="attrs"
+                      v-on="on"
+                      class="button-shadow mr-4"
                     >
                       large modal
                     </v-btn>
@@ -110,10 +111,11 @@
                 <v-dialog v-model="smallModal" persistent max-width="290">
                   <template v-slot:activator="{ on, attrs }">
                     <v-btn
-                        color="secondary"
-                        dark
-                        v-bind="attrs"
-                        v-on="on"
+                      class="button-shadow"
+                      color="secondary"
+                      dark
+                      v-bind="attrs"
+                      v-on="on"
                     >
                       Small modal
                     </v-btn>
@@ -137,7 +139,7 @@
                 <p>Form dialogs</p>
               </v-card-title>
               <v-card-text>
-                <p>Form dialogs allow users to fill out form fields within a dialog. For example, if your site prompts for
+                <p class="greyBold--text">Form dialogs allow users to fill out form fields within a dialog. For example, if your site prompts for
                   potential subscribers to fill in their email address, they can fill out the email field and touch
                   Submit</p>
                 <v-dialog v-model="dialog" max-width="600px">
@@ -209,15 +211,67 @@
           </v-col>
         </v-row>
       </v-col>
-      <v-col cols="6">
+      <v-col cols="12" md="6">
         <v-card class="overflow-hidden mx-1 mb-1">
           <v-card-title class="pa-5 pb-3">
             <p>Using Grid</p>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p>Utilize the Material UI grid system within a modal by nesting <code>Grid</code> container within the
+            <p class="greyBold--text">Utilize the Material UI grid system within a modal by nesting <code>Grid</code> container within the
                 <code>Dialog</code>. Then, use the normal grid system classes as you would anywhere else.</p>
-            <v-btn color="secondary" class="mb-4" @click="grid = !grid">Grid</v-btn>
+            <v-btn color="primary" class="button-shadow mb-4" @click="grid = !grid">Grid</v-btn>
+            <v-row>
+              <v-col cols="12" class="mt-0">
+                            <pre>
+&lt;<span>v-row</span> <span>justify</span>=<span><span>"</span><span>end</span><span>"</span></span>&gt;
+  &lt;<span>v-col</span> <span>cols</span>=<span><span>"3"</span></span> <span>class</span>=<span>"<span>primary</span>"</span>&gt;
+    &lt;<span>h6</span><span> <span>class=</span><span class="pl-pds">"white--text"</span></span>&gt;
+      1
+    &lt;<span>h6/</span>&gt;
+  &lt;<span>v-col</span>&gt;
+
+  &lt;<span>v-col</span> <span>cols</span>=<span><span>"3"</span></span> <span>class</span>=<span>"<span>secondary</span>"</span>&gt;
+    &lt;<span>h6</span><span> <span>class=</span><span class="pl-pds">"white--text"</span></span>&gt;
+      2
+    &lt;<span>h6/</span>&gt;
+  &lt;<span>v-col</span>&gt;
+&lt;/<span>v-row</span>&gt;
+
+ &lt;<span>v-row</span> <span>justify</span>=<span><span>"</span><span>space-around</span><span>"</span></span>&gt;
+  &lt;<span>v-col</span> <span>cols</span>=<span><span>"3"</span></span> <span>class</span>=<span>"<span>primary</span>"</span>&gt;
+    &lt;<span>h6</span><span> <span>class=</span><span class="pl-pds">"white--text"</span></span>&gt;
+      1
+    &lt;<span>h6/</span>&gt;
+  &lt;<span>v-col</span>&gt;
+
+  &lt;<span>v-col</span> <span>cols</span>=<span><span>"3"</span></span> <span>class</span>=<span>"<span>secondary</span>"</span>&gt;
+    &lt;<span>h6</span><span> <span>class=</span><span class="pl-pds">"white--text"</span></span>&gt;
+      2
+    &lt;<span>h6/</span>&gt;
+  &lt;<span>v-col</span>&gt;
+&lt;/<span>v-row</span>&gt;
+
+ &lt;<span>v-row</span> <span>justify</span>=<span><span>"</span><span>space-around</span><span>"</span></span>&gt;
+  &lt;<span>v-col</span> <span>cols</span>=<span><span>"3"</span></span> <span>class</span>=<span>"<span>primary</span>"</span>&gt;
+    &lt;<span>h6</span><span> <span>class=</span><span class="pl-pds">"white--text"</span></span>&gt;
+      1
+    &lt;<span>h6/</span>&gt;
+  &lt;<span>v-col</span>&gt;
+
+  &lt;<span>v-col</span> <span>cols</span>=<span><span>"3"</span></span> <span>class</span>=<span>"<span>secondary</span>"</span>&gt;
+    &lt;<span>h6</span><span> <span>class=</span><span class="pl-pds">"white--text"</span></span>&gt;
+      2
+    &lt;<span>h6/</span>&gt;
+  &lt;<span>v-col</span>&gt;
+
+  &lt;<span>v-col</span> <span>cols</span>=<span><span>"3"</span></span> <span>class</span>=<span>"<span>warning</span>"</span>&gt;
+    &lt;<span>h6</span><span> <span>class=</span><span class="pl-pds">"white--text"</span></span>&gt;
+      3
+    &lt;<span>h6/</span>&gt;
+  &lt;<span>v-col</span>&gt;
+&lt;/<span>v-row</span>&gt;</pre>
+              </v-col>
+            </v-row>
             <v-dialog
               max-width="70%"
               v-model="grid"
@@ -262,11 +316,6 @@
                 </v-card-actions>
               </v-card>
             </v-dialog>
-            <v-card class="pa-10">
-              <pre>
-                  code example
-              </pre>
-            </v-card>
           </v-card-text>
         </v-card>
       </v-col>
