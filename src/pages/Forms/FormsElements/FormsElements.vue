@@ -9,18 +9,18 @@
             <v-menu>
               <template v-slot:activator="{ on, attrs }">
                 <v-btn
-                    icon
-                    v-bind="attrs"
-                    v-on="on"
+                  icon
+                  v-bind="attrs"
+                  v-on="on"
                 >
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
               </template>
               <v-list>
                 <v-list-item
-                    v-for="(item, i) in menu"
-                    :key="i"
-                    @click="() => {}"
+                  v-for="(item, i) in menu"
+                  :key="i"
+                  @click="() => {}"
                 >
                   <v-list-item-title >{{ item }}</v-list-item-title>
                 </v-list-item>
@@ -155,6 +155,7 @@
               </v-col>
               <v-col cols="7">
                 <v-text-field
+                  class="dense-elements"
                   label="Solo"
                   solo
                   dense
@@ -186,7 +187,7 @@
         </v-card>
       </v-col>
       <v-col lg=6 cols=12>
-        <v-card class="overflow-hidden mx-1 mb-1">
+        <v-card class="overflow-hidden mx-1">
           <v-card-title class="pa-5 pb-3">
             <p>Selects</p>
             <v-spacer></v-spacer>
@@ -215,32 +216,32 @@
             <v-row align="center">
               <v-col class="d-flex" cols="12" sm="6">
                 <v-select
-                        :items="items"
-                        label="Standard"
+                  :items="items"
+                  label="Standard"
                 ></v-select>
               </v-col>
 
               <v-col class="d-flex" cols="12" sm="6">
                 <v-select
-                        :items="items"
-                        filled
-                        label="Filled style"
+                  :items="items"
+                  filled
+                  label="Filled style"
                 ></v-select>
               </v-col>
 
               <v-col class="d-flex" cols="12" sm="6">
                 <v-select
-                        :items="items"
-                        label="Outlined style"
-                        outlined
+                  :items="items"
+                  label="Outlined style"
+                  outlined
                 ></v-select>
               </v-col>
 
-              <v-col class="d-flex" cols="12" sm="6">
+              <v-col class="solo-select d-flex" cols="12" sm="6">
                 <v-select
-                        :items="items"
-                        label="Solo field"
-                        solo
+                  :items="items"
+                  label="Solo field"
+                  solo
                 ></v-select>
               </v-col>
             </v-row>
