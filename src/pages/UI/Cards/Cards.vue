@@ -30,15 +30,15 @@
     </v-row>
     <v-row>
       <v-col cols="12" md="4">
-        <v-card class="overflow-hidden mx-1 mb-1">
+        <v-card class="overflow-hidden mx-1">
           <v-img
             :src="cards[1].src"
             class="white--text align-end"
             height="215"
           ></v-img>
           <v-card-text class="pa-5">
-            <p class="text-h4">Lizard</p>
-            <p>Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all
+            <h3 class="greyBold--text">Lizard</h3>
+            <p class="greyBold--text">Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all
               continents except Antarctica</p>
           </v-card-text>
           <v-card-actions class="ma-2">
@@ -92,13 +92,12 @@
           </v-card-actions>
         </v-card>
         <v-card class="overflow-hidden mx-1 mb-1">
-          <v-card-text class="pa-5">
+          <v-card-text class="pa-0">
             <v-list-item class="grow">
-              <v-list-item-avatar color="grey darken-3">
-                <v-img
-                  class="elevation-6"
-                  src="https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=White&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light"
-                ></v-img>
+              <v-list-item-avatar>
+                <v-avatar color="primary" size="36">
+                  <span class="white--text fs-large">R</span>
+                </v-avatar>
               </v-list-item-avatar>
               <v-list-item-content>
                 <v-list-item-title>Weekly Inspiration</v-list-item-title>
@@ -112,18 +111,15 @@
             height="215"
           >
           </v-img>
-          <v-card-text class="pa-5">
-            <p>There are at least 109 mountains on Earts with elevations greeter than 7,200 meters</p>
+          <v-card-text class="pa-5 pb-0">
+            <p class="greyBold--text">There are at least 109 mountains on Earts with elevations greeter than 7,200 meters</p>
           </v-card-text>
-          <v-card-actions>
+          <v-card-actions class="pa-5 pt-0">
             <v-btn icon>
-              <v-icon>mdi-heart</v-icon>
+              <v-icon color="greyTint">mdi-heart</v-icon>
             </v-btn>
             <v-btn icon>
-              <v-icon>mdi-bookmark</v-icon>
-            </v-btn>
-            <v-btn icon>
-              <v-icon>mdi-share-variant</v-icon>
+              <v-icon color="greyTint">mdi-share-variant</v-icon>
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -136,14 +132,14 @@
             height="215"
           ></v-img>
           <v-card-title>Technologies</v-card-title>
-          <v-card-subtitle>React Native Starter</v-card-subtitle>
+          <v-card-subtitle class="greyBold--text">React Native Starter</v-card-subtitle>
           <v-divider></v-divider>
           <v-card-actions class="ma-2">
             <p class="mb-0">from $49.95</p>
             <v-spacer></v-spacer>
             <v-btn
-                color="success"
-                class="button-shadow"
+              color="success"
+              class="button-shadow"
             >
               Read More
             </v-btn>
