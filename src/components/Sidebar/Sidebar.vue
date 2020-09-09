@@ -62,7 +62,7 @@
             :to="child.link"
             link
             class="pl-12"
-            @click="child.action ? child.action : null"
+            @click="child.action ? child.action() : null"
           >
             <v-list-item-action class="mr-2" v-if="child.icon">
               <v-icon size="">{{ child.icon }}</v-icon>
@@ -79,8 +79,8 @@
           v-else
           :key="item.text"
           :to="item.link === '#' ? '' : item.link"
+          @click="item.action ? item.action() : null"
           link
-          @click="item.action ? item.action : null"
         >
           <v-list-item-action class="mr-6">
             <v-icon
@@ -102,8 +102,8 @@
       v-model="dialog"
       max-width="290"
     >
-      <v-card>
-        <v-card-title class="headline">Use Google's location service?</v-card-title>
+      <v-card class="primary">
+        <v-card-title class="headline">Add section</v-card-title>
 
         <v-card-text>
           Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.
@@ -242,7 +242,7 @@
             children: [
               { title: 'Calendar', icon: 'mdi-circle-small', link: '/extra/calendar' },
               { title: 'Invoice', icon: 'mdi-circle-small', link: '/extra/invoice' },
-              { title: 'Login Page', icon: 'mdi-circle-small', link: '#', action: this.logOut },
+              { title: 'Login Page', icon: 'mdi-circle-small', link: '#', action: () => this.logOut() },
               { title: 'Error Page', icon: 'mdi-circle-small', link: '/extra/error'},
               { title: 'Gallery', icon: 'mdi-circle-small', link: '/extra/gallery'},
               { title: 'Search Result', icon: 'mdi-circle-small', link: '/extra/search-result'},
@@ -270,14 +270,14 @@
           { heading: 'HELP' },
           { title: 'Library', icon: 'mdi-book-variant-multiple'},
           { title: 'Support', icon: 'mdi-forum'},
-          { title: 'FAQ', icon: 'mdi-help-circle-outline'},
+          { title: 'FAQ', icon: 'mdi-help-circle-outline', },
           { divider: true },
           { heading: 'PROJECTS' },
           { title: 'My recent', icon: 'mdi-circle-medium', color: 'warning'},
           { title: 'Starred', icon: 'mdi-circle-medium', color: 'primary'},
           { title: 'Background', icon: 'mdi-circle-medium', color: 'error'},
           { divider: true },
-          { title: 'Add section', icon: 'mdi-plus-circle', color: 'secondary', size: 36, action: this.addSection},
+          { title: 'Add section', icon: 'mdi-plus-circle', color: 'secondary', size: 36, action: () => this.addSection()},
           { divider: true },
         ],
         sidebarWidth: 240,
@@ -300,8 +300,8 @@
     methods: {
       ...mapActions([ 'TOGGLE_DRAWER' ]),
       logOut: function () {
-            window.localStorage.setItem('authenticated', false);
-            this.$router.push('/login');
+        window.localStorage.setItem('authenticated', false);
+        this.$router.push('/login');
         },
       addSection: function () {
         this.dialog = true;
