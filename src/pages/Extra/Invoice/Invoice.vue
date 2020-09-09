@@ -1,33 +1,30 @@
 <template>
-  <v-container class="mt-6">
+  <v-container class="mt-4 mx-1">
     <v-row>
       <v-col cols="12">
         <v-row class="invoice-page">
           <v-col cols="12">
             <v-card>
-              <v-card-title>
-                <v-row>
+              <v-card-text class="invoiceBody">
+                <v-row justify="space-between">
                   <v-col md="6" cols="12">
                     <img src="../../../assets/img/logo.jpg" alt="Logo" class='invoiceLogo rounded' />
                   </v-col>
-                  <v-col md="6" cols="12">
-                    <h4 class="text-right">
-                      #<span class="font-weight-bold">9.45613</span> /
-                      <small>17 May 2014</small>
+                  <v-col md="3" cols="12">
+                    <h4 class="text-left">
+                      <span class="greyBold--text font-weight-bold fs-base">#9.45613 </span><span class="greyBold--text fs-base">/ 17 May 2014</span>
                     </h4>
-                    <div class="text-right">
+                    <div class="text-left fs-base greyBold--text">
                       Some Invoice number description or whatever
                     </div>
                   </v-col>
                 </v-row>
-              </v-card-title>
-              <v-card-text class="invoiceBody">
-                <v-row class="mb-5">
+                <v-row class="mb-5 greyBold--text">
                   <v-col cols="6">
-                    <h5 class="ma-0">Company Information</h5>
-                    <h3 class="company-name mt-2">
+                    <h4 class="ma-0">Company Information</h4>
+                    <h5 class="mt-5">
                       Flatlogic LLC
-                    </h3>
+                    </h5>
                     <address>
                       <strong>2 Infinite Loop</strong><br />
                       Minsk, Belarus 220004<br />
@@ -40,10 +37,10 @@
                   </v-col>
 
                   <v-col cols="6" class="text-right">
-                    <h5 class="ma-0">Client Information</h5>
-                    <h3 class="client-name mt-2">
+                    <h4 class="ma-0">Client Information</h4>
+                    <h6 class="client-name mt-5">
                       Veronica Niasvizhskaja
-                    </h3>
+                    </h6>
                     <address>
                       <strong>Consultant</strong> at
                       <a href="#">Allspana</a><br />
@@ -57,7 +54,6 @@
                     </address>
                   </v-col>
                 </v-row>
-
                 <v-simple-table>
                   <template v-slot:default>
                     <thead>
@@ -147,17 +143,16 @@
                 </p>
                 <v-card-actions class="mt-5 justify-content-end">
                   <v-spacer></v-spacer>
-                  <v-btn color="default" class="mr-2">
-                    <i class="fa fa-print" />
+                  <v-btn color="default" class="button-shadow mr-2">
+                    <v-icon class="mr-2">mdi-printer</v-icon>
                     &nbsp;&nbsp;
                     Print
                   </v-btn>
-                  <v-btn color="success">
+                  <v-btn color="success" class="button-shadow">
+                    <v-icon class="mr-2">mdi-arrow-right</v-icon>
                     Proceed with Payment
                     &nbsp;
-                    <span class="circle bg-white">
-                      <i class="fa fa-arrow-right text-danger" />
-                    </span>
+
                   </v-btn>
                 </v-card-actions>
               </v-card-text>

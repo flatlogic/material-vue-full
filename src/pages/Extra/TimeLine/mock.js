@@ -1,10 +1,13 @@
 export default {
     items: [
         {
-            color: 'secondary',
+            color: 'primary',
+            subColor: "#758AFE",
             icon: 'mdi-navigation',
             opposite: 'yesterday<h5>8:03 pm</h5>',
-            title: 'Jessica Nilson @jess',
+            title: 'Jessica Nilson',
+            avatar: require('@/assets/img/time-line/a1.jpg'),
+            nick: '@jess',
             subtitle: '10:12 am - Publicly near Minsk',
             content: {
                 googleMap: true,
@@ -15,24 +18,27 @@ export default {
                 {
                     divider: true,
                     id: 1,
-                    avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
-                    title: '<a>Jessica Nilson</a> 7 mins ago',
+                    avatar: require('@/assets/img/time-line/a1.jpg'),
+                    title: '<a>Jessica Nilson</a> <small>7 mins ago</small>',
                     subtitle: 'Someone said they were the best people out there just few years ago. Don\'t know better options.'
                 },
                 {
                     divider: true,
                     id: 2,
-                    avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
-                    title: '<a>Jessica Nilson</a> 7 mins ago',
+                    avatar: require('@/assets/img/time-line/a2.jpg'),
+                    title: '<a>Jessica Nilson</a> <small>7 mins ago</small>',
                     subtitle: 'Someone said they were the best people out there just few years ago. Don\'t know better options.'
                 },
             ]
         },
         {
-            color: 'info',
+            color: 'secondary',
+            subColor: "#FE90B7",
             icon: 'mdi-message',
             opposite: 'yesterday<h5>8:03 pm</h5>',
-            title: 'Jessica Nilson @jess',
+            title: 'Jessica Nilson',
+            avatar: require('@/assets/img/time-line/a2.jpg'),
+            nick: '@jess',
             subtitle: '10:12 am - Publicly near Minsk',
             content: {
                 googleMap: false,
@@ -41,10 +47,13 @@ export default {
             }
         },
         {
-            color: 'green lighten-1',
+            color: 'warning',
+            subColor: "#FFCE80",
             icon: 'mdi-coffee',
             opposite: 'yesterday<h5>8:03 pm</h5>',
-            title: 'Jessica Nilson @jess',
+            title: 'Jessica Nilson',
+            avatar: require('@/assets/img/time-line/a3.jpg'),
+            nick: '@jess',
             subtitle: '10:12 am - Publicly near Minsk',
             content: {
                 googleMap: false,
@@ -55,17 +64,20 @@ export default {
                 {
                     divider: true,
                     id: 1,
-                    avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
-                    title: '<a>Jessica Nilson</a> 7 mins ago',
+                    avatar: require('@/assets/img/time-line/a3.jpg'),
+                    title: '<a>Jessica Nilson</a> <small>7 mins ago</small>',
                     subtitle: 'Someone said they were the best people out there just few years ago. Don\'t know better options.'
                 },
             ]
         },
         {
-            color: 'indigo',
+            color: 'success',
+            subColor: "#63DDB3",
             icon: 'mdi-alpha-j',
             opposite: 'yesterday<h5>8:03 pm</h5>',
-            title: 'Jessica Nilson @jess',
+            title: 'Jessica Nilson',
+            avatar: require('@/assets/img/time-line/a4.jpg'),
+            nick: '@jess',
             subtitle: '10:12 am - Publicly near Minsk',
             content: {
                 googleMap: false,

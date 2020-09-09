@@ -39,8 +39,6 @@ import GoogleMaps from '@/pages/Maps/Google/Google'
 // Extra
 import Gallery from "@/pages/Extra/Gallery/Gallery"
 import Calendar from "@/pages/Extra/Calendar/Calendar"
-import LoginDemo from "@/pages/Extra/Login/Login"
-import ErrorDemo from "@/pages/Extra/Error/Error"
 import Invoice from "@/pages/Extra/Invoice/Invoice"
 import SearchResult from "@/pages/Extra/SearchResult/SearchResult"
 import TimeLine from "@/pages/Extra/TimeLine/TemeLine"
@@ -262,16 +260,6 @@ export default new Router({
         path: '/extra/calendar',
         name: 'Calendar',
         component: Calendar
-      },
-      {
-        path: '/extra/login',
-        name: 'LoginDemo',
-        component: LoginDemo
-      },
-      {
-        path: '/extra/error',
-        name: 'ErrorDemo',
-        component: ErrorDemo
       },
       {
         path: '/extra/invoice',

@@ -10,29 +10,29 @@
             <p class="fs-normal greyBold--text mb-5">This is an example of an event calendar where you can drag events, extend their length, and create events.</p>
             <v-sheet height="686">
               <v-calendar
-                      ref="calendar"
-                      v-model="value"
-                      color="primary"
-                      type="4day"
-                      :events="events"
-                      :event-color="getEventColor"
-                      :event-ripple="false"
-                      @change="getEvents"
-                      @mousedown:event="startDrag"
-                      @mousedown:time="startTime"
-                      @mousemove:time="mouseMove"
-                      @mouseup:time="endDrag"
-                      @mouseleave.native="cancelDrag"
+                ref="calendar"
+                v-model="value"
+                color="primary"
+                type="4day"
+                :events="events"
+                :event-color="getEventColor"
+                :event-ripple="false"
+                @change="getEvents"
+                @mousedown:event="startDrag"
+                @mousedown:time="startTime"
+                @mousemove:time="mouseMove"
+                @mouseup:time="endDrag"
+                @mouseleave.native="cancelDrag"
               >
                 <template #event="{ event, timed, eventSummary }">
                   <div
-                          class="v-event-draggable"
-                          v-html="eventSummary()"
+                    class="v-event-draggable"
+                    v-html="eventSummary()"
                   ></div>
                   <div
-                          v-if="timed"
-                          class="v-event-drag-bottom"
-                          @mousedown.stop="extendBottom(event)"
+                    v-if="timed"
+                    class="v-event-drag-bottom"
+                    @mousedown.stop="extendBottom(event)"
                   ></div>
                 </template>
               </v-calendar>
@@ -48,27 +48,28 @@
           <v-card-text>
             <p class="fs-normal greyBold--text mb-5">This is an example of a planner with additional event handlers and external components controlling the display of the calendar.</p>
             <v-sheet height="64">
-              <v-toolbar flat color="white">
-                <v-btn outlined class="mr-4" color="grey darken-2" @click="setToday">
+              <v-toolbar flat>
+                <v-btn outlined class="mr-4" color="greyBold" @click="setToday">
                   Today
                 </v-btn>
-                <v-btn fab text small color="grey darken-2" @click="prev">
-                  <v-icon small>mdi-chevron-left</v-icon>
-                </v-btn>
-                <v-btn fab text small color="grey darken-2" @click="next">
-                  <v-icon small>mdi-chevron-right</v-icon>
+                <v-spacer></v-spacer>
+                <v-btn fab text small color="greyBold" @click="prev">
+                  <v-icon class="mr-2">mdi-chevron-left</v-icon>
                 </v-btn>
                 <v-toolbar-title v-if="$refs.calendar">
                   {{ $refs.calendar.title }}
                 </v-toolbar-title>
+                <v-btn fab text small color="greyBold" @click="next">
+                  <v-icon class="ml-2">mdi-chevron-right</v-icon>
+                </v-btn>
                 <v-spacer></v-spacer>
                 <v-menu bottom right>
                   <template v-slot:activator="{ on, attrs }">
                     <v-btn
-                            outlined
-                            color="grey darken-2"
-                            v-bind="attrs"
-                            v-on="on"
+                      outlined
+                      color="greyBold"
+                      v-bind="attrs"
+                      v-on="on"
                     >
                       <span>{{ typeToLabel[type] }}</span>
                       <v-icon right>mdi-menu-down</v-icon>
@@ -93,43 +94,43 @@
             </v-sheet>
             <v-sheet height="600">
               <v-calendar
-                      ref="calendarEvents"
-                      v-model="focus"
-                      color="primary"
-                      :events="events2"
-                      :event-color="getEventColor"
-                      :type="type"
-                      @click:event="showEvent"
-                      @click:more="viewDay"
-                      @click:date="viewDay"
-                      @change="updateRange"
+                ref="calendarEvents"
+                v-model="focus"
+                color="primary"
+                :events="events2"
+                :event-color="getEventColor"
+                :type="type"
+                @click:event="showEvent"
+                @click:more="viewDay"
+                @click:date="viewDay"
+                @change="updateRange"
               >
                 <template #event="{ event, timed, eventSummary }">
                   <div
-                          class="v-event-draggable"
-                          v-html="eventSummary()"
+                    class="v-event-draggable"
+                    v-html="eventSummary()"
                   ></div>
                   <div
-                          v-if="timed"
-                          class="v-event-drag-bottom"
-                          @mousedown.stop="extendBottom(event)"
+                    v-if="timed"
+                    class="v-event-drag-bottom"
+                    @mousedown.stop="extendBottom(event)"
                   ></div>
                 </template>
               </v-calendar>
               <v-menu
-                      v-model="selectedOpen"
-                      :close-on-content-click="false"
-                      :activator="selectedElement"
-                      offset-x
+                v-model="selectedOpen"
+                :close-on-content-click="false"
+                :activator="selectedElement"
+                offset-x
               >
                 <v-card
-                        color="warning"
-                        min-width="350px"
-                        flat
+                  color="warning"
+                  min-width="350px"
+                  flat
                 >
                   <v-toolbar
-                          :color="selectedEvent.color"
-                          dark
+                    :color="selectedEvent.color"
+                    dark
                   >
                     <v-btn icon>
                       <v-icon>mdi-pencil</v-icon>
@@ -205,10 +206,10 @@
             this.focus = ''
         },
         prev () {
-            this.$refs.calendar.prev()
+            this.$refs.calendarEvents.prev()
         },
         next () {
-            this.$refs.calendar.next()
+            this.$refs.calendarEvents.next()
         },
         showEvent ({ nativeEvent, event }) {
             const open = () => {
@@ -351,39 +352,4 @@
   }
 </script>
 
-<style scoped lang="scss">
-  .v-event-draggable {
-    padding-left: 6px;
-  }
-
-  .v-event-timed {
-    user-select: none;
-    -webkit-user-select: none;
-  }
-
-  .v-event-drag-bottom {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 4px;
-    height: 4px;
-    cursor: ns-resize;
-
-    &::after {
-      display: none;
-      position: absolute;
-      left: 50%;
-      height: 4px;
-      border-top: 1px solid white;
-      border-bottom: 1px solid white;
-      width: 16px;
-      margin-left: -8px;
-      opacity: 0.8;
-      content: '';
-    }
-
-    &:hover::after {
-      display: block;
-    }
-  }
-</style>
+<style src="./Calendar.scss" lang="scss"></style>

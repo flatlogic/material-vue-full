@@ -1,0 +1,14 @@
+@import '../../../styles/app';
+
+.search-result-page {
+  .main-pagination {
+    .v-pagination {
+      li button.v-pagination__item, button.v-pagination__navigation {
+        box-shadow: $button-shadow;
+      }
+    }
+  }
+  .v-list-item:hover {
+    background-color: #B1BCFF;
+  }
+}

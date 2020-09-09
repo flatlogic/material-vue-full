@@ -62,6 +62,7 @@
             :to="child.link"
             link
             class="pl-12"
+            @click="child.action ? child.action : null"
           >
             <v-list-item-action class="mr-2" v-if="child.icon">
               <v-icon size="">{{ child.icon }}</v-icon>
@@ -82,7 +83,7 @@
         >
           <v-list-item-action class="mr-6">
             <v-icon
-              size="24"
+              :size="item.size ? item.size : 24"
               :color="item.color ? item.color : ''"
             >{{ item.icon }}</v-icon>
           </v-list-item-action>
@@ -118,7 +119,7 @@
             children: [
               { title: 'Product Management', icon: 'mdi-circle-small', link: '/e-commerce/management' },
               { title: 'Product Grid', icon: 'mdi-circle-small', link: '/e-commerce/grid' },
-              { title: 'Product Page', icon: 'mdi-circle-small', link: '/e-commerce/detail' }
+              { title: 'Product Page', icon: 'mdi-circle-small', link: '/e-commerce/detail'}
             ],
           },
           {
@@ -127,7 +128,7 @@
             model: false,
             badge: true,
             children: [
-              { title: 'User List', icon: 'mdi-circle-small', link: '/user/list' },
+              { title: 'User List', icon: 'mdi-circle-small', link: '/user/list'},
               { title: 'User Add', icon: 'mdi-circle-small', link: '/user/add' },
               { title: 'User Edit', icon: 'mdi-circle-small', link: '/user/edit' }
             ],
@@ -140,9 +141,9 @@
             icon: 'mdi-apps',
             model: false,
             children: [
-              { title: 'Typography', icon: 'mdi-circle-small', link: '/core/typography' },
-              { title: 'Colors', icon: 'mdi-circle-small', link: '/core/colors' },
-              { title: 'Grid', icon: 'mdi-circle-small', link: '/core/grid' },
+              { title: 'Typography', icon: 'mdi-circle-small', link: '/core/typography', action: null },
+              { title: 'Colors', icon: 'mdi-circle-small', link: '/core/colors', action: null },
+              { title: 'Grid', icon: 'mdi-circle-small', link: '/core/grid', action: null },
             ],
           },
           {
@@ -150,8 +151,8 @@
             icon: 'mdi-grid-large',
             model: false,
             children: [
-              { title: 'Tables Basic', icon: 'mdi-circle-small', link: '/tables/basic' },
-              { title: 'Tables Dynamic', icon: 'mdi-circle-small', link: '/tables/dynamic' }
+              { title: 'Tables Basic', icon: 'mdi-circle-small', link: '/tables/basic', action: null },
+              { title: 'Tables Dynamic', icon: 'mdi-circle-small', link: '/tables/dynamic', action: null }
             ],
           },
           {
@@ -159,17 +160,17 @@
             icon: 'mdi-image-filter-none',
             model: false,
             children: [
-              { title: 'Icons', icon: 'mdi-circle-small', link: '/ui/icons'},
-              { title: 'Badges', icon: 'mdi-circle-small', link: '/ui/badges'},
-              { title: 'Carousel', icon: 'mdi-circle-small', link: '/ui/carousel'},
-              { title: 'Cards', icon: 'mdi-circle-small', link: '/ui/cards'},
-              { title: 'Modal', icon: 'mdi-circle-small', link: '/ui/modal'},
-              { title: 'Notifications', icon: 'mdi-circle-small', link: '/ui/notifications' },
-              { title: 'Navbar', icon: 'mdi-circle-small', link: '/ui/navbar' },
-              { title: 'Tooltips', icon: 'mdi-circle-small', link: '/ui/tooltips' },
-              { title: 'Tabs', icon: 'mdi-circle-small', link: '/ui/tabs' },
-              { title: 'Pagination', icon: 'mdi-circle-small', link: '/ui/pagination' },
-              { title: 'Progress', icon: 'mdi-circle-small', link: '/ui/progress' },
+              { title: 'Icons', icon: 'mdi-circle-small', link: '/ui/icons', action: null},
+              { title: 'Badges', icon: 'mdi-circle-small', link: '/ui/badges', action: null},
+              { title: 'Carousel', icon: 'mdi-circle-small', link: '/ui/carousel', action: null},
+              { title: 'Cards', icon: 'mdi-circle-small', link: '/ui/cards', action: null},
+              { title: 'Modal', icon: 'mdi-circle-small', link: '/ui/modal', action: null},
+              { title: 'Notifications', icon: 'mdi-circle-small', link: '/ui/notifications', action: null },
+              { title: 'Navbar', icon: 'mdi-circle-small', link: '/ui/navbar', action: null },
+              { title: 'Tooltips', icon: 'mdi-circle-small', link: '/ui/tooltips', action: null },
+              { title: 'Tabs', icon: 'mdi-circle-small', link: '/ui/tabs', action: null },
+              { title: 'Pagination', icon: 'mdi-circle-small', link: '/ui/pagination', action: null },
+              { title: 'Progress', icon: 'mdi-circle-small', link: '/ui/progress', action: null },
             ],
           },
           {
@@ -177,8 +178,8 @@
             icon: 'mdi-file-document',
             model: false,
             children: [
-              { title: 'Form Elements', icon: 'mdi-circle-small', link: '/forms/elements' },
-              { title: 'Form Validation', icon: 'mdi-circle-small', link: '/forms/validation' },
+              { title: 'Form Elements', icon: 'mdi-circle-small', link: '/forms/elements', action: null },
+              { title: 'Form Validation', icon: 'mdi-circle-small', link: '/forms/validation', action: null },
             ],
           },
           {
@@ -186,10 +187,10 @@
             icon: 'mdi-chart-bar',
             model: false,
             children: [
-              { title: 'Charts Overview', icon: 'mdi-circle-small', link: '/charts/overview' },
-              { title: 'Line Charts', icon: 'mdi-circle-small', link: '/charts/line-charts' },
-              { title: 'Bar Charts', icon: 'mdi-circle-small', link: '/charts/bar-charts' },
-              { title: 'Pie Charts', icon: 'mdi-circle-small', link: '/charts/pie-charts' },
+              { title: 'Charts Overview', icon: 'mdi-circle-small', link: '/charts/overview', action: null },
+              { title: 'Line Charts', icon: 'mdi-circle-small', link: '/charts/line-charts', action: null },
+              { title: 'Bar Charts', icon: 'mdi-circle-small', link: '/charts/bar-charts', action: null },
+              { title: 'Pie Charts', icon: 'mdi-circle-small', link: '/charts/pie-charts', action: null },
             ],
           },
           {
@@ -197,8 +198,8 @@
             icon: 'mdi-map',
             model: false,
             children: [
-              { title: 'Google Maps', icon: 'mdi-circle-small', link: '/maps/google' },
-              { title: 'Vector Maps', icon: 'mdi-circle-small', link: '/maps/vector' },
+              { title: 'Google Maps', icon: 'mdi-circle-small', link: '/maps/google', action: null },
+              { title: 'Vector Maps', icon: 'mdi-circle-small', link: '/maps/vector', action: null },
             ],
           },
           {
@@ -206,13 +207,13 @@
             icon: 'mdi-star',
             model: false,
             children: [
-              { title: 'Calendar', icon: 'mdi-circle-small', link: '/extra/calendar' },
-              { title: 'Invoice', icon: 'mdi-circle-small', link: '/extra/invoice' },
-              { title: 'Login Page', icon: 'mdi-circle-small', link: '/extra/login' },
-              { title: 'Error Page', icon: 'mdi-circle-small', link: '/extra/error' },
-              { title: 'Gallery', icon: 'mdi-circle-small', link: '/extra/gallery' },
-              { title: 'Search Result', icon: 'mdi-circle-small', link: '/extra/search-result' },
-              { title: 'Time Line', icon: 'mdi-circle-small', link: '/extra/timeLine' },
+              { title: 'Calendar', icon: 'mdi-circle-small', link: '/extra/calendar', action: null },
+              { title: 'Invoice', icon: 'mdi-circle-small', link: '/extra/invoice', action: null },
+              { title: 'Login Page', icon: 'mdi-circle-small', link: '#', action: this.logOut },
+              { title: 'Error Page', icon: 'mdi-circle-small', link: '/extra/error', action: null },
+              { title: 'Gallery', icon: 'mdi-circle-small', link: '/extra/gallery', action: null },
+              { title: 'Search Result', icon: 'mdi-circle-small', link: '/extra/search-result', action: null },
+              { title: 'Time Line', icon: 'mdi-circle-small', link: '/extra/timeLine', action: null },
             ],
           },
           {
@@ -226,8 +227,8 @@
                 icon: 'mdi-folder',
                 model: false,
                 children: [
-                  { title: 'Calendar', icon: 'mdi-circle-small', link: '/extra/calendar' },
-                  { title: 'Invoice', icon: 'mdi-circle-small', link: '/extra/invoice' },
+                  { title: 'Calendar', icon: 'mdi-circle-small', link: '/extra/calendar', action: null },
+                  { title: 'Invoice', icon: 'mdi-circle-small', link: '/extra/invoice', action: null },
                 ],
               },
             ],
@@ -241,7 +242,10 @@
           { heading: 'PROJECTS' },
           { title: 'My recent', icon: 'mdi-circle-medium', color: 'warning'},
           { title: 'Starred', icon: 'mdi-circle-medium', color: 'primary'},
-          { title: 'Background', icon: 'mdi-circle-medium', color: 'error'}
+          { title: 'Background', icon: 'mdi-circle-medium', color: 'error'},
+          { divider: true },
+          { title: 'Add section', icon: 'mdi-plus-circle', color: 'secondary', size: 36},
+          { divider: true },
         ],
         sidebarWidth: 240,
         sidebarMinWidth: 96
@@ -261,6 +265,10 @@
     },
     methods: {
       ...mapActions([ 'TOGGLE_DRAWER' ]),
+      logOut: function () {
+            window.localStorage.setItem('authenticated', false);
+            this.$router.push('/login');
+        }
     }
   }
 </script>

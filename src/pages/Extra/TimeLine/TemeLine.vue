@@ -4,22 +4,34 @@
       <v-timeline-item
         v-for="(item, i) in items"
         :key="i"
-        :color="item.color"
-        :icon="item.icon"
+        :color="item.subColor"
+        fill-dot
       ><span v-html="item.opposite" slot="opposite"></span>
-        <v-card color="white">
-          <v-card-title class="pb-0">
+        <span slot="icon">
+          <v-responsive
+            :class="'text-center ' + item.color + ' rounded-circle d-inline-flex align-center justify-center'"
+            height="28"
+            width="28"
+          >
+            <v-icon size="16" :color="item.icon" class="white--text">{{ item.icon }}</v-icon>
+        </v-responsive>
+
+        </span>
+        <v-card>
+          <v-card-title class="py-1">
             <v-list-item inactive class="pl-0">
               <v-list-item-avatar>
-                <v-img src="https://cdn.vuetifyjs.com/images/lists/1.jpg"></v-img>
+                <v-img :src="item.avatar"></v-img>
               </v-list-item-avatar>
               <v-list-item-content>
-                <v-list-item-title v-html="item.title"></v-list-item-title>
+                <v-list-item-title>
+                  <h6 :class="item.color + '--text mb-1'">{{ item.title }} <span class="greyBold--text">{{ item.nick }}</span> </h6>
+                </v-list-item-title>
                 <v-list-item-subtitle v-html="item.subtitle"></v-list-item-subtitle>
               </v-list-item-content>
             </v-list-item>
           </v-card-title>
-          <v-card-text class="white text--primary px-0">
+          <v-card-text class="text--primary px-0">
             <p class="mx-5 mb-0"> {{ item.content.text }} </p>
             <GmapMap v-if="item.content.googleMap"
               :center="{lat: -37.813179, lng: 144.950259}"
@@ -30,14 +42,18 @@
                   :position="{lat: -37.813179, lng: 144.950259}"
               />
             </GmapMap>
-            <v-img v-else-if="item.content.image" src="@/assets/img/time-line/mountains.jpeg"></v-img>
+            <v-img
+              v-else-if="item.content.image"
+              class="mt-2"
+              src="@/assets/img/time-line/mountains.jpeg">
+            </v-img>
           </v-card-text>
-          <v-card-text class="white text--primary py-0">
+          <v-card-text class="text--primary py-0">
             <v-btn icon class="mr-3" >
-              <v-icon :color="'rgba(110, 110, 110, 0.6)'">mdi-heart</v-icon>
+              <v-icon color="greyTint">mdi-heart</v-icon>
             </v-btn>
             <v-btn icon >
-              <v-icon :color="'rgba(110, 110, 110, 0.6)'">mdi-message-text</v-icon>
+              <v-icon color="greyTint">mdi-message-text</v-icon>
             </v-btn>
           </v-card-text>
           <v-list two-line>
@@ -68,7 +84,7 @@
                 small
                 color="primary"
                 elevation="0"
-                class="mr-3"
+                class="fs-large mr-3"
               >P</v-btn>
               <v-text-field
                 dense

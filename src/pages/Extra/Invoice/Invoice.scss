@@ -5,14 +5,17 @@
     max-height: 100px;
   }
 
-  .invoiceBody {
-    margin-top: 70px;
-  }
-
   .v-data-table {
-    table tbody{
+    table tbody {
       tr:nth-child(odd) {
         background-color: #F3F5FF;
+      }
+    }
+    &.theme--dark {
+      table tbody {
+        tr:nth-child(odd) {
+          background-color: #4a4a4a;
+        }
       }
     }
   }

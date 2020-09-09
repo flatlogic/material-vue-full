@@ -11,6 +11,7 @@
           <v-card
             class="mx-1 mb-1"
             link
+            :ripple="{class: 'ripple-color' }"
             replace
             :key="card.id"
             >
@@ -99,3 +100,5 @@ export default {
 }
 
 </script>
+
+<style src="./Gallery.scss" lang="scss"></style>

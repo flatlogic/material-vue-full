@@ -73,9 +73,9 @@
                   </v-dialog>
                 </v-toolbar>
               </template>
-              <template v-slot:item.data-table-select="{ item }">
-                <v-simple-checkbox color="secondary" v-model="item.select"></v-simple-checkbox>
-              </template>
+<!--              <template v-slot:item.data-table-select="{ item }">-->
+<!--                <v-simple-checkbox color="secondary" v-model="item.select"></v-simple-checkbox>-->
+<!--              </template>-->
               <template v-slot:item.image="{ item }">
                 <v-img class="my-3" width="100" :src=item.image></v-img>
               </template>

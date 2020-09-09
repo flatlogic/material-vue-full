@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="search-result-page mt-6">
+  <v-container fluid class="search-result-page mt-6 mx-1">
     <v-row>
       <v-col>
         <div class="d-inline-flex">
@@ -8,12 +8,13 @@
             :items="items"
             class="mr-3"
             value="Popular"
-            solo
-            label="Standard"
+            outlined
+            single-line
           ></v-select>
           <v-select
             style="width: 150px"
-            solo
+            outlined
+            single-line
             value="All Time"
             :items="itemsSec"
             label="Standard"
@@ -25,107 +26,42 @@
       <p>About 94 700 000 (0.39 sec.) results</p>
     </v-row>
     <v-row>
-      <v-col cols="8">
+      <v-col cols="12" md="8" order="2" order-md="1"  >
         <v-row no-gutters>
-          <v-col cols="12">
+          <v-col :key="i" v-for="(item, i) in searchResult">
             <v-row no-gutters>
               <v-card class="mb-5 d-flex" max-height="160">
                 <v-col cols="2" class="pa-0">
                   <v-img
-                    src="@/assets/img/serch-result/1.png"
+                    :src=item.img
                     width="150"
                     min-height="160"
                     class="ma-0 rounded rounded-r-0"
                   ></v-img>
                 </v-col>
                 <v-col cols="6" md="7" xl="8" class="pt-5">
-                  <a class="text-h5">Next generation admin template</a>
-                  <p class="subtitle-1">New York, NY 2018</p>
-                  <p class="text-truncate">Not just usual Metro. But something bigger. Not just usual widgets, but real widgets. Not just yet another admin template, but next generation admin template.</p>
+                  <a><h4 :class="item.color + '--text' + ' mb-1 font-weight-bold'">{{ item.title }}</h4></a>
+                  <p class="fs-medium">{{ item.subtitle }}</p>
+                  <p class="text-truncate">{{ item.text }}</p>
                 </v-col>
                 <v-col cols="4" md="3" xl="2" class="pt-5 pl-5">
-                  <h4>$9700</h4>
+                  <h4>{{ item.price }}</h4>
                   <p>per week</p>
-                  <v-btn small color="primary">Learn more</v-btn>
+                  <v-btn small class="button-shadow" :color="item.color">Learn more</v-btn>
                 </v-col>
               </v-card>
             </v-row>
           </v-col>
           <v-col cols="12">
-            <v-row no-gutters>
-              <v-card class="mb-5 d-flex" max-height="160">
-                <v-col cols="2" class="pa-0">
-                  <v-img
-                      src="@/assets/img/serch-result/1.png"
-                      width="150"
-                      min-height="160"
-                      class="ma-0 rounded rounded-r-0"
-                  ></v-img>
-                </v-col>
-                <v-col cols="6" md="7" xl="8" class="pt-5">
-                  <a class="text-h5">Next generation admin template</a>
-                  <p class="subtitle-1">New York, NY 2018</p>
-                  <p class="text-truncate">Not just usual Metro. But something bigger. Not just usual widgets, but real widgets. Not just yet another admin template, but next generation admin template.</p>
-                </v-col>
-                <v-col cols="4" md="3" xl="2" class="pt-5 pl-5">
-                  <h4>$9700</h4>
-                  <p>per week</p>
-                  <v-btn small color="primary">Learn more</v-btn>
-                </v-col>
-              </v-card>
-            </v-row>
-          </v-col>
-          <v-col cols="12">
-            <v-row no-gutters>
-              <v-card class="mb-5 d-flex" max-height="160">
-                <v-col cols="2" class="pa-0">
-                  <v-img
-                      src="@/assets/img/serch-result/1.png"
-                      width="150"
-                      min-height="160"
-                      class="ma-0 rounded rounded-r-0"
-                  ></v-img>
-                </v-col>
-                <v-col cols="6" md="7" xl="8" class="pt-5">
-                  <a class="text-h5">Next generation admin template</a>
-                  <p class="subtitle-1">New York, NY 2018</p>
-                  <p class="text-truncate">Not just usual Metro. But something bigger. Not just usual widgets, but real widgets. Not just yet another admin template, but next generation admin template.</p>
-                </v-col>
-                <v-col cols="4" md="3" xl="2" class="pt-5 pl-5">
-                  <h4>$9700</h4>
-                  <p>per week</p>
-                  <v-btn small color="primary">Learn more</v-btn>
-                </v-col>
-              </v-card>
-            </v-row>
-          </v-col>
-          <v-col cols="12">
-            <v-row no-gutters>
-              <v-card class="mb-5 d-flex" max-height="160">
-                <v-col cols="2" class="pa-0">
-                  <v-img
-                      src="@/assets/img/serch-result/1.png"
-                      width="150"
-                      min-height="160"
-                      class="ma-0 rounded rounded-r-0"
-                  ></v-img>
-                </v-col>
-                <v-col cols="6" md="7" xl="8" class="pt-5">
-                  <a class="text-h5">Next generation admin template</a>
-                  <p class="subtitle-1">New York, NY 2018</p>
-                  <p class="text-truncate">Not just usual Metro. But something bigger. Not just usual widgets, but real widgets. Not just yet another admin template, but next generation admin template.</p>
-                </v-col>
-                <v-col cols="4" md="3" xl="2" class="pt-5 pl-5">
-                  <h4>$9700</h4>
-                  <p>per week</p>
-                  <v-btn small color="primary">Learn more</v-btn>
-                </v-col>
-              </v-card>
-            </v-row>
+            <v-pagination
+              class="main-pagination"
+              v-model="page"
+              :length="4"
+            ></v-pagination>
           </v-col>
         </v-row>
       </v-col>
-      <v-col cols="4">
+      <v-col cols="12" md="4" order="1" order-md="2">
         <p class="text-h4">Results Filtering</p>
         <p class="subtitle-1">Listed content is categorized by the following groups:</p>
         <v-list
@@ -175,13 +111,44 @@
           {
             id: 5, title: 'Globals', color: 'warning', count: 18
           },
-        ]
+        ],
+        searchResult: [
+          {
+            img: require('@/assets/img/e-commerce/medium/1.png'),
+            title: 'Next generation admin template',
+            color: 'primary',
+            subtitle: 'New York, NY 2018',
+            text: 'Not just usual Metro. But something bigger. Not just usual widgets, but real widgets. Not just yet another admin template, but next generation admin template.',
+            price: '$9700'
+          },
+          {
+            img: require('@/assets/img/e-commerce/medium/2.png'),
+            title: 'Try. Posted by Okendoken',
+            color: 'secondary',
+            subtitle: 'Los Angeles, NY 20188',
+            text: 'You will never know exactly how something will go until you try it. You can think three hundred times and still have no precise result.',
+            price: '$10300'
+          },
+          {
+            img: require('@/assets/img/e-commerce/medium/3.png'),
+            title: 'Vitaut the Great',
+            color: 'warning',
+            subtitle: 'New York, NY 20188',
+            text: 'The Great Prince of the Grand Duchy of Lithuania he had stopped the invasion to Europe of Timur (Tamerlan) from Asia heading a big Army of Belarusians, Lithuanians.',
+            price: '$3200'
+          },
+          {
+            img: require('@/assets/img/e-commerce/medium/4.png'),
+            title: 'Can I use CSS3 Radial-Gradient?',
+            color: 'success',
+            subtitle: 'Minsk, NY 20188',
+            text: 'Yes you can! Further more, you should! It let\'s you create really beautiful images either for elements or for the entire background.',
+            price: '$2400'
+          },
+        ],
+        page: 1
     }),
   }
 </script>
 
-<style>
-  .search-result-page.v-list-item:hover {
-    background-color: #B1BCFF;
-  }
-</style>
+<style src="./SearchResult.scss" lang="scss"></style>
