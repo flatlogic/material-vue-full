@@ -80,6 +80,7 @@
           :key="item.text"
           :to="item.link === '#' ? '' : item.link"
           link
+          @click="item.action ? item.action : null"
         >
           <v-list-item-action class="mr-6">
             <v-icon
@@ -97,6 +98,38 @@
         </v-list-item>
       </template>
     </v-list>
+    <v-dialog
+      v-model="dialog"
+      max-width="290"
+    >
+      <v-card>
+        <v-card-title class="headline">Use Google's location service?</v-card-title>
+
+        <v-card-text>
+          Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.
+        </v-card-text>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+
+          <v-btn
+            color="green darken-1"
+            text
+            @click="dialog = false"
+          >
+            Disagree
+          </v-btn>
+
+          <v-btn
+            color="green darken-1"
+            text
+            @click="dialog = false"
+          >
+            Agree
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-navigation-drawer>
 </template>
 
@@ -141,9 +174,9 @@
             icon: 'mdi-apps',
             model: false,
             children: [
-              { title: 'Typography', icon: 'mdi-circle-small', link: '/core/typography', action: null },
-              { title: 'Colors', icon: 'mdi-circle-small', link: '/core/colors', action: null },
-              { title: 'Grid', icon: 'mdi-circle-small', link: '/core/grid', action: null },
+              { title: 'Typography', icon: 'mdi-circle-small', link: '/core/typography' },
+              { title: 'Colors', icon: 'mdi-circle-small', link: '/core/colors' },
+              { title: 'Grid', icon: 'mdi-circle-small', link: '/core/grid' },
             ],
           },
           {
@@ -151,8 +184,8 @@
             icon: 'mdi-grid-large',
             model: false,
             children: [
-              { title: 'Tables Basic', icon: 'mdi-circle-small', link: '/tables/basic', action: null },
-              { title: 'Tables Dynamic', icon: 'mdi-circle-small', link: '/tables/dynamic', action: null }
+              { title: 'Tables Basic', icon: 'mdi-circle-small', link: '/tables/basic'},
+              { title: 'Tables Dynamic', icon: 'mdi-circle-small', link: '/tables/dynamic'}
             ],
           },
           {
@@ -160,17 +193,17 @@
             icon: 'mdi-image-filter-none',
             model: false,
             children: [
-              { title: 'Icons', icon: 'mdi-circle-small', link: '/ui/icons', action: null},
-              { title: 'Badges', icon: 'mdi-circle-small', link: '/ui/badges', action: null},
-              { title: 'Carousel', icon: 'mdi-circle-small', link: '/ui/carousel', action: null},
-              { title: 'Cards', icon: 'mdi-circle-small', link: '/ui/cards', action: null},
-              { title: 'Modal', icon: 'mdi-circle-small', link: '/ui/modal', action: null},
-              { title: 'Notifications', icon: 'mdi-circle-small', link: '/ui/notifications', action: null },
-              { title: 'Navbar', icon: 'mdi-circle-small', link: '/ui/navbar', action: null },
-              { title: 'Tooltips', icon: 'mdi-circle-small', link: '/ui/tooltips', action: null },
-              { title: 'Tabs', icon: 'mdi-circle-small', link: '/ui/tabs', action: null },
-              { title: 'Pagination', icon: 'mdi-circle-small', link: '/ui/pagination', action: null },
-              { title: 'Progress', icon: 'mdi-circle-small', link: '/ui/progress', action: null },
+              { title: 'Icons', icon: 'mdi-circle-small', link: '/ui/icons'},
+              { title: 'Badges', icon: 'mdi-circle-small', link: '/ui/badges'},
+              { title: 'Carousel', icon: 'mdi-circle-small', link: '/ui/carousel'},
+              { title: 'Cards', icon: 'mdi-circle-small', link: '/ui/cards'},
+              { title: 'Modal', icon: 'mdi-circle-small', link: '/ui/modal'},
+              { title: 'Notifications', icon: 'mdi-circle-small', link: '/ui/notifications'},
+              { title: 'Navbar', icon: 'mdi-circle-small', link: '/ui/navbar'},
+              { title: 'Tooltips', icon: 'mdi-circle-small', link: '/ui/tooltips'},
+              { title: 'Tabs', icon: 'mdi-circle-small', link: '/ui/tabs'},
+              { title: 'Pagination', icon: 'mdi-circle-small', link: '/ui/pagination'},
+              { title: 'Progress', icon: 'mdi-circle-small', link: '/ui/progress'},
             ],
           },
           {
@@ -178,8 +211,8 @@
             icon: 'mdi-file-document',
             model: false,
             children: [
-              { title: 'Form Elements', icon: 'mdi-circle-small', link: '/forms/elements', action: null },
-              { title: 'Form Validation', icon: 'mdi-circle-small', link: '/forms/validation', action: null },
+              { title: 'Form Elements', icon: 'mdi-circle-small', link: '/forms/elements' },
+              { title: 'Form Validation', icon: 'mdi-circle-small', link: '/forms/validation'},
             ],
           },
           {
@@ -187,10 +220,10 @@
             icon: 'mdi-chart-bar',
             model: false,
             children: [
-              { title: 'Charts Overview', icon: 'mdi-circle-small', link: '/charts/overview', action: null },
-              { title: 'Line Charts', icon: 'mdi-circle-small', link: '/charts/line-charts', action: null },
-              { title: 'Bar Charts', icon: 'mdi-circle-small', link: '/charts/bar-charts', action: null },
-              { title: 'Pie Charts', icon: 'mdi-circle-small', link: '/charts/pie-charts', action: null },
+              { title: 'Charts Overview', icon: 'mdi-circle-small', link: '/charts/overview'},
+              { title: 'Line Charts', icon: 'mdi-circle-small', link: '/charts/line-charts'},
+              { title: 'Bar Charts', icon: 'mdi-circle-small', link: '/charts/bar-charts'},
+              { title: 'Pie Charts', icon: 'mdi-circle-small', link: '/charts/pie-charts'},
             ],
           },
           {
@@ -198,8 +231,8 @@
             icon: 'mdi-map',
             model: false,
             children: [
-              { title: 'Google Maps', icon: 'mdi-circle-small', link: '/maps/google', action: null },
-              { title: 'Vector Maps', icon: 'mdi-circle-small', link: '/maps/vector', action: null },
+              { title: 'Google Maps', icon: 'mdi-circle-small', link: '/maps/google' },
+              { title: 'Vector Maps', icon: 'mdi-circle-small', link: '/maps/vector' },
             ],
           },
           {
@@ -207,13 +240,13 @@
             icon: 'mdi-star',
             model: false,
             children: [
-              { title: 'Calendar', icon: 'mdi-circle-small', link: '/extra/calendar', action: null },
-              { title: 'Invoice', icon: 'mdi-circle-small', link: '/extra/invoice', action: null },
+              { title: 'Calendar', icon: 'mdi-circle-small', link: '/extra/calendar' },
+              { title: 'Invoice', icon: 'mdi-circle-small', link: '/extra/invoice' },
               { title: 'Login Page', icon: 'mdi-circle-small', link: '#', action: this.logOut },
-              { title: 'Error Page', icon: 'mdi-circle-small', link: '/extra/error', action: null },
-              { title: 'Gallery', icon: 'mdi-circle-small', link: '/extra/gallery', action: null },
-              { title: 'Search Result', icon: 'mdi-circle-small', link: '/extra/search-result', action: null },
-              { title: 'Time Line', icon: 'mdi-circle-small', link: '/extra/timeLine', action: null },
+              { title: 'Error Page', icon: 'mdi-circle-small', link: '/extra/error'},
+              { title: 'Gallery', icon: 'mdi-circle-small', link: '/extra/gallery'},
+              { title: 'Search Result', icon: 'mdi-circle-small', link: '/extra/search-result'},
+              { title: 'Time Line', icon: 'mdi-circle-small', link: '/extra/timeLine'},
             ],
           },
           {
@@ -227,8 +260,8 @@
                 icon: 'mdi-folder',
                 model: false,
                 children: [
-                  { title: 'Calendar', icon: 'mdi-circle-small', link: '/extra/calendar', action: null },
-                  { title: 'Invoice', icon: 'mdi-circle-small', link: '/extra/invoice', action: null },
+                  { title: 'Calendar', icon: 'mdi-circle-small', link: '/extra/calendar'},
+                  { title: 'Invoice', icon: 'mdi-circle-small', link: '/extra/invoice'},
                 ],
               },
             ],
@@ -244,11 +277,12 @@
           { title: 'Starred', icon: 'mdi-circle-medium', color: 'primary'},
           { title: 'Background', icon: 'mdi-circle-medium', color: 'error'},
           { divider: true },
-          { title: 'Add section', icon: 'mdi-plus-circle', color: 'secondary', size: 36},
+          { title: 'Add section', icon: 'mdi-plus-circle', color: 'secondary', size: 36, action: this.addSection},
           { divider: true },
         ],
         sidebarWidth: 240,
-        sidebarMinWidth: 96
+        sidebarMinWidth: 96,
+        dialog: false,
       }
     },
     computed: {
@@ -268,7 +302,10 @@
       logOut: function () {
             window.localStorage.setItem('authenticated', false);
             this.$router.push('/login');
-        }
+        },
+      addSection: function () {
+        this.dialog = true;
+      }
     }
   }
 </script>
