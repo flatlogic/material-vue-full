@@ -97,37 +97,113 @@
           </v-list-item-content>
         </v-list-item>
       </template>
+      <v-divider
+        dark
+        style="margin-top: 240px"
+      ></v-divider>
+      <v-list-item
+        color="primary"
+        link
+        @click="chat = true"
+      >
+        <v-list-item-action class="mr-6">
+          <v-responsive
+            class="text-center primary rounded-pill d-inline-flex align-center justify-center my-2"
+            height="44"
+            width="44"
+          >
+            <v-icon
+              size="24"
+              color="white"
+            >mdi-message-text</v-icon>
+          </v-responsive>
+        </v-list-item-action>
+        <v-list-item-content>
+          <v-list-item-title
+              link
+          >
+            Chat
+          </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
     </v-list>
     <v-dialog
       v-model="dialog"
-      max-width="290"
+      hide-overlay
+      content-class="add-section"
+      max-width="230"
     >
-      <v-card class="primary">
-        <v-card-title class="headline">Add section</v-card-title>
-
+      <v-card class="primary pt-5">
         <v-card-text>
-          Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.
+          <p class="text-h6 white--text">Add section</p>
+          <v-text-field
+            class="white--text"
+            dark
+            single-line
+            label="Section name"
+          ></v-text-field>
+          <v-row no-gutters justify="end">
+            <v-btn
+              color="secondary"
+              class="elevation-0 mr-2"
+              @click="dialog = false"
+          >
+            Add
+          </v-btn>
+            <v-btn
+                text
+                class="white--text"
+                @click="dialog = false"
+            >
+              Agree
+            </v-btn>
+          </v-row>
         </v-card-text>
+      </v-card>
+    </v-dialog>
+    <v-dialog
+      v-model="chat"
+      content-class="sidebar-chat"
+      max-width="440"
+    >
+      <v-card class="pt-5">
+        <v-card-text>
+          <p class="fs-large font-weight-medium greyBold--text mb-0">Chat</p>
+          <v-list two-line>
+            <template v-for="(item, i) in chatItems">
+              <v-list-item
+                class="px-0"
+                style="min-height: 55px"
+                :key="i"
+              >
+                <v-list-item-avatar class="my-0">
+                  <v-img :src="item.avatar"></v-img>
+                </v-list-item-avatar>
 
-        <v-card-actions>
-          <v-spacer></v-spacer>
-
-          <v-btn
-            color="green darken-1"
-            text
-            @click="dialog = false"
-          >
-            Disagree
-          </v-btn>
-
-          <v-btn
-            color="green darken-1"
-            text
-            @click="dialog = false"
-          >
-            Agree
-          </v-btn>
-        </v-card-actions>
+                <v-list-item-content class="py-0">
+                  <v-list-item-title class="font-weight-bold greyBold--text" v-html="item.title"></v-list-item-title>
+                  <v-list-item-subtitle class="greyBold--text fs-base" v-html="item.subtitle"></v-list-item-subtitle>
+                </v-list-item-content>
+              </v-list-item>
+            </template>
+          </v-list>
+          <v-row no-gutters>
+            <v-text-field
+              v-model="chatMessage"
+              single-line
+              hide-details
+              class="pt-0 mr-2"
+              label="Type a message"
+            ></v-text-field>
+            <v-btn
+              color="primary"
+              class="elevation-0 text-capitalize"
+              @click="newMessage"
+            >
+              Send
+            </v-btn>
+          </v-row>
+        </v-card-text>
       </v-card>
     </v-dialog>
   </v-navigation-drawer>
@@ -280,9 +356,28 @@
           { title: 'Add section', icon: 'mdi-plus-circle', color: 'secondary', size: 36, action: () => this.addSection()},
           { divider: true },
         ],
+        chatItems: [
+          {
+            avatar: require('@/assets/img/time-line/a1.jpg'),
+            title: 'Jane Hew',
+            subtitle: "<span>Hey! How it's going?</span>",
+          },
+          {
+            avatar: require('@/assets/img/time-line/a2.jpg'),
+            title: 'Axel Pittman',
+            subtitle: "<span class='text--primary'>I'll definitely buy this template</span>",
+          },
+          {
+            avatar: require('@/assets/img/time-line/a3.jpg'),
+            title: 'Sophia Fernandez',
+            subtitle: "<span class='text--primary'>What's the font-family?</span>",
+          },
+        ],
         sidebarWidth: 240,
         sidebarMinWidth: 96,
         dialog: false,
+        chat: false,
+        chatMessage: ''
       }
     },
     computed: {
@@ -305,7 +400,19 @@
         },
       addSection: function () {
         this.dialog = true;
-      }
+      },
+      newMessage: function () {
+        let post = {
+          avatar: require('@/assets/img/time-line/a4.jpg'),
+          title: 'Sophia Fernandez',
+          subtitle: ''
+        };
+        if (this.chatMessage.length !== 0) {
+          post.subtitle = this.chatMessage;
+          this.chatItems.push(post)
+          this.chatMessage = '';
+        }
+      },
     }
   }
 </script>

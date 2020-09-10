@@ -1,9 +1,21 @@
 @import '../../../styles/app';
 
 .pagination-pages {
-  .pagination-example, .pagination-length, .pagination-circle, .pagination-disabled {
-    button {
-      box-shadow: $button-shadow;
+  .v-card {
+    &.theme--dark {
+      .pagination-example, .pagination-length, .pagination-circle, .pagination-disabled {
+        button {
+          box-shadow: none;
+        }
+      }
+    }
+    &.theme--light {
+      .pagination-example, .pagination-length, .pagination-circle, .pagination-disabled {
+        button {
+          box-shadow: $button-shadow;
+        }
+      }
     }
   }
+
 }

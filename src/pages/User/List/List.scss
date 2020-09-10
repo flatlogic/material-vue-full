@@ -1,0 +1,11 @@
+.user-list  {
+  .theme--dark {
+    &.v-data-table {
+      background-color: transparent;
+    }
+
+    &.v-toolbar.v-sheet {
+      background-color: transparent;
+    }
+  }
+}

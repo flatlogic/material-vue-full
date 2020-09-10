@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="mt-3">
+  <v-container fluid class="user-list mt-3">
     <v-row>
       <v-col cols="12">
         <v-card class="ma-1">
@@ -12,7 +12,7 @@
               :items-per-page="itemPerPage"
             >
               <template v-slot:top>
-                <v-toolbar flat color="white">
+                <v-toolbar flat>
                   <v-dialog v-model="dialog" max-width="500px">
                     <template v-slot:activator="{ on, attrs }">
                       <v-btn
@@ -337,3 +337,5 @@ export default {
   },
 }
 </script>
+
+<style src="./List.scss" lang="scss"></style>

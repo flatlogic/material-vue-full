@@ -32,21 +32,21 @@
                      block
                      @click="addInfoNotification"
                      color="primary"
-                     class="text-capitalize my-2"
+                     class="button-shadow text-capitalize my-2"
                  >Info Message</v-btn>
                  <div class="w-100"></div>
                  <v-btn
                      block
                      @click="addErrorNotification"
                      color="error"
-                     class="text-capitalize my-2"
+                     class="button-shadow text-capitalize my-2"
                  >Error + Retry Message</v-btn>
                  <div class="w-100"></div>
                  <v-btn
                      block
                      @click="addSuccessNotification"
                      color="success"
-                     class="text-capitalize my-2"
+                     class="button-shadow text-capitalize my-2"
                  >Success Message</v-btn>
                </v-col>
              </v-row>
@@ -114,8 +114,7 @@
                 <template v-for="item in notificationsTypeLight" >
                   <v-chip
                     large
-                    text-color="black"
-                    class="d-block mt-4 font-weight-regular"
+                    class="greyBold--text d-block mt-4 font-weight-regular"
                     :color="item.color"
                     :key="item.text"
                   >
@@ -149,7 +148,7 @@
                   >
                     <v-icon size="26" :color="item.iconColor">{{ item.icon }}</v-icon>
                   </v-btn>
-                  <span>{{ item.text }}</span>
+                  <span class="greyBold--text" >{{ item.text }}</span>
                   </div>
                 </template>
               </v-col>
@@ -232,32 +231,32 @@ export default {
         {
           icon: 'mdi-message-alert',
           text: 'New user feedback received',
-          color: '#e5e9ff',
+          color: '#536dfe26',
           iconColor: 'primary'
         },
         {
           icon: 'mdi-check',
           text: 'The item was shipped',
-          color: '#e2f9f1',
+          color: '#3cd4a026',
           iconColor: 'success'
         },
         {
           icon: 'mdi-email',
           text: 'The new message from user @nahawaii',
           iconColor: 'warning',
-          color: '#fff6e7',
+          color: '#ffc26026',
         },
         {
           icon: 'mdi-arrow-collapse-up',
           text: 'Your file is ready to upload',
           iconColor: 'primary',
-          color: '#e5e9ff',
+          color: '#536dfe26',
         },
         {
           icon: 'mdi-disc-alert',
           text: 'The disc is full',
           iconColor: 'info',
-          color: '#eedcff',
+          color: '#9013fe26',
         },
       ],
       notificationsTypeButton: [
@@ -271,31 +270,31 @@ export default {
           icon: 'mdi-message-alert',
           text: 'New user feedback received',
           iconColor: 'primary',
-          color: '#e5e9ff',
+          color: '#536dfe26',
         },
         {
           icon: 'mdi-check',
           text: 'The item was shipped',
           iconColor: 'success',
-          color: '#e2f9f1',
+          color: '#3cd4a026',
         },
         {
           icon: 'mdi-email',
           text: 'The new message from user @nahawaii',
           iconColor: 'warning',
-          color: '#fff6e7',
+          color: '#ffc26026',
         },
         {
           icon: 'mdi-arrow-collapse-up',
           text: 'Your file is ready to upload',
           iconColor: 'primary',
-          color: '#e5e9ff',
+          color: '#536dfe26',
         },
         {
           icon: 'mdi-disc-alert',
           text: 'The disc is full',
           iconColor: 'info',
-          color: '#eedcff',
+          color: '#9013fe26',
         },
       ],
 

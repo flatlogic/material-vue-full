@@ -94,6 +94,20 @@
   .show {
     opacity: 1;
   }
+
+}
+.sidebar-chat {
+  .v-text-field__slot label {
+    padding: 0;
+  }
+}
+.add-section {
+  position: absolute;
+  left: 0;
+  bottom: 10%;
+  .v-text-field__slot label {
+    padding: 0;
+  }
 }
 
 .v-navigation-drawer.theme--dark {

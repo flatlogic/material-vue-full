@@ -60,6 +60,7 @@
                             single-line hint="Please choose the role">
                         </v-select>
                         <v-btn
+                            class="button-shadow"
                             color="primary"
                             @click="e1 = 2"
                         >
@@ -132,6 +133,7 @@
                           </v-btn>
                           <v-spacer></v-spacer>
                           <v-btn
+                              class="button-shadow"
                               color="primary"
                               @click="e1 = 3"
                           >
@@ -192,6 +194,7 @@
                           </v-btn>
                           <v-spacer></v-spacer>
                           <v-btn
+                              class="button-shadow"
                               color="primary"
                               @click="e1 = 4"
                           >
@@ -268,6 +271,7 @@
                           </v-btn>
                           <v-spacer></v-spacer>
                           <v-btn
+                              class="button-shadow"
                               color="primary"
                               to="/user/list"
                           >
@@ -299,11 +303,5 @@ export default {
   },
 }
 </script>
-<style>
-.v-input .v-label {
-  height: 23px;
-}
-.v-stepper__header, .v-stepper__content, .v-stepper__items {
-  box-shadow: 0 3px 11px 0 #E8EAFC, 0 3px 3px -2px #B2B2B21A, 0 1px 8px 0 #9A9A9A1A!important;
-}
-</style>
+
+<style src="./Add.scss" lang="scss"></style>

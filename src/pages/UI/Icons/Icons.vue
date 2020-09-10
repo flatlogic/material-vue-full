@@ -3,7 +3,6 @@
     <v-row>
       <v-col cols="12" class="mx-1">
         <v-tabs
-          light
           centered
           grow
         >

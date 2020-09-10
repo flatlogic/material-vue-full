@@ -248,7 +248,7 @@
                   <v-btn
                     color="secondary"
                     dark
-                    class="button-shadow mr-3 mb-3"
+                    class="button-shadow mr-2 mb-3"
                     v-bind="attrs"
                     v-on="on"
                   >
@@ -272,7 +272,7 @@
                   <v-btn
                     color="secondary"
                     dark
-                    class="button-shadow mr-3 mb-3"
+                    class="button-shadow mr-2 mb-3"
                     v-bind="attrs"
                     v-on="on"
                   >
@@ -296,7 +296,7 @@
                   <v-btn
                     color="secondary"
                     dark
-                    class="button-shadow mr-3 mb-3"
+                    class="button-shadow mr-2 mb-3"
                     v-bind="attrs"
                     v-on="on"
                   >

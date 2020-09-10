@@ -3,33 +3,36 @@
     <v-row>
       <v-col cols="12">
         <v-tabs
-            light
             centered
         >
           <v-tabs-slider></v-tabs-slider>
 
           <v-tab
               :href="`#tab-account`"
+              class="greyBold--text"
           >
-            <v-icon>mdi-shield-account-variant-outline</v-icon>
+            <v-icon class="greyBold--text">mdi-shield-account-variant-outline</v-icon>
             Account
           </v-tab>
           <v-tab
+              class="greyBold--text"
               :href="`#tab-profile`"
           >
-            <v-icon>mdi-account-outline</v-icon>
+            <v-icon class="greyBold--text">mdi-account-outline</v-icon>
             Profile
           </v-tab>
           <v-tab
+              class="greyBold--text"
               :href="`#tab-password`"
           >
-            <v-icon>mdi-lock</v-icon>
+            <v-icon class="greyBold--text">mdi-lock</v-icon>
             Change Password
           </v-tab>
           <v-tab
+              class="greyBold--text"
               :href="`#tab-settings`"
           >
-            <v-icon>mdi-cog</v-icon>
+            <v-icon class="greyBold--text">mdi-cog</v-icon>
             Settings
           </v-tab>
 
@@ -378,17 +381,5 @@ export default {
   },
 }
 </script>
-<style>
-.v-input .v-label {
-  height: 23px;
-}
-.user-edit .v-item-group.v-slide-group.v-tabs-bar {
-  display: flex;
-  align-items: center;
-  margin-bottom: 24px;
-  height: 70px;
-}
-.user-edit .v-slide-group__wrapper {
-  height: 50px;
-}
-</style>
+
+<style src="./Edit.scss" lang="scss"></style>

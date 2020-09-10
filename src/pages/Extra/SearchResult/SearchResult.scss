@@ -3,12 +3,36 @@
 .search-result-page {
   .main-pagination {
     .v-pagination {
-      li button.v-pagination__item, button.v-pagination__navigation {
-        box-shadow: $button-shadow;
+      &.theme--dark {
+        li button.v-pagination__item, button.v-pagination__navigation {
+          box-shadow: none;
+        }
+      }
+      &.theme--light {
+        .v-pagination {
+          li button.v-pagination__item, button.v-pagination__navigation {
+            box-shadow: $button-shadow;
+          }
+        }
       }
     }
   }
   .v-list-item:hover {
     background-color: #B1BCFF;
+  }
+
+  .v-pagination {
+    &.theme--dark {
+        button {
+          box-shadow: none;
+        }
+    }
+    &.theme--light {
+      .v-pagination {
+        button {
+          box-shadow: $button-shadow;
+        }
+      }
+    }
   }
 }
