@@ -8,7 +8,7 @@
               <v-card class="user-card ma-1">
                 <v-card-text class="pa-5 pt-9 fill-height">
                   <v-row no-gutters class="fill-height">
-                    <v-col cols="5" lg="6" class="d-flex justify-center align-center flex-column">
+                    <v-col cols="5" xl="6" class="d-flex justify-center align-center flex-column">
                       <div
                         class="avatar-wrapper">
                         <v-img
@@ -22,7 +22,7 @@
                         color="error"
                       >Pro</v-chip>
                     </v-col>
-                    <v-col cols="7" lg="6" class="pl-2">
+                    <v-col cols="7" xl="6" class="pl-4">
                       <p class="user-name greyBold--text font-weight-bold">Julee Cruise</p>
                       <p class="user-work greyTint--text ma-0">Product Designer</p>
                       <a class="body-1">NewGenerArt.com</a>
@@ -154,10 +154,10 @@
                 </v-card-title>
                 <v-card-text class="pa-5 pt-0">
                   <v-row>
-                    <v-col>
+                    <v-col cols="5">
                       <v-img src="@/assets/img/user/profile/article-logo.png"></v-img>
                     </v-col>
-                    <v-col>
+                    <v-col cols="7">
                       <p class="article-writer greyTint--text">Nastassia Ovchinnikova</p>
                       <p class="article-text greyBold--text">React Native allows us to create a boilerplate that have been crafted for both platforms.
                         The ability to create an app both for Android and iOS...</p>
@@ -193,7 +193,7 @@
                         :value="'tab-' + tab.tabName.toLocaleLowerCase()"
                         class="pt-1"
                     >
-                      <v-row justify-lg="space-around" justify="start"  class="d-flex flex-nowrap overflow-x-auto pa-4">
+                      <v-row justify-xl="space-around" justify="start"  class="d-flex flex-nowrap overflow-x-auto pa-4">
                         <div
                            v-for="(img, i) in images"
                            :key="i">
@@ -393,7 +393,7 @@
                     </v-card-title>
                     <v-card-text class="pa-5 pt-0">
                       <v-row no-gutters>
-                        <v-col cols="4" class="my-auto">
+                        <v-col cols="5" sm="6" md="5" lg="5">
                           <p class="views-value greyBold--text text-h5 mb-0">7,156</p>
                           <p class="views-percent success--text mb-4">7.2%</p>
                           <v-btn
@@ -403,7 +403,7 @@
                             class="text-capitalize"
                           >See More</v-btn>
                         </v-col>
-                        <v-col cols="6" offset="2" class="d-flex align-end">
+                        <v-col cols="6" offset="1" sm="6" offset-sm="0" md="4" offset-md="2" lg="7" offset-lg="0" class="d-flex align-end">
                           <ApexChart v-if="apexLoading"  height="80" type="area" :options="apexArea1.options" :series="apexArea1.series"></ApexChart>
                         </v-col>
                       </v-row>
@@ -411,7 +411,7 @@
                   </v-card>
                 </v-col>
                 <v-col cols="12" class="mb-6">
-                  <v-card class="primary ma-1" height="80">
+                  <v-card class="update-card primary ma-1" height="80">
                     <v-row no-gutters align="center" justify="center" class="pa-5 pt-0">
                       <v-col cols="12" class="d-flex align-center" style="height: 80px">
                         <div class="image-wrapper" style="height: 36px">
@@ -420,11 +420,11 @@
                             contain
                           ></v-img>
                         </div>
-                        <p class="upd-text white--text mb-0 ml-3">Updates</p>
+                        <p class="upd-text text-truncate white--text mb-0 ml-3">Updates</p>
                         <v-spacer></v-spacer>
                         <v-btn
                           outlined
-                          class=" white--text text-capitalize"
+                          class="white--text text-capitalize"
                           >Detail</v-btn>
                       </v-col>
                     </v-row>

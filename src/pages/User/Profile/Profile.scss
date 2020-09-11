@@ -10,26 +10,34 @@
       justify-content: center;
       border-radius: 50%;
       border: 3px dotted $error;
+      @include media-breakpoint-up(sm) {
+        width: 135px;
+        height: 135px;
+      }
       @include media-breakpoint-up(md) {
         width: 125px;
         height: 125px;
       }
       @include media-breakpoint-up(lg) {
-        width: 185px;
-        height: 185px;
+        width: 155px;
+        height: 155px;
       }
 
       .user-avatar {
         height: 94px;
         width: 94px;
         border-radius: 50%;
+        @include media-breakpoint-up(sm) {
+          height: 114px;
+          width: 114px;
+        }
         @include media-breakpoint-up(md) {
           height: 104px;
           width: 104px;
         }
         @include media-breakpoint-up(lg) {
-          height: 154px;
-          width: 154px;
+          height: 134px;
+          width: 134px;
         }
       }
     }
@@ -170,6 +178,7 @@
   .update-card {
     .upd-text {
       font-size: 1.125rem;
+      display: inline-block;
     }
   }
   .chart-title {
