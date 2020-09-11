@@ -64,8 +64,8 @@
       <v-row>
         <v-col lg=3 sm=6 md=4 cols=12>
           <v-card class="support-card ma-1" height="240">
-            <v-card-title class="pa-5 pb-0">
-              <p>Support Tracker</p>
+            <v-card-title class="d-flex flex-nowrap pa-5 pb-0">
+              <p class="text-truncate">Support Tracker</p>
               <v-spacer></v-spacer>
               <v-menu>
                 <template v-slot:activator="{ on, attrs }">
@@ -130,8 +130,8 @@
         </v-col>
         <v-col lg=3 sm=6 md=8 cols=12>
           <v-card class="ma-1">
-            <v-card-title class="pa-5 pb-3">
-              <p>App Performance</p>
+            <v-card-title class="d-flex flex-nowrap pa-5 pb-3">
+              <p class="text-truncate">App Performance</p>
               <v-spacer></v-spacer>
               <v-menu>
                 <template v-slot:activator="{ on, attrs }">
@@ -190,8 +190,8 @@
         </v-col>
         <v-col lg=3 sm=6 md=8 cols=12>
           <v-card  class="ma-1">
-            <v-card-title class="pa-5 pb-3">
-              <p>Server Overview</p>
+            <v-card-title class="d-flex flex-nowrap pa-5 pb-3">
+              <p class="text-truncate">Server Overview</p>
               <v-spacer></v-spacer>
               <v-menu>
                 <template v-slot:activator="{ on, attrs }">
@@ -244,8 +244,8 @@
         </v-col>
         <v-col lg=3 sm=6 md=4 cols=12>
           <v-card class="ma-1" height="240">
-            <v-card-title class="pa-5 pb-3">
-              <p>Revenue Breakdown</p>
+            <v-card-title class="d-flex flex-nowrap pa-5 pb-3">
+              <p class="text-truncate">Revenue Breakdown</p>
               <v-spacer></v-spacer>
               <v-menu>
                 <template v-slot:activator="{ on, attrs }">
