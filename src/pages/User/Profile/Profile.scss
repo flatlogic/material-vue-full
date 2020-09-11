@@ -22,6 +22,10 @@
         width: 155px;
         height: 155px;
       }
+      @include media-breakpoint-up(xl) {
+        width: 185px;
+        height: 185px;
+      }
 
       .user-avatar {
         height: 94px;
@@ -38,6 +42,10 @@
         @include media-breakpoint-up(lg) {
           height: 134px;
           width: 134px;
+        }
+        @include media-breakpoint-up(xl) {
+          height: 154px;
+          width: 154px;
         }
       }
     }

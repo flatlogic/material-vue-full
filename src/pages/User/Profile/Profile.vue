@@ -2,13 +2,13 @@
   <v-container fluid class="px-0 px-md-1">
     <div class="profile-page">
       <v-row>
-        <v-col md=5 cols=12>
+        <v-col md=5 sm="6" cols=12>
           <v-row>
             <v-col cols="12">
-              <v-card class="user-card ma-1">
+              <v-card class="user-card ma-1" min-height="282">
                 <v-card-text class="pa-5 pt-9 fill-height">
                   <v-row no-gutters class="fill-height">
-                    <v-col cols="5" xl="6" class="d-flex justify-center align-center flex-column">
+                    <v-col cols="12" sm="5" xl="6" class="d-flex justify-center align-center flex-column">
                       <div
                         class="avatar-wrapper">
                         <v-img
@@ -18,11 +18,11 @@
                       </div>
                       <v-chip
                         small
-                        class="mr-2 mt-4"
+                        class="mr-2 mt-4 mb-4 mb-sm-0"
                         color="error"
                       >Pro</v-chip>
                     </v-col>
-                    <v-col cols="7" xl="6" class="pl-4">
+                    <v-col cols="12" sm="7" xl="6" class="pl-4">
                       <p class="user-name greyBold--text font-weight-bold">Julee Cruise</p>
                       <p class="user-work greyTint--text ma-0">Product Designer</p>
                       <a class="body-1">NewGenerArt.com</a>
@@ -31,7 +31,7 @@
                           :key="i"
                           small
                           :style=bgStyle(chip.bgColor)
-                          :class="chip.color + '--text font-weight-bold mr-2 my-1'"
+                          :class="chip.color + '--text font-weight-bold mr-2 mr-lg-1 mr-lg-2 my-1 px-2'"
                           label
                         >{{ chip.title }}</v-chip>
                       </div>
@@ -39,6 +39,7 @@
                         <v-btn v-for="(btn, i) in buttons"
                            :key="i"
                            icon
+                           class="mr-0 mr-sm-n2 mr-lg-0"
                         >
                           <v-icon color="greyTint">{{ btn }}</v-icon>
                         </v-btn>
@@ -169,7 +170,7 @@
             </v-col>
           </v-row>
         </v-col>
-        <v-col md=7 cols=12>
+        <v-col md=7 sm="6" cols=12>
           <v-row>
             <v-col cols="12">
               <v-card class="folder-card ma-1" min-height="282">
@@ -186,12 +187,11 @@
                      >
                       {{ tab.tabName }}
                     </v-tab>
-
                     <v-tab-item
-                        v-for="(tab, i) in tabs"
-                        :key="i"
-                        :value="'tab-' + tab.tabName.toLocaleLowerCase()"
-                        class="pt-1"
+                      v-for="(tab, i) in tabs"
+                      :key="i"
+                      :value="'tab-' + tab.tabName.toLocaleLowerCase()"
+                      class="pt-1 pb-0 pb-sm-3 pb-lg-0"
                     >
                       <v-row justify-xl="space-around" justify="start"  class="d-flex flex-nowrap overflow-x-auto pa-4">
                         <div
@@ -393,7 +393,7 @@
                     </v-card-title>
                     <v-card-text class="pa-5 pt-0">
                       <v-row no-gutters>
-                        <v-col cols="5" sm="6" md="5" lg="5">
+                        <v-col cols="5" sm="6" md="5" lg="5" xl="3">
                           <p class="views-value greyBold--text text-h5 mb-0">7,156</p>
                           <p class="views-percent success--text mb-4">7.2%</p>
                           <v-btn
@@ -403,7 +403,7 @@
                             class="text-capitalize"
                           >See More</v-btn>
                         </v-col>
-                        <v-col cols="6" offset="1" sm="6" offset-sm="0" md="4" offset-md="2" lg="7" offset-lg="0" class="d-flex align-end">
+                        <v-col cols="6" offset="1" sm="6" offset-sm="0" md="5" offset-md="2" lg="5" offset-lg="2" xl="8" offset-xl="1" class="d-flex align-end">
                           <ApexChart v-if="apexLoading"  height="80" type="area" :options="apexArea1.options" :series="apexArea1.series"></ApexChart>
                         </v-col>
                       </v-row>
@@ -472,7 +472,7 @@ export default {
           bgColor: [255, 92, 147]
         },
         {
-          title: 'Illustration',
+          title: 'Illustrator',
           color: 'warning',
           bgColor: [255, 194, 96]
         },
