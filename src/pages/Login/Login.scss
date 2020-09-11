@@ -1,5 +1,7 @@
 @import "../../styles/app";
-
+body {
+  background-color: #F6F7FF !important
+}
 .container {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   padding: 0;
@@ -59,6 +61,9 @@
       bottom: 50px;
       background-color: #F6F7FF;
     }
+  }
+  .v-footer {
+    position: inherit;
   }
 }
 

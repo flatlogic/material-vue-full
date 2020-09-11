@@ -125,7 +125,7 @@
         <v-col cols="12" md="6" >
           <v-card class="mx-1 mb-1">
             <v-card-title class="pa-5 pb-3">
-              <p>Apex Bar Chart With Image</p>
+              <p>Bar Chart With Image</p>
               <v-spacer></v-spacer>
               <v-menu>
                 <template v-slot:activator="{ on, attrs }">

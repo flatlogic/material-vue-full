@@ -5,7 +5,7 @@
         <v-col cols="12" md="6">
           <v-card class="mx-1 mb-1">
             <v-card-title class="pa-5 pb-3">
-              <p>Apex Basic Pie Chart</p>
+              <p>Basic Pie Chart</p>
               <v-spacer></v-spacer>
               <v-menu>
                 <template v-slot:activator="{ on, attrs }">
@@ -33,7 +33,6 @@
                 <v-col cols="12">
                   <ApexChart
                       type="pie"
-                      :height="$vuetify.breakpoint.smAndDown ? 300 : 350"
                       :options="apexPie.options"
                       :series="apexPie.series">
                   </ApexChart>
@@ -45,7 +44,7 @@
         <v-col cols="12" md="6" >
           <v-card class="mx-1 mb-1">
             <v-card-title class="pa-5 pb-3">
-              <p>Apex Basic Donut Pie Chart</p>
+              <p>Donut Pie Chart</p>
               <v-spacer></v-spacer>
               <v-menu>
                 <template v-slot:activator="{ on, attrs }">
@@ -72,10 +71,10 @@
               <v-row no-gutters>
                 <v-col>
                   <ApexChart
-                      type="donut"
-                      height="350"
-                      :options="apexPieDonut.options"
-                      :series="apexPieDonut.series">
+                    type="donut"
+                    :height="$vuetify.breakpoint.smAndDown ? 300 : 350"
+                    :options="apexPieDonut.options"
+                    :series="apexPieDonut.series">
                   </ApexChart>
                 </v-col>
               </v-row>
@@ -85,7 +84,7 @@
         <v-col cols="12" md="6" >
           <v-card class="mx-1 mb-1">
             <v-card-title class="pa-5 pb-3">
-              <p>Apex Dynamic Pie Chart</p>
+              <p>Dynamic Pie Chart</p>
               <v-spacer></v-spacer>
               <v-menu>
                 <template v-slot:activator="{ on, attrs }">
@@ -113,30 +112,27 @@
                 <v-col cols="12" class="my-auto">
                   <ApexChart
                     type="donut"
-                    height="350"
+                    :height="$vuetify.breakpoint.smAndDown ? 300 : 350"
                     :options="apexDynamicChart.options"
                     :series="apexDynamicChart.series">
                   </ApexChart>
                 </v-col>
               </v-row>
             </v-card-text>
-            <v-card-actions class="pb-5">
-              <v-spacer></v-spacer>
-              <v-btn class="button-shadow" color="primary" @click="randomize">Randomize</v-btn>
-              <v-spacer></v-spacer>
-              <v-btn class="button-shadow" color="secondary" @click="appendData">Add</v-btn>
-              <v-spacer></v-spacer>
-              <v-btn class="button-shadow" color="warning" @click="removeData">Remove</v-btn>
-              <v-spacer></v-spacer>
-              <v-btn class="button-shadow" color="success" @click="reset">Reset</v-btn>
-              <v-spacer></v-spacer>
+            <v-card-actions class="pb-0">
+              <v-col class="d-flex flex-wrap justify-space-between">
+                <v-btn class="button-shadow mr-3 mb-3" color="primary" @click="randomize">Randomize</v-btn>
+                <v-btn class="button-shadow" color="secondary" @click="appendData">Add</v-btn>
+                <v-btn class="button-shadow" color="warning" @click="removeData">Remove</v-btn>
+                <v-btn class="button-shadow" color="success" @click="reset">Reset</v-btn>
+              </v-col>
             </v-card-actions>
           </v-card>
         </v-col>
         <v-col cols="12" md="6">
           <v-card class="mx-1 mb-1">
             <v-card-title class="pa-5 pb-3">
-              <p>Apex Monochrome Pie Chart</p>
+              <p>Monochrome Pie Chart</p>
               <v-spacer></v-spacer>
               <v-menu>
                 <template v-slot:activator="{ on, attrs }">
@@ -164,7 +160,7 @@
                 <v-col cols="12" class="pb-7">
                   <ApexChart
                     type="pie"
-                    height="368"
+                    :height="$vuetify.breakpoint.smAndDown ? 300 : 368"
                     :options="apexMonochrome.options"
                     :series="apexMonochrome.series">
                   </ApexChart>
@@ -205,19 +201,26 @@ export default {
           legend: {
             position: 'right',
           },
-          labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
-          colors: [config.light.primary, config.light.success, config.light.warning, config.light.info, config.light.secondary],
-          responsive: [{
-            breakpoint: 480,
+          responsive: [
+            {
+            breakpoint: 321,
             options: {
               chart: {
-                width: 200
+                height: 150
               },
-              legend: {
-                position: 'bottom'
-              }
+            },
+          },
+            {
+              breakpoint: 2561,
+              options: {
+                chart: {
+                  height: 350
+                },
+              },
             }
-          }]
+          ],
+          labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
+          colors: [config.light.primary, config.light.success, config.light.warning, config.light.info, config.light.secondary],
         },
       },
       apexPieDonut: {
@@ -225,20 +228,28 @@ export default {
         options: {
           chart: {
             type: 'donut',
+            height: 350
           },
           labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
           colors: [config.light.primary, config.light.success, config.light.warning, config.light.info, config.light.secondary],
-          responsive: [{
-            breakpoint: 480,
-            options: {
-              chart: {
-                width: 200
+          responsive: [
+            {
+              breakpoint: 321,
+              options: {
+                chart: {
+                  height: 150
+                },
               },
-              legend: {
-                position: 'bottom'
-              }
+            },
+            {
+              breakpoint: 2561,
+              options: {
+                chart: {
+                  height: 350
+                },
+              },
             }
-          }]
+          ],
         },
       },
       apexDynamicChart: {
@@ -253,17 +264,24 @@ export default {
           },
           colors: [config.light.primary, config.light.success, config.light.warning, config.light.info, config.light.secondary,
             config.light.primary, config.light.success, config.light.warning, config.light.info, config.light.secondary],
-          responsive: [{
-            breakpoint: 480,
-            options: {
-              chart: {
-                width: 200
+          responsive: [
+            {
+              breakpoint: 321,
+              options: {
+                chart: {
+                  height: 150
+                },
               },
-              legend: {
-                show: false
-              }
+            },
+            {
+              breakpoint: 2561,
+              options: {
+                chart: {
+                  height: 350
+                },
+              },
             }
-          }],
+          ],
           legend: {
             position: 'right',
             offsetY: 0,
@@ -275,7 +293,7 @@ export default {
         series: [25, 15, 44, 55, 41, 17],
         options: {
           chart: {
-            width: '100%',
+            height: 380,
             type: 'pie',
           },
           labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
@@ -300,7 +318,25 @@ export default {
           },
           legend: {
             show: false
-          }
+          },
+          responsive: [
+            {
+              breakpoint: 321,
+              options: {
+                chart: {
+                  height: 150
+                },
+              },
+            },
+            {
+              breakpoint: 2561,
+              options: {
+                chart: {
+                  height: 350
+                },
+              },
+            }
+          ],
         },
       }
     };

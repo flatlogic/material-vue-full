@@ -1,5 +1,4 @@
-import config from '@/config'
-
+import config from '@/config';
 
 export default {
   bigStat: [
@@ -118,9 +117,6 @@ export default {
       },
       colors: [config.light.primary, config.light.secondary, config.light.success, config.light.warning],
       labels: ["Group A", "Group B", "Group C", "Group D"],
-      legend: {
-
-      },
       stroke: {
         show: false,
       },

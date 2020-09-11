@@ -10,8 +10,6 @@ export default new Vuetify({
         themes: {
             dark: config.dark,
             light: config.light,
-            secondary: config.secondary,
-            third: config.third
         }
     }
 });

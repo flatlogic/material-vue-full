@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="colors-page mt-3">
     <v-row>
-      <v-col cols=12>
+      <v-col cols="12">
         <v-card class="overflow-hidden ma-1 mb-4">
           <v-card-title>
             <p>States Colors</p>
@@ -37,8 +37,8 @@
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col cols=6>
-        <v-card class="ma-1 mr-4">
+      <v-col cols="12" md="6">
+        <v-card class="ma-1 mr-0 mr-md-4">
           <v-card-title class="pa-5 pb-3">
             <p>Typography Colors</p>
           </v-card-title>
@@ -56,7 +56,7 @@
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col cols=6>
+      <v-col cols="12" md="6">
         <v-card class="overflow-hidden ma-1">
           <v-card-title>
             <p>Example buttons</p>

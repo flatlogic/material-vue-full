@@ -11,7 +11,7 @@ export default {
     greyTint: '#b9b9b9',
     default: '#e0e0e0',
     iconColor: "#FFFFFF59"
-    },
+  },
   dark: {
     primary: "#536dfe",
     secondary: "#FF5C93",
@@ -20,6 +20,6 @@ export default {
     greyBold: '#fff',
     greyTint: '#76767b',
     default: '#e0e0e0',
-    }
+  },
 };
 

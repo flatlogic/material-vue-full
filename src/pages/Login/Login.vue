@@ -134,7 +134,7 @@
               </div>
             </v-col>
             <v-col cols="12" class="d-flex justify-center">
-              <v-footer>
+              <v-footer class="pb-4">
                 <div class="primary--text">© 2014-2020 Flatlogic, LLC. All rights reserved.</div>
               </v-footer>
             </v-col>

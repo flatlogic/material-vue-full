@@ -18,6 +18,12 @@
   .theme--light.v-tabs > .v-tabs-bar {
     background-color: white;
   }
+  .v-slide-group__prev.v-slide-group__prev--disabled {
+    display: none!important;
+  }
+  .v-item-group.v-slide-group.v-tabs-bar {
+    padding: 0 10px;
+  }
 }
 
 

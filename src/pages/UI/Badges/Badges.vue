@@ -9,25 +9,25 @@
             <v-menu>
               <template v-slot:activator="{ on, attrs }">
                 <v-btn
-                    icon
-                    v-bind="attrs"
-                    v-on="on"
+                  icon
+                  v-bind="attrs"
+                  v-on="on"
                 >
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
               </template>
               <v-list>
                 <v-list-item
-                    v-for="(item, i) in menu"
-                    :key="i"
-                    @click="() => {}"
+                  v-for="(item, i) in menu"
+                  :key="i"
+                  @click="() => {}"
                 >
                   <v-list-item-title >{{ item }}</v-list-item-title>
                 </v-list-item>
               </v-list>
             </v-menu>
           </v-card-title>
-          <v-card-text class="pa-5 pt-0">
+          <v-card-text class="overflow-x-auto pa-5 pt-0">
             <p class="fs-normal greyBold--text mb-10">Badge generates a small badge to the top-right of its child(ren)</p>
             <template v-for="badge in badgeExample" >
               <v-badge

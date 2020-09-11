@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="px-1">
+  <v-container fluid class="px-0 px-md-1">
     <div class="profile-page">
       <v-row>
         <v-col md=5 cols=12>
@@ -48,7 +48,7 @@
                 </v-card-text>
               </v-card>
             </v-col>
-            <v-col cols="6">
+            <v-col cols="12" sm="6">
               <v-card class="media-card ma-1" min-height="296">
                 <v-card-title class="pa-5 pb-3">
                   <p>Media</p>
@@ -100,7 +100,7 @@
                 </v-card-text>
               </v-card>
             </v-col>
-            <v-col cols="6">
+            <v-col cols="12" sm="6">
               <v-card class="pie-card ma-1" min-height="296">
                 <v-card-title class="pa-5 pb-3">
                   <p>Projects</p>
@@ -193,14 +193,14 @@
                         :value="'tab-' + tab.tabName.toLocaleLowerCase()"
                         class="pt-1"
                     >
-                      <v-row justify="space-around" class="flex-nowrap overflow-hidden pa-4">
+                      <v-row justify-lg="space-around" justify="start"  class="d-flex flex-nowrap overflow-x-auto pa-4">
                         <div
-                             v-for="(img, i) in images"
-                             :key="i">
+                           v-for="(img, i) in images"
+                           :key="i">
                           <v-img
-                              :src="$vuetify.theme.dark ? img.srcDark : img.src"
-                              width="141" height="106" contain
-                              class="folder-image mr-3"
+                            :src="$vuetify.theme.dark ? img.srcDark : img.src"
+                            width="141" height="106" contain
+                            class="folder-image mr-3"
                           >
                             <p class="folder-title"> {{ img.title }} </p>
                             <p class="folder-subtitle-1"> {{img.subtitle}} </p>

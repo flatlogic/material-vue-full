@@ -184,7 +184,7 @@
       </v-list>
 
     </v-menu>
-    <div class="greeting-text mr-3">Hi, <span>John Smith</span></div>
+    <div class="greeting-text mr-3 d-none d-md-block">Hi, <span>John Smith</span></div>
 
   </v-app-bar>
 </template>

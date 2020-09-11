@@ -27,7 +27,7 @@
               </v-list>
             </v-menu>
           </v-card-title>
-          <v-card-text class="pa-6 pt-0">
+          <v-card-text class="overflow-x-auto pa-6 pt-0">
             <p class="fs-normal greyBold--text mb-5">App bar displays yours app links by importing and inserting AppBar component.
               To swap links style add attribute within Button component.</p>
             <v-app-bar

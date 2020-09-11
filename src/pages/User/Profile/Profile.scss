@@ -185,5 +185,8 @@
     .v-item-group.theme--dark.v-tabs-items {
       background-color: transparent;
     }
+    .v-slide-group__prev.v-slide-group__prev--disabled {
+      display: none!important;
+    }
   }
 }

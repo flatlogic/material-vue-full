@@ -317,22 +317,25 @@
                           single-line hint="Please choose your language">
                       </v-select>
                       <p class="body-1">Communication:</p>
-                      <div class="d-flex">
-                        <v-checkbox
-                            class="mr-3"
-                            color="secondary"
-                            v-model="checkbox.email"
-                            label="Email"></v-checkbox>
-                        <v-checkbox
-                            class="mr-3"
-                            color="secondary"
-                            v-model="checkbox.messages"
-                            label="Messages"></v-checkbox>
-                        <v-checkbox
-                            color="secondary"
-                            v-model="checkbox.phone"
-                            label="Phone"></v-checkbox>
-                      </div>
+
+                        <v-col class="d-flex flex-wrap">
+                          <v-checkbox
+                              class="mr-3"
+                              color="secondary"
+                              v-model="checkbox.email"
+                              label="Email"></v-checkbox>
+                          <v-checkbox
+                              class="mr-3"
+                              color="secondary"
+                              v-model="checkbox.messages"
+                              label="Messages"></v-checkbox>
+                          <v-checkbox
+                              color="secondary"
+                              v-model="checkbox.phone"
+                              label="Phone"></v-checkbox>
+                        </v-col>
+
+
                       <p class="body-1">Email notification</p>
                       <v-switch v-model="switch1"></v-switch>
                       <p class="body-1">Send copy to personal email</p>

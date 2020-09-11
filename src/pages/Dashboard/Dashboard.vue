@@ -1,10 +1,10 @@
 <template>
   <v-container fluid class="mx-1">
     <div class="dashboard-page">
-      <v-card width="100%" class="breadcrumbs mx-1">
+      <v-card width="100%" class="breadcrumbs">
         <v-row no-gutters class="d-flex align-center mt-8 mb-3 px-5 py-1 mx-1">
           <v-col cols="12" md="6" class="d-sm-flex justify-md-start justify-space-between align-center">
-            <h1 class="main-page-title greyMedium--text mb-0 mr-2">Dashboard</h1>
+            <h1 class="main-page-title greyMedium--text mb-0 mr-2 pt-4 pt-md-0">Dashboard</h1>
             <div>
               <v-tabs color="secondary">
                 <v-tab
@@ -610,6 +610,7 @@
     data() {
       return {
         mock,
+        mode: this.$vuetify.theme.dark ? 'dark' : 'light',
         apexLoading: false,
         value: this.getRandomInt(10,90),
         value2: this.getRandomInt(10,90),
@@ -647,11 +648,12 @@
         return this.date ? moment(this.date).format('Do MMM YYYY, dddd') : ''
       },
     },
+
     mounted() {
       setTimeout(() => {
         this.apexLoading = true
       })
-    }
+    },
   };
 </script>
 

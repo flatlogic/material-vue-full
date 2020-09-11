@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="product-grid-page mt-5 px-2">
+  <v-container fluid class="product-grid-page mt-5 px-0 px-md-2">
     <v-row class="mb-n3">
       <v-col
           v-for="(select, i) in selects"
@@ -22,7 +22,7 @@
           lg="3"
           :key="i">
           <v-card
-            class="ma-2"
+            class="ma-1"
             link
             replace
             :key="i">

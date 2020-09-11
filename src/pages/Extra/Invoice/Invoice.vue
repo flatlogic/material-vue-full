@@ -141,19 +141,20 @@
                 <p class="text-right">
                   <span class="font-weight-bold">Bob Smith</span>
                 </p>
-                <v-card-actions class="mt-5 justify-content-end">
-                  <v-spacer></v-spacer>
-                  <v-btn color="default" class="button-shadow mr-2">
-                    <v-icon class="mr-2">mdi-printer</v-icon>
-                    &nbsp;&nbsp;
-                    Print
-                  </v-btn>
-                  <v-btn color="success" class="button-shadow">
-                    <v-icon class="mr-2">mdi-arrow-right</v-icon>
-                    Proceed with Payment
-                    &nbsp;
+                <v-card-actions class="mt-5">
+                  <v-row justify="end" no-gutters >
+                    <v-btn color="default" class="button-shadow mb-2 mr-0 mr-sm-2">
+                      <v-icon class="mr-2">mdi-printer</v-icon>
+                      &nbsp;&nbsp;
+                      Print
+                    </v-btn>
+                    <v-btn color="success" class="button-shadow">
+                      <v-icon class="mr-2">mdi-arrow-right</v-icon>
+                      Proceed with Payment
+                      &nbsp;
 
-                  </v-btn>
+                    </v-btn>
+                  </v-row>
                 </v-card-actions>
               </v-card-text>
             </v-card>
