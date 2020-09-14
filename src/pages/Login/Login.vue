@@ -39,19 +39,23 @@
                           <v-form>
                             <v-col>
                               <v-text-field
-                                  v-model="email"
-                                  :rules="emailRules"
-                                  value="admin@flatlogic.com"
-                                  label="Email Address"
-                                  required
+                                v-model="email"
+                                :rules="emailRules"
+                                hide-details
+                                single-line
+                                value="admin@flatlogic.com"
+                                label="Email Address"
+                                required
                               ></v-text-field>
                               <v-text-field
-                                  v-model="password"
-                                  :rules="passRules"
-                                  type="password"
-                                  label="Password"
-                                  hint="At least 6 characters"
-                                  required
+                                v-model="password"
+                                :rules="passRules"
+                                hide-details
+                                single-line
+                                type="password"
+                                label="Password"
+                                hint="At least 6 characters"
+                                required
                               ></v-text-field>
 
                             </v-col>
@@ -85,32 +89,38 @@
                           <v-form>
                             <v-col>
                               <v-text-field
-                                  v-model="createFullName"
-                                  label="Full Name"
-                                  required
+                                v-model="createFullName"
+                                hide-details
+                                single-line
+                                label="Full Name"
+                                required
                               ></v-text-field>
                               <v-text-field
-                                  v-model="createEmail"
-                                  :rules="emailRules"
-                                  label="Email Address"
-                                  required
+                                v-model="createEmail"
+                                :rules="emailRules"
+                                single-line
+                                hide-details
+                                label="Email Address"
+                                required
                               ></v-text-field>
                               <v-text-field
-                                  v-model="createPassword"
-                                  :rules="passRules"
-                                  type="password"
-                                  label="Password"
-                                  hint="At least 6 characters"
-                                  required
+                                v-model="createPassword"
+                                :rules="passRules"
+                                hide-details
+                                single-line
+                                type="password"
+                                label="Password"
+                                hint="At least 6 characters"
+                                required
                               ></v-text-field>
                             </v-col>
                             <v-col class="d-flex justify-space-between">
                               <v-btn
-                                  large
-                                  block
-                                  :disabled="createFullName.length === 0 || createEmail.length === 0 || createPassword === 0"
-                                  color="primary"
-                                  @click="login"
+                                large
+                                block
+                                :disabled="createFullName.length === 0 || createEmail.length === 0 || createPassword === 0"
+                                color="primary"
+                                @click="login"
                               >
                                 Create your account</v-btn>
                             </v-col>
@@ -134,7 +144,7 @@
               </div>
             </v-col>
             <v-col cols="12" class="d-flex justify-center">
-              <v-footer class="pb-4">
+              <v-footer class="mx-4">
                 <div class="primary--text">© 2014-2020 Flatlogic, LLC. All rights reserved.</div>
               </v-footer>
             </v-col>

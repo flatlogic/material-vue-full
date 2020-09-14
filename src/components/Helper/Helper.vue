@@ -4,6 +4,7 @@
         v-model="menu"
         :close-on-content-click="false"
         left
+        tile
         offset-x
         nudge-left="15"
     >

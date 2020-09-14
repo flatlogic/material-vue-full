@@ -5,10 +5,11 @@
         <v-row no-gutters class="d-flex align-center mt-8 mb-3 px-5 py-1 mx-1">
           <v-col cols="12" md="6" class="d-sm-flex justify-md-start justify-space-between align-center">
             <h1 class="main-page-title greyMedium--text mb-0 mr-2 pt-4 pt-md-0">Dashboard</h1>
-            <div>
+            <div class="ml-0 ml-sm-4">
               <v-tabs color="secondary">
                 <v-tab
                   class="text-capitalize font-weight-regular"
+                  style="letter-spacing: 0.02857em;"
                   v-for="tab in tabs"
                   :key="tab">
                   {{ tab }}</v-tab>
@@ -285,7 +286,7 @@
           </v-card>
         </v-col>
         <v-col cols=12>
-          <v-card class="ma-1">
+          <v-card class="daily-line ma-1">
             <v-card-title class="pa-5 pb-0">
               <v-row no-gutters>
                 <v-col cols="7" sm="4" md="4" lg="5" class="d-flex align-center">
@@ -512,24 +513,24 @@
         </v-col>
         <v-col cols=12>
           <v-card class="support-table ma-1">
-            <v-card-title class="pa-5 pb-0">
-              <p>Support Requests</p>
+            <v-card-title class="pa-5 pb-4">
+              <p>Recent Orders</p>
               <v-spacer></v-spacer>
               <v-menu>
                 <template v-slot:activator="{ on, attrs }">
                   <v-btn
-                    icon
-                    v-bind="attrs"
-                    v-on="on"
+                      icon
+                      v-bind="attrs"
+                      v-on="on"
                   >
                     <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                   </v-btn>
                 </template>
                 <v-list>
                   <v-list-item
-                    v-for="(item, i) in mock.menu"
-                    :key="i"
-                    @click="() => {}"
+                      v-for="(item, i) in mock.menu"
+                      :key="i"
+                      @click="() => {}"
                   >
                     <v-list-item-title>{{ item }}</v-list-item-title>
                   </v-list-item>
@@ -537,58 +538,50 @@
               </v-menu>
             </v-card-title>
             <v-card-text class="pa-0">
-              <v-simple-table>
-                <template v-slot:default>
-                  <thead class="pl-2">
-                    <tr class="">
-                    <th class="text-left greyTint--text fs-medium pa-6">NAME</th>
-                    <th class="text-left greyTint--text fs-medium">EMAIL</th>
-                    <th class="text-left greyTint--text fs-medium">PRODUCT</th>
-                    <th class="text-left greyTint--text fs-medium">PRICE</th>
-                    <th class="text-left greyTint--text fs-medium">DATE</th>
-                    <th class="text-left greyTint--text fs-medium">CITY</th>
-                    <th class="text-left greyTint--text fs-medium">STATUS</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr v-for="item in mock.table" :key="item.name" class="greyBold--text">
-                    <td class="pa-6">{{ item.name }}</td>
-                    <td>{{ item.email }}</td>
-                    <td>{{ item.product }}</td>
-                    <td>{{ item.price }}</td>
-                    <td>{{ item.date }}</td>
-                    <td>{{ item.city }}</td>
-                    <td v-if="item.status === 'Sent'">
-                      <v-chip
-                        link
-                        color="success"
-                        class="ma-2 ml-0"
-                      >
-                        Sent
-                      </v-chip>
-                    </td>
-                    <td v-else-if="item.status === 'Pending'">
-                      <v-chip
-                        link
-                        color="warning"
-                        class="ma-2 ml-0"
-                      >
-                        Pending
-                      </v-chip>
-                    </td>
-                    <td v-else-if="item.status === 'Declined'">
-                      <v-chip
-                        link
-                        color="secondary"
-                        class="ma-2 ml-0"
-                      >
-                        Declined
-                      </v-chip>
-                    </td>
-                  </tr>
-                  </tbody>
+              <v-data-table
+                show-select
+                :headers="headers"
+                :items="products"
+                sort-by="calories"
+                :items-per-page="itemPerPage"
+              >
+                <template v-slot:item.name="{ item }">
+                  <div class="align-center">
+                    <v-avatar size="40" :color="item.avatar.color + ' ma-5 ml-0'">
+                      <span class="white--text font-weight-medium">{{ item.avatar.name }}</span>
+                    </v-avatar>
+                    <span class="mb-0 fs-base">{{ item.name }}</span>
+                  </div>
                 </template>
-              </v-simple-table>
+                <template v-slot:item.status="{ item }">
+                  <v-chip :color="item.avatar.color" small>{{ item.status }}</v-chip>
+                </template>
+                <template v-slot:item.actions="{}">
+                  <v-menu>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn
+                        icon
+                        v-bind="attrs"
+                        v-on="on"
+                      >
+                        <v-icon color="greyTint">mdi-dots-vertical</v-icon>
+                      </v-btn>
+                    </template>
+                    <v-list>
+                      <v-list-item
+                        v-for="(item, i) in mock.menu"
+                        :key="i"
+                        @click="() => {}"
+                      >
+                        <v-list-item-title>{{ item }}</v-list-item-title>
+                      </v-list-item>
+                    </v-list>
+                  </v-menu>
+                </template>
+                <template v-slot:no-data>
+                  <v-btn color="primary" @click="initialize">Reset</v-btn>
+                </template>
+              </v-data-table>
             </v-card-text>
           </v-card>
         </v-col>
@@ -615,9 +608,27 @@
         value: this.getRandomInt(10,90),
         value2: this.getRandomInt(10,90),
         mainApexAreaSelect: 'Daily',
-        tabs: ['Today', 'This Week', 'This Month', 'This Year'],
+        tabs: ['Today', 'This week', 'This month', 'This year'],
         date: new Date().toISOString().substr(0, 10),
         menu: false,
+        headers: [
+          {
+            text: 'ORDER ID',
+            align: 'start',
+            sortable: false,
+            value: 'id',
+          },
+          { text: 'CUSTOMER', value: 'name' },
+          { text: 'OFFICE', value: 'role' },
+          { text: 'NETTO WEIGHT', value: 'weight' },
+          { text: 'PRICE', value: 'price' },
+          { text: 'DATE OF PURCHASE', value: 'create' },
+          { text: 'DATE OF DELIVERY', value: 'end' },
+          { text: 'STATUS', value: 'status' },
+          { text: 'ACTIONS', value: 'actions', sortable: false },
+        ],
+        products: [],
+        itemPerPage: 5
 
       };
     },
@@ -642,6 +653,190 @@
         let rand = min - 0.5 + Math.random() * (max - min + 1);
         return Math.round(rand);
       },
+      initialize () {
+        this.products = [
+          {
+            id: '2840954',
+            avatar: {
+              name: 'V',
+              color: 'secondary'
+            },
+            name: 'Victoria Cantrel',
+            role: 'Peru',
+            weight: '1 kg',
+            price: '$2.500',
+            status: 'Canceled',
+            create: '09 Jan 2020',
+            end: '-',
+            actions: true,
+          },
+          {
+            id: '824480',
+            avatar: {
+              name: 'C',
+              color: 'warning'
+            },
+            name: 'Constance Clayton',
+            role: 'Peru',
+            weight: '2 kg',
+            price: '$950',
+            status: 'In a process',
+            create: '06 Jan 2020',
+            end: '12 Jan 2020',
+            actions: true,
+          },
+          {
+            id: '2985330',
+            avatar: {
+              name: 'S',
+              color: 'primary'
+            },
+            name: 'Sophia Fernandez',
+            role: 'Croatia',
+            weight: '1 kg',
+            price: '$600',
+            status: 'Pending',
+            create: '12 Jan 2020',
+            end: '16 Jan 2020',
+            actions: true,
+          },
+          {
+            id: '1746913',
+            avatar: {
+              name: 'B',
+              color: 'success'
+            },
+            name: 'Bob Nilson',
+            role: 'Belgium',
+            weight: '10 kg',
+            price: '$1.203',
+            status: 'Delivered',
+            create: '11 Jan 2020',
+            end: '18 Jan 2020',
+            actions: true,
+          },
+          {
+            id: '2976581',
+            avatar: {
+              name: 'J',
+              color: 'success'
+            },
+            name: 'Jessica Nilson',
+            role: 'Belgium',
+            weight: '2 kg',
+            price: '$1.220',
+            status: 'Canceled',
+            create: '11 Jan 2020',
+            end: '-',
+            actions: true,
+          },
+          {
+            id: '2841954',
+            avatar: {
+              name: 'J',
+              color: 'success'
+            },
+            name: 'Jane Hew',
+            role: 'Paris',
+            weight: '5 kg',
+            price: '$200',
+            status: 'Delivered',
+            create: '03 Jan 2020',
+            end: '14 Jan 2020',
+            actions: true,
+          },
+          {
+            id: '825480',
+            avatar: {
+              name: 'A',
+              color: 'warning'
+            },
+            name: 'Axel Pittman',
+            role: 'USA',
+            weight: '9 kg',
+            price: '$650',
+            status: 'Canceled',
+            create: '09 Jan 2020',
+            end: '16 Jan 2020',
+            actions: '1234',
+          },
+          {
+            id: '2986330',
+            avatar: {
+              name: 'S',
+              color: 'primary'
+            },
+            name: 'Sophia Fernandez',
+            role: 'Peru',
+            weight: '6 kg',
+            price: '$980',
+            status: 'Pending',
+            create: '13 Jan 2020',
+            end: '-',
+            actions: true,
+          },
+          {
+            id: '1746923',
+            avatar: {
+              name: 'B',
+              color: 'secondary'
+            },
+            name: 'Bob Nilson',
+            role: 'Moscow',
+            weight: '2 kg',
+            price: '$360',
+            status: 'Canceled',
+            create: '15 Jan 2020',
+            end: '-',
+            actions: true,
+          },
+          {
+            id: '3976581',
+            avatar: {
+              name: 'J',
+              color: 'secondary'
+            },
+            name: 'Jessica Nilson',
+            role: 'Peru',
+            weight: '0.5 kg',
+            price: '$1.250',
+            status: 'Canceled',
+            create: '09 Jan 2020',
+            end: '16 Jan 2020',
+            actions: true,
+          },
+          {
+            id: '2986331',
+            avatar: {
+              name: 'J',
+              color: 'warning'
+            },
+            name: 'Jane Hew',
+            role: 'Minsk',
+            weight: '8.5 kg',
+            price: '$1.120',
+            status: 'In a progress',
+            create: '01 Jan 2020',
+            end: '09 Jan 2020',
+            actions: true,
+          },
+          {
+            id: '8254801',
+            avatar: {
+              name: 'A',
+              color: 'secondary'
+            },
+            name: 'Axel Pittman',
+            role: 'Minsk',
+            weight: '10.5 kg',
+            price: '$1.900',
+            status: 'Canceled',
+            create: '09 Jan 2020',
+            end: '18 Jan 2020',
+            actions: true,
+          },
+        ]
+      },
     },
     computed: {
       computedDate() {
@@ -653,6 +848,10 @@
       setTimeout(() => {
         this.apexLoading = true
       })
+    },
+
+    created () {
+      this.initialize()
     },
   };
 </script>

@@ -10,12 +10,17 @@
   border-radius: 50% 0 0 50%;
   border-right: none;
 
+  .v-icon:focus::after {
+    opacity: 0;
+  }
 }
 div.helper-card {
   .v-input--radio-group__input {
     flex-direction: row;
   }
 }
+
+
 .v-application.theme--dark {
   .v-menu__content.theme--dark {
     box-shadow: none!important;
