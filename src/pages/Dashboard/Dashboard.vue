@@ -19,7 +19,6 @@
           <v-col cols="12" md="6" class="d-sm-flex justify-space-between align-center justify-md-end">
             <div class="mb-3 mb-sm-0">
               <v-menu
-                  ref="menu"
                   v-model="menu"
                   :close-on-content-click="false"
                   transition="scale-transition"
@@ -190,7 +189,7 @@
           </v-card>
         </v-col>
         <v-col lg=3 sm=6 md=8 cols=12>
-          <v-card  class="ma-1">
+          <v-card class="ma-1">
             <v-card-title class="d-flex flex-nowrap pa-5 pb-3">
               <p class="text-truncate">Server Overview</p>
               <v-spacer></v-spacer>
@@ -221,7 +220,7 @@
                   <span class="greyBold--text">60% / 37°С / 3.3 Ghz</span>
                 </v-col>
                 <v-col cols="4">
-                  <ApexChart v-if="apexLoading"  height="43" type="area" :options="mock.apexArea1.options" :series="mock.apexArea1.series"></ApexChart>
+                  <ApexChart v-if="apexLoading" ref="apexArea1" height="43" type="area" :options="mock.apexArea1.options" :series="mock.apexArea1.series"></ApexChart>
                 </v-col>
               </v-row>
               <v-row class="mb-2" no-gutters>
@@ -229,7 +228,7 @@
                   <span class="greyBold--text">54% / 31°С / 3.3 Ghz</span>
                 </v-col >
                 <v-col cols="4">
-                  <ApexChart v-if="apexLoading" height="43" type="area" :options="mock.apexArea2.options" :series="mock.apexArea2.series"></ApexChart>
+                  <ApexChart v-if="apexLoading" ref="apexArea2" height="43" type="area" :options="mock.apexArea2.options" :series="mock.apexArea2.series"></ApexChart>
                 </v-col>
               </v-row>
               <v-row class="mb-2" no-gutters>
@@ -237,7 +236,7 @@
                   <span class="greyBold--text">57% / 21°С / 3.3 Ghz</span>
                 </v-col>
                 <v-col cols="4">
-                  <ApexChart v-if="apexLoading" height="43" type="area" :options="mock.apexArea3.options" :series="mock.apexArea3.series"></ApexChart>
+                  <ApexChart v-if="apexLoading" ref="apexArea3" height="43" type="area" :options="mock.apexArea3.options" :series="mock.apexArea3.series"></ApexChart>
                 </v-col>
               </v-row>
             </v-card-text>
@@ -371,6 +370,7 @@
                   <ApexChart
                     height="100"
                     type="bar"
+                    ref="apexBar1"
                     v-if="apexLoading"
                     :options="mock.apexBar1.options"
                     :series="mock.apexBar1.series"
@@ -405,16 +405,16 @@
                   <v-menu>
                     <template v-slot:activator="{ on, attrs }">
                       <v-select
-                              class="main-chart-select"
-                              v-model="mainApexAreaSelect"
-                              v-bind="attrs"
-                              v-on="on"
-                              dense
-                              flat
-                              single-line
-                              hide-details
-                              :items="mock.select"
-                              outlined
+                        class="main-chart-select"
+                        v-model="mainApexAreaSelect"
+                        v-bind="attrs"
+                        v-on="on"
+                        dense
+                        flat
+                        single-line
+                        hide-details
+                        :items="mock.select"
+                        outlined
                       ></v-select>
                     </template>
                   </v-menu>
@@ -430,6 +430,7 @@
                   <ApexChart
                     height="100"
                     type="bar"
+                    ref="apexBar2"
                     v-if="apexLoading"
                     :options="mock.apexBar2.options"
                     :series="mock.apexBar2.series"
@@ -489,6 +490,7 @@
                   <ApexChart
                     height="100"
                     type="bar"
+                    ref="apexBar3"
                     v-if="apexLoading"
                     :options="mock.apexBar3.options"
                     :series="mock.apexBar3.series"
@@ -636,7 +638,12 @@
           theme: {
             mode: 'dark'
           }
-        }
+        },
+        apexLightTheme: {
+          theme: {
+            mode: 'light'
+          }
+        },
       };
     },
     methods: {
@@ -861,7 +868,24 @@
     watch: {
       theme(){
         this.themeState = this.theme
-        this.$refs.dailyLine.updateOptions(this.apexDarkTheme, false, true)
+        if (this.themeState) {
+          this.$refs.apexArea1.updateOptions(this.apexDarkTheme, false, true)
+          this.$refs.apexArea2.updateOptions(this.apexDarkTheme, false, true)
+          this.$refs.apexArea3.updateOptions(this.apexDarkTheme, false, true)
+          this.$refs.dailyLine.updateOptions(this.apexDarkTheme, false, true)
+          this.$refs.apexBar1.updateOptions(this.apexDarkTheme, false, true)
+          this.$refs.apexBar2.updateOptions(this.apexDarkTheme, false, true)
+          this.$refs.apexBar3.updateOptions(this.apexDarkTheme, false, true)
+        }
+        else {
+          this.$refs.apexArea1.updateOptions(this.apexLightTheme, false, true)
+          this.$refs.apexArea2.updateOptions(this.apexLightTheme, false, true)
+          this.$refs.apexArea3.updateOptions(this.apexLightTheme, false, true)
+          this.$refs.dailyLine.updateOptions(this.apexLightTheme, false, true)
+          this.$refs.apexBar1.updateOptions(this.apexLightTheme, false, true)
+          this.$refs.apexBar2.updateOptions(this.apexLightTheme, false, true)
+          this.$refs.apexBar3.updateOptions(this.apexLightTheme, false, true)
+        }
       }
     },
 

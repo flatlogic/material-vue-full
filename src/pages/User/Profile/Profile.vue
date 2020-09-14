@@ -404,7 +404,7 @@
                           >See More</v-btn>
                         </v-col>
                         <v-col cols="6" offset="1" sm="6" offset-sm="0" md="5" offset-md="2" lg="5" offset-lg="2" xl="8" offset-xl="1" class="d-flex align-end">
-                          <ApexChart v-if="apexLoading"  height="80" type="area" :options="apexArea1.options" :series="apexArea1.series"></ApexChart>
+                          <ApexChart v-if="apexLoading" ref="apexView" height="80" type="area" :options="apexArea1.options" :series="apexArea1.series"></ApexChart>
                         </v-col>
                       </v-row>
                     </v-card-text>
