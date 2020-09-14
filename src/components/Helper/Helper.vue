@@ -47,7 +47,7 @@
           </v-list-item>
           <v-list-item>
             <v-list-item-action class="justify-center mr-0" style="width: 100%">
-              <v-switch v-model="$vuetify.theme.dark" color="secondary"></v-switch>
+              <v-switch v-model="switcher" color="secondary"></v-switch>
             </v-list-item-action>
           </v-list-item>
         </v-list>
@@ -64,7 +64,7 @@
 
 <script>
 import config from '../../config';
-
+import { mapActions } from 'vuex'
 
 export default {
   name: 'Helper',
@@ -76,7 +76,18 @@ export default {
     config,
     radios: 'radio-1',
     mode: false,
+    switcher: false,
   }),
+
+  methods: {
+    ...mapActions([ 'TOGGLE_THEME' ]),
+  },
+  watch: {
+    switcher(newValue) {
+      this.TOGGLE_THEME()
+      this.$vuetify.theme.dark = newValue
+    }
+  }
 };
 </script>
 

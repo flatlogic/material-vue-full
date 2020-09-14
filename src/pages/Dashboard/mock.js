@@ -182,6 +182,7 @@ export default {
   mainApexArea: {
     options: {
       chart: {
+        id: 'mainApexArea',
         width: '100%',
         toolbar: {
           show: false
@@ -214,7 +215,6 @@ export default {
       },
       legend: {
         show: false
-
       },
       colors: [config.light.warning, config.light.primary, '#F8F9FA'],
       yaxis: {
@@ -238,6 +238,10 @@ export default {
           }
         },
         tickAmount: 10,
+      },
+      theme: {
+        mode: 'light',
+        palette: 'palette1',
       }
     },
     series: [

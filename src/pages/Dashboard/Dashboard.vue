@@ -322,6 +322,7 @@
                 <v-col >
                   <ApexChart
                     v-if="apexLoading"
+                    ref="dailyLine"
                     height="350"
                     type="area"
                     :options="mock.mainApexArea.options"
@@ -537,7 +538,7 @@
                 </v-list>
               </v-menu>
             </v-card-title>
-            <v-card-text class="pa-0">
+            <v-card-text class="pa-0 overflow-x-auto">
               <v-data-table
                 show-select
                 :headers="headers"
@@ -594,6 +595,7 @@
   import mock from './mock'
   import ApexChart from 'vue-apexcharts'
   import moment from 'moment'
+  import { mapState } from 'vuex'
 
   export default {
     name: 'Dashboard',
@@ -628,8 +630,13 @@
           { text: 'ACTIONS', value: 'actions', sortable: false },
         ],
         products: [],
-        itemPerPage: 5
-
+        itemPerPage: 5,
+        themeState: false,
+        apexDarkTheme: {
+          theme: {
+            mode: 'dark'
+          }
+        }
       };
     },
     methods: {
@@ -727,7 +734,7 @@
             price: '$1.220',
             status: 'Canceled',
             create: '11 Jan 2020',
-            end: '-',
+            end: '18 Jan 2020',
             actions: true,
           },
           {
@@ -839,6 +846,7 @@
       },
     },
     computed: {
+      ...mapState(['theme']),
       computedDate() {
         return this.date ? moment(this.date).format('Do MMM YYYY, dddd') : ''
       },
@@ -850,8 +858,16 @@
       })
     },
 
+    watch: {
+      theme(){
+        this.themeState = this.theme
+        this.$refs.dailyLine.updateOptions(this.apexDarkTheme, false, true)
+      }
+    },
+
     created () {
       this.initialize()
+      this.themeState = this.theme
     },
   };
 </script>
