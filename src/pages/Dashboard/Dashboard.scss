@@ -30,24 +30,7 @@
       color: $grey-medium!important;
     }
   }
-  .main-chart-select {
-    margin-right: 10px;
-    fieldset {
-      color: $grey-tint!important;
-    }
-    .v-select__slot {
-      width: 100%;
-      .v-select__selections {
-        color: $grey-medium!important;
-        font-size: $fs-base;
-        font-weight: 400;
-        input {
 
-        }
-      }
-    }
-
-  }
   .support-table {
     .v-data-table-header th{
       font-size: $fs-medium;
@@ -64,6 +47,36 @@
     }
   }
   .v-card {
+    .v-card__title {
+      .v-select.v-input--is-dirty input {
+        display: none;
+      }
+      .v-input {
+        max-width: max-content;
+      }
+      .v-select__selection {
+        max-width: none;
+      }
+      .v-text-field {
+        margin-top: 0;
+        .v-input__append-inner .v-input__icon {
+          i {
+            color: $grey-bold!important;
+            margin-top: 4px!important;
+          }
+        }
+      }
+      .v-input--dense > .v-input__control > .v-input__slot {
+        justify-content: flex-end;
+        .v-select__slot {
+          width: auto;
+        }
+      }
+
+      .v-text-field > .v-input__control > .v-input__slot:before, .v-text-field > .v-input__control > .v-input__slot:after {
+        content: none;
+      }
+    }
     .v-card__text {
       .subtext {
         font-size: 1.142rem;
@@ -84,6 +97,19 @@
       }
     }
   }
+  .daily-line {
+    .main-chart-legend {
+      padding-top: 5px;
+      position: absolute;
+      left: 20%;
+      top: 50px;
+      @include media-breakpoint-up(sm) {
+        left: 40%;
+        top: 10px;
+      }
+    }
+  }
+
 }
 .support-card {
   &.theme--dark {
@@ -91,7 +117,6 @@
       stroke-opacity: 0;
     }
   }
-
 }
 
 .v-menu__content {

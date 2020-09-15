@@ -27,7 +27,7 @@
                       <p class="user-work greyTint--text ma-0">Product Designer</p>
                       <a class="body-1">Flatlogic.com</a>
                       <div class="mt-5">
-                        <v-chip v-for="(chip, i) in chips"
+                        <v-chip v-for="(chip, i) in mock.chips"
                           :key="i"
                           small
                           :style=bgStyle(chip.bgColor)
@@ -36,7 +36,7 @@
                         >{{ chip.title }}</v-chip>
                       </div>
                       <div class="mt-5">
-                        <v-btn v-for="(btn, i) in buttons"
+                        <v-btn v-for="(btn, i) in mock.buttons"
                            :key="i"
                            icon
                            class="mr-0 mr-sm-n2 mr-lg-0"
@@ -57,7 +57,7 @@
                   <v-menu>
                     <template v-slot:activator="{ on, attrs }">
                       <v-select
-                        class="main-chart-select font-weight-regular"
+                        class="main-chart-select font-weight-regular greyBold--text"
                         v-model="mock.sel"
                         :value="mock.select[0]"
                         v-bind="attrs"
@@ -173,21 +173,21 @@
                   <v-tabs color="secondary">
                     <v-tabs-slider></v-tabs-slider>
                     <v-tab
-                        v-for="(tab, i) in tabs"
+                        v-for="(tab, i) in mock.tabs"
                         :key="i"
                         :href="'#tab-' + tab.tabName.toLocaleLowerCase()"
                      >
                       {{ tab.tabName }}
                     </v-tab>
                     <v-tab-item
-                      v-for="(tab, i) in tabs"
+                      v-for="(tab, i) in mock.tabs"
                       :key="i"
                       :value="'tab-' + tab.tabName.toLocaleLowerCase()"
                       class="pt-1 pb-0 pb-sm-3 pb-lg-0"
                     >
                       <v-row justify-xl="space-around" justify="start"  class="d-flex flex-nowrap overflow-x-auto pa-4">
                         <div
-                           v-for="(img, i) in images"
+                           v-for="(img, i) in mock.images"
                            :key="i">
                           <v-img
                             :src="$vuetify.theme.dark ? img.srcDark : img.src"
@@ -234,7 +234,7 @@
                       <v-tabs-slider></v-tabs-slider>
 
                       <v-tab
-                        v-for="(tab, i) in taskTabs"
+                        v-for="(tab, i) in mock.taskTabs"
                         :key="i"
                         :href="'#tab-' + tab.tabLink"
                         class="text-capitalize font-weight-regular"
@@ -247,7 +247,7 @@
                         class="pt-0"
                       >
                         <v-row no-gutters class="flex-column flex-nowrap overflow-hidden pr-0"
-                          v-for="(task, i) in tasks.tasksToday"
+                          v-for="(task, i) in mock.tasks.tasksToday"
                           :key="i"
                           style="width: 100%; cursor:pointer;"
                           :class="{ done:task.done }"
@@ -279,7 +279,7 @@
                         class="pt-1"
                       >
                         <v-row no-gutters class="flex-column flex-nowrap overflow-hidden pr-0"
-                         v-for="(task, i) in tasks.tasksWeek"
+                         v-for="(task, i) in mock.tasks.tasksWeek"
                          :key="i * 10"
                          style="width: 100%; cursor:pointer;"
                          :class="{ done:task.done }"
@@ -310,7 +310,7 @@
                         class="pt-1"
                       >
                         <v-row no-gutters class="flex-column flex-nowrap overflow-hidden"
-                         v-for="(task, i) in tasks.tasksMonth"
+                         v-for="(task, i) in mock.tasksMonth"
                          :key="i * 100"
                          style="width: 100%; cursor:pointer;"
                          :class="{ done:task.done }"
@@ -348,8 +348,8 @@
                     <v-col>
                       <v-date-picker
                         v-model="picker"
-                        :events="mock.arrayEvents"
-                        :event-color="date => date[9] % 2 ? 'red' : 'yellow'"
+                        :events="arrayEvents"
+                        :event-color="date => date[9] % 2 ? 'primary' : 'warning'"
                         full-width
                         flat
                         no-title
@@ -431,7 +431,6 @@
   </v-container>
 </template>
 
-
 <script>
 import mock from './mock'
 import config from "@/config"
@@ -446,240 +445,8 @@ export default {
     return {
       mock,
       config,
+      arrayEvents: null,
       apexLoading: false,
-      chips: [
-        {
-          title: 'UI/UX',
-          color: 'primary',
-          bgColor: [83, 103, 254]
-        },
-        {
-          title: 'Art',
-          color: 'warning',
-          bgColor: [255, 194, 96]
-        },
-        {
-          title: 'Design',
-          color: 'secondary',
-          bgColor: [255, 92, 147]
-        },
-        {
-          title: 'Illustrator',
-          color: 'warning',
-          bgColor: [255, 194, 96]
-        },
-        {
-          title: 'Mobile',
-          color: 'success',
-          bgColor: [60, 212, 160]
-        },
-      ],
-      buttons: ['mdi-facebook', 'mdi-basketball', 'mdi-instagram', 'mdi-github', 'mdi-twitter' ],
-      tabs: [
-        {
-          tabName: 'Work',
-        },
-        {
-          tabName: 'Private',
-        },
-        {
-          tabName: 'Social',
-
-        },
-      ],
-      taskTabs: [
-        {
-          tabLink: 'today',
-          tabName: 'Today',
-        },
-        {
-          tabLink: 'week',
-          tabName: 'This Week',
-        },
-        {
-          tabLink: 'month',
-          tabName: 'This Month',
-        },
-      ],
-      tasks: {
-        tasksToday: [
-          {
-            time: '10:21',
-            task: 'Call conference with a New Client',
-            color: 'warning',
-            done: true
-          },
-          {
-            time: '11:30',
-            task: 'Presentation Demo Ecological Project',
-            color: 'primary',
-            done: true
-          },
-          {
-            time: '12:30',
-            task: 'Call with PR Manager',
-            color: 'warning',
-            done: false
-          },
-          {
-            time: '14:00',
-            task: 'Interview with a new UI/UX',
-            color: 'success',
-            done: false
-          },
-          {
-            time: '15:00',
-            task: 'Call conference with a New Client',
-            color: 'secondary',
-            done: false
-          },
-          {
-            time: '15:45',
-            task: 'Presentation Demo Ecological Project',
-            color: 'warning',
-            done: false
-          },
-          {
-            time: '16:00',
-            task: 'Interview with a new UI/UX',
-            color: 'primary',
-            done: false
-          },
-          {
-            time: '17:00',
-            task: 'Call conference with a New Client',
-            color: 'warning',
-            done: false
-          }
-        ],
-        tasksWeek: [
-          {
-            time: '10:21',
-            task: 'Call conference with a New Client',
-            color: 'warning',
-            done: true
-          },
-          {
-            time: '11:30',
-            task: 'Presentation Demo Ecological Project',
-            color: 'primary',
-            done: true
-          },
-          {
-            time: '12:30',
-            task: 'Call with PR Manager',
-            color: 'warning',
-            done: false
-          },
-          {
-            time: '14:00',
-            task: 'Interview with a new UI/UX',
-            color: 'success',
-            done: false
-          },
-          {
-            time: '15:00',
-            task: 'Call conference with a New Client',
-            color: 'secondary',
-            done: false
-          },
-          {
-            time: '15:45',
-            task: 'Presentation Demo Ecological Project',
-            color: 'warning',
-            done: false
-          },
-          {
-            time: '16:00',
-            task: 'Interview with a new UI/UX',
-            color: 'primary',
-            done: false
-          },
-          {
-            time: '17:00',
-            task: 'Call conference with a New Client',
-            color: 'warning',
-            done: false
-          }
-        ],
-        tasksMonth: [
-          {
-            time: '10:21',
-            task: 'Call conference with a New Client',
-            color: 'warning',
-            done: true
-          },
-          {
-            time: '11:30',
-            task: 'Presentation Demo Ecological Project',
-            color: 'primary',
-            done: true
-          },
-          {
-            time: '12:30',
-            task: 'Call with PR Manager',
-            color: 'warning',
-            done: false
-          },
-          {
-            time: '14:00',
-            task: 'Interview with a new UI/UX',
-            color: 'success',
-            done: false
-          },
-          {
-            time: '15:00',
-            task: 'Call conference with a New Client',
-            color: 'secondary',
-            done: false
-          },
-          {
-            time: '15:45',
-            task: 'Presentation Demo Ecological Project',
-            color: 'warning',
-            done: false
-          },
-          {
-            time: '16:00',
-            task: 'Interview with a new UI/UX',
-            color: 'primary',
-            done: false
-          },
-          {
-            time: '17:00',
-            task: 'Call conference with a New Client',
-            color: 'warning',
-            done: false
-          }
-        ],
-      },
-
-      images: [
-        {
-          src: require('@/assets/img/user/profile/folder-blue.svg'),
-          srcDark: require('@/assets/img/user/profile/folder-dark-blue.svg'),
-          title: 'UX',
-          subtitle: '178 files'
-        },
-        {
-          src: require('@/assets/img/user/profile/folder-pink.svg'),
-          srcDark: require('@/assets/img/user/profile/folder-dark-pink.svg'),
-          title: 'Design',
-          subtitle: '154 files'
-        },
-        {
-          src: require('@/assets/img/user/profile/folder-yellow.svg'),
-          srcDark: require('@/assets/img/user/profile/folder-dark-yellow.svg'),
-          title: 'Mobile',
-          subtitle: '98 files'
-        },
-        {
-          src: require('@/assets/img/user/profile/folder-green.svg'),
-          srcDark: require('@/assets/img/user/profile/folder-dark-green.svg'),
-          title: 'Illustration',
-          subtitle: '68 files'
-        },
-      ],
       apexPie: {
         options: {
           dataLabels: {
@@ -721,8 +488,6 @@ export default {
           }
         ],
       },
-      focus: '',
-      selected: [],
       picker: new Date().toISOString().substr(0, 10),
     }
   },
@@ -756,9 +521,7 @@ export default {
       const day = Math.floor(Math.random() * 30)
       const d = new Date()
       d.setDate(day)
-      console.log(d.toISOString().substr(0, 10))
       return d.toISOString().substr(0, 10)
-
     })
   }
 }

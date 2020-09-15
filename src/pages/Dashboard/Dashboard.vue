@@ -104,7 +104,7 @@
                   <p class="greyTint--text my-0" style="font-size: 12px">New Tickets</p>
                   <div class="">
                     <span class="greyBold--text font-weight-regular" style="font-size: 16px">45</span>
-                    <v-icon color="success">mdi-circle-small</v-icon>
+                    <v-icon size="30" color="success" class="mt-n1">mdi-circle-small</v-icon>
                   </div>
                 </v-col>
 
@@ -112,7 +112,7 @@
                   <p class="greyTint--text my-0" style="font-size: 12px">Open</p>
                   <div class="d-flex flex-row justify-start">
                     <span class="greyBold--text font-weight-regular"  style="font-size: 16px">147</span>
-                    <v-icon color="warning">mdi-circle-small</v-icon>
+                    <v-icon size="30" color="warning" class="mt-n1">mdi-circle-small</v-icon>
                   </div>
                 </v-col>
 
@@ -120,7 +120,7 @@
                   <p class="greyTint--text my-0" style="font-size: 12px">Rate</p>
                   <div class="">
                     <span class="greyBold--text font-weight-regular"  style="font-size: 16px">351</span>
-                    <v-icon class="pl-0" color="primary">mdi-circle-small</v-icon>
+                    <v-icon size="30" class="pl-0 mt-n1" color="primary">mdi-circle-small</v-icon>
                   </div>
                 </v-col>
 
@@ -287,34 +287,30 @@
         <v-col cols=12>
           <v-card class="daily-line ma-1">
             <v-card-title class="pa-5 pb-0">
-              <v-row no-gutters>
-                <v-col cols="7" sm="4" md="4" lg="5" class="d-flex align-center">
-                  <p>Daily Line Chart</p>
-                </v-col>
-                <v-col sm="6" md="6" lg="5" class="d-none d-sm-flex align-center">
-                  <v-icon color="warning">mdi-circle-small</v-icon><span class="greyBold--text font-weight-regular fs-medium">Tablet</span>
-                  <v-icon color="primary">mdi-circle-small</v-icon><span class="greyBold--text font-weight-regular fs-medium">Mobile</span>
-                  <v-icon color="secondary">mdi-circle-small</v-icon><span class="greyBold--text font-weight-regular fs-medium">Desktop</span>
-                </v-col>
-                <v-col cols="5" sm="2" md="2" lg="1" offset-lg="1">
-                  <v-menu>
-                    <template v-slot:activator="{ on, attrs }">
-                      <v-select
-                        class="main-chart-select"
-                        v-model="mainApexAreaSelect"
-                        v-bind="attrs"
-                        v-on="on"
-                        dense
-                        flat
-                        single-line
-                        hide-details
-                        :items="mock.select"
-                        outlined
-                      ></v-select>
-                    </template>
-                  </v-menu>
-                </v-col>
-              </v-row>
+              <p>Daily Line Chart</p>
+              <v-spacer></v-spacer>
+              <div class="main-chart-legend">
+                <v-icon size="30" color="warning">mdi-circle-small</v-icon><span class="greyBold--text font-weight-regular fs-medium">Tablet</span>
+                <v-icon size="30" color="primary">mdi-circle-small</v-icon><span class="greyBold--text font-weight-regular fs-medium">Mobile</span>
+                <v-icon size="30" color="secondary">mdi-circle-small</v-icon><span class="greyBold--text font-weight-regular fs-medium">Desktop</span>
+              </div>
+              <v-spacer></v-spacer>
+              <v-menu>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-select
+                    class="main-chart-select font-weight-regular greyBold--text"
+                    v-model="mainApexAreaSelect"
+                    :value="mock.select[0]"
+                    v-bind="attrs"
+                    v-on="on"
+                    dense
+                    flat
+                    single-line
+                    hide-details
+                    :items="mock.select"
+                  ></v-select>
+                </template>
+              </v-menu>
             </v-card-title>
             <v-card-text class="pa-4 pb-0">
               <v-row>
@@ -337,29 +333,24 @@
         <v-col lg=4 sm=6 cols=12>
           <v-card class="ma-1">
             <v-card-title class="pa-5 pb-3">
-              <v-row no-gutters>
-                <v-col cols="6" md="7" xl="8">
-                  <p>Light Blue</p>
-                </v-col>
-                <v-col cols="6" md="5" xl="4"  >
-                  <v-menu>
-                    <template v-slot:activator="{ on, attrs }">
-                      <v-select
-                        class="main-chart-select"
-                        v-model="mainApexAreaSelect"
-                        v-bind="attrs"
-                        v-on="on"
-                        dense
-                        flat
-                        single-line
-                        hide-details
-                        :items="mock.select"
-                        outlined
-                      ></v-select>
-                    </template>
-                  </v-menu>
-                </v-col>
-              </v-row>
+              <p>Light Blue</p>
+              <v-spacer></v-spacer>
+              <v-menu>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-select
+                    class="main-chart-select font-weight-regular greyBold--text"
+                    v-model="sel"
+                    :value="mock.select[0]"
+                    v-bind="attrs"
+                    v-on="on"
+                    dense
+                    flat
+                    single-line
+                    hide-details
+                    :items="mock.select"
+                  ></v-select>
+                </template>
+              </v-menu>
             </v-card-title>
             <v-card-text class="pa-5 pt-0">
               <v-row no-gutters>
@@ -397,29 +388,24 @@
         <v-col lg=4 sm=6 cols=12>
           <v-card class="ma-1">
             <v-card-title class="pa-5 pb-3">
-              <v-row no-gutters>
-                <v-col cols="6" md="7" xl="8">
-                  <p>Sing App</p>
-                </v-col>
-                <v-col cols="6" md="5" xl="4"  >
-                  <v-menu>
-                    <template v-slot:activator="{ on, attrs }">
-                      <v-select
-                        class="main-chart-select"
-                        v-model="mainApexAreaSelect"
-                        v-bind="attrs"
-                        v-on="on"
-                        dense
-                        flat
-                        single-line
-                        hide-details
-                        :items="mock.select"
-                        outlined
-                      ></v-select>
-                    </template>
-                  </v-menu>
-                </v-col>
-              </v-row>
+              <p>Sing App</p>
+              <v-spacer></v-spacer>
+              <v-menu>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-select
+                      class="main-chart-select font-weight-regular greyBold--text"
+                      v-model="sel0"
+                      :value="mock.select[0]"
+                      v-bind="attrs"
+                      v-on="on"
+                      dense
+                      flat
+                      single-line
+                      hide-details
+                      :items="mock.select"
+                  ></v-select>
+                </template>
+              </v-menu>
             </v-card-title>
             <v-card-text class="pa-5 pt-0">
               <v-row no-gutters>
@@ -457,29 +443,23 @@
         <v-col lg=4 sm=6 cols=12>
           <v-card class="ma-1">
             <v-card-title class="pa-5 pb-3">
-              <v-row no-gutters>
-                <v-col cols="6" md="7" xl="8">
-                  <p>RNS</p>
-                </v-col>
-                <v-col cols="6" md="5" xl="4"  >
-                  <v-menu>
-                    <template v-slot:activator="{ on, attrs }">
-                      <v-select
-                              class="main-chart-select"
-                              v-model="mainApexAreaSelect"
-                              v-bind="attrs"
-                              v-on="on"
-                              dense
-                              flat
-                              single-line
-                              hide-details
-                              :items="mock.select"
-                              outlined
-                      ></v-select>
-                    </template>
-                  </v-menu>
-                </v-col>
-              </v-row>
+              <p>RNS</p>
+              <v-spacer></v-spacer>
+              <v-menu>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-select
+                    class="main-chart-select font-weight-regular greyBold--text"
+                    v-model="sel1"
+                    v-bind="attrs"
+                    v-on="on"
+                    dense
+                    flat
+                    single-line
+                    hide-details
+                    :items="mock.select"
+                  ></v-select>
+                </template>
+              </v-menu>
             </v-card-title>
             <v-card-text class="pa-5 pt-0">
               <v-row no-gutters>
@@ -644,6 +624,11 @@
             mode: 'light'
           }
         },
+        sel: 'Daily',
+        sel0: 'Daily',
+        sel1: 'Daily',
+        sel2: 'Daily',
+        selNew: 'Daily',
       };
     },
     methods: {

@@ -68,6 +68,12 @@ export default {
       stroke: {
         show: false,
       },
+      legend: {
+        markers: {
+          width: 8,
+          height: 8,
+        },
+      },
     },
     series: [400, 300, 300, 200],
   },
