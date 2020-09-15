@@ -56,14 +56,10 @@ body {
 
     }
     .v-footer {
-      padding: 0;
-      margin: 0;
-      bottom: 50px;
+      position: absolute;
+      bottom: 0;
       background-color: #F6F7FF;
     }
-  }
-  .v-footer {
-    position: inherit;
   }
 }
 

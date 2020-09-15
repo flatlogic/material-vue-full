@@ -90,7 +90,13 @@
         }
       }
     }
-
+    .v-date-picker-header__value {
+      button {
+        font-size: 1.25rem;
+        font-weight: 400;
+        padding: 0;
+      }
+    }
     &.theme--dark {
 
       .v-picker.v-card {
@@ -204,6 +210,40 @@
     }
     .v-slide-group__prev.v-slide-group__prev--disabled {
       display: none!important;
+    }
+  }
+
+  .v-card {
+    .v-card__title {
+      .v-select.v-input--is-dirty input {
+        display: none;
+      }
+
+      .v-select__selection {
+        max-width: none;
+      }
+      .v-text-field {
+        margin-top: 0;
+        .v-select__selection.v-select__selection--comma {
+          color: $grey-bold!important;
+        }
+        .v-input__append-inner .v-input__icon {
+          i {
+            color: $grey-bold!important;
+            margin-top: 4px!important;
+          }
+        }
+      }
+      .v-input--dense > .v-input__control > .v-input__slot {
+        justify-content: flex-end;
+        .v-select__slot {
+          width: auto;
+        }
+      }
+
+      .v-text-field > .v-input__control > .v-input__slot:before, .v-text-field > .v-input__control > .v-input__slot:after {
+        content: none;
+      }
     }
   }
 }

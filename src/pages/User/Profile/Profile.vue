@@ -23,7 +23,7 @@
                       >Pro</v-chip>
                     </v-col>
                     <v-col cols="12" sm="7" xl="6" class="pl-4">
-                      <p class="user-name greyBold--text font-weight-bold">Julee Cruise</p>
+                      <p class="user-name greyMedium--text font-weight-regular">Julee Cruise</p>
                       <p class="user-work greyTint--text ma-0">Product Designer</p>
                       <a class="body-1">NewGenerArt.com</a>
                       <div class="mt-5">
@@ -49,30 +49,26 @@
                 </v-card-text>
               </v-card>
             </v-col>
-            <v-col cols="12" sm="6">
+            <v-col cols="12" md="6">
               <v-card class="media-card ma-1" min-height="296">
                 <v-card-title class="pa-5 pb-3">
                   <p>Media</p>
                   <v-spacer></v-spacer>
                   <v-menu>
                     <template v-slot:activator="{ on, attrs }">
-                      <v-btn
-                        icon
+                      <v-select
+                        class="main-chart-select font-weight-regular"
+                        v-model="mock.sel"
+                        :value="mock.select[0]"
                         v-bind="attrs"
                         v-on="on"
-                      >
-                        <v-icon color="greyTint">mdi-dots-vertical</v-icon>
-                      </v-btn>
+                        dense
+                        flat
+                        single-line
+                        hide-details
+                        :items="mock.select"
+                      ></v-select>
                     </template>
-                    <v-list>
-                      <v-list-item
-                          v-for="(item, i) in mock.menu"
-                          :key="i"
-                          @click="() => {}"
-                      >
-                        <v-list-item-title>{{ item }}</v-list-item-title>
-                      </v-list-item>
-                    </v-list>
                   </v-menu>
                 </v-card-title>
                 <v-card-text class="pa-5 pt-0">
@@ -101,30 +97,26 @@
                 </v-card-text>
               </v-card>
             </v-col>
-            <v-col cols="12" sm="6">
+            <v-col cols="12" md="6">
               <v-card class="pie-card ma-1" min-height="296">
                 <v-card-title class="pa-5 pb-3">
                   <p>Projects</p>
                   <v-spacer></v-spacer>
                   <v-menu>
                     <template v-slot:activator="{ on, attrs }">
-                      <v-btn
-                        icon
-                        v-bind="attrs"
-                        v-on="on"
-                      >
-                        <v-icon color="greyTint">mdi-dots-vertical</v-icon>
-                      </v-btn>
+                      <v-select
+                          class="main-chart-select font-weight-regular"
+                          v-model="mock.sel"
+                          :value="mock.select[0]"
+                          v-bind="attrs"
+                          v-on="on"
+                          dense
+                          flat
+                          single-line
+                          hide-details
+                          :items="mock.select"
+                      ></v-select>
                     </template>
-                    <v-list>
-                      <v-list-item
-                        v-for="(item, i) in mock.menu"
-                        :key="i"
-                        @click="() => {}"
-                      >
-                        <v-list-item-title>{{ item }}</v-list-item-title>
-                      </v-list-item>
-                    </v-list>
                   </v-menu>
                 </v-card-title>
                 <v-card-text class="pa-5 pt-0">
@@ -221,41 +213,38 @@
                   <v-spacer></v-spacer>
                   <v-menu>
                     <template v-slot:activator="{ on, attrs }">
-                      <v-btn
-                        icon
-                        v-bind="attrs"
-                        v-on="on"
-                      >
-                        <v-icon color="greyTint">mdi-dots-vertical</v-icon>
-                      </v-btn>
+                      <v-select
+                          class="main-chart-select font-weight-regular"
+                          v-model="mock.sel"
+                          :value="mock.select[0]"
+                          v-bind="attrs"
+                          v-on="on"
+                          dense
+                          flat
+                          single-line
+                          hide-details
+                          :items="mock.select"
+                      ></v-select>
                     </template>
-                    <v-list>
-                      <v-list-item
-                          v-for="(item, i) in mock.menu"
-                          :key="i"
-                          @click="() => {}"
-                      >
-                        <v-list-item-title>{{ item }}</v-list-item-title>
-                      </v-list-item>
-                    </v-list>
                   </v-menu>
                 </v-card-title>
-                <v-card-text class="pa-5 pt-0">
+                <v-card-text class="pa-5 pt-0 pb-0">
                   <v-row no-gutters>
                     <v-tabs color="secondary">
                       <v-tabs-slider></v-tabs-slider>
 
                       <v-tab
-                          v-for="(tab, i) in taskTabs"
-                          :key="i"
-                          :href="'#tab-' + tab.tabLink"
+                        v-for="(tab, i) in taskTabs"
+                        :key="i"
+                        :href="'#tab-' + tab.tabLink"
+                        class="text-capitalize font-weight-regular"
                       >
                         {{ tab.tabName }}
                       </v-tab>
 
                       <v-tab-item
                         value="tab-today"
-                        class="pt-1"
+                        class="pt-0"
                       >
                         <v-row no-gutters class="flex-column flex-nowrap overflow-hidden pr-0"
                           v-for="(task, i) in tasks.tasksToday"
@@ -264,9 +253,10 @@
                           :class="{ done:task.done }"
                           @click="$set(task, 'done', !task.done)"
                            >
+                          <v-divider></v-divider>
                           <v-col
-                              cols="12"
-                              class="d-flex justify-space-between align-center py-3">
+                            cols="12"
+                            class="d-flex justify-space-between align-center py-3">
                             <div class="d-flex">
                               <p
                                 class="task-time mb-0 "
@@ -281,7 +271,7 @@
                               </v-btn>
                             </div>
                           </v-col>
-                          <v-divider></v-divider>
+
                         </v-row>
                       </v-tab-item>
                       <v-tab-item
@@ -696,7 +686,11 @@ export default {
           colors: [config.light.primary, config.light.secondary, config.light.success, config.light.warning],
           labels: ["New", "Progress", "Completed", "Canceled"],
           legend: {
-            position: 'bottom'
+            position: 'bottom',
+            markers: {
+              width: 8,
+              height: 8,
+            },
           },
         },
         series: this.generatePieSeries()

@@ -216,7 +216,7 @@ export default {
       legend: {
         show: false
       },
-      colors: [config.light.warning, config.light.primary, '#fff'],
+      colors: [config.light.warning, config.light.primary, '#F8F9FF'],
       yaxis: {
         axisBorder: {
           show: true,

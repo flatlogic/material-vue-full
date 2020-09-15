@@ -8,4 +8,5 @@ export default {
     'Print'
   ],
   select: ['Daily', 'Weekly', 'Monthly'],
+  sel: 'Daily'
 };
