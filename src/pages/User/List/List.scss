@@ -1,4 +1,21 @@
+@import "../../../styles/app";
+
 .user-list  {
+  .v-text-field--outlined .v-label {
+    top: 6px;
+  }
+  .users-table {
+    .v-data-table-header th{
+      font-size: $fs-medium;
+      color: $grey-tint!important;
+      font-weight: 400;
+    }
+    &.theme--dark {
+      .v-data-table {
+        background-color: transparent;
+      }
+    }
+  }
   .theme--dark {
     &.v-data-table {
       background-color: transparent;

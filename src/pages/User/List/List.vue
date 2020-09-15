@@ -1,68 +1,53 @@
 <template>
   <v-container fluid class="user-list mt-3">
+    <v-row class="ma-0">
+      <v-card width="100%" class="ma-1">
+        <v-card-text>
+          <v-row no-gutters>
+            <v-col cols="12" md="6" class="d-flex justify-space-between justify-md-start">
+              <v-btn to="/user/add" color="success" class="button-shadow mr-3">
+                <v-icon class="mr-2">mdi-plus</v-icon>
+                Add
+              </v-btn>
+              <v-btn to="/user/add" color="primary" outlined class="button-shadow">
+                <v-icon class="mr-2">mdi-filter-variant</v-icon>
+                Filters
+              </v-btn>
+            </v-col>
+            <v-col cols="12" md="6" class="d-flex justify-end mt-3 mt-md-0">
+              <v-btn color="secondary" outlined :block=$vuetify.breakpoint.smAndDown>
+                <v-icon class="mr-3">mdi-download</v-icon>
+                Download
+              </v-btn>
+            </v-col>
+            <v-col cols="12" class="d-flex justify-end mt-3">
+              <div :style="$vuetify.breakpoint.smAndDown ? 'width: 100%' : 'width: 250px'">
+                <v-text-field
+                  dense
+                  :full-width=$vuetify.breakpoint.smAndDown
+                  outlined
+                  hide-details
+                  label="Search"
+                  prepend-inner-icon="mdi-magnify"
+                ></v-text-field>
+              </div>
+            </v-col>
+          </v-row>
+        </v-card-text>
+      </v-card>
+    </v-row>
     <v-row>
       <v-col cols="12">
         <v-card class="ma-1">
           <v-card-text>
             <v-data-table
+              class="users-table"
               show-select
               :headers="headers"
               :items="products"
               sort-by="calories"
               :items-per-page="itemPerPage"
             >
-              <template v-slot:top>
-                <v-toolbar flat>
-                  <v-dialog v-model="dialog" max-width="500px">
-                    <template v-slot:activator="{ on, attrs }">
-                      <v-btn
-                        color="success"
-                        dark
-                        class="button-shadow mb-2"
-                        v-bind="attrs"
-                        v-on="on"
-                      >
-                        <v-icon class="mr-3">mdi-plus</v-icon>
-                         Add</v-btn>
-                    </template>
-                    <v-card>
-                      <v-card-title>
-                        <span class="headline">{{ formTitle }}</span>
-                      </v-card-title>
-                      <v-card-text>
-                        <v-container>
-                          <v-row>
-                            <v-col cols="12" sm="6" md="4">
-                              <v-text-field v-model="editedItem.name" label="User name"></v-text-field>
-                            </v-col>
-                            <v-col cols="12" sm="6" md="4">
-                              <v-text-field v-model="editedItem.role" label="Role"></v-text-field>
-                            </v-col>
-                            <v-col cols="12" sm="6" md="4">
-                              <v-text-field v-model="editedItem.company" label="Company"></v-text-field>
-                            </v-col>
-                            <v-col cols="12" sm="6" md="6">
-                              <v-text-field v-model="editedItem.email" label="Email"></v-text-field>
-                            </v-col>
-                            <v-col cols="12" sm="6" md="6">
-                              <v-select :items="images" v-model="editedItem.image" label="Avatar">
-                                <template v-slot:item="{ item }">
-                                  <v-img :src="item" contain height="20" width="20" style="margin: 2px"></v-img>
-                                </template>
-                              </v-select>
-                            </v-col>
-                          </v-row>
-                        </v-container>
-                      </v-card-text>
-                      <v-card-actions>
-                        <v-spacer></v-spacer>
-                        <v-btn color="warning" text @click="close">Cancel</v-btn>
-                        <v-btn color="success" text @click="save">Save</v-btn>
-                      </v-card-actions>
-                    </v-card>
-                  </v-dialog>
-                </v-toolbar>
-              </template>
               <template v-slot:item.image="{ item }">
                 <v-img class="my-3" width="34" :src=item.image></v-img>
               </template>
