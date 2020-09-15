@@ -8,5 +8,8 @@ export default {
     'Print'
   ],
   select: ['Daily', 'Weekly', 'Monthly'],
-  sel: 'Daily'
+  arrayEvents: null,
+  sel: 'Daily',
+  sel1: 'Daily',
+  sel2: 'Daily',
 };

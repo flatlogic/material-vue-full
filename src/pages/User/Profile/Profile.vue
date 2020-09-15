@@ -25,7 +25,7 @@
                     <v-col cols="12" sm="7" xl="6" class="pl-4">
                       <p class="user-name greyMedium--text font-weight-regular">Julee Cruise</p>
                       <p class="user-work greyTint--text ma-0">Product Designer</p>
-                      <a class="body-1">NewGenerArt.com</a>
+                      <a class="body-1">Flatlogic.com</a>
                       <div class="mt-5">
                         <v-chip v-for="(chip, i) in chips"
                           :key="i"
@@ -71,7 +71,7 @@
                     </template>
                   </v-menu>
                 </v-card-title>
-                <v-card-text class="pa-5 pt-0">
+                <v-card-text class="pa-5 pb-0 pt-3">
                   <v-row no-gutters class="pb-6">
                     <v-col cols="6" class="d-flex align-center flex-column">
                       <v-img src="@/assets/img/user/profile/media/posts.svg" height="30" width="30"></v-img>
@@ -106,7 +106,7 @@
                     <template v-slot:activator="{ on, attrs }">
                       <v-select
                           class="main-chart-select font-weight-regular"
-                          v-model="mock.sel"
+                          v-model="mock.sel1"
                           :value="mock.select[0]"
                           v-bind="attrs"
                           v-on="on"
@@ -215,7 +215,7 @@
                     <template v-slot:activator="{ on, attrs }">
                       <v-select
                           class="main-chart-select font-weight-regular"
-                          v-model="mock.sel"
+                          v-model="mock.sel2"
                           :value="mock.select[0]"
                           v-bind="attrs"
                           v-on="on"
@@ -348,6 +348,8 @@
                     <v-col>
                       <v-date-picker
                         v-model="picker"
+                        :events="mock.arrayEvents"
+                        :event-color="date => date[9] % 2 ? 'red' : 'yellow'"
                         full-width
                         flat
                         no-title
@@ -749,6 +751,14 @@ export default {
   mounted() {
     setTimeout(() => {
       this.apexLoading = true
+    }),
+    this.arrayEvents = [...Array(6)].map(() => {
+      const day = Math.floor(Math.random() * 30)
+      const d = new Date()
+      d.setDate(day)
+      console.log(d.toISOString().substr(0, 10))
+      return d.toISOString().substr(0, 10)
+
     })
   }
 }
