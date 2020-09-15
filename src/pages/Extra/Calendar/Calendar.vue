@@ -11,13 +11,11 @@
             <v-sheet height="686">
               <v-calendar
                 ref="calendar"
-                v-model="value"
                 color="primary"
                 type="4day"
                 :events="events"
                 :event-color="getEventColor"
                 :event-ripple="false"
-                @change="getEvents"
                 @mousedown:event="startDrag"
                 @mousedown:time="startTime"
                 @mousemove:time="mouseMove"

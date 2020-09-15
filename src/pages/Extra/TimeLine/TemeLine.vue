@@ -64,7 +64,7 @@
                   :key="index"
               ></v-divider>
               <v-list-item
-                  :key="item.title"
+                  :key="(index + 1) * 2"
               >
                 <v-list-item-avatar>
                   <v-img :src="item.avatar"></v-img>
