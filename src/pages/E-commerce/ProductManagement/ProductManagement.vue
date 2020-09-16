@@ -4,16 +4,17 @@
       <v-col cols="12">
         <v-card class="mb-1">
           <v-card-title class="pa-5 pb-3">
-            <p>Products</p><span class="grey--text font-weight-regular subtitle-2 pt-1">({{ products.length }} total ) </span>
+            <p>Products</p><span class="grey--text font-weight-regular subtitle-2 pt-1">{{'\xa0 (' +  products.length }} total ) </span>
             <v-spacer></v-spacer>
-            <v-text-field
-                v-model="search"
-                append-icon="mdi-magnify"
-                label="Search"
-                single-line
-                hide-details
-                style="width: 5%"
-            ></v-text-field>
+            <div>
+              <v-text-field
+                  v-model="search"
+                  append-icon="mdi-magnify"
+                  label="Search"
+                  single-line
+                  hide-details
+              ></v-text-field>
+            </div>
           </v-card-title>
           <v-card-text class="px-5">
             <v-data-table
@@ -73,9 +74,6 @@
                   </v-dialog>
                 </v-toolbar>
               </template>
-<!--              <template v-slot:item.data-table-select="{ item }">-->
-<!--                <v-simple-checkbox color="secondary" v-model="item.select"></v-simple-checkbox>-->
-<!--              </template>-->
               <template v-slot:item.image="{ item }">
                 <v-img class="my-3" width="100" :src=item.image></v-img>
               </template>

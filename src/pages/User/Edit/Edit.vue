@@ -3,99 +3,96 @@
     <v-row>
       <v-col cols="12">
         <v-tabs
-            centered
+          color="primary"
+          centered
         >
           <v-tabs-slider></v-tabs-slider>
 
           <v-tab
-              :href="`#tab-account`"
-              class="greyBold--text"
+            :href="`#tab-account`"
+            class=""
           >
-            <v-icon class="greyBold--text">mdi-shield-account-variant-outline</v-icon>
+            <v-icon class="mr-3">mdi-shield-account-variant-outline</v-icon>
             Account
           </v-tab>
           <v-tab
-              class="greyBold--text"
-              :href="`#tab-profile`"
+            :href="`#tab-profile`"
           >
-            <v-icon class="greyBold--text">mdi-account-outline</v-icon>
+            <v-icon class="mr-3">mdi-account-outline</v-icon>
             Profile
           </v-tab>
           <v-tab
-              class="greyBold--text"
-              :href="`#tab-password`"
+            :href="`#tab-password`"
           >
-            <v-icon class="greyBold--text">mdi-lock</v-icon>
+            <v-icon class="mr-3">mdi-lock</v-icon>
             Change Password
           </v-tab>
           <v-tab
-              class="greyBold--text"
-              :href="`#tab-settings`"
+            :href="`#tab-settings`"
           >
-            <v-icon class="greyBold--text">mdi-cog</v-icon>
+            <v-icon class="mr-3">mdi-cog</v-icon>
             Settings
           </v-tab>
 
           <v-tab-item
-              :value="'tab-account'"
+            :value="'tab-account'"
           >
             <v-card
-                elevation="0"
-                flat
-                tile
+              elevation="0"
+              flat
+              tile
             >
               <v-card-text>
-
-                  <v-row justify="center">
-                    <v-col cols="12" md="6">
-                      <v-form>
-                        <p class="text-h5">Account</p>
-                        <v-text-field
-                            class="mb-4"
+                <v-row justify="center">
+                  <v-col cols="12" md="6">
+                    <v-form>
+                      <p class="text-h5">Account</p>
+                      <v-text-field
+                        class="mb-4"
+                        outlined
+                        dense
+                        value="User"
+                        placeholder="User Name"
+                        persistent-hint
+                        single-line hint="Please enter your user name">
+                      </v-text-field>
+                      <v-text-field
+                        class="mb-4"
+                        outlined
+                        dense
+                        value="user@mail.com"
+                        placeholder="User Email"
+                        persistent-hint
+                        single-line hint="Please enter your email">
+                      </v-text-field>
+                      <v-select
+                        class="mb-4"
+                        :items=items
+                        :value="items[1]"
+                        outlined
+                        dense
+                        placeholder="Role"
+                        persistent-hint
+                        single-line hint="Please choose the role">
+                      </v-select>
+                      <div class="d-flex justify-center">
+                        <v-btn
                             outlined
-                            dense
-                            value="User"
-                            placeholder="User Name"
-                            persistent-hint
-                            single-line hint="Please enter your user name">
-                        </v-text-field>
-                        <v-text-field
-                            class="mb-4"
-                            outlined
-                            dense
-                            value="user@mail.com"
-                            placeholder="User Email"
-                            persistent-hint
-                            single-line hint="Please enter your email">
-                        </v-text-field>
-                        <v-select
-                            class="mb-4"
-                            :items=items
-                            :value="items[1]"
-                            outlined
-                            dense
-                            placeholder="Role"
-                            persistent-hint
-                            single-line hint="Please choose the role">
-                        </v-select>
-                        <div class="d-flex justify-center">
-                          <v-btn
-                              outlined
-                              color="primary"
-                          >
-                            Reset
-                          </v-btn>
-                          <v-spacer></v-spacer>
-                          <v-btn
-                              color="primary"
-                          >
-                            Save
-                          </v-btn>
-                        </div>
-                      </v-form>
-                    </v-col>
-                  </v-row>
-
+                            color="primary"
+                        >
+                          Reset
+                        </v-btn>
+                        <v-spacer></v-spacer>
+                        <v-btn
+                          class="button-shadow"
+                          color="primary"
+                        >
+                          Save
+                        </v-btn>
+                      </div>
+                    </v-form>
+                  </v-col>
+                </v-row>
               </v-card-text>
             </v-card>
           </v-tab-item>
@@ -320,30 +317,28 @@
 
                         <v-col class="d-flex flex-wrap">
                           <v-checkbox
-                              class="mr-3"
-                              color="secondary"
-                              v-model="checkbox.email"
-                              label="Email"></v-checkbox>
+                            class="mr-3"
+                            color="secondary"
+                            v-model="checkbox.email"
+                            label="Email"></v-checkbox>
                           <v-checkbox
-                              class="mr-3"
-                              color="secondary"
-                              v-model="checkbox.messages"
-                              label="Messages"></v-checkbox>
+                            class="mr-3"
+                            color="secondary"
+                            v-model="checkbox.messages"
+                            label="Messages"></v-checkbox>
                           <v-checkbox
-                              color="secondary"
-                              v-model="checkbox.phone"
-                              label="Phone"></v-checkbox>
+                            color="secondary"
+                            v-model="checkbox.phone"
+                            label="Phone"></v-checkbox>
                         </v-col>
-
-
                       <p class="body-1">Email notification</p>
                       <v-switch v-model="switch1"></v-switch>
                       <p class="body-1">Send copy to personal email</p>
                       <v-switch v-model="switch2"></v-switch>
                       <div class="d-flex justify-center">
                         <v-btn
-                            outlined
-                            color="primary"
+                          outlined
+                          color="primary"
                         >
                           Reset
                         </v-btn>
