@@ -174,18 +174,21 @@
                     <v-tabs-slider></v-tabs-slider>
                     <v-tab
                         v-for="(tab, i) in mock.tabs"
+                        class="text-capitalize font-weight-regular"
                         :key="i"
                         :href="'#tab-' + tab.tabName.toLocaleLowerCase()"
                      >
                       {{ tab.tabName }}
                     </v-tab>
+
                     <v-tab-item
                       v-for="(tab, i) in mock.tabs"
                       :key="i"
                       :value="'tab-' + tab.tabName.toLocaleLowerCase()"
-                      class="pt-1 pb-0 pb-sm-3 pb-lg-0"
+                      class="pb-0 pb-sm-3 pb-lg-0"
                     >
-                      <v-row justify-xl="space-around" justify="start"  class="d-flex flex-nowrap overflow-x-auto pa-4">
+                      <v-divider></v-divider>
+                      <v-row justify-xl="space-around" justify="start"  class="d-flex flex-nowrap overflow-x-auto pa-4 pt-5">
                         <div
                            v-for="(img, i) in mock.images"
                            :key="i">
@@ -195,7 +198,7 @@
                             class="folder-image mr-3"
                           >
                             <p class="folder-title"> {{ img.title }} </p>
-                            <p class="folder-subtitle-1"> {{img.subtitle}} </p>
+                            <p class="folder-subtitle-1 font-weight-medium"> {{img.subtitle}} </p>
                           </v-img>
                         </div>
                       </v-row>
@@ -232,7 +235,6 @@
                   <v-row no-gutters>
                     <v-tabs color="secondary">
                       <v-tabs-slider></v-tabs-slider>
-
                       <v-tab
                         v-for="(tab, i) in mock.taskTabs"
                         :key="i"
@@ -350,8 +352,8 @@
                     <v-col>
                       <v-date-picker
                         v-model="picker"
-                        :events="arrayEvents"
-                        :event-color="date => date[9] % 2 ? 'primary' : 'warning'"
+                        :events="dateFunctionEvents"
+                        color="primary"
                         full-width
                         flat
                         no-title
@@ -514,16 +516,16 @@ export default {
     next () {
       this.$refs.calendar.next()
     },
+    dateFunctionEvents (date) {
+      const [,, day] = date.split('-')
+      if ([12, 17, 28].includes(parseInt(day, 10))) return true
+      if ([1, 19, 22].includes(parseInt(day, 10))) return ['primary']
+      return false
+    },
   },
   mounted() {
     setTimeout(() => {
       this.apexLoading = true
-    }),
-    this.arrayEvents = [...Array(6)].map(() => {
-      const day = Math.floor(Math.random() * 30)
-      const d = new Date()
-      d.setDate(day)
-      return d.toISOString().substr(0, 10)
     })
   }
 }

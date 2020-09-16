@@ -89,6 +89,19 @@
           color: $grey-medium;
         }
       }
+
+      .v-btn.v-date-picker-table__current.v-btn--active {
+        height: 28px;
+        width: 28px;
+      }
+
+      .v-date-picker-table__events {
+        top: -6px;
+        & > div {
+          height: 6px;
+          width: 6px;
+        }
+      }
     }
     .v-date-picker-header__value {
       button {
@@ -153,24 +166,9 @@
 
     }
   }
-  .v-image {
-    position: relative;
-    p {
-      position: absolute;
-      left: 5px;
-      color: white;
-      font-weight: 600;
-      &.folder-title {
-        font-size: 18px;
-        bottom: 15px;
 
-      }
-      &.folder-subtitle-1 {
-        bottom: -5px;
-        font-size: 13px;
-      }
-    }
-  }
+
+
   .view-card {
     .views-value {
       font-size: 1.5rem;
@@ -199,6 +197,23 @@
 
   }
   .folder-card {
+    .v-image {
+      position: relative;
+      p {
+        position: absolute;
+        left: 8px;
+        color: white;
+        font-weight: 600;
+        &.folder-title {
+          font-size: 18px;
+          bottom: 10px;
+        }
+        &.folder-subtitle-1 {
+          bottom: -10px;
+          font-size: 13px;
+        }
+      }
+    }
     .theme--dark.v-tabs > .v-tabs-bar {
       background-color: transparent;
       .v-tab--active {
