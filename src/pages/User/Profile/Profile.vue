@@ -71,7 +71,7 @@
                     </template>
                   </v-menu>
                 </v-card-title>
-                <v-card-text class="pa-5 pb-0 pt-3">
+                <v-card-text class="pa-5 pb-0 pt-5">
                   <v-row no-gutters class="pb-6">
                     <v-col cols="6" class="d-flex align-center flex-column">
                       <v-img src="@/assets/img/user/profile/media/posts.svg" height="30" width="30"></v-img>
@@ -228,7 +228,7 @@
                     </template>
                   </v-menu>
                 </v-card-title>
-                <v-card-text class="pa-5 pt-0 pb-0">
+                <v-card-text class="pa-5 pt-0 pb-2">
                   <v-row no-gutters>
                     <v-tabs color="secondary">
                       <v-tabs-slider></v-tabs-slider>

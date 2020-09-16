@@ -31,7 +31,6 @@
           @click="notificationsBadge ? notificationsBadge = !notificationsBadge : ''"
           v-bind="attrs"
           v-on="on"
-          style="font-size: 28px"
           icon
           class="mr-2"
         >
@@ -89,8 +88,8 @@
               overlap
             >
               <v-icon
-                :color="config.light.iconColor"
-                style="font-size: 28px">
+                size="28"
+                :color="config.light.iconColor">
                 mdi-email-outline</v-icon>
             </v-badge>
         </v-btn>
@@ -147,8 +146,8 @@
           v-on="on"
           class="mr-3">
           <img
-              src="@/assets/img/user/avatars/avatar.png"
-              alt="John"
+            src="@/assets/img/user/avatars/avatar.png"
+            alt="John"
           >
         </v-avatar>
       </template>
