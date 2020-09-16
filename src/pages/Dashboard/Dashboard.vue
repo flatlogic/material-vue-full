@@ -393,16 +393,16 @@
               <v-menu>
                 <template v-slot:activator="{ on, attrs }">
                   <v-select
-                      class="main-chart-select font-weight-regular greyBold--text"
-                      v-model="sel0"
-                      :value="mock.select[0]"
-                      v-bind="attrs"
-                      v-on="on"
-                      dense
-                      flat
-                      single-line
-                      hide-details
-                      :items="mock.select"
+                    class="main-chart-select font-weight-regular greyBold--text"
+                    v-model="sel0"
+                    :value="mock.select[0]"
+                    v-bind="attrs"
+                    v-on="on"
+                    dense
+                    flat
+                    single-line
+                    hide-details
+                    :items="mock.select"
                   ></v-select>
                 </template>
               </v-menu>

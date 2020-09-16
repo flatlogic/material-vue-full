@@ -276,7 +276,7 @@
                       </v-tab-item>
                       <v-tab-item
                         value="tab-week"
-                        class="pt-1"
+                        class="pt-0"
                       >
                         <v-row no-gutters class="flex-column flex-nowrap overflow-hidden pr-0"
                          v-for="(task, i) in mock.tasks.tasksWeek"
@@ -285,6 +285,7 @@
                          :class="{ done:task.done }"
                          @click="$set(task, 'done', !task.done)"
                         >
+                          <v-divider></v-divider>
                           <v-col
                               cols="12"
                               class="d-flex justify-space-between align-center py-3">
@@ -302,20 +303,21 @@
                               </v-btn>
                             </div>
                           </v-col>
-                          <v-divider></v-divider>
+
                         </v-row>
                       </v-tab-item>
                       <v-tab-item
                         value="tab-month"
-                        class="pt-1"
+                        class="pt-0"
                       >
                         <v-row no-gutters class="flex-column flex-nowrap overflow-hidden"
-                         v-for="(task, i) in mock.tasksMonth"
+                         v-for="(task, i) in mock.tasks.tasksWeek"
                          :key="i * 100"
                          style="width: 100%; cursor:pointer;"
                          :class="{ done:task.done }"
                          @click="$set(task, 'done', !task.done)"
                         >
+                          <v-divider></v-divider>
                           <v-col
                               cols="12"
                               class="d-flex justify-space-between align-center py-3">
@@ -333,7 +335,7 @@
                               </v-btn>
                             </div>
                           </v-col>
-                          <v-divider></v-divider>
+
                         </v-row>
                       </v-tab-item>
                     </v-tabs>
