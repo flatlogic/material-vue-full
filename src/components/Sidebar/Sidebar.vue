@@ -403,8 +403,8 @@
       },
       newMessage: function () {
         let post = {
-          avatar: require('@/assets/img/time-line/a4.jpg'),
-          title: 'Sophia Fernandez',
+          avatar: require('@/assets/img/user/avatars/avatar.png'),
+          title: 'John Smith',
           subtitle: ''
         };
         if (this.chatMessage.length !== 0) {

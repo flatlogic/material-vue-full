@@ -10,6 +10,10 @@
       justify-content: center;
       border-radius: 50%;
       border: 3px dotted var(--v-error-base);
+      @include media-breakpoint-up(xs) {
+        width: 200px;
+        height: 200px;
+      }
       @include media-breakpoint-up(sm) {
         width: 135px;
         height: 135px;
@@ -31,6 +35,10 @@
         height: 94px;
         width: 94px;
         border-radius: 50%;
+        @include media-breakpoint-up(xs) {
+          width: 180px;
+          height: 180px;
+        }
         @include media-breakpoint-up(sm) {
           height: 114px;
           width: 114px;

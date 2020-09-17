@@ -22,11 +22,11 @@
                         color="error"
                       >Pro</v-chip>
                     </v-col>
-                    <v-col cols="12" sm="7" xl="6" class="pl-4">
+                    <v-col cols="12" sm="7" xl="6" class="pl-0 pl-sm-4 d-flex flex-column align-center align-sm-start"  >
                       <p class="user-name greyMedium--text font-weight-regular">Julee Cruise</p>
                       <p class="user-work greyTint--text ma-0">Product Designer</p>
                       <a class="body-1">Flatlogic.com</a>
-                      <div class="mt-5">
+                      <div class="d-flex justify-center justify-sm-start flex-wrap mt-5">
                         <v-chip v-for="(chip, i) in mock.chips"
                           :key="i"
                           small
