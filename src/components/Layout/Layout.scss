@@ -8,7 +8,7 @@ body {
     background: transparent;
   }
   &::-webkit-scrollbar-thumb {
-    background-color: $grey-tint;
+    background-color: var(--v-greyTint-base);
     border-radius: 36px;
     border: none;
   }

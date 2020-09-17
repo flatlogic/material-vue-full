@@ -11,8 +11,7 @@
                 <v-btn
                   icon
                   v-bind="attrs"
-                  v-on="on"
-                >
+                  v-on="on">
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
               </template>
@@ -29,7 +28,7 @@
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
             <p class="fs-normal greyBold--text mb-5">Tooltips can wrap any element.</p>
-            <div class="text-center d-flex align-center justify-space-around">
+            <div class="text-center d-flex align-center justify-space-between">
               <v-tooltip bottom>
                 <template v-slot:activator="{ on, attrs }">
                   <v-btn
@@ -57,7 +56,7 @@
               </v-tooltip>
               <v-tooltip bottom>
                 <template v-slot:activator="{ on, attrs }">
-                  <span class="fs-normal greyBold--text align-center" v-bind="attrs" v-on="on">This text has a tooltip</span>
+                  <span class="fs-normal greyBold--text align-center mr-4" v-bind="attrs" v-on="on">This text has a tooltip</span>
                 </template>
                 <span>Text Tooltip</span>
               </v-tooltip>
@@ -75,8 +74,7 @@
                 <v-btn
                   icon
                   v-bind="attrs"
-                  v-on="on"
-                >
+                  v-on="on">
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
               </template>
@@ -93,13 +91,11 @@
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
             <p class="fs-normal greyBold--text mb-5">The v-tooltip component is useful for conveying information when a user hovers over an element.</p>
-            <div class="text-center">
-              <v-menu
+            <v-menu
                 v-model="popovers.popoverFirst"
                 :close-on-content-click="false"
                 offset-y
-                nudge-left="35"
-              >
+                nudge-left="35">
                 <template v-slot:activator="{ on, attrs }">
                   <v-btn
                     color="secondary"
@@ -116,8 +112,7 @@
                     <span class="fs-normal greyBold--text mb-5">The content of the Popover.</span>
                   </v-card-text>
                 </v-card>
-              </v-menu>
-            </div>
+          </v-menu>
           </v-card-text>
         </v-card>
       </v-col>

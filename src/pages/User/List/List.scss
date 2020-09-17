@@ -7,7 +7,7 @@
   .users-table {
     .v-data-table-header th{
       font-size: $fs-medium;
-      color: $grey-tint!important;
+      color: var(--v-greyTint-base)!important;
       font-weight: 400;
     }
     &.theme--dark {

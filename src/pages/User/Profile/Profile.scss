@@ -9,7 +9,7 @@
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      border: 3px dotted $error;
+      border: 3px dotted var(--v-error-base);
       @include media-breakpoint-up(sm) {
         width: 135px;
         height: 135px;
@@ -67,7 +67,6 @@
     .media-subtitle {
       font-size: .75rem;
     }
-
   }
   .article-card {
     .article-writer, .article-info {
@@ -86,7 +85,7 @@
         padding: 0;
         height: 100%;
         .v-date-picker-header__value button{
-          color: $grey-medium!important;
+          color: var(--v-greyMedium-base)!important;
         }
       }
       .v-date-picker-table__events {
@@ -97,9 +96,7 @@
         }
       }
     }
-
     &.theme--dark {
-
       .v-picker.v-card {
         box-shadow: none!important;
         .v-picker__body {
@@ -108,9 +105,6 @@
         .v-date-picker-header, .v-date-picker-table {
           padding: 0;
           height: 100%;
-          .v-date-picker-header__value button{
-            color: #d6d6d6!important;
-          }
         }
       }
     }
@@ -118,11 +112,11 @@
   .tasks-card {
     .done {
       .task-text, .task-time {
-        color: $grey-tint!important;
+        color:  var(--v-greyTint-base)!important;
         text-decoration: line-through;
       }
       .task-circle {
-        color: $grey-tint!important;
+        color: var(--v-greyTint-base)!important;
       }
     }
     .task-text {
@@ -142,21 +136,8 @@
       .v-item-group.v-tabs-items {
         background-color: transparent;
       }
-      .done {
-        .task-text, .task-time {
-          color: $grey-tint!important;
-          text-decoration: line-through;
-        }
-        .task-circle {
-          color: $grey-tint!important;
-        }
-      }
-
     }
   }
-
-
-
   .view-card {
     .views-value {
       font-size: 1.5rem;
@@ -171,7 +152,7 @@
     }
     &.theme--dark {
       .apexcharts-legend-series .apexcharts-legend-text{
-        color: $grey-tint!important;
+        color: var(--v-greyTint-base)!important;
       }
     }
   }
@@ -180,9 +161,6 @@
       font-size: 1.125rem;
       display: inline-block;
     }
-  }
-  .chart-title {
-
   }
   .folder-card {
     .v-image {
@@ -215,7 +193,6 @@
       display: none!important;
     }
   }
-
   .v-card {
     .v-card__title {
       .v-select.v-input--is-dirty input {
@@ -224,14 +201,14 @@
 
       .v-select__selection {
         max-width: none;
-        color: $grey-tint!important;
+        color: var(--v-greyTint-base)!important;
       }
       .v-text-field {
 
         margin-top: 0;
         .v-input__append-inner .v-input__icon {
           i {
-            color: $grey-tint!important;
+            color: var(--v-greyTint-base)!important;
             margin-top: 4px!important;
           }
         }

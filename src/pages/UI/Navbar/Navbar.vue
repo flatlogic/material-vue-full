@@ -11,8 +11,7 @@
                 <v-btn
                   icon
                   v-bind="attrs"
-                  v-on="on"
-                >
+                  v-on="on">
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
               </template>
@@ -31,6 +30,7 @@
             <p class="fs-normal greyBold--text mb-5">App bar displays yours app links by importing and inserting AppBar component.
               To swap links style add attribute within Button component.</p>
             <v-app-bar
+              flat
               color="primary"
               dark
               class="mb-10"
@@ -49,10 +49,6 @@
                   link 2
                 </v-btn>
 
-                <v-btn text>
-                  Another link
-                </v-btn>
-
                 <v-btn text disabled>
                   Disabled link
                 </v-btn>
@@ -60,6 +56,7 @@
               </v-app-bar>
             <p class="fs-normal greyBold--text mb-5">With menu</p>
             <v-app-bar
+              flat
               color="secondary"
               dark
               class="mb-6"
@@ -103,10 +100,9 @@
             <v-menu>
               <template v-slot:activator="{ on, attrs }">
                 <v-btn
-                    icon
-                    v-bind="attrs"
-                    v-on="on"
-                >
+                  icon
+                  v-bind="attrs"
+                  v-on="on">
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
               </template>
@@ -126,6 +122,7 @@
               make sure you got all relative functions.</p>
             <v-app-bar
               color="primary"
+              flat
               dark
               class="mb-10"
                 >
@@ -139,6 +136,7 @@
               </v-app-bar>
             <p class="fs-normal greyBold--text mb-5">Navbar can contain background images. You can set source via the src prop.</p>
             <v-app-bar
+              flat
               color="primary"
               dark
               class="mb-6"

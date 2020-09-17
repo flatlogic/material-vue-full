@@ -4,18 +4,7 @@
 $drawer-items-padding:                     32px !default;
 $navigation-drawer-mini-variant-width:     96px!important;
 
-// Colors //
-$primary:           #536DFE;
-$secondary:         #FF5C93;
-$error:             #ff4081;
-$warning:           #FFC260;
-$success:           #3CD4A0;
-$info:              #9013FE;
-$grey-bold:         #4a4a4a;
-$grey-medium:       #6e6e6e;
-$grey-tint:         #b9b9b9;
-
-$card-title-color:  $grey-medium;
+$card-title-color:  var(--v-greyMedium-base);
 
 // Layout //
 $body-bg-dark: #13131a;
@@ -35,13 +24,6 @@ $fs-larger:                 1.125rem !default;   // 18px
 $fs-base:                   1rem !default;       // 16px
 $fs-medium:                 0.875rem !default;   // 14px
 $fs-index:                  0.75rem !default;    // 12px
-
-
-//$font-size-larger:        1.1rem;
-//$font-size-base:          1rem !default;
-//$font-size-mini:          0.9rem;
-//$font-size-sm:            0.875rem !default;
-
 
 // Card //
 $card-shadow: 0 3px 11px 0 #E8EAFC, 0 3px 3px -2px #B2B2B21A, 0 1px 8px 0 #9A9A9A1A;

@@ -480,6 +480,9 @@ export default {
               height: 8,
             },
           },
+            stroke: {
+                show: false,
+            },
         },
         series: this.generatePieSeries()
       },

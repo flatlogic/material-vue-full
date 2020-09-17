@@ -4,18 +4,18 @@
   .v-card {
     .v-card__text {
       p.text-h5 {
-        color: $grey-medium;
+        color: var(--v-greyMedium-base);
       }
       p, ul {
-        color: $grey-bold;
+        color: var(--v-greyBold-base);
       }
       a {
-        color: $primary;
+        color: var(--v-primary-base);
         text-decoration: none;
       }
       code, pre {
         background-color: #F3F5FF;
-        color: $grey-bold;
+        color: var(--v-greyBold-base);
         padding: 0.5rem 1rem;
         font-weight: 400;
         margin-bottom: 12px;

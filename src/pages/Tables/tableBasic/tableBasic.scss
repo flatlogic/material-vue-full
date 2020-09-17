@@ -21,7 +21,7 @@
         thead tr th {
           font-size: 15px;
           font-weight: 500;
-          color: $grey-bold;
+          color: var(--v-greyBold-base);
         }
         tbody tr td {
           height: 58px;
@@ -49,7 +49,7 @@ div.material-table {
       thead tr th {
         font-size: 15px;
         font-weight: 500;
-        color: $grey-bold!important;
+        color: var(--v-greyBold-base)!important;
       }
       tbody tr td {
         height: 58px;

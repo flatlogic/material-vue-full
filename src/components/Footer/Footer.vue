@@ -1,5 +1,5 @@
 <template>
-  <v-footer class="px-0 mt-10" color="transparent">
+  <v-footer class="px-0 mt-2" color="transparent">
     <v-row no-gutters>
       <div>
         <v-btn
@@ -20,8 +20,7 @@
           :href="icon.link"
           class="mr-1"
           color="greyTint"
-          icon
-        >
+          icon>
           <v-icon size="24px">{{ icon.icon }}</v-icon>
         </v-btn>
       </div>

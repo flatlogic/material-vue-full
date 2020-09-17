@@ -10,7 +10,7 @@
     }
     .v-list-item:hover .v-list-item__icon {
       .v-icon {
-        color: rgba($primary, 0.8)!important;
+        color: rgba(var(--v-primary-base), 0.8)!important;
       }
     }
     .link-item {

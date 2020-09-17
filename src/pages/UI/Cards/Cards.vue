@@ -7,8 +7,7 @@
             :src="cards[0].src"
             class="white--text align-start"
             gradient="to top, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-            height="500"
-          >
+            height="500">
             <v-card-text class="pa-5">
               <h5>13 Mar</h5>
               <h2>Lifestyle brand</h2>
@@ -16,10 +15,9 @@
                 and opinions of a group or a culture. Lifestyle brands seek to inspire, guide, and motivate people, with
                 the goal of their products contributing to the definition of the consumer's way of life.</p>
               <v-btn
-                  color="primary"
-                  dark
-                  class="button-shadow"
-              >
+                color="primary"
+                dark
+                class="button-shadow">
                 Learn More
               </v-btn>
             </v-card-text>
@@ -139,8 +137,7 @@
             <v-spacer></v-spacer>
             <v-btn
               color="success"
-              class="button-shadow"
-            >
+              class="button-shadow">
               Read More
             </v-btn>
           </v-card-actions>

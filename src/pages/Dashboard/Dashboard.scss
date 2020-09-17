@@ -11,9 +11,6 @@
     .theme--dark.v-text-field--solo > .v-input__control > .v-input__slot {
       background-color: transparent;
     }
-    .v-text-field.v-text-field--solo.v-input--dense {
-
-    }
     .main-date-picker {
       .v-input__prepend-outer {
         margin-right: 0;
@@ -35,14 +32,14 @@
       margin-right: 8px;
     }
     .apexcharts-legend-text {
-      color: $grey-medium!important;
+      color: var(--v-greyMedium-base)!important;
     }
   }
 
   .support-table {
     .v-data-table-header th{
       font-size: $fs-medium;
-      color: $grey-tint!important;
+      color: var(--v-greyTint-base)!important;
       font-weight: 400;
     }
     tbody tr td{
@@ -64,13 +61,13 @@
       }
       .v-select__selection {
         max-width: none;
-        color: $grey-tint!important;
+        color: var(--v-greyTint-base)!important;
       }
       .v-text-field {
         margin-top: 0;
         .v-input__append-inner .v-input__icon {
           i {
-            color: $grey-tint!important;
+            color: var(--v-greyTint-base)!important;
             margin-top: 4px!important;
           }
         }
@@ -90,11 +87,11 @@
       .subtext {
         font-size: 1.142rem;
         font-weight: 400;
-        color: $grey-bold;
+        color: var(--v-greyBold-base);
       }
       .subtext-index {
         font-size: 11px;
-        color: $grey-medium;
+        color: var(--v-greyMedium-base);
         font-weight: 400;
       }
     }

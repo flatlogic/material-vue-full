@@ -2,18 +2,18 @@
 
 ul.v-breadcrumbs {
   li:last-child div{
-    color: $primary;
+    color: var(--v-primary-base);
   }
   .v-breadcrumbs__item {
     font-size: 1.125rem;
-    color: $grey-medium;
+    color: var(--v-greyMedium-base);
     cursor: pointer;
   }
 }
 .v-application.theme--dark {
   ul.v-breadcrumbs {
     li:last-child div{
-      color: $primary;
+      color: var(--v-primary-base);
     }
     .v-breadcrumbs__item {
       color: white;

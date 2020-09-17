@@ -25,7 +25,7 @@ body {
 
     .page-title {
       font-size: 2.4rem;
-      color: $grey-tint;
+      color: var(--v-greyTint-base);
       margin-bottom: 0;
     }
 
@@ -34,7 +34,7 @@ body {
 
       .v-card__title {
         p {
-          color: $grey-medium;
+          color: var(--v-greyMedium-base);
           line-height: 1.33;
           margin: 0;
           font-size: 20px;
@@ -44,7 +44,7 @@ body {
         .v-btn.v-btn--flat.v-btn--icon.v-btn--round {
           &:hover {
             transition: 300ms all;
-            background-color: $primary;
+            background-color: var(--v-primary-base);
 
             .v-icon {
               color: rgba(255, 255, 255, 0.35) !important;
@@ -52,14 +52,6 @@ body {
           }
         }
       }
-
-      &.theme--dark {
-        .v-card__title p {
-          color: $grey-tint;
-        }
-      }
-
-
     }
 
     .v-navigation-drawer {
@@ -67,15 +59,12 @@ body {
         .v-list {
           .v-list-item--active {
             background-color: #F3F5FF;
-
             &:before {
               opacity: 0;
             }
           }
-
           .v-list-item:hover {
             background-color: #F3F5FF;
-
             &:before {
               opacity: 0;
             }
@@ -137,7 +126,7 @@ body {
     }
 
     code, pre {
-      color: $grey-bold;
+      color: var(--v-greyBold-base);
       background-color: #F3F5FF;
       padding: 7px;
       font-weight: 500;
@@ -155,7 +144,7 @@ body {
         }
       }
       .v-btn__content {
-        color: $grey-bold;
+        color: var(--v-greyBold-base);
       }
     }
   }
@@ -193,6 +182,5 @@ body {
 
 // menu
 .v-menu__content.menuable__content__active {
-  top: 175px!important;
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12) !important;
 }

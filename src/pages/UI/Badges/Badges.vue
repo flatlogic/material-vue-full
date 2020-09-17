@@ -34,8 +34,7 @@
                 :color="badge.content.toLocaleLowerCase()"
                 :content="badge.content"
                 :key="badge.id"
-                class="mb-2"
-              >
+                class="mb-2">
                 <div v-html="badge.html"></div>
               </v-badge>
               <br :key="badge.content">
@@ -67,19 +66,17 @@
             <v-menu>
               <template v-slot:activator="{ on, attrs }">
                 <v-btn
-                    icon
-                    v-bind="attrs"
-                    v-on="on"
-                >
+                  icon
+                  v-bind="attrs"
+                  v-on="on">
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
               </template>
               <v-list>
                 <v-list-item
-                    v-for="(item, i) in menu"
-                    :key="i"
-                    @click="() => {}"
-                >
+                  v-for="(item, i) in menu"
+                  :key="i"
+                  @click="() => {}">
                   <v-list-item-title >{{ item }}</v-list-item-title>
                 </v-list-item>
               </v-list>
@@ -94,8 +91,7 @@
                   :color="icon.color"
                   :content="icon.content"
                   :key="icon.id"
-                  class="mr-4"
-                >
+                  class="mr-4">
                   <v-icon color="greyBold" size="24"> {{ icon.name }} </v-icon>
                 </v-badge>
               </template>
@@ -103,6 +99,7 @@
             <template >
               <v-toolbar class="mb-10">
                 <v-tabs
+                  class="button-shadow"
                   grow
                 >
                   <v-tab>

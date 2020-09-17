@@ -13,10 +13,9 @@
                 <v-btn color="primary button-shadow" class="mr-4" @click="liveDemo = !liveDemo">DEMO</v-btn>
                 <v-dialog
                   v-model="liveDemo"
-                  max-width="390"
-                >
+                  max-width="390">
                   <v-card>
-                    <v-card-title class="headline">Use Google's location service?</v-card-title>
+                    <v-card-title class="headline greyMedium--text">Use Google's location service?</v-card-title>
 
                     <v-card-text>
                       Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.
@@ -26,16 +25,15 @@
                       <v-spacer></v-spacer>
 
                       <v-btn
-                          color="success"
-                          text
-                          @click="liveDemo = false"
+                        color="primary"
+                        outlined
+                        @click="liveDemo = false"
                       >
                         Disagree
                       </v-btn>
                       <v-btn
-                          color="success"
-                          text
-                          @click="liveDemo = false"
+                        color="primary"
+                        @click="liveDemo = false"
                       >
                         Agree
                       </v-btn>
@@ -56,7 +54,7 @@
                   </template>
                   <v-card>
                     <v-card-title>
-                      <span class="headline">Use Google's location service?</span>
+                      <span class="headline greyMedium--text">Use Google's location service?</span>
                     </v-card-title>
                     <v-card-text>Lorem ipsum dolor sit amet, semper quis, sapien id natoque elit. Nostra urna at, magna at neque sed sed ante imperdiet, dolor mauris cursus velit, velit non, sem nec. Volutpat sem ridiculus placerat leo, augue in, duis erat proin condimentum in a eget, sed fermentum sed vestibulum varius ac, vestibulum volutpat orci ut elit eget tortor. Ultrices nascetur nulla gravida ante arcu. Pharetra rhoncus morbi ipsum, nunc tempor debitis, ipsum pellentesque, vitae id quam ut mauris dui tempor, aptent non. Quisque turpis. Phasellus quis lectus luctus orci eget rhoncus. Amet donec vestibulum mattis commodo, nulla aliquet, nibh praesent, elementum nulla. Sit lacus pharetra tempus magna neque pellentesque, nulla vel erat.
                       Justo ex quisque nulla accusamus venenatis, sed quis. Nibh phasellus gravida metus in, fusce aenean ut erat commodo eros. Ut turpis, dui integer, nonummy pede placeat nec in sit leo. Faucibus porttitor illo taciti odio, amet viverra scelerisque quis quis et tortor, curabitur morbi a. Enim tempor at, rutrum elit condimentum, amet rutrum vitae tempor torquent nunc. Praesent vestibulum integer maxime felis. Neque aenean quia vitae nostra, tempus elit enim id dui, at egestas pulvinar. Integer libero vestibulum, quis blandit scelerisque mattis fermentum nulla, tortor donec vestibulum dolor amet eget, elit nullam. Aliquam leo phasellus aliquam curabitur metus a, nulla justo mattis duis interdum vel, mollis vitae et id, vestibulum erat ridiculus sit pulvinar justo sed. Vehicula convallis, et nulla wisi, amet vestibulum risus, quam ac egestas.
@@ -71,8 +69,8 @@
                       +</v-card-text>
                     <v-card-actions>
                       <v-spacer></v-spacer>
-                      <v-btn color="green darken-1" text @click="scrollingLongContent = false">Disagree</v-btn>
-                      <v-btn color="green darken-1" text @click="scrollingLongContent = false">Agree</v-btn>
+                      <v-btn color="primary" outlined @click="scrollingLongContent = false">Disagree</v-btn>
+                      <v-btn color="primary" @click="scrollingLongContent = false">Agree</v-btn>
                     </v-card-actions>
                   </v-card>
                 </v-dialog>
@@ -93,18 +91,17 @@
                       dark
                       v-bind="attrs"
                       v-on="on"
-                      class="button-shadow mr-4"
-                    >
+                      class="button-shadow mr-4">
                       large modal
                     </v-btn>
                   </template>
                   <v-card>
-                    <v-card-title class="headline">Use Google's location service?</v-card-title>
+                    <v-card-title class="headline greyMedium--text">Use Google's location service?</v-card-title>
                     <v-card-text>Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.</v-card-text>
                     <v-card-actions>
                       <v-spacer></v-spacer>
-                      <v-btn color="green darken-1" text @click="largeModal = false">Disagree</v-btn>
-                      <v-btn color="green darken-1" text @click="largeModal = false">Agree</v-btn>
+                      <v-btn color="primary" outlined @click="largeModal = false">Disagree</v-btn>
+                      <v-btn color="primary" @click="largeModal = false">Agree</v-btn>
                     </v-card-actions>
                   </v-card>
                 </v-dialog>
@@ -115,18 +112,17 @@
                       color="secondary"
                       dark
                       v-bind="attrs"
-                      v-on="on"
-                    >
+                      v-on="on">
                       Small modal
                     </v-btn>
                   </template>
                   <v-card>
-                    <v-card-title class="headline">Use Google's location service?</v-card-title>
+                    <v-card-title class="headline greyMedium--text">Use Google's location service?</v-card-title>
                     <v-card-text>Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.</v-card-text>
                     <v-card-actions>
                       <v-spacer></v-spacer>
-                      <v-btn color="green darken-1" text @click="smallModal = false">Disagree</v-btn>
-                      <v-btn color="green darken-1" text @click="smallModal = false">Agree</v-btn>
+                      <v-btn color="primary" outlined @click="smallModal = false">Disagree</v-btn>
+                      <v-btn color="primary" @click="smallModal = false">Agree</v-btn>
                     </v-card-actions>
                   </v-card>
                 </v-dialog>
@@ -145,18 +141,17 @@
                 <v-dialog v-model="dialog" max-width="600px">
                   <template v-slot:activator="{ on, attrs }">
                     <v-btn
-                        color="primary"
-                        dark
-                        outlined
-                        v-bind="attrs"
-                        v-on="on"
-                    >
+                      color="primary"
+                      dark
+                      outlined
+                      v-bind="attrs"
+                      v-on="on">
                       Open form dialog
                     </v-btn>
                   </template>
                   <v-card>
                     <v-card-title>
-                      <span class="headline">User Profile</span>
+                      <span class="headline greyMedium--text">User Profile</span>
                     </v-card-title>
                     <v-card-text>
                       <v-container>
@@ -169,11 +164,11 @@
                           </v-col>
                           <v-col cols="12" sm="6" md="4">
                             <v-text-field
-                                label="Legal last name*"
-                                hint="example of persistent helper text"
-                                persistent-hint
-                                required
-                            ></v-text-field>
+                              label="Legal last name*"
+                              hint="example of persistent helper text"
+                              persistent-hint
+                              required>
+                            </v-text-field>
                           </v-col>
                           <v-col cols="12">
                             <v-text-field label="Email*" required></v-text-field>
@@ -183,16 +178,16 @@
                           </v-col>
                           <v-col cols="12" sm="6">
                             <v-select
-                                :items="['0-17', '18-29', '30-54', '54+']"
-                                label="Age*"
-                                required
+                              :items="['0-17', '18-29', '30-54', '54+']"
+                              label="Age*"
+                              required
                             ></v-select>
                           </v-col>
                           <v-col cols="12" sm="6">
                             <v-autocomplete
-                                :items="['Skiing', 'Ice hockey', 'Soccer', 'Basketball', 'Hockey', 'Reading', 'Writing', 'Coding', 'Basejump']"
-                                label="Interests"
-                                multiple
+                              :items="['Skiing', 'Ice hockey', 'Soccer', 'Basketball', 'Hockey', 'Reading', 'Writing', 'Coding', 'Basejump']"
+                              label="Interests"
+                              multiple
                             ></v-autocomplete>
                           </v-col>
                         </v-row>
@@ -201,8 +196,8 @@
                     </v-card-text>
                     <v-card-actions>
                       <v-spacer></v-spacer>
-                      <v-btn color="blue darken-1" text @click="dialog = false">Close</v-btn>
-                      <v-btn color="blue darken-1" text @click="dialog = false">Save</v-btn>
+                      <v-btn color="primary" outlined @click="dialog = false">Close</v-btn>
+                      <v-btn color="primary" @click="dialog = false">Save</v-btn>
                     </v-card-actions>
                   </v-card>
                 </v-dialog>
@@ -278,7 +273,7 @@
             >
               <v-card>
                 <v-card-title class="pa-5 pb-3">
-                  <p>Grid system</p>
+                  <p class="greyMedium--text">Grid system</p>
                 </v-card-title>
                 <v-card-text class="pa-5 pt-0">
                   <v-row justify="end">
@@ -311,8 +306,8 @@
                 </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
-                  <v-btn text color="primary">agree</v-btn>
-                  <v-btn text color="primary">disagree</v-btn>
+                  <v-btn color="primary" outlined>Disagree</v-btn>
+                  <v-btn color="primary" class="button-shadow">Agree</v-btn>
                 </v-card-actions>
               </v-card>
             </v-dialog>

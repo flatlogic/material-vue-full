@@ -23,9 +23,9 @@ export default {
     success: "#3CD4A0",
     successConst: "#3CD4A0",
     error: "#FF4081",
-    greyMedium: '#d6d6d6',
-    greyBold: '#fff',
-    greyTint: '#76767b',
+    greyMedium: '#bfbfbf',
+    greyBold: '#d6d6d6',
+    greyTint: '#9b9b9b',
     default: '#e0e0e0',
   },
 };

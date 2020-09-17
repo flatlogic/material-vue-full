@@ -21,7 +21,7 @@
       background: transparent;
     }
     &::-webkit-scrollbar-thumb {
-      background-color: $grey-tint;
+      background-color: var(--v-greyTint-base);
       border-radius: 36px;
       border: none;
     }
@@ -48,7 +48,7 @@
   }
   .v-list-item:not(.v-list-item--active) {
     .v-icon {
-      color: $grey-tint;
+      color: var(--v-greyTint-base);
     }
   }
   .v-list-item .v-list-item__title {
@@ -58,7 +58,7 @@
   .v-list-item--active {
     .v-list-item__content {
       .v-list-item__title {
-        color: $grey-bold!important;
+        color: var(--v-greyBold-base)!important;
       }
     }
   }
@@ -67,7 +67,7 @@
     .v-list {
       div, a {
         &.v-list-item {
-          color: $grey-medium;
+          color: var(--v-greyMedium-base);
           transition: 300ms all;
         }
       }
@@ -85,7 +85,7 @@
   }
 
   .subheader {
-    color: $grey-tint;
+    color: var(--v-greyTint-base);
     transition: 300ms all;
   }
   .hide {
@@ -97,8 +97,9 @@
 
   .v-badge__wrapper {
     span {
-      height: 18px;
-      padding: 3px 6px;
+      height: 16px;
+      padding: 2px 6px;
+      margin-bottom: 1px;
     }
   }
 
@@ -130,7 +131,7 @@
 
   .v-list-item:not(.v-list-item--active) {
     .v-icon {
-      color: $grey-bold;
+      color: var(--v-greyBold-base);
     }
   }
   .v-list-item {
@@ -138,14 +139,14 @@
       background-color: #13131A!important;
     }
     .v-list-item__title {
-      color: $grey-tint!important;
+      color: var(--v-greyTint-base)!important;
     }
   }
   .v-list-item--active {
     background-color: #23232D!important;
     .v-list-item__content {
       .v-list-item__title {
-        color: $grey-tint!important;
+        color: var(--v-greyTint-base)!important;
       }
     }
   }

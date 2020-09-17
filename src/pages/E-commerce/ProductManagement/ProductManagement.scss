@@ -4,7 +4,7 @@
   .v-data-table > .v-data-table__wrapper > table > thead > tr > th {
     font-size: 0.9375rem;
     font-weight: 500;
-    color: $grey-bold;
+    color: var(--v-greyBold-base);
   }
   .search {
     .v-label {

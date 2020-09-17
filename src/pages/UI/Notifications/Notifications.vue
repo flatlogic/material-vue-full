@@ -29,24 +29,24 @@
              <v-row no-gutters class="action-buttons pb-6">
                <v-col cols="12">
                  <v-btn
-                     block
-                     @click="addInfoNotification"
-                     color="primary"
-                     class="button-shadow text-capitalize my-2"
+                   block
+                   @click="addInfoNotification"
+                   color="primary"
+                   class="button-shadow text-capitalize mb-2"
                  >Info Message</v-btn>
                  <div class="w-100"></div>
                  <v-btn
-                     block
-                     @click="addErrorNotification"
-                     color="error"
-                     class="button-shadow text-capitalize my-2"
+                   block
+                   @click="addErrorNotification"
+                   color="error"
+                   class="button-shadow text-capitalize my-2"
                  >Error + Retry Message</v-btn>
                  <div class="w-100"></div>
                  <v-btn
-                     block
-                     @click="addSuccessNotification"
-                     color="success"
-                     class="button-shadow text-capitalize my-2"
+                   block
+                   @click="addSuccessNotification"
+                   color="success"
+                   class="button-shadow text-capitalize mt-2"
                  >Success Message</v-btn>
                </v-col>
              </v-row>
@@ -60,7 +60,7 @@
              <p>Notifications are created with the <a href="https://vuetifyjs.com/ru/components/snackbars/">v-snackbar</a> component.</p>
              <v-row no-gutters class="">
                <v-col cols="12">
-                 <v-col cols="12" class="mt-0">
+                 <v-col cols="12" class="mt-2">
                     <pre>
 &lt;<span>v-snackbar</span>
   <span>v-model</span>=<span><span>"</span><span>snackbar</span><span>"</span></span>&gt;

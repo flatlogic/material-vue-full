@@ -8,14 +8,13 @@
               <p>Sorting & Selecting</p>
             </v-card-title>
             <v-card-text>
-              <p class="fs-normal greyBold--text mb-5">This example demonstrates the use of Checkbox and clickable rows for selection, with a custom Toolbar.</p>
+              <p class="fs-normal greyBold--text mb-5 pl-1">This example demonstrates the use of Checkbox and clickable rows for selection, with a custom Toolbar.</p>
               <v-data-table
-                  v-model="mock.first.selected"
-                  :headers="mock.first.headers"
-                  :items="mock.first.desserts"
-                  item-key="name"
-                  show-select
-              >
+                v-model="mock.first.selected"
+                :headers="mock.first.headers"
+                :items="mock.first.desserts"
+                item-key="name"
+                show-select>
               </v-data-table>
             </v-card-text>
           </v-card>
@@ -26,12 +25,11 @@
               <p>Custom Table Action</p>
             </v-card-title>
             <v-card-text>
-              <p class="fs-normal greyBold--text mb-5">The
+              <p class="fs-normal greyBold--text mb-5 pl-1">The
                 Action property of the TablePagination component allows the implementation of custom actions.</p>
               <v-data-table
-                  :headers="second.headers"
-                  :items="second.desserts"
-              >
+                :headers="second.headers"
+                :items="second.desserts">
                 <template v-slot:item.name="props">
                   <v-edit-dialog
                       :return-value.sync="props.item.name"

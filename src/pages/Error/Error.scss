@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: $primary;
+  background-color: var(--v-primary-base);
   .logo-wrapper {
     align-items: center;
     margin-bottom: 30px;
@@ -28,18 +28,18 @@
     flex-direction: column;
     justify-content: space-around;
     .error-logo {
-      color: $primary;
+      color: var(--v-primary-base);
       font-size: 148px;
       font-weight: 600;
     }
     .error-text {
-      color: $primary;
+      color: var(--v-primary-base);
       text-align: center;
       font-size: $h3-font-size;
     }
     .error-subtext {
       text-align: center;
-      color: $grey-tint;
+      color: var(--v-greyTint-base);
       font-size: $h4-font-size;
     }
   }

@@ -10,11 +10,11 @@
   line-height: 32px;
 
   > a {
-    color: $grey-medium;
+    color: var(--v-greyMedium-base);
     text-decoration: none;
 
     &:hover {
-      color: $grey-medium;
+      color: var(--v-greyMedium-base);
       text-decoration: none;
     }
   }

@@ -522,14 +522,15 @@
                 :headers="headers"
                 :items="products"
                 sort-by="calories"
-                :items-per-page="itemPerPage"
-              >
+                :items-per-page="itemPerPage">
                 <template v-slot:item.name="{ item }">
-                  <div class="align-center">
+                  <div class="d-flex align-center">
                     <v-avatar size="40" :color="item.avatar.color + ' ma-5 ml-0'">
                       <span class="white--text font-weight-medium">{{ item.avatar.name }}</span>
                     </v-avatar>
-                    <span class="mb-0 fs-base">{{ item.name }}</span>
+                    <div>
+                      <span class="mb-0 fs-base">{{ item.name }}</span>
+                    </div>
                   </div>
                 </template>
                 <template v-slot:item.status="{ item }">
