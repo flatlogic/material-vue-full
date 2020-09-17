@@ -10,18 +10,20 @@
 
           <v-tab
             :href="`#tab-account`"
-            class=""
+            class="mr-5"
           >
             <v-icon class="mr-3">mdi-shield-account-variant-outline</v-icon>
             Account
           </v-tab>
           <v-tab
+            class="mr-5"
             :href="`#tab-profile`"
           >
             <v-icon class="mr-3">mdi-account-outline</v-icon>
             Profile
           </v-tab>
           <v-tab
+            class="mr-5"
             :href="`#tab-password`"
           >
             <v-icon class="mr-3">mdi-lock</v-icon>

@@ -22,7 +22,7 @@
                   <v-select :items="selectItems" :value="selectItems[3]" label="Select size" outlined></v-select>
                 </v-col>
                 <v-col cols="6">
-                  <v-select :items="selectItems" :value="selectItems[3]"></v-select>
+                  <v-select :items="selectItems" :value="selectItems[3]" label="Select number" outlined></v-select>
                 </v-col>
               </v-row>
               <v-row>

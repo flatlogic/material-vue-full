@@ -4,15 +4,16 @@
       <v-col cols="12">
         <v-card class="mb-1">
           <v-card-title class="pa-5 pb-3">
-            <p>Products</p><span class="grey--text font-weight-regular subtitle-2 pt-1">{{'\xa0 (' +  products.length }} total ) </span>
+            <p>Products</p><span class="grey--text font-weight-regular subtitle-2 pt-1">{{'\xa0 (' +  products.length }} total) </span>
             <v-spacer></v-spacer>
             <div>
               <v-text-field
-                  v-model="search"
-                  append-icon="mdi-magnify"
-                  label="Search"
-                  single-line
-                  hide-details
+                v-model="search"
+                append-icon="mdi-magnify"
+                label="Search"
+                single-line
+                hide-details
+                class="search"
               ></v-text-field>
             </div>
           </v-card-title>
@@ -25,54 +26,52 @@
               sort-by="calories"
             >
               <template v-slot:top>
-                <v-toolbar flat color="transparent" class="ml-n3">
-                  <v-dialog v-model="dialog" max-width="500px">
-                    <template v-slot:activator="{ on, attrs }">
-                      <v-btn
-                        color="success"
-                        dark
-                        class="mb-2 button-shadow"
-                        v-bind="attrs"
-                        v-on="on"
-                      >Create Product</v-btn>
-                    </template>
-                    <v-card>
-                      <v-card-title>
-                        <span class="headline">{{ formTitle }}</span>
-                      </v-card-title>
-                      <v-card-text>
-                        <v-container>
-                          <v-row>
-                            <v-col cols="12" sm="6" md="4">
-                              <v-text-field v-model="editedItem.title" label="Product name"></v-text-field>
-                            </v-col>
-                            <v-col cols="12" sm="6" md="4">
-                              <v-text-field v-model="editedItem.subtitle" label="Subtitle"></v-text-field>
-                            </v-col>
-                            <v-col cols="12" sm="6" md="4">
-                              <v-text-field v-model="editedItem.price" label="Price"></v-text-field>
-                            </v-col>
-                            <v-col cols="12" sm="6" md="4">
-                              <v-text-field v-model="editedItem.rating" label="Rating"></v-text-field>
-                            </v-col>
-                            <v-col cols="12" sm="6" md="4">
-                              <v-select :items="images" v-model="editedItem.image" label="Image">
-                                <template v-slot:item="{ item }">
-                                  <v-img :src="item" width="50" style="margin: 2px"></v-img>
-                                </template>
-                              </v-select>
-                            </v-col>
-                          </v-row>
-                        </v-container>
-                      </v-card-text>
-                      <v-card-actions>
-                        <v-spacer></v-spacer>
-                        <v-btn color="warning" text @click="close">Cancel</v-btn>
-                        <v-btn color="success" text @click="save">Save</v-btn>
-                      </v-card-actions>
-                    </v-card>
-                  </v-dialog>
-                </v-toolbar>
+                <v-dialog v-model="dialog" max-width="500px">
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-btn
+                      color="success"
+                      dark
+                      class="my-4 button-shadow"
+                      v-bind="attrs"
+                      v-on="on"
+                    >Create Product</v-btn>
+                  </template>
+                  <v-card class="edit-dialog" >
+                    <v-card-title>
+                      <span class="headline">{{ formTitle }}</span>
+                    </v-card-title>
+                    <v-card-text>
+                      <v-container>
+                        <v-row>
+                          <v-col cols="12" sm="6" md="4">
+                            <v-text-field outlined v-model="editedItem.title" label="Product name"></v-text-field>
+                          </v-col>
+                          <v-col cols="12" sm="6" md="4">
+                            <v-text-field outlined v-model="editedItem.subtitle" label="Subtitle"></v-text-field>
+                          </v-col>
+                          <v-col cols="12" sm="6" md="4">
+                            <v-text-field outlined v-model="editedItem.price" label="Price"></v-text-field>
+                          </v-col>
+                          <v-col cols="12" sm="6" md="4">
+                            <v-text-field outlined v-model="editedItem.rating" label="Rating"></v-text-field>
+                          </v-col>
+                          <v-col cols="12" sm="6" md="4">
+                            <v-select outlined :items="images" v-model="editedItem.image" label="Image">
+                              <template v-slot:item="{ item }">
+                                <v-img :src="item" width="50" style="margin: 2px"></v-img>
+                              </template>
+                            </v-select>
+                          </v-col>
+                        </v-row>
+                      </v-container>
+                    </v-card-text>
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <v-btn color="primary" outlined @click="close">Cancel</v-btn>
+                      <v-btn color="success" class="button-shadow" @click="save">Save</v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </v-dialog>
               </template>
               <template v-slot:item.image="{ item }">
                 <v-img class="my-3" width="100" :src=item.image></v-img>
@@ -82,7 +81,7 @@
               </template>
               <template v-slot:item.rating="{ item }">
                 <div class="d-flex align-center">
-                  <span class="warning--text" style="font-size: 1rem">{{ item.rating }} </span><v-icon color="warning">mdi-star</v-icon>
+                  <span class="warning--text" style="font-size: 1rem">{{ item.rating }} </span><v-icon size="20" color="warning">mdi-star</v-icon>
                 </div>
               </template>
               <template v-slot:item.actions="{ item }">

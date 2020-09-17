@@ -7,6 +7,17 @@ export default {
     'Delete',
     'Print'
   ],
+  taskSelect: [
+    'All tasks',
+    'Done',
+    'In progress'
+  ],
+  taskMenu: [
+    'Edit',
+    'Copy',
+    'Delete',
+    'Share',
+  ],
   chips: [
     {
       title: 'UI/UX',
@@ -243,6 +254,6 @@ export default {
   sel: 'Daily',
   sel0: 'Daily',
   sel1: 'Daily',
-  sel2: 'Daily',
+  sel2: 'All tasks',
   selNew: 'Daily',
 };

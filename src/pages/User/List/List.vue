@@ -9,7 +9,7 @@
                 <v-icon class="mr-2">mdi-plus</v-icon>
                 Add
               </v-btn>
-              <v-btn to="/user/add" color="primary" outlined class="button-shadow">
+              <v-btn color="primary" outlined class="button-shadow">
                 <v-icon class="mr-2">mdi-filter-variant</v-icon>
                 Filters
               </v-btn>
@@ -58,19 +58,14 @@
                 <v-chip :color="item.status === 'Active' ? 'primary' : 'secondary'" small>{{ item.status }}</v-chip>
               </template>
               <template v-slot:item.actions="{ item }">
-                <v-btn
-                  class="button-shadow mr-3"
-                  @click="editItem(item)"
-                  small
-                  color="success"
-                >Edit
+                <v-btn icon color="primary" @click="editItem(item)">
+                  <v-icon>mdi-pencil-outline</v-icon>
                 </v-btn>
-                <v-btn
-                    class="button-shadow"
-                  @click="deleteItem(item)"
-                  small
-                  color="secondary"
-                >Delete
+                <v-btn icon color="primary">
+                  <v-icon>mdi-information-outline</v-icon>
+                </v-btn>
+                <v-btn icon color="primary" @click="deleteItem(item)">
+                  <v-icon>mdi-delete-outline</v-icon>
                 </v-btn>
               </template>
               <template v-slot:no-data>

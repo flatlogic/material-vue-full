@@ -46,7 +46,7 @@
               <v-spacer></v-spacer>
               <div class="d-flex align-center">
                 <span class="warning--text" style="font-size: 1rem">{{ card.rating }}&#160;&#160;</span>
-                <v-icon color="warning">mdi-star</v-icon>
+                <v-icon size="20" color="warning">mdi-star</v-icon>
               </div>
             </v-card-actions>
           </v-card>

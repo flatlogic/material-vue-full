@@ -95,6 +95,13 @@
     opacity: 1;
   }
 
+  .v-badge__wrapper {
+    span {
+      height: 18px;
+      padding: 3px 6px;
+    }
+  }
+
 }
 .sidebar-chat {
   .v-text-field__slot label {

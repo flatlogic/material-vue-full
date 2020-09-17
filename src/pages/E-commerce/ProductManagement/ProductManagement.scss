@@ -6,4 +6,16 @@
     font-weight: 500;
     color: $grey-bold;
   }
+  .search {
+    .v-label {
+      height: 25px;
+      top: 0;
+    }
+  }
+}
+.edit-dialog .v-card__text .v-input {
+  .v-label {
+    top: 14px;
+    height: 25px;
+  }
 }

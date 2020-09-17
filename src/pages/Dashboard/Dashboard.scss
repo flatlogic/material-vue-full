@@ -14,6 +14,14 @@
     .v-text-field.v-text-field--solo.v-input--dense {
 
     }
+    .main-date-picker {
+      .v-input__prepend-outer {
+        margin-right: 0;
+      }
+      .v-input__control .v-input__slot {
+        padding: 0 6px;
+      }
+    }
   }
   .main-page-title {
     font-size: 20px;
@@ -56,12 +64,13 @@
       }
       .v-select__selection {
         max-width: none;
+        color: $grey-tint!important;
       }
       .v-text-field {
         margin-top: 0;
         .v-input__append-inner .v-input__icon {
           i {
-            color: $grey-bold!important;
+            color: $grey-tint!important;
             margin-top: 4px!important;
           }
         }

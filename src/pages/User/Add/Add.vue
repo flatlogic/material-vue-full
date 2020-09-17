@@ -59,17 +59,18 @@
                             persistent-hint
                             single-line hint="Please choose the role">
                         </v-select>
-                        <v-btn
-                            class="button-shadow"
-                            color="primary"
-                            @click="e1 = 2"
-                        >
-                          Next
-                        </v-btn>
+                        <div class="d-flex justify-end">
+                          <v-btn
+                                  class="button-shadow"
+                                  color="primary"
+                                  @click="e1 = 2"
+                          >
+                            Next
+                          </v-btn>
+                        </div>
+
                       </v-form>
                     </v-col>
-
-
                   </v-row>
                 </v-card>
               </v-stepper-content>

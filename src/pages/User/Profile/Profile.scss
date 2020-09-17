@@ -85,31 +85,19 @@
       .v-date-picker-header, .v-date-picker-table {
         padding: 0;
         height: 100%;
-        .v-date-picker-header__value .accent--text button{
-          color: $grey-medium;
+        .v-date-picker-header__value button{
+          color: $grey-medium!important;
         }
       }
-
-      .v-btn.v-date-picker-table__current.v-btn--active {
-        height: 28px;
-        width: 28px;
-      }
-
       .v-date-picker-table__events {
-        top: -6px;
+        top: -10px;
         & > div {
           height: 6px;
           width: 6px;
         }
       }
     }
-    .v-date-picker-header__value {
-      button {
-        font-size: 1.25rem;
-        font-weight: 400;
-        padding: 0;
-      }
-    }
+
     &.theme--dark {
 
       .v-picker.v-card {
@@ -120,8 +108,8 @@
         .v-date-picker-header, .v-date-picker-table {
           padding: 0;
           height: 100%;
-          .v-date-picker-header__value .accent--text button{
-            color: white;
+          .v-date-picker-header__value button{
+            color: #d6d6d6!important;
           }
         }
       }
@@ -236,12 +224,14 @@
 
       .v-select__selection {
         max-width: none;
+        color: $grey-tint!important;
       }
       .v-text-field {
+
         margin-top: 0;
         .v-input__append-inner .v-input__icon {
           i {
-            color: $grey-bold!important;
+            color: $grey-tint!important;
             margin-top: 4px!important;
           }
         }

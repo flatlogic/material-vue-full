@@ -36,7 +36,7 @@
                     solo
                     flat
                     dense
-                    class="mr-5"
+                    class="main-date-picker mr-2"
                     v-bind="attrs"
                     v-on="on"
                   ></v-text-field>
@@ -99,31 +99,27 @@
                 </v-col>
               </v-row>
               <v-row no-gutters class="pb-0" justify="space-between">
-
-                <v-col cols="4" lg="5" class="d-flex flex-column align-center">
+                <v-col cols="auto" class="d-flex flex-column align-center">
                   <p class="greyTint--text my-0" style="font-size: 12px">New Tickets</p>
                   <div class="">
                     <span class="greyBold--text font-weight-regular" style="font-size: 16px">45</span>
                     <v-icon size="30" color="success" class="mt-n1">mdi-circle-small</v-icon>
                   </div>
                 </v-col>
-
-                <v-col cols="2" lg="4" class="d-flex flex-column align-center">
+                <v-col cols="auto" class="d-flex flex-column align-center">
                   <p class="greyTint--text my-0" style="font-size: 12px">Open</p>
                   <div class="d-flex flex-row justify-start">
                     <span class="greyBold--text font-weight-regular"  style="font-size: 16px">147</span>
                     <v-icon size="30" color="warning" class="mt-n1">mdi-circle-small</v-icon>
                   </div>
                 </v-col>
-
-                <v-col cols="3" class="d-flex flex-column align-center">
+                <v-col cols="auto" class="d-flex flex-column align-center">
                   <p class="greyTint--text my-0" style="font-size: 12px">Rate</p>
                   <div class="">
-                    <span class="greyBold--text font-weight-regular"  style="font-size: 16px">351</span>
+                    <span class="greyBold--text font-weight-regular" style="font-size: 16px">351</span>
                     <v-icon size="30" class="pl-0 mt-n1" color="primary">mdi-circle-small</v-icon>
                   </div>
                 </v-col>
-
               </v-row>
             </v-card-text>
           </v-card>
