@@ -17,15 +17,6 @@
     .v-data-footer {
       font-size: $fs-medium;
     }
-    &.theme--dark {
-      .v-data-table__wrapper {
-        table {
-          thead tr th {
-            color: #fff!important;
-          }
-        }
-      }
-    }
   }
 }
 

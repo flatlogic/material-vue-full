@@ -526,7 +526,7 @@
                 <template v-slot:item.name="{ item }">
                   <div class="d-flex align-center">
                     <v-avatar size="40" :color="item.avatar.color + ' ma-5 ml-0'">
-                      <span class="white--text font-weight-medium">{{ item.avatar.name }}</span>
+                      <span class="font-weight-medium">{{ item.avatar.name }}</span>
                     </v-avatar>
                     <div>
                       <span class="mb-0 fs-base">{{ item.name }}</span>
