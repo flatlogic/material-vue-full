@@ -44,7 +44,7 @@
           v-model="item.model"
         >
           <template v-slot:prependIcon>
-            <v-icon size="24" class="mr-0"> {{ item.icon }} </v-icon>
+            <v-icon size="24" class="mr-0" color="greyTint"> {{ item.icon }} </v-icon>
           </template>
           <template v-slot:activator >
             <v-list-item-content>
@@ -85,7 +85,7 @@
           <v-list-item-action class="mr-6">
             <v-icon
               :size="item.size ? item.size : 24"
-              :color="item.color ? item.color : ''"
+              :color="item.color ? item.color : 'greyTint'"
             >{{ item.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
