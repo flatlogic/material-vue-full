@@ -12,8 +12,7 @@
                   <v-btn
                     icon
                     v-bind="attrs"
-                    v-on="on"
-                  >
+                    v-on="on">
                     <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                   </v-btn>
                 </template>
@@ -21,8 +20,7 @@
                   <v-list-item
                     v-for="(item, i) in menu"
                     :key="i"
-                    @click="() => {}"
-                  >
+                    @click="() => {}">
                     <v-list-item-title>{{ item }}</v-list-item-title>
                   </v-list-item>
                 </v-list>
@@ -50,19 +48,17 @@
               <v-menu>
                 <template v-slot:activator="{ on, attrs }">
                   <v-btn
-                          icon
-                          v-bind="attrs"
-                          v-on="on"
-                  >
+                    icon
+                    v-bind="attrs"
+                    v-on="on">
                     <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                   </v-btn>
                 </template>
                 <v-list>
                   <v-list-item
-                          v-for="(item, i) in menu"
-                          :key="i"
-                          @click="() => {}"
-                  >
+                    v-for="(item, i) in menu"
+                    :key="i"
+                    @click="() => {}">
                     <v-list-item-title>{{ item }}</v-list-item-title>
                   </v-list-item>
                 </v-list>
@@ -90,19 +86,17 @@
               <v-menu>
                 <template v-slot:activator="{ on, attrs }">
                   <v-btn
-                          icon
-                          v-bind="attrs"
-                          v-on="on"
-                  >
+                    icon
+                    v-bind="attrs"
+                    v-on="on">
                     <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                   </v-btn>
                 </template>
                 <v-list>
                   <v-list-item
-                          v-for="(item, i) in menu"
-                          :key="i"
-                          @click="() => {}"
-                  >
+                    v-for="(item, i) in menu"
+                    :key="i"
+                    @click="() => {}">
                     <v-list-item-title>{{ item }}</v-list-item-title>
                   </v-list-item>
                 </v-list>
@@ -132,8 +126,7 @@
                   <v-btn
                     icon
                     v-bind="attrs"
-                    v-on="on"
-                  >
+                    v-on="on">
                     <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                   </v-btn>
                 </template>
@@ -141,8 +134,7 @@
                   <v-list-item
                     v-for="(item, i) in menu"
                     :key="i"
-                    @click="() => {}"
-                  >
+                    @click="() => {}">
                     <v-list-item-title>{{ item }}</v-list-item-title>
                   </v-list-item>
                 </v-list>
@@ -170,19 +162,17 @@
               <v-menu>
                 <template v-slot:activator="{ on, attrs }">
                   <v-btn
-                          icon
-                          v-bind="attrs"
-                          v-on="on"
-                  >
+                    icon
+                    v-bind="attrs"
+                    v-on="on">
                     <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                   </v-btn>
                 </template>
                 <v-list>
                   <v-list-item
-                          v-for="(item, i) in menu"
-                          :key="i"
-                          @click="() => {}"
-                  >
+                    v-for="(item, i) in menu"
+                    :key="i"
+                    @click="() => {}">
                     <v-list-item-title>{{ item }}</v-list-item-title>
                   </v-list-item>
                 </v-list>
@@ -210,19 +200,17 @@
               <v-menu>
                 <template v-slot:activator="{ on, attrs }">
                   <v-btn
-                          icon
-                          v-bind="attrs"
-                          v-on="on"
-                  >
+                    icon
+                    v-bind="attrs"
+                    v-on="on">
                     <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                   </v-btn>
                 </template>
                 <v-list>
                   <v-list-item
-                          v-for="(item, i) in menu"
-                          :key="i"
-                          @click="() => {}"
-                  >
+                    v-for="(item, i) in menu"
+                    :key="i"
+                    @click="() => {}">
                     <v-list-item-title>{{ item }}</v-list-item-title>
                   </v-list-item>
                 </v-list>

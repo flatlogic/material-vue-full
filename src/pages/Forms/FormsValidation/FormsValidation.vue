@@ -11,8 +11,7 @@
                 <v-btn
                   icon
                   v-bind="attrs"
-                  v-on="on"
-                >
+                  v-on="on">
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
               </template>
@@ -20,8 +19,7 @@
                 <v-list-item
                   v-for="(item, i) in menu"
                   :key="i"
-                  @click="() => {}"
-                >
+                  @click="() => {}">
                   <v-list-item-title >{{ item }}</v-list-item-title>
                 </v-list-item>
               </v-list>
@@ -31,8 +29,7 @@
             <v-form
               ref="form"
               v-model="firstForm.valid"
-              lazy-validation
-            >
+              lazy-validation>
               <v-row>
                 <v-col cols="5" class="d-flex align-center">
                   <p class="fs-normal greyBold--text mb-0">Normal field</p>
@@ -74,19 +71,18 @@
               ></v-checkbox>
               <v-row justify="end">
                 <v-btn
+                    color="primary"
+                    outlined
+                    class="button-shadow mr-4"
+                    @click="reset">
+                  Reset Form
+                </v-btn>
+                <v-btn
                   :disabled="!firstForm.valid"
                   color="primary"
                   class="button-shadow mr-4"
-                  @click="validate"
-                >
+                  @click="validate">
                   Validate
-                </v-btn>
-                <v-btn
-                  color="default"
-                  class="button-shadow mr-4"
-                  @click="reset"
-                >
-                  Reset Form
                 </v-btn>
               </v-row>
             </v-form>
@@ -103,8 +99,7 @@
                 <v-btn
                   icon
                   v-bind="attrs"
-                  v-on="on"
-                >
+                  v-on="on">
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
               </template>
@@ -112,8 +107,7 @@
                 <v-list-item
                   v-for="(item, i) in menu"
                   :key="i"
-                  @click="() => {}"
-                >
+                  @click="() => {}">
                   <v-list-item-title >{{ item }}</v-list-item-title>
                 </v-list-item>
               </v-list>
@@ -123,8 +117,7 @@
             <v-form
               ref="formS"
               v-model="secondForm.form"
-              class="pt-6"
-            >
+              class="pt-6">
               <v-text-field
                 v-model="secondForm.password"
                 :rules="[secondForm.rules.password, secondForm.rules.length(8)]"
@@ -155,8 +148,7 @@
               <v-checkbox
                 v-model="secondForm.agreement"
                 :rules="[secondForm.rules.required]"
-                color="info"
-              >
+                color="primary">
                 <template v-slot:label>
                   <span>I agree to the&nbsp;<a href="#" @click.stop.prevent="secondForm.dialog = true">Terms of Service</a>
                   &nbsp; and &nbsp;
@@ -170,7 +162,8 @@
               <v-spacer></v-spacer>
               <v-btn
                 class="button-shadow mr-4"
-                text
+                outlined
+                color="primary"
                 @click="$refs.formS.reset()"
               >
                 Clear
@@ -221,61 +214,61 @@
 </template>
 
 <script>
-    export default {
-        name: 'FormsValidation',
-        data: () => ({
-            menu: [
-                'Edit',
-                'Copy',
-                'Delete',
-                'Print'
-            ],
-            firstForm: {
-                valid: true,
-                name: '',
-                nameRules: [
-                    v => !!v || 'Name is required',
-                    v => (v && v.length <= 10) || 'Name must be less than 10 characters',
-                ],
-                email: '',
-                emailRules: [
-                    v => !!v || 'E-mail is required',
-                    v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
-                ],
-                select: null,
-                items: [
-                    'Item 1',
-                    'Item 2',
-                    'Item 3',
-                    'Item 4',
-                ],
-                checkbox: false,
-            },
-            secondForm: {
-                agreement: false,
-                bio: 'Pop culture buff. Travel nerd. Tv trailblazer. Music expert. Beer maven. Writer.',
-                dialog: false,
-                email: undefined,
-                form: false,
-                isLoading: false,
-                password: undefined,
-                phone: undefined,
-                rules: {
-                    email: v => !!(v || '').match(/@/) || 'Please enter a valid email',
-                    length: len => v => (v || '').length >= len || `Invalid character length, required ${len}`,
-                    password: v => !!(v || '').match(/(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/) ||
-                        'Password must contain an upper case letter, a numeric character, and a special character',
-                    required: v => !!v || 'This field is required',
-                },
-            }
-        }),
-        methods: {
-            validate() {
-                this.$refs.form.validate()
-            },
-            reset() {
-                this.$refs.form.reset()
-            },
+  export default {
+    name: 'FormsValidation',
+    data: () => ({
+      menu: [
+          'Edit',
+          'Copy',
+          'Delete',
+          'Print'
+        ],
+      firstForm: {
+        valid: true,
+        name: '',
+        nameRules: [
+          v => !!v || 'Name is required',
+          v => (v && v.length <= 10) || 'Name must be less than 10 characters',
+        ],
+        email: '',
+        emailRules: [
+          v => !!v || 'E-mail is required',
+          v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+        ],
+        select: null,
+        items: [
+          'Item 1',
+          'Item 2',
+          'Item 3',
+          'Item 4',
+        ],
+        checkbox: false,
+      },
+      secondForm: {
+        agreement: false,
+        bio: 'Pop culture buff. Travel nerd. Tv trailblazer. Music expert. Beer maven. Writer.',
+        dialog: false,
+        email: undefined,
+        form: false,
+        isLoading: false,
+        password: undefined,
+        phone: undefined,
+        rules: {
+          email: v => !!(v || '').match(/@/) || 'Please enter a valid email',
+          length: len => v => (v || '').length >= len || `Invalid character length, required ${len}`,
+          password: v => !!(v || '').match(/(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/) ||
+              'Password must contain an upper case letter, a numeric character, and a special character',
+          required: v => !!v || 'This field is required',
         },
-    }
+      }
+    }),
+    methods: {
+      validate() {
+        this.$refs.form.validate()
+      },
+      reset() {
+        this.$refs.form.reset()
+      },
+    },
+  }
 </script>

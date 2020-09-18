@@ -5,17 +5,15 @@
         v-for="(item, i) in items"
         :key="i"
         :color="item.subColor"
-        fill-dot
-      ><span v-html="item.opposite" slot="opposite"></span>
+        fill-dot>
+        <span v-html="item.opposite" slot="opposite"></span>
         <span slot="icon">
           <v-responsive
             :class="'text-center ' + item.color + ' rounded-circle d-inline-flex align-center justify-center'"
             height="28"
-            width="28"
-          >
-            <v-icon size="16" :color="item.icon" class="white--text">{{ item.icon }}</v-icon>
+            width="28">
+            <v-icon :size="item.iconSize" :color="item.icon" class="white--text">{{ item.icon }}</v-icon>
         </v-responsive>
-
         </span>
         <v-card>
           <v-card-title class="py-1">
@@ -58,13 +56,12 @@
           </v-card-text>
           <v-list two-line>
             <template v-for="(item, index) in item.comments">
-
               <v-divider
-                  v-if="item.divider"
-                  :key="index"
+                v-if="item.divider"
+                :key="index"
               ></v-divider>
               <v-list-item
-                  :key="(index + 1) * 2"
+                :key="(index + 1) * 2"
               >
                 <v-list-item-avatar>
                   <v-img :src="item.avatar"></v-img>
@@ -75,7 +72,6 @@
                   <v-list-item-subtitle v-html="item.subtitle"></v-list-item-subtitle>
                 </v-list-item-content>
               </v-list-item>
-
             </template>
             <v-divider></v-divider>
             <v-list-item class="mt-2">

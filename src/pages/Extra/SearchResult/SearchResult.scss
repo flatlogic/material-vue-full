@@ -4,15 +4,13 @@
   .main-pagination {
     .v-pagination {
       &.theme--dark {
-        li button.v-pagination__item, button.v-pagination__navigation {
+        li button {
           box-shadow: none;
         }
       }
       &.theme--light {
-        .v-pagination {
-          li button.v-pagination__item, button.v-pagination__navigation {
-            box-shadow: $button-shadow;
-          }
+        li button {
+          box-shadow: $button-shadow;
         }
       }
     }

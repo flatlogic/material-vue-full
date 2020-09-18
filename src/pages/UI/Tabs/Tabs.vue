@@ -11,17 +11,15 @@
                 <v-btn
                   icon
                   v-bind="attrs"
-                  v-on="on"
-                >
+                  v-on="on">
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
               </template>
               <v-list>
                 <v-list-item
-                    v-for="(item, i) in menu"
-                    :key="i"
-                    @click="() => {}"
-                >
+                  v-for="(item, i) in menu"
+                  :key="i"
+                  @click="() => {}">
                   <v-list-item-title >{{ item }}</v-list-item-title>
                 </v-list-item>
               </v-list>
@@ -32,24 +30,20 @@
             <v-tabs
               v-model="tabExample.tab"
               fixed-tabs
-              class="tab-example"
-            >
+              class="tab-example">
               <v-tabs-slider></v-tabs-slider>
 
               <v-tab
                 v-for="i in tabExample.tabs"
                 :key="i"
-                :href="`#tab-${i}`"
-
-              >
+                :href="`#tab-${i}`">
                 Tab {{ i }}
               </v-tab>
 
               <v-tab-item
                 v-for="i in tabExample.tabs"
                 :key="i"
-                :value="'tab-' + i"
-              >
+                :value="'tab-' + i">
                 <v-sheet class="py-5 px-3">
                   <p>{{ tabExample.text }}</p>
                 </v-sheet>
@@ -126,17 +120,15 @@
                 <v-btn
                   icon
                   v-bind="attrs"
-                  v-on="on"
-                >
+                  v-on="on">
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
               </template>
               <v-list>
                 <v-list-item
-                    v-for="(item, i) in menu"
-                    :key="i"
-                    @click="() => {}"
-                >
+                  v-for="(item, i) in menu"
+                  :key="i"
+                  @click="() => {}">
                   <v-list-item-title >{{ item }}</v-list-item-title>
                 </v-list-item>
               </v-list>
@@ -144,13 +136,12 @@
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
             <v-expansion-panels
-                    v-model="panel"
-                    multiple
-            >
+              class="button-shadow"
+              v-model="panel"
+              multiple>
               <v-expansion-panel
-                      v-for="(item,i) in 5"
-                      :key="i"
-              >
+                v-for="(item,i) in 5"
+                :key="i">
                 <v-expansion-panel-header>Header {{ item }}</v-expansion-panel-header>
                 <v-expansion-panel-content>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
