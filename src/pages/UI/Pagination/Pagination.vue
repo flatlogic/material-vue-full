@@ -161,7 +161,6 @@
             <div class="text-center">
               <v-pagination
                 :length="3"
-                disabled
                 class="pagination-disabled"
               ></v-pagination>
             </div>

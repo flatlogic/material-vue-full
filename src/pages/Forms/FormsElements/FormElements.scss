@@ -73,4 +73,17 @@
       box-shadow: none!important;
     }
   }
+
+  .text-area-card {
+    .v-textarea {
+      .v-label {
+        top: -4px;
+      }
+    }
+    .v-text-field--filled {
+      .v-label {
+        top: 8px!important;
+      }
+    }
+  }
 }

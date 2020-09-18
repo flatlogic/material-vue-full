@@ -62,12 +62,12 @@
                <v-col cols="12">
                  <v-col cols="12" class="mt-2">
                     <pre>
-&lt;<span>v-snackbar</span>
-  <span>v-model</span>=<span><span>"</span><span>snackbar</span><span>"</span></span>&gt;
+<span class="primaryConst--text">&lt;v-snackbar</span>
+  <span class="secondaryConst--text">v-model="snackbar"&gt;</span>
 
-    {{<span>text</span><span>}}</span>
+    {{ <span>message</span> }}
 
-&lt;<span>/v-snackbar</span>&gt;
+<span class="primaryConst--text">&lt;/v-snackbar></span>
 </pre>
                    <p class="pt-4">For more API information refer to the library documentation</p>
                  </v-col>

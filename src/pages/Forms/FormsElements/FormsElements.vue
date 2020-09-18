@@ -317,26 +317,24 @@
         </v-card>
       </v-col>
       <v-col cols=12>
-        <v-card class="mx-1 mb-1">
+        <v-card class="text-area-card mx-1 mb-1">
           <v-card-title class="pa-5 pb-3">
             <p>Textareas</p>
             <v-spacer></v-spacer>
             <v-menu>
               <template v-slot:activator="{ on, attrs }">
                 <v-btn
-                    icon
-                    v-bind="attrs"
-                    v-on="on"
-                >
+                  icon
+                  v-bind="attrs"
+                  v-on="on">
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
               </template>
               <v-list>
                 <v-list-item
-                    v-for="(item, i) in menu"
-                    :key="i"
-                    @click="() => {}"
-                >
+                  v-for="(item, i) in menu"
+                  :key="i"
+                  @click="() => {}">
                   <v-list-item-title >{{ item }}</v-list-item-title>
                 </v-list-item>
               </v-list>
@@ -346,30 +344,37 @@
             <v-row>
               <v-col cols="12" md="6">
                 <v-textarea
-                        label="Default style"
-                        value="Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do: once or twice she had peeped into the book her sister was reading, but it had no pictures or conversations in it, “and what is the use of a book,” thought Alice “without pictures or conversations?”"
-                        hint="Hint text"
+                  class=" pt-1 mb-4"
+                  label="Default style"
+                  value="Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do: once or twice she had peeped into the book her sister was reading, but it had no pictures or conversations in it, “and what is the use of a book,” thought Alice “without pictures or conversations?”"
+                  hint="Hint text"
+                  hide-details
                 ></v-textarea>
               </v-col>
               <v-col cols="12" md="6">
                 <v-textarea
-                        solo
-                        value="“What a curious feeling!” said Alice; “I must be shutting up like a telescope.”"
-                        label="Solo textarea"
+                  class="mb-4"
+                  hide-details
+                  solo
+                  value="“What a curious feeling!” said Alice; “I must be shutting up like a telescope.”"
+                  label="Solo textarea"
                 ></v-textarea>
               </v-col>
               <v-col cols="12" md="6">
                 <v-textarea
-                        filled
-                        label="Filled textarea"
-                        value="And so it was indeed: she was now only ten inches high, and her face brightened up at the thought that she was now the right size for going through the little door into that lovely garden. First, however, she waited for a few minutes to see if she was going to shrink any further: she felt a little nervous about this; “for it might end, you know,” said Alice to herself, “in my going out altogether, like a candle. I wonder what I should be like then?” And she tried to fancy what the flame of a candle is like after the candle is blown out, for she could not remember ever having seen such a thing."
+                  hide-details
+                  filled
+                  label="Filled textarea"
+                  value="And so it was indeed: she was now only ten inches high, and her face brightened up at the thought that she was now the right size for going through the little door into that lovely garden. First, however, she waited for a few minutes to see if she was going to shrink any further: she felt a little nervous about this; “for it might end, you know,” said Alice to herself, “in my going out altogether, like a candle. I wonder what I should be like then?”"
                 ></v-textarea>
               </v-col>
               <v-col cols="12" md="6">
                 <v-textarea
-                        outlined
-                        label="Outlined textarea"
-                        value="Soon her eye fell on a little glass box that was lying under the table: she opened it, and found in it a very small cake, on which the words “EAT ME” were beautifully marked in currants. “Well, I’ll eat it,” said Alice, “and if it makes me grow larger, I can reach the key; and if it makes me grow smaller, I can creep under the door; so either way I’ll get into the garden, and I don’t care which happens!”"
+                  outlined
+                  height="166"
+                  hide-details
+                  label="Outlined textarea"
+                  value="Soon her eye fell on a little glass box that was lying under the table: she opened it, and found in it a very small cake, on which the words “EAT ME” were beautifully marked in currants. “Well, I’ll eat it,” said Alice, “and if it makes me grow larger, I can reach the key; and if it makes me grow smaller, I can creep under the door; so either way I’ll get into the garden, and I don’t care which happens!”"
                 ></v-textarea>
               </v-col>
             </v-row>

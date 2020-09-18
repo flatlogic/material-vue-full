@@ -218,53 +218,53 @@
             <v-row>
               <v-col cols="12" class="mt-0">
                             <pre>
-&lt;<span>v-row</span> <span>justify</span>=<span><span>"</span><span>end</span><span>"</span></span>&gt;
-  &lt;<span>v-col</span> <span>cols</span>=<span><span>"3"</span></span> <span>class</span>=<span>"<span>primary</span>"</span>&gt;
-    &lt;<span>h6</span><span> <span>class=</span><span class="pl-pds">"white--text"</span></span>&gt;
+<span class="primaryConst--text">&lt;v-row justify="end"&gt;</span>
+  <span class="secondaryConst--text">&lt;v-col cols="3" class="primary"&gt;</span>
+    <span class="info--text">&lt;h6 class="white--text"&gt;</span>
       1
-    &lt;<span>h6/</span>&gt;
-  &lt;<span>v-col</span>&gt;
+    <span class="info--text">&lt;/h6&gt;</span>
+  <span class="secondaryConst--text">&lt;/v-col&gt;</span>
 
-  &lt;<span>v-col</span> <span>cols</span>=<span><span>"3"</span></span> <span>class</span>=<span>"<span>secondary</span>"</span>&gt;
-    &lt;<span>h6</span><span> <span>class=</span><span class="pl-pds">"white--text"</span></span>&gt;
+  <span class="secondaryConst--text">&lt;v-col cols="3" class="secondary"&gt;</span>
+    <span class="info--text">&lt;h6 class="white--text"&gt;</span>
       2
-    &lt;<span>h6/</span>&gt;
-  &lt;<span>v-col</span>&gt;
-&lt;/<span>v-row</span>&gt;
+    <span class="info--text">&lt;/h6&gt;</span>
+  <span class="secondaryConst--text">&lt;/v-col&gt;</span>
+<span class="primaryConst--text">&lt;/v-row&gt;</span>
 
- &lt;<span>v-row</span> <span>justify</span>=<span><span>"</span><span>space-around</span><span>"</span></span>&gt;
-  &lt;<span>v-col</span> <span>cols</span>=<span><span>"3"</span></span> <span>class</span>=<span>"<span>primary</span>"</span>&gt;
-    &lt;<span>h6</span><span> <span>class=</span><span class="pl-pds">"white--text"</span></span>&gt;
+<span class="primaryConst--text">&lt;v-row justify="space-around"&gt;</span>
+  <span class="secondaryConst--text">&lt;v-col cols="3" class="primary"&gt;</span>
+    <span class="info--text">&lt;h6 class="white--text"&gt;</span>
       1
-    &lt;<span>h6/</span>&gt;
-  &lt;<span>v-col</span>&gt;
+    <span class="info--text">&lt;/h6&gt;</span>
+  <span class="secondaryConst--text">&lt;/v-col&gt;</span>
 
-  &lt;<span>v-col</span> <span>cols</span>=<span><span>"3"</span></span> <span>class</span>=<span>"<span>secondary</span>"</span>&gt;
-    &lt;<span>h6</span><span> <span>class=</span><span class="pl-pds">"white--text"</span></span>&gt;
+  <span class="secondaryConst--text">&lt;v-col cols="3" class="secondary"&gt;</span>
+    <span class="info--text">&lt;h6 class="white--text"&gt;</span>
       2
-    &lt;<span>h6/</span>&gt;
-  &lt;<span>v-col</span>&gt;
-&lt;/<span>v-row</span>&gt;
+    <span class="info--text">&lt;/h6&gt;</span>
+  <span class="secondaryConst--text">&lt;/v-col&gt;</span>
+<span class="primaryConst--text">&lt;/v-row&gt;</span>
 
- &lt;<span>v-row</span> <span>justify</span>=<span><span>"</span><span>space-around</span><span>"</span></span>&gt;
-  &lt;<span>v-col</span> <span>cols</span>=<span><span>"3"</span></span> <span>class</span>=<span>"<span>primary</span>"</span>&gt;
-    &lt;<span>h6</span><span> <span>class=</span><span class="pl-pds">"white--text"</span></span>&gt;
+<span class="primaryConst--text">&lt;v-row justify="space-between"&gt;</span>
+  <span class="secondaryConst--text">&lt;v-col cols="3" class="primary"&gt;</span>
+    <span class="info--text">&lt;h6 class="white--text"&gt;</span>
       1
-    &lt;<span>h6/</span>&gt;
-  &lt;<span>v-col</span>&gt;
+    <span class="info--text">&lt;/h6&gt;</span>
+  <span class="secondaryConst--text">&lt;/v-col&gt;</span>
 
-  &lt;<span>v-col</span> <span>cols</span>=<span><span>"3"</span></span> <span>class</span>=<span>"<span>secondary</span>"</span>&gt;
-    &lt;<span>h6</span><span> <span>class=</span><span class="pl-pds">"white--text"</span></span>&gt;
+  <span class="secondaryConst--text">&lt;v-col cols="3" class="secondary"&gt;</span>
+    <span class="info--text">&lt;h6 class="white--text"&gt;</span>
       2
-    &lt;<span>h6/</span>&gt;
-  &lt;<span>v-col</span>&gt;
+    <span class="info--text">&lt;/h6&gt;</span>
+  <span class="secondaryConst--text">&lt;/v-col&gt;</span>
 
-  &lt;<span>v-col</span> <span>cols</span>=<span><span>"3"</span></span> <span>class</span>=<span>"<span>warning</span>"</span>&gt;
-    &lt;<span>h6</span><span> <span>class=</span><span class="pl-pds">"white--text"</span></span>&gt;
+  <span class="secondaryConst--text">&lt;v-col cols="3" class="warning"&gt;</span>
+    <span class="info--text">&lt;h6 class="white--text"&gt;</span>
       3
-    &lt;<span>h6/</span>&gt;
-  &lt;<span>v-col</span>&gt;
-&lt;/<span>v-row</span>&gt;</pre>
+    <span class="info--text">&lt;/h6&gt;</span>
+  <span class="secondaryConst--text">&lt;/v-col&gt;</span>
+<span class="primaryConst--text">&lt;/v-row&gt;</span></pre>
               </v-col>
             </v-row>
             <v-dialog
