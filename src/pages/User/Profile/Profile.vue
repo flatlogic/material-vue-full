@@ -140,7 +140,7 @@
                 </v-card-text>
               </v-card>
             </v-col>
-            <v-col cols="12">
+            <v-col cols="12" class="pb-0 pb-sm-3">
               <v-card class="article-card ma-1">
                 <v-card-title class="pa-5 pb-3">
                   <p>Top 5 react native starter kits</p>
@@ -162,7 +162,7 @@
             </v-col>
           </v-row>
         </v-col>
-        <v-col md=7 sm="6" cols=12>
+        <v-col md=7 sm="6" cols=12 class="pt-0 pt-sm-3">
           <v-row>
             <v-col cols="12">
               <v-card class="folder-card ma-1" min-height="282">
@@ -180,7 +180,6 @@
                      >
                       {{ tab.tabName }}
                     </v-tab>
-
                     <v-tab-item
                       v-for="(tab, i) in mock.tabs"
                       :key="i"
