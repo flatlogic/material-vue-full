@@ -21,7 +21,7 @@ export default {
   chips: [
     {
       title: 'UI/UX',
-      color: 'primary',
+      color: 'primaryConst',
       bgColor: [83, 103, 254]
     },
     {
@@ -41,7 +41,7 @@ export default {
     },
     {
       title: 'Mobile',
-      color: 'success',
+      color: 'successConst',
       bgColor: [60, 212, 160]
     },
   ],

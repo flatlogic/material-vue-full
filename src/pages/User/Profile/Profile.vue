@@ -480,7 +480,7 @@ export default {
             },
           },
             stroke: {
-                show: false,
+              show: false,
             },
         },
         series: this.generatePieSeries()
@@ -543,7 +543,8 @@ export default {
   mounted() {
     setTimeout(() => {
       this.apexLoading = true
-    })
+      }
+    )
   }
 }
 </script>
