@@ -2,9 +2,9 @@
   <v-container fluid class="product-grid-page mt-5 px-0 px-md-2">
     <v-row class="mb-n3">
       <v-col
-          v-for="(select, i) in selects"
-          :key="i"
-          class="d-flex" cols="12" sm="6" md="4" lg="2">
+        v-for="(select, i) in selects"
+        :key="i"
+        class="d-flex" cols="12" sm="6" md="4" lg="2">
         <v-select
           :key="i"
           :items="select.items"
