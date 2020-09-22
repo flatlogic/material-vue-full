@@ -104,14 +104,13 @@
       <v-list-item
         color="primary"
         link
-        @click="chat = true"
-      >
+        @click="chat = true">
         <v-list-item-action class="mr-6">
           <v-responsive
             class="text-center primary rounded-pill d-inline-flex align-center justify-center my-2"
             height="44"
             width="44"
-          >
+            max-width="200%">
             <v-icon
               size="24"
               color="white"
@@ -120,8 +119,7 @@
         </v-list-item-action>
         <v-list-item-content>
           <v-list-item-title
-              link
-          >
+            link>
             Chat
           </v-list-item-title>
         </v-list-item-content>
@@ -350,7 +348,7 @@
           { divider: true },
           { heading: 'PROJECTS' },
           { title: 'My recent', icon: 'mdi-circle-medium', color: 'warning'},
-          { title: 'Starred', icon: 'mdi-circle-medium', color: 'primary'},
+          { title: 'Starred', icon: 'mdi-circle-medium', color: 'primaryConst'},
           { title: 'Background', icon: 'mdi-circle-medium', color: 'error'},
           { divider: true },
           { title: 'Add section', icon: 'mdi-plus-circle', color: 'secondary', size: 36, action: () => this.addSection()},

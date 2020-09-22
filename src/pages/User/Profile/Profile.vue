@@ -57,7 +57,7 @@
                   <v-menu>
                     <template v-slot:activator="{ on, attrs }">
                       <v-select
-                        class="main-chart-select font-weight-regular greyBold--text"
+                        class="main-chart-select greyBold--text"
                         v-model="mock.sel"
                         :value="mock.select[0]"
                         v-bind="attrs"
@@ -105,16 +105,16 @@
                   <v-menu>
                     <template v-slot:activator="{ on, attrs }">
                       <v-select
-                          class="main-chart-select font-weight-regular"
-                          v-model="mock.sel1"
-                          :value="mock.select[0]"
-                          v-bind="attrs"
-                          v-on="on"
-                          dense
-                          flat
-                          single-line
-                          hide-details
-                          :items="mock.select"
+                        class="main-chart-select"
+                        v-model="mock.sel1"
+                        :value="mock.select[0]"
+                        v-bind="attrs"
+                        v-on="on"
+                        dense
+                        flat
+                        single-line
+                        hide-details
+                        :items="mock.select"
                       ></v-select>
                     </template>
                   </v-menu>
@@ -173,11 +173,10 @@
                   <v-tabs color="secondary">
                     <v-tabs-slider></v-tabs-slider>
                     <v-tab
-                        v-for="(tab, i) in mock.tabs"
-                        class="text-capitalize font-weight-regular"
-                        :key="i"
-                        :href="'#tab-' + tab.tabName.toLocaleLowerCase()"
-                     >
+                      v-for="(tab, i) in mock.tabs"
+                      class="text-capitalize font-weight-regular"
+                      :key="i"
+                      :href="'#tab-' + tab.tabName.toLocaleLowerCase()">
                       {{ tab.tabName }}
                     </v-tab>
                     <v-tab-item
@@ -238,22 +237,18 @@
                         v-for="(tab, i) in mock.taskTabs"
                         :key="i"
                         :href="'#tab-' + tab.tabLink"
-                        class="text-capitalize font-weight-regular"
-                      >
+                        class="text-capitalize font-weight-regular">
                         {{ tab.tabName }}
                       </v-tab>
 
                       <v-tab-item
                         value="tab-today"
-                        class="pt-0"
-                      >
+                        class="pt-0">
                         <v-row no-gutters class="flex-column flex-nowrap overflow-hidden pr-0"
                           v-for="(task, i) in mock.tasks.tasksToday"
                           :key="i"
                           style="width: 100%; cursor:pointer;"
-                          :class="{ done:task.done }"
-
-                           >
+                          :class="{ done:task.done }">
                           <v-divider></v-divider>
                           <v-col
                             cols="12"
@@ -261,8 +256,7 @@
                             <div class="d-flex" @click="$set(task, 'done', !task.done)">
                               <p
                                 class="task-time mb-0 "
-                                style="font-size: 10px"
-                              >{{ task.time }}</p>
+                                style="font-size: 10px">{{ task.time }}</p>
                               <v-icon class="task-circle ml-1" :color="task.color">mdi-circle-medium</v-icon>
                               <p class="task-text greyBold--text mb-0 font-weight-medium" style="line-height: 25px;">{{ task.task }}</p>
                             </div>
@@ -271,8 +265,7 @@
                                 <v-btn
                                   icon
                                   v-bind="attrs"
-                                  v-on="on"
-                                >
+                                  v-on="on">
                                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                                 </v-btn>
                               </template>
@@ -280,36 +273,31 @@
                                 <v-list-item
                                   v-for="(item, i) in mock.taskMenu"
                                   :key="i"
-                                  @click="() => {}"
-                                >
+                                  @click="() => {}">
                                   <v-list-item-title>{{ item }}</v-list-item-title>
                                 </v-list-item>
                               </v-list>
                             </v-menu>
                           </v-col>
-
                         </v-row>
                       </v-tab-item>
                       <v-tab-item
                         value="tab-week"
-                        class="pt-0"
-                      >
+                        class="pt-0">
                         <v-row no-gutters class="flex-column flex-nowrap overflow-hidden pr-0"
                          v-for="(task, i) in mock.tasks.tasksWeek"
                          :key="i * 10"
                          style="width: 100%; cursor:pointer;"
                          :class="{ done:task.done }"
-                         @click="$set(task, 'done', !task.done)"
-                        >
+                         @click="$set(task, 'done', !task.done)">
                           <v-divider></v-divider>
                           <v-col
-                              cols="12"
-                              class="d-flex justify-space-between align-center py-3">
+                            cols="12"
+                            class="d-flex justify-space-between align-center py-3">
                             <div class="d-flex">
                               <p
                                 class="task-time mb-0 "
-                                style="font-size: 10px"
-                              >{{ task.time }}</p>
+                                style="font-size: 10px">{{ task.time }}</p>
                               <v-icon class="task-circle ml-1" :color="task.color">mdi-circle-medium</v-icon>
                               <p class="task-text greyBold--text mb-0 font-weight-medium" style="line-height: 25px;">{{ task.task }}</p>
                             </div>
@@ -536,7 +524,7 @@ export default {
     dateFunctionEvents (date) {
       const [,, day] = date.split('-')
       if ([12, 17, 28].includes(parseInt(day, 10))) return true
-      if ([1, 19, 22].includes(parseInt(day, 10))) return ['primaryConst', 'secondaryConst']
+      if ([1, 19, 22].includes(parseInt(day, 10))) return ['successConst', 'secondaryConst']
       return false
     },
   },

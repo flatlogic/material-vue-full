@@ -52,10 +52,10 @@
                 <v-img class="my-3" width="34" :src=item.image></v-img>
               </template>
               <template v-slot:item.name="{ item }">
-                <a class="primary-text">{{ item.name }}</a>
+                <a class="primaryConst--text">{{ item.name }}</a>
               </template>
               <template v-slot:item.status="{ item }">
-                <v-chip :color="item.status === 'Active' ? 'primary' : 'secondary'" small>{{ item.status }}</v-chip>
+                <v-chip :color="item.status === 'Active' ? 'primaryConst white--text' : 'secondaryConst white--text'" small>{{ item.status }}</v-chip>
               </template>
               <template v-slot:item.actions="{ item }">
                 <v-btn icon color="primary" @click="editItem(item)">

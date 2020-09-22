@@ -57,6 +57,14 @@
         color: var(--v-greyBold-base)!important;
       }
     }
+    .v-list-item__action {
+      i {
+        color: var(--v-primary-base) !important;
+      }
+    }
+  }
+  .v-list-group--active .v-list-item--active i{
+    color: var(--v-primary-base) !important;
   }
 
   &.drawer-mini {
@@ -79,7 +87,6 @@
       }
     }
   }
-
   .subheader {
     color: var(--v-greyTint-base);
     transition: 300ms all;
@@ -90,7 +97,6 @@
   .show {
     opacity: 1;
   }
-
   .v-badge__wrapper {
     span {
       height: 16px;
@@ -98,8 +104,8 @@
       margin-bottom: 1px;
     }
   }
-
 }
+
 .sidebar-chat {
   .v-text-field__slot label {
     padding: 0;

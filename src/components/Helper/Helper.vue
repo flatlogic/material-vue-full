@@ -53,8 +53,8 @@
         </v-list>
         <v-card-actions>
           <v-col cols="12">
-            <v-btn color="successConst white--text" block @click="menu = false" class="button-shadow mb-2">Buy</v-btn>
-            <v-btn color="primaryConst white--text" block @click="menu = false" class="button-shadow">Documentation</v-btn>
+            <v-btn color="successConst white--text" block @click="menu = false" class="button-shadow mb-2" href="https://flatlogic.com/templates/vue">Buy</v-btn>
+            <v-btn color="primaryConst white--text" block @click="menu = false" class="button-shadow" to="/documentation/overview">Documentation</v-btn>
           </v-col>
         </v-card-actions>
       </v-card>

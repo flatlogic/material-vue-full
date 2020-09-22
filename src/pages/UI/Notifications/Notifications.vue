@@ -31,8 +31,8 @@
                  <v-btn
                    block
                    @click="addInfoNotification"
-                   color="primary"
-                   class="button-shadow text-capitalize mb-2"
+                   color="primaryConst"
+                   class="button-shadow white--text text-capitalize mb-2"
                  >Info Message</v-btn>
                  <div class="w-100"></div>
                  <v-btn
@@ -90,7 +90,7 @@
                 <template v-for="item in notificationsType" >
                   <v-chip
                     large
-                    class="d-block mt-4"
+                    class="d-block mt-4 white--text"
                     :color="item.color"
                     :key="item.text"
                   >
@@ -114,7 +114,7 @@
                 <template v-for="item in notificationsTypeLight" >
                   <v-chip
                     large
-                    class="greyBold--text d-block mt-4 font-weight-regular"
+                    class="greyBold--text d-block mt-4 font-weight-regular "
                     :color="item.color"
                     :key="item.text"
                   >
@@ -198,7 +198,7 @@ export default {
         {
           icon: 'mdi-message-alert',
           text: 'New user feedback received',
-          color: 'primary'
+          color: 'primaryConst'
         },
         {
           icon: 'mdi-account-box',
@@ -213,7 +213,7 @@ export default {
         {
           icon: 'mdi-briefcase-variant',
           text: 'The order was delivered',
-          color: 'primary'
+          color: 'primaryConst'
         },
         {
           icon: 'mdi-information-outline',
@@ -232,7 +232,7 @@ export default {
           icon: 'mdi-message-alert',
           text: 'New user feedback received',
           color: '#536dfe26',
-          iconColor: 'primary'
+          iconColor: 'primaryConst'
         },
         {
           icon: 'mdi-check',
@@ -249,7 +249,7 @@ export default {
         {
           icon: 'mdi-arrow-collapse-up',
           text: 'Your file is ready to upload',
-          iconColor: 'primary',
+          iconColor: 'primaryConst',
           color: '#536dfe26',
         },
         {
@@ -269,7 +269,7 @@ export default {
         {
           icon: 'mdi-message-alert',
           text: 'New user feedback received',
-          iconColor: 'primary',
+          iconColor: 'primaryConst',
           color: '#536dfe26',
         },
         {
@@ -287,7 +287,7 @@ export default {
         {
           icon: 'mdi-arrow-collapse-up',
           text: 'Your file is ready to upload',
-          iconColor: 'primary',
+          iconColor: 'primaryConst',
           color: '#536dfe26',
         },
         {
