@@ -134,8 +134,7 @@
                   <v-btn
                     icon
                     v-bind="attrs"
-                    v-on="on"
-                  >
+                    v-on="on">
                     <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                   </v-btn>
                 </template>
@@ -153,7 +152,7 @@
             <v-card-text class="pa-5 pt-0">
               <v-row no-gutters class="pb-6">
                 <div class="mr-4">
-                  <v-icon color="primary" class="ml-n2"> mdi-circle-medium </v-icon>
+                  <v-icon color="primaryConst" class="ml-n2"> mdi-circle-medium </v-icon>
                   <span class="greyTint--text">Integration</span>
                 </div>
                 <div>
@@ -167,7 +166,7 @@
                   <v-progress-linear
                     :value=value
                     background-color="#ececec"
-                    color="primary"
+                    color="primaryConst"
                   ></v-progress-linear>
                 </v-col>
               </v-row>

@@ -132,7 +132,7 @@
                     </v-col>
                     <v-col cols="12" class="d-flex flex-column align-end mt-3">
                       <v-btn
-                        color="primary"
+                        color="primaryConst"
                         outlined
                       >Detail</v-btn>
                     </v-col>

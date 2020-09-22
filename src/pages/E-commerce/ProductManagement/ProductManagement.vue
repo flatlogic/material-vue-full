@@ -78,7 +78,7 @@
                 <v-img class="my-3" width="100" :src=item.image></v-img>
               </template>
               <template v-slot:item.title="{ item }">
-                <a class="primary-text">{{ item.title }}</a>
+                <a class="primaryConst--text">{{ item.title }}</a>
               </template>
               <template v-slot:item.rating="{ item }">
                 <div class="d-flex align-center">
