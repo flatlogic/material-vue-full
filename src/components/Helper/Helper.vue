@@ -31,9 +31,9 @@
           <v-list-item>
             <v-list-item-action class="justify-center mr-0" style="width: 100%">
               <v-radio-group v-model="radios">
-                <v-radio color="primary" value="radio-1" class="mb-0 mr-5" @change="$vuetify.theme.themes.light.primary = config.light.primary"></v-radio>
-                <v-radio color="secondary" value="radio-2" class="mb-0 mr-5" @change="$vuetify.theme.themes.light.primary = config.light.secondary"></v-radio>
-                <v-radio color="success" value="radio-3" class="mb-0" @change="$vuetify.theme.themes.light.primary = config.light.success"></v-radio>
+                <v-radio color="primary" value="radio-1" class="mb-0 mr-5" @click="mainTheme"></v-radio>
+                <v-radio color="secondary" value="radio-2" class="mb-0 mr-5" @click="secondTheme"></v-radio>
+                <v-radio color="success" value="radio-3" class="mb-0" @click="thirdTheme"></v-radio>
               </v-radio-group>
             </v-list-item-action>
           </v-list-item>
@@ -81,6 +81,36 @@ export default {
 
   methods: {
     ...mapActions([ 'TOGGLE_THEME' ]),
+    mainTheme() {
+      if (this.$vuetify.theme.dark) {
+        this.TOGGLE_THEME()
+        this.$vuetify.theme.dark = false
+        this.$vuetify.theme.themes.light.primary = config.light.primary
+        this.switcher = false
+      } else {
+        this.$vuetify.theme.themes.light.primary = this.config.light.primary
+      }
+    },
+    secondTheme() {
+      if (this.$vuetify.theme.dark) {
+        this.TOGGLE_THEME()
+        this.$vuetify.theme.dark = false
+        this.$vuetify.theme.themes.light.primary = config.light.secondary
+        this.switcher = false
+      } else {
+        this.$vuetify.theme.themes.light.primary = this.config.light.secondary
+      }
+    },
+    thirdTheme() {
+      if (this.$vuetify.theme.dark) {
+        this.TOGGLE_THEME()
+        this.$vuetify.theme.dark = false
+        this.$vuetify.theme.themes.light.primary = config.light.success
+        this.switcher = false
+      } else {
+        this.$vuetify.theme.themes.light.primary = this.config.light.success
+      }
+    }
   },
   watch: {
     switcher(newValue) {

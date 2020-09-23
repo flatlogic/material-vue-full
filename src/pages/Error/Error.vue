@@ -11,14 +11,12 @@
             <span class="error-logo">404</span>
             <p class="error-text">Oops. Looks like the page you're looking for no longer exists</p>
             <p class="error-subtext">But we're here to bring you back to safety</p>
-
             <v-btn
               class="text-capitalize primary"
               dark
               x-large
               :color="config.light.primary"
-              to="/dashboard"
-            >
+              to="/dashboard">
               Back to Home
             </v-btn>
           </div>

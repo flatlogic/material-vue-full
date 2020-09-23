@@ -34,11 +34,37 @@
     }
   }
 
-  .theme--dark.v-sheet {
-    background-color: transparent;
+  .theme--dark {
+    &.v-sheet {
+      background-color: transparent;
+    }
+    &.v-calendar-daily {
+      background-color: transparent;
+    }
   }
   .v-toolbar__content {
     padding: 0;
+  }
+
+  .v-calendar-daily .v-calendar-daily__body .v-calendar-daily__scroll-area {
+
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--v-greyTint-base);
+        border-radius: 36px;
+        border: none;
+      }
+
+  }
+  .v-calendar-monthly.theme--dark {
+    .v-outside {
+      background-color: transparent!important;
+    }
   }
 }
 

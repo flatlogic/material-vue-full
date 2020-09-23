@@ -63,8 +63,11 @@
       }
     }
   }
-  .v-list-group--active .v-list-item--active i{
+  .v-list-group--active .v-list-item--active i {
     color: var(--v-primary-base) !important;
+    &.mdi-chevron-down {
+      color: var(--v-greyTint-base)!important;
+    }
   }
 
   &.drawer-mini {

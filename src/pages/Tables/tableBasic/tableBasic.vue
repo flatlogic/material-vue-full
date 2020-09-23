@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container fluid class="px-0 px-md-1">
     <div class="tables-basic mt-3">
       <v-row>
         <v-col cols="12">
