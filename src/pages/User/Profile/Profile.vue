@@ -240,7 +240,6 @@
                         class="text-capitalize font-weight-regular">
                         {{ tab.tabName }}
                       </v-tab>
-
                       <v-tab-item
                         value="tab-today"
                         class="pt-0">
@@ -253,7 +252,7 @@
                           <v-col
                             cols="12"
                             class="d-flex justify-space-between align-center py-3">
-                            <div class="d-flex" @click="$set(task, 'done', !task.done)">
+                            <div class="d-flex align-center" @click="$set(task, 'done', !task.done)">
                               <p
                                 class="task-time mb-0 "
                                 style="font-size: 10px">{{ task.time }}</p>
@@ -294,7 +293,7 @@
                           <v-col
                             cols="12"
                             class="d-flex justify-space-between align-center py-3">
-                            <div class="d-flex">
+                            <div class="d-flex align-center">
                               <p
                                 class="task-time mb-0 "
                                 style="font-size: 10px">{{ task.time }}</p>
@@ -307,25 +306,22 @@
                               </v-btn>
                             </div>
                           </v-col>
-
                         </v-row>
                       </v-tab-item>
                       <v-tab-item
                         value="tab-month"
-                        class="pt-0"
-                      >
+                        class="pt-0">
                         <v-row no-gutters class="flex-column flex-nowrap overflow-hidden"
                          v-for="(task, i) in mock.tasks.tasksWeek"
                          :key="i * 100"
                          style="width: 100%; cursor:pointer;"
                          :class="{ done:task.done }"
-                         @click="$set(task, 'done', !task.done)"
-                        >
+                         @click="$set(task, 'done', !task.done)">
                           <v-divider></v-divider>
                           <v-col
                               cols="12"
                               class="d-flex justify-space-between align-center py-3">
-                            <div class="d-flex">
+                            <div class="d-flex align-center">
                               <p
                                 class="task-time mb-0"
                                 style="font-size: 10px"
