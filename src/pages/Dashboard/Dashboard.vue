@@ -494,19 +494,17 @@
               <v-menu>
                 <template v-slot:activator="{ on, attrs }">
                   <v-btn
-                      icon
-                      v-bind="attrs"
-                      v-on="on"
-                  >
+                    icon
+                    v-bind="attrs"
+                    v-on="on">
                     <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                   </v-btn>
                 </template>
                 <v-list>
                   <v-list-item
-                      v-for="(item, i) in mock.menu"
-                      :key="i"
-                      @click="() => {}"
-                  >
+                    v-for="(item, i) in mock.menu"
+                    :key="i"
+                    @click="() => {}">
                     <v-list-item-title>{{ item }}</v-list-item-title>
                   </v-list-item>
                 </v-list>
@@ -521,7 +519,7 @@
                 :items-per-page="itemPerPage">
                 <template v-slot:item.name="{ item }">
                   <div class="d-flex align-center">
-                    <v-avatar size="40" :color="item.avatar.color + ' ma-5 ml-0'">
+                    <v-avatar size="40" :color="item.avatar.color + ' ma-5 ml-0'" class="d-none d-sm-flex">
                       <span class="font-weight-medium">{{ item.avatar.name }}</span>
                     </v-avatar>
                     <div>
@@ -538,8 +536,7 @@
                       <v-btn
                         icon
                         v-bind="attrs"
-                        v-on="on"
-                      >
+                        v-on="on">
                         <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                       </v-btn>
                     </template>
@@ -547,8 +544,7 @@
                       <v-list-item
                         v-for="(item, i) in mock.menu"
                         :key="i"
-                        @click="() => {}"
-                      >
+                        @click="() => {}">
                         <v-list-item-title>{{ item }}</v-list-item-title>
                       </v-list-item>
                     </v-list>

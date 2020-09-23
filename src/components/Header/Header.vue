@@ -174,7 +174,7 @@
             color="primary"
             class="text-capitalize"
             @click="logOut"
-          >Sing Out</v-btn>
+          >Sign Out</v-btn>
         </div>
       </v-list>
 
