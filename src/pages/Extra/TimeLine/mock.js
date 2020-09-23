@@ -1,7 +1,7 @@
 export default {
   items: [
     {
-      color: 'primary',
+      color: 'primaryConst',
       subColor: "#758AFE",
       icon: 'mdi-navigation',
       iconSize: '16',

@@ -29,4 +29,4 @@ $fs-index:                  0.75rem !default;    // 12px
 $card-shadow: 0 3px 11px 0 #E8EAFC, 0 3px 3px -2px #B2B2B21A, 0 1px 8px 0 #9A9A9A1A;
 
 // Buttons //
-$button-shadow: 0px 3px 11px 0px #E8EAFC, 0 3px 3px -2px #B2B2B21A, 0 1px 8px 0 #9A9A9A1A;
+$button-shadow: $card-shadow;

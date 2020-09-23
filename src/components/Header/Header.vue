@@ -5,17 +5,16 @@
     height="64"
     fixed
     color='primary'
-    dark
-    >
+    dark>
     <v-btn icon class="mx-1" @click.stop="TOGGLE_DRAWER">
       <template v-if="DRAWER_STATE">
-        <v-icon size="28">mdi-arrow-left</v-icon>
+        <v-icon size="28" :class="$vuetify.theme.dark ? 'primary--text' : null">mdi-arrow-left</v-icon>
       </template>
       <template v-else>
-        <v-icon size="28">mdi-menu</v-icon>
+        <v-icon size="28" :class="$vuetify.theme.dark ? 'primary--text' : null">mdi-menu</v-icon>
       </template>
     </v-btn>
-    <v-toolbar-title>Vue Material Admin</v-toolbar-title>
+    <v-toolbar-title :class="$vuetify.theme.dark ? 'primary--text' : null">Vue Material Admin</v-toolbar-title>
     <v-spacer></v-spacer>
 
     <Search />
@@ -24,22 +23,19 @@
       offset-y
       bottom
       nudge-bottom="10"
-      left
-    >
+      left>
       <template v-slot:activator="{ on, attrs }">
         <v-btn
           @click="notificationsBadge ? notificationsBadge = !notificationsBadge : ''"
           v-bind="attrs"
           v-on="on"
           icon
-          class="mr-2"
-        >
+          class="mr-2">
           <v-badge
             :value="notificationsBadge"
             color="error"
             content="4"
-            overlap
-          >
+            overlap>
             <v-icon
               size="28"
               :color="config.light.iconColor"

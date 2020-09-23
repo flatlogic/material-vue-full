@@ -19,8 +19,7 @@
                 <v-list-item
                   v-for="(item, i) in menu"
                   :key="i"
-                  @click="() => {}"
-                >
+                  @click="() => {}">
                   <v-list-item-title >{{ item }}</v-list-item-title>
                 </v-list-item>
               </v-list>
@@ -31,10 +30,9 @@
               To swap links style add attribute within Button component.</p>
             <v-app-bar
               flat
-              color="primary"
+              color="primaryConst"
               dark
-              class="mb-10"
-              >
+              class="mb-10">
                 <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
                 <v-toolbar-title>Navbar</v-toolbar-title>
@@ -59,20 +57,19 @@
               flat
               color="secondary"
               dark
-              class="mb-6"
-            >
+              class="mb-6">
               <v-app-bar-nav-icon></v-app-bar-nav-icon>
               <v-toolbar-title>Navbar menu</v-toolbar-title>
               <v-spacer></v-spacer>
               <v-menu
-                  left
-                  bottom
+                left
+                bottom
               >
                 <template v-slot:activator="{ on, attrs }">
                   <v-btn
-                      icon
-                      v-bind="attrs"
-                      v-on="on"
+                    icon
+                    v-bind="attrs"
+                    v-on="on"
                   >
                     <v-icon>mdi-account</v-icon>
                   </v-btn>
@@ -108,10 +105,9 @@
               </template>
               <v-list>
                 <v-list-item
-                    v-for="(item, i) in menu"
-                    :key="i"
-                    @click="() => {}"
-                >
+                  v-for="(item, i) in menu"
+                  :key="i"
+                  @click="() => {}">
                   <v-list-item-title >{{ item }}</v-list-item-title>
                 </v-list-item>
               </v-list>
@@ -121,18 +117,14 @@
             <p class="fs-normal greyBold--text mb-5">Search icon makes UX more flexible. To start using search icon,
               make sure you got all relative functions.</p>
             <v-app-bar
-              color="primary"
+              color="primaryConst"
               flat
               dark
-              class="mb-10"
-                >
-                  <v-app-bar-nav-icon></v-app-bar-nav-icon>
-
-                  <v-toolbar-title>Navbar search</v-toolbar-title>
-
-                  <v-spacer></v-spacer>
-
-                  <Search />
+              class="mb-10">
+                <v-app-bar-nav-icon></v-app-bar-nav-icon>
+                <v-toolbar-title>Navbar search</v-toolbar-title>
+                <v-spacer></v-spacer>
+                <Search />
               </v-app-bar>
             <p class="fs-normal greyBold--text mb-5">Navbar can contain background images. You can set source via the src prop.</p>
             <v-app-bar
@@ -140,12 +132,11 @@
               color="primary"
               dark
               class="mb-6"
-              src="https://picsum.photos/1920/1080?random"
-                >
+              src="https://picsum.photos/1920/1080?random">
               <template v-slot:img="{ props }">
                 <v-img
-                    v-bind="props"
-                    gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
+                  v-bind="props"
+                  gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
                 ></v-img>
               </template>
               <v-app-bar-nav-icon></v-app-bar-nav-icon>

@@ -72,8 +72,7 @@
                   <v-btn
                     icon
                     v-bind="attrs"
-                    v-on="on"
-                  >
+                    v-on="on">
                     <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                   </v-btn>
                 </template>
@@ -81,8 +80,7 @@
                   <v-list-item
                     v-for="(item, i) in mock.menu"
                     :key="i"
-                    @click="() => {}"
-                  >
+                    @click="() => {}">
                     <v-list-item-title>{{ item }}</v-list-item-title>
                   </v-list-item>
                 </v-list>
@@ -193,8 +191,7 @@
                   <v-btn
                     icon
                     v-bind="attrs"
-                    v-on="on"
-                  >
+                    v-on="on">
                     <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                   </v-btn>
                 </template>
@@ -286,8 +283,8 @@
               <v-spacer></v-spacer>
               <div class="main-chart-legend">
                 <v-icon size="30" color="warning">mdi-circle-small</v-icon><span class="greyBold--text font-weight-regular fs-medium">Tablet</span>
-                <v-icon size="30" color="primary">mdi-circle-small</v-icon><span class="greyBold--text font-weight-regular fs-medium">Mobile</span>
-                <v-icon size="30" color="secondary">mdi-circle-small</v-icon><span class="greyBold--text font-weight-regular fs-medium">Desktop</span>
+                <v-icon size="30" color="primaryConst">mdi-circle-small</v-icon><span class="greyBold--text font-weight-regular fs-medium">Mobile</span>
+                <v-icon size="30" color="secondaryConst">mdi-circle-small</v-icon><span class="greyBold--text font-weight-regular fs-medium">Desktop</span>
               </div>
               <v-spacer></v-spacer>
               <v-menu>
@@ -574,6 +571,7 @@
   import ApexChart from 'vue-apexcharts'
   import moment from 'moment'
   import { mapState } from 'vuex'
+  import config from "@/config";
 
   export default {
     name: 'Dashboard',
@@ -615,10 +613,22 @@
             mode: 'dark'
           }
         },
+        apexDarkThemeMainChart: {
+          theme: {
+            mode: 'dark'
+          },
+          colors: [config.light.warning, config.light.primary, '#30324B'],
+        },
         apexLightTheme: {
           theme: {
             mode: 'light'
           }
+        },
+        apexLightThemeMainChart: {
+          theme: {
+            mode: 'light'
+          },
+          colors: [config.light.warning, config.light.primary, '#F8F9FF'],
         },
         sel: 'Daily',
         sel0: 'Daily',
@@ -853,7 +863,7 @@
           this.$refs.apexArea1.updateOptions(this.apexDarkTheme, false, true)
           this.$refs.apexArea2.updateOptions(this.apexDarkTheme, false, true)
           this.$refs.apexArea3.updateOptions(this.apexDarkTheme, false, true)
-          this.$refs.dailyLine.updateOptions(this.apexDarkTheme, false, true)
+          this.$refs.dailyLine.updateOptions(this.apexDarkThemeMainChart, false, true)
           this.$refs.apexBar1.updateOptions(this.apexDarkTheme, false, true)
           this.$refs.apexBar2.updateOptions(this.apexDarkTheme, false, true)
           this.$refs.apexBar3.updateOptions(this.apexDarkTheme, false, true)
@@ -862,7 +872,7 @@
           this.$refs.apexArea1.updateOptions(this.apexLightTheme, false, true)
           this.$refs.apexArea2.updateOptions(this.apexLightTheme, false, true)
           this.$refs.apexArea3.updateOptions(this.apexLightTheme, false, true)
-          this.$refs.dailyLine.updateOptions(this.apexLightTheme, false, true)
+          this.$refs.dailyLine.updateOptions(this.apexLightThemeMainChart, false, true)
           this.$refs.apexBar1.updateOptions(this.apexLightTheme, false, true)
           this.$refs.apexBar2.updateOptions(this.apexLightTheme, false, true)
           this.$refs.apexBar3.updateOptions(this.apexLightTheme, false, true)

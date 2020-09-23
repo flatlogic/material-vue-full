@@ -13,11 +13,11 @@
             <p class="error-subtext">But we're here to bring you back to safety</p>
 
             <v-btn
-                class="text-capitalize"
-                dark
-                x-large
-                :color="config.light.primary"
-                to="/dashboard"
+              class="text-capitalize primary"
+              dark
+              x-large
+              :color="config.light.primary"
+              to="/dashboard"
             >
               Back to Home
             </v-btn>
