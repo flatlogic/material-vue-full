@@ -36,12 +36,15 @@
                             <span class="px-5"> or </span>
                             <v-divider></v-divider>
                           </v-col>
-                          <v-form>
+                          <v-form
+                            ref="log"
+                            v-model="valid"
+                            lazy-validation
+                          >
                             <v-col>
                               <v-text-field
                                 v-model="email"
                                 :rules="emailRules"
-                                hide-details
                                 single-line
                                 value="admin@flatlogic.com"
                                 label="Email Address"
@@ -50,23 +53,20 @@
                               <v-text-field
                                 v-model="password"
                                 :rules="passRules"
-                                hide-details
                                 single-line
                                 type="password"
                                 label="Password"
-                                hint="At least 6 characters"
                                 required
                               ></v-text-field>
 
                             </v-col>
                             <v-col class="d-flex justify-space-between">
                               <v-btn
-                                  class="text-capitalize"
-                                  large
-                                  :disabled="password.length === 0 || email.length === 0"
-                                  color="primary"
-                                  @click="login"
-                              >
+                                class="text-capitalize"
+                                large
+                                :disabled="password.length === 0 || email.length === 0"
+                                color="primary"
+                                @click="validate">
                                 Login</v-btn>
                               <v-btn large text class="text-capitalize primary--text">Forget Password</v-btn>
                             </v-col>
@@ -161,18 +161,21 @@
     name: 'Login',
     data() {
       return {
+        valid: true,
         email: 'admin@flatlogic.com',
         emailRules: [
           v => !!v || 'E-mail is required',
           v => /.+@.+/.test(v) || 'E-mail must be valid',
+          v => v.toLowerCase() === this.email
         ],
         createFullName: 'John Smith',
         createEmail: 'john@flatlogic.com',
-        createPassword: '123456',
-        password: '123456',
+        createPassword: 'password',
+        password: 'password',
         passRules: [
           v => !!v || 'Password is required',
-          v => v.length >= 6 || 'Min 6 characters'
+          v => v.length >= 6 || 'Min 6 characters',
+          v => v === 'password' || 'Wrong Password',
         ]
       }
     },
@@ -180,6 +183,12 @@
       login(){
         window.localStorage.setItem('authenticated', true);
         this.$router.push('/user/profile');
+      },
+      validate(){
+        if (this.$refs.log.validate()) {
+          window.localStorage.setItem('authenticated', true);
+          this.$router.push('/user/profile');
+        }
       }
     },
     created() {

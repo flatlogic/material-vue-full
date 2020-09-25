@@ -379,7 +379,9 @@
       }
     },
     computed: {
-      ...mapState(['drawer']),
+      ...mapState( 'layout', {
+        drawer: state => state.drawer
+      } ),
       DRAWER_STATE: {
         get() {
           return this.drawer
@@ -391,7 +393,9 @@
       }
     },
     methods: {
-      ...mapActions([ 'TOGGLE_DRAWER' ]),
+      ...mapActions(
+        'layout', [ 'TOGGLE_DRAWER' ]
+      ),
       logOut: function () {
         window.localStorage.setItem('authenticated', false);
         this.$router.push('/login');

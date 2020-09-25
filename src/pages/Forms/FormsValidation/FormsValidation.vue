@@ -71,10 +71,10 @@
               ></v-checkbox>
               <v-row justify="end">
                 <v-btn
-                    color="primary"
-                    outlined
-                    class="button-shadow mr-4"
-                    @click="reset">
+                  color="primary"
+                  outlined
+                  class="button-shadow mr-4"
+                  @click="reset">
                   Reset Form
                 </v-btn>
                 <v-btn
