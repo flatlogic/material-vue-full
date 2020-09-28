@@ -75,8 +75,10 @@
                                 large
                                 :disabled="password.length === 0 || email.length === 0"
                                 color="primary"
+                                :loading="isFetching"
                                 @click="login">
-                                Login</v-btn>
+                                Login
+                              </v-btn>
                               <v-btn large text class="text-capitalize primary--text">Forget Password</v-btn>
                             </v-col>
                           </v-form>
@@ -161,6 +163,23 @@
         </v-col>
       </v-row>
     </v-container>
+    <v-snackbar
+      v-model="alert"
+      color="error"
+    >
+      {{ errorMessage }}
+
+      <template v-slot:action="{ attrs }">
+        <v-btn
+          dark
+          text
+          v-bind="attrs"
+          @click="alert = false"
+        >
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
   </v-app>
 </template>
 
@@ -185,9 +204,9 @@ export default {
       password: 'password',
       passRules: [
         v => !!v || 'Password is required',
-        v => v.length >= 6 || 'Min 6 characters',
-        v => v === 'password' || 'Wrong Password',
-      ]
+        v => v.length >= 6 || 'Min 6 characters'
+      ],
+      alert: false
     }
   },
   methods: {
@@ -195,8 +214,8 @@ export default {
     login(){
       const email = this.email;
       const password = this.password;
-
       this.loginUser({email, password});
+      this.errorMessage ? this.alert = true : this.alert = false;
     },
     googleLogin() {
       this.loginUser({social: "google"});
@@ -212,8 +231,15 @@ export default {
     ...mapState('auth', {
       isFetching: state => state.isFetching,
       errorMessage: state => state.errorMessage
-    }  )
+    } ),
   },
+
+  watch: {
+    errorMessage(newValue) {
+      newValue.length > 0 ? this.alert = true : this.alert = false;
+    }
+  },
+
   created() {
     console.log('Backend: ' + !!config.isBackend)
     let token = localStorage.getItem('token');

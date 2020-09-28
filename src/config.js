@@ -1,6 +1,6 @@
 const hostApi = process.env.NODE_ENV === "development" ? "http://localhost" : "https://flatlogic-node-backend.herokuapp.com";
 const portApi = process.env.NODE_ENV === "development" ? 8080 : "";
-const baseURLApi = `${hostApi}${portApi ? `:${portApi}` : ``}`;
+const baseURLApi = `${hostApi}${portApi ? `:${portApi}` : ``}/api`;
 const redirectUrl = process.env.NODE_ENV === "development" ? "http://localhost:3000/vue-material" : "https://demo.flatlogic.com/vue-material";
 
 export default {
