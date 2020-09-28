@@ -27,7 +27,13 @@
                         <v-row class="flex-column">
                           <v-col>
                             <p class="login-slogan display-2 text-center font-weight-medium my-10">Good Morning, User</p>
-                            <v-btn height="45" block color="white" elevation="0" class="google text-capitalize">
+                            <v-btn
+                              height="45"
+                              block
+                              color="white"
+                              elevation="0"
+                              class="google text-capitalize"
+                              @click="googleLogin">
                               <v-img src="@/assets/google.svg" max-width="30" class="mr-4"></v-img>
                               Sign in with Google</v-btn>
                           </v-col>
@@ -43,6 +49,8 @@
                           >
                             <v-col>
                               <v-text-field
+                                id="email"
+                                ref="email"
                                 v-model="email"
                                 :rules="emailRules"
                                 single-line
@@ -51,6 +59,8 @@
                                 required
                               ></v-text-field>
                               <v-text-field
+                                id="password"
+                                ref="password"
                                 v-model="password"
                                 :rules="passRules"
                                 single-line
@@ -58,7 +68,6 @@
                                 label="Password"
                                 required
                               ></v-text-field>
-
                             </v-col>
                             <v-col class="d-flex justify-space-between">
                               <v-btn
@@ -66,7 +75,7 @@
                                 large
                                 :disabled="password.length === 0 || email.length === 0"
                                 color="primary"
-                                @click="validate">
+                                @click="login">
                                 Login</v-btn>
                               <v-btn large text class="text-capitalize primary--text">Forget Password</v-btn>
                             </v-col>
@@ -156,47 +165,74 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
+import config from "../../config";
 
-  export default {
-    name: 'Login',
-    data() {
-      return {
-        valid: true,
-        email: 'admin@flatlogic.com',
-        emailRules: [
-          v => !!v || 'E-mail is required',
-          v => /.+@.+/.test(v) || 'E-mail must be valid',
-          v => v.toLowerCase() === this.email
-        ],
-        createFullName: 'John Smith',
-        createEmail: 'john@flatlogic.com',
-        createPassword: 'password',
-        password: 'password',
-        passRules: [
-          v => !!v || 'Password is required',
-          v => v.length >= 6 || 'Min 6 characters',
-          v => v === 'password' || 'Wrong Password',
-        ]
-      }
+export default {
+  name: 'Login',
+  data() {
+    return {
+      valid: true,
+      email: 'admin@flatlogic.com',
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+/.test(v) || 'E-mail must be valid',
+        v => v.toLowerCase() === this.email
+      ],
+      createFullName: 'John Smith',
+      createEmail: 'john@flatlogic.com',
+      createPassword: 'password',
+      password: 'password',
+      passRules: [
+        v => !!v || 'Password is required',
+        v => v.length >= 6 || 'Min 6 characters',
+        v => v === 'password' || 'Wrong Password',
+      ]
+    }
+  },
+  methods: {
+    ...mapActions('auth', ['loginUser', 'receiveToken', 'receiveLogin']),
+    login(){
+      const email = this.email;
+      const password = this.password;
+
+      this.loginUser({email, password});
     },
-    methods: {
-      login(){
+    googleLogin() {
+      this.loginUser({social: "google"});
+    },
+    validate(){
+      if (this.$refs.log.validate()) {
         window.localStorage.setItem('authenticated', true);
         this.$router.push('/user/profile');
-      },
-      validate(){
-        if (this.$refs.log.validate()) {
-          window.localStorage.setItem('authenticated', true);
-          this.$router.push('/user/profile');
-        }
       }
     },
-    created() {
-      if (window.localStorage.getItem('authenticated') === 'true') {
-        this.$router.push('/user/profile');
-      }
+  },
+  computed: {
+    ...mapState('auth', {
+      isFetching: state => state.isFetching,
+      errorMessage: state => state.errorMessage
+    }  )
+  },
+  created() {
+    console.log('Backend: ' + !!config.isBackend)
+    let token = localStorage.getItem('token');
+    if (token) {
+      this.receiveToken(token);
     }
+    else
+    {
+    if (this.isAuthenticated(localStorage.getItem('token'))) {
+      this.receiveLogin();
+    }
+    }
+  },
+  mounted() {
+    const creds = config.auth;
+    this.email = creds.email;
+    this.password = creds.password;
   }
+}
 
 </script>
 

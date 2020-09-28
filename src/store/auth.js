@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken'
 import router from '../Routes'
 
 export default {
-  namespace: true,
+  namespaced: true,
   state: {
     isFetching: false,
     errorMessage: ''
@@ -32,7 +32,9 @@ export default {
         dispatch('requestLogin');
         if (creds.social) {
           window.location.href = config.baseURLApi + "/user/signin/" + creds.social + (process.env.NODE_ENV === "production" ? "?app=light-blue-vue/dark" : "");
-        } else if (creds.email.length > 0 && creds.password.length > 0) {
+        }
+        else
+        if (creds.email.length > 0 && creds.password.length > 0) {
           axios.post("/user/signin/local", creds).then(res => {
             const token = res.data.token;
             dispatch('receiveToken', token);
@@ -40,7 +42,9 @@ export default {
             dispatch('loginError', err.response.data);
           })
 
-        } else {
+        }
+        else
+        {
           dispatch('loginError', 'Something was wrong. Try again');
         }
       }
@@ -74,7 +78,7 @@ export default {
     },
     receiveLogin({commit}) {
       commit('LOGIN_SUCCESS');
-      router.push('/app/main/visits');
+      router.push('/user/profile');
     },
     requestLogin({commit}) {
       commit('LOGIN_REQUEST');

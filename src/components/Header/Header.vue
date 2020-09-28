@@ -173,7 +173,7 @@
             outlined
             color="primary"
             class="text-capitalize"
-            @click="logOut"
+            @click="logoutUser"
           >Sign Out</v-btn>
         </div>
       </v-list>
@@ -226,11 +226,8 @@
       }
     },
     methods: {
-      ...mapActions('layout', [ 'TOGGLE_DRAWER' ]),
-      logOut: function () {
-        window.localStorage.setItem('authenticated', false);
-        this.$router.push('/login');
-      }
+      ...mapActions('layout', [ 'TOGGLE_DRAWER']),
+      ...mapActions('auth', ['logoutUser']),
     }
   };
 </script>

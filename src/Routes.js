@@ -75,6 +75,7 @@ import Maps from '@/pages/Documentation/pages/Maps/Maps'
 import Tables from '@/pages/Documentation/pages/Tables/Tables'
 import Structure from '@/pages/Documentation/pages/Structure/Structure'
 import Libs from '@/pages/Documentation/pages/Libs/Libs'
+import {isAuthenticated} from "./mixins/auth";
 
 Vue.use(Router);
 
@@ -150,6 +151,10 @@ export default new Router({
     redirect: 'login',
     name: 'Layout',
     component: Layout,
+    beforeEnter: (to, from, next) => {
+      let token = localStorage.getItem('token');
+      isAuthenticated(token) ? next() : next({path: '/login'})
+    },
     children: [
       {
         path: '/dashboard',
