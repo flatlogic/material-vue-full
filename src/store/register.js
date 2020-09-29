@@ -24,19 +24,18 @@ export default {
   actions: {
     registerUser({dispatch}, payload) {
       if (!config.isBackend) {
-        payload.$toasted.success("You've been registered successfully");
-        router.push('/login');
+        router.go();
       }
 
       else {
         dispatch('requestRegister');
         const creds = payload.creds;
         if (creds.email.length > 0 && creds.password.length > 0) {
-          axios.post("/user/signup", creds).then(() => {
+          axios.post("/auth/signup", creds).then(() => {
             dispatch('receiveRegister');
-            payload.$toasted.success("You've been registered successfully");
-            router.push('/login');
+            router.push('/user/profile');
           }).catch(err => {
+            console.log(err.response.data)
             dispatch('registerError', err.response.data);
           })
         } else {

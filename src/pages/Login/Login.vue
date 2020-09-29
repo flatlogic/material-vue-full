@@ -131,8 +131,8 @@
                                 block
                                 :disabled="createFullName.length === 0 || createEmail.length === 0 || createPassword === 0"
                                 color="primary"
-                                @click="login"
-                              >
+                                :loading="isFetching"
+                                @click="register">
                                 Create your account</v-btn>
                             </v-col>
                           </v-form>
@@ -143,7 +143,7 @@
                             <v-divider></v-divider>
                           </v-col>
 
-                          <v-btn height="45" block color="white" elevation="0" class="google text-capitalize">
+                          <v-btn @click="googleLogin" height="45" block color="white" elevation="0" class="google text-capitalize">
                             <v-img src="@/assets/google.svg" max-width="30" class="mr-4"></v-img>
                             Sign in with Google</v-btn>
                         </v-row>
@@ -210,6 +210,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions('register', ['registerUser', 'registerError']),
     ...mapActions('auth', ['loginUser', 'receiveToken', 'receiveLogin']),
     login(){
       const email = this.email;
@@ -219,6 +220,13 @@ export default {
     },
     googleLogin() {
       this.loginUser({social: "google"});
+    },
+    register() {
+      const email = this.createEmail;
+      const password = this.createPassword;
+
+      this.registerUser({creds:{email, password}});
+      this.errorMessage ? this.alert = true : this.alert = false;
     },
     validate(){
       if (this.$refs.log.validate()) {
