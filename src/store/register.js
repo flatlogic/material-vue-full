@@ -33,7 +33,7 @@ export default {
         if (creds.email.length > 0 && creds.password.length > 0) {
           axios.post("/auth/signup", creds).then(() => {
             dispatch('receiveRegister');
-            router.push('/user/profile');
+            router.go();
           }).catch(err => {
             console.log(err.response.data)
             dispatch('registerError', err.response.data);

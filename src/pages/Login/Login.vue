@@ -131,7 +131,7 @@
                                 block
                                 :disabled="createFullName.length === 0 || createEmail.length === 0 || createPassword === 0"
                                 color="primary"
-                                :loading="isFetching"
+                                :loading="regIsFetching"
                                 @click="register">
                                 Create your account</v-btn>
                             </v-col>
@@ -226,7 +226,7 @@ export default {
       const password = this.createPassword;
 
       this.registerUser({creds:{email, password}});
-      this.errorMessage ? this.alert = true : this.alert = false;
+      this.regErrorMessage ? this.alert = true : this.alert = false;
     },
     validate(){
       if (this.$refs.log.validate()) {
@@ -239,6 +239,10 @@ export default {
     ...mapState('auth', {
       isFetching: state => state.isFetching,
       errorMessage: state => state.errorMessage
+    } ),
+    ...mapState('register', {
+      regIsFetching: state => state.isFetching,
+      regErrorMessage: state => state.errorMessage
     } ),
   },
 
