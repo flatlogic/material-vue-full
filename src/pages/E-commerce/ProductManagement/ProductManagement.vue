@@ -26,8 +26,7 @@
               :headers="headers"
               :items="products"
               :search="search"
-              sort-by="calories"
-            >
+              sort-by="id">
               <template v-slot:top>
                 <v-dialog v-model="dialog" max-width="500px">
                   <template v-slot:activator="{ on, attrs }">
@@ -97,6 +96,7 @@
                 </v-btn>
                 <v-btn
                   @click="deleteItem(item)"
+                  :loading="isDeleting"
                   small
                   class="button-shadow"
                   color="secondary"
@@ -137,61 +137,65 @@
   export default {
     name: 'ProductManagement',
     data() {
-        return {
-          snackbar: null,
-          search: '',
-          dialog: false,
-          headers: [
-            {
-              text: 'ID',
-              align: 'start',
-              sortable: false,
-              value: 'id',
-            },
-            { text: 'Image', value: 'img', sortable: false },
-            { text: 'Title', value: 'title' },
-            { text: 'Subtitle', value: 'subtitle' },
-            { text: 'Price', value: 'price' },
-            { text: 'Rating', value: 'rating' },
-            { text: 'Actions', value: 'api', sortable: false },
-          ],
-          selected: [],
-          editedIndex: -1,
-          editedItem: {
-            title: '',
-            img: '',
-            subtitle: '',
-            price: '',
-            rating: '',
+      return {
+        snackbar: null,
+        search: '',
+        dialog: false,
+        headers: [
+          {
+            text: 'ID',
+            align: 'start',
+            value: 'id',
           },
-          defaultItem: {
-            title: '',
-            img: '',
-            subtitle: '',
-            price: '',
-            rating: '',
-          },
-          images: [
-            require('@/assets/img/e-commerce/low/1.png'),
-            require('@/assets/img/e-commerce/low/2.png'),
-            require('@/assets/img/e-commerce/low/3.png'),
-            require('@/assets/img/e-commerce/low/4.png'),
-            require('@/assets/img/e-commerce/low/5.png'),
-            require('@/assets/img/e-commerce/low/6.png')
-         ]
-        }
-      },
+          { text: 'Image', value: 'img', sortable: false },
+          { text: 'Title', value: 'title' },
+          { text: 'Subtitle', value: 'subtitle' },
+          { text: 'Price', value: 'price' },
+          { text: 'Rating', value: 'rating' },
+          { text: 'Actions', value: 'api', sortable: false },
+        ],
+        selected: [],
+        editedIndex: -1,
+        editedItem: {
+          title: '',
+          img: '',
+          subtitle: '',
+          price: '',
+          rating: '',
+        },
+        defaultItem: {
+          title: '',
+          img: '',
+          subtitle: '',
+          price: '',
+          rating: '',
+        },
+        images: [
+          require('@/assets/img/e-commerce/low/1.png'),
+          require('@/assets/img/e-commerce/low/2.png'),
+          require('@/assets/img/e-commerce/low/3.png'),
+          require('@/assets/img/e-commerce/low/4.png'),
+          require('@/assets/img/e-commerce/low/5.png'),
+          require('@/assets/img/e-commerce/low/6.png')
+       ],
+        notification: 'This page is only available in React Material Admin Full with Node.js integration!'
+      }
+    },
     computed: {
-        ...mapState('products', ['products', "isReceiving", "isDeleting", "idToDelete"]),
+        ...mapState('products', ['products', "isReceiving", "isDeleting", "idToDelete", "productMessage"]),
         formTitle () {
           return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
         },
       },
     watch: {
-        dialog (val) {
+      dialog (val) {
           val || this.close()
         },
-      },
+      productMessage() {
+        this.notification = this.productMessage;
+        this.addSuccessNotification()
+      }
+    },
     created () {
         this.addSuccessNotification()
       },
@@ -199,42 +203,54 @@
       this.getProductsRequest()
     },
     methods: {
-        ...mapActions('products', ["getProductsRequest", "deleteProductRequest"]),
+      ...mapActions('products',
+        [
+          "getProductsRequest",
+          "deleteProductRequest",
+          "updateProductRequest",
+          "createProductRequest"
+        ]),
 
-        editItem (item) {
-          this.editedIndex = this.products.indexOf(item)
-          this.editedItem = Object.assign({}, item)
-          this.dialog = true
-        },
-
-        deleteItem (item) {
-          const index = this.products.indexOf(item)
-          confirm('Are you sure you want to delete this item?') && this.products.splice(index, 1)
-        },
-
-        close () {
-          this.dialog = false
-          this.$nextTick(() => {
-            this.editedItem = Object.assign({}, this.defaultItem)
-            this.editedIndex = -1
-          })
-        },
-
-        save () {
-          if (this.editedIndex > -1) {
-            Object.assign(this.products[this.editedIndex], this.editedItem)
-          } else {
-            this.products.push(this.editedItem)
-          }
-          this.close()
-        },
-
-        addSuccessNotification() {
-          this.snackbar = true;
-          this.color = config.light.success;
-          this.text = "This page is only available in React Material Admin Full with Node.js integration!";
-        },
+      editItem (item) {
+        this.editedIndex = this.products.indexOf(item)
+        this.editedItem = Object.assign({}, item)
+        this.dialog = true
       },
+
+      deleteItem (item) {
+        // const index = this.products.indexOf(item)
+        if (!config.isBackend ) {
+          confirm('Are you sure you want to delete this item?') && this.products.splice(item.id, 1)
+        } else {
+          confirm('Are you sure you want to delete this item?') && this.deleteProductRequest({id: item.id})
+        }
+      },
+
+      close () {
+        this.dialog = false
+        this.$nextTick(() => {
+          this.editedItem = Object.assign({}, this.defaultItem)
+          this.editedIndex = -1
+        })
+      },
+
+      save () {
+        if (this.editedIndex > -1) {
+          Object.assign(this.products[this.editedIndex], this.editedItem)
+        } else {
+          !config.isBackend ?
+          this.products.push(this.editedItem)
+          :
+          this.createProductRequest(this.editedItem)
+        }
+        this.close()
+      },
+      addSuccessNotification() {
+        this.snackbar = true;
+        this.color = config.light.success;
+        this.text = this.notification;
+      },
+    },
   }
 </script>
 

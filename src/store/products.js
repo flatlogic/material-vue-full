@@ -1,5 +1,4 @@
 import axios from "axios";
-import router from "../Routes";
 import mock from "../pages/E-commerce/mock";
 import config from "../config";
 
@@ -11,7 +10,8 @@ export default {
     isReceiving: false,
     isUpdating: false,
     isDeleting: false,
-    idToDelete: null
+    idToDelete: null,
+    productMessage: ''
   },
   mutations: {
     RECEIVED_PRODUCTS(state, payload) {
@@ -40,6 +40,7 @@ export default {
           return p;
         }),
         isUpdating: false,
+        productMessage: 'Product has been Created!',
       })
     },
     UPDATING_PRODUCT(state) {
@@ -52,7 +53,8 @@ export default {
       state = Object.assign(state, {
         products: [...products],
         isDeleting: false,
-        idToDelete: null
+        idToDelete: null,
+        productMessage: 'Product has been Deleted!',
       });
     },
     DELETING_PRODUCT(state, payload) {
@@ -105,10 +107,10 @@ export default {
       if (!config.isBackend) return;
 
       dispatch("updatingProduct");
-      axios.post('/products', payload.product).then(res => {
+      axios.post('/products', payload).then(res => {
         dispatch("updateProduct", res.data);
-        router.push('/app/ecommerce/management');
-        payload.$toasted.success("Product has been Created!");
+        // router.push('/app/ecommerce/management');
+        // payload.$toasted.success("Product has been Created!");
       })
     },
     deleteProductRequest({dispatch}, payload) {
@@ -118,10 +120,6 @@ export default {
       dispatch("deletingProduct", payload);
       axios.delete('/products/' + payload.id).then(() => {
         dispatch("deleteProduct", {id: payload.id});
-        if (router.history.current.pathname !== '/app/ecommerce/management') {
-          router.push('/app/ecommerce/management');
-        }
-        payload.$toasted.success("Product has been Deleted!");
       })
     },
     getProductsImagesRequest({dispatch}, payload) {
