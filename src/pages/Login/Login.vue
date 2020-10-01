@@ -12,7 +12,7 @@
           <v-row no-gutters>
             <v-col cols="12" class="login-part d-flex align-center justify-center flex-column">
               <div class="login-wrapper">
-                <v-tabs grow>
+                <v-tabs grow v-model="loginTabs">
                   <v-tabs-slider></v-tabs-slider>
                   <v-tab :href="`#tab-login`">
                     LOGIN
@@ -79,7 +79,12 @@
                                 @click="login">
                                 Login
                               </v-btn>
-                              <v-btn large text class="text-capitalize primary--text">Forget Password</v-btn>
+                              <v-btn
+                                large
+                                text
+                                class="text-capitalize primary--text">
+                                Forget Password
+                              </v-btn>
                             </v-col>
                           </v-form>
                         </v-row>
@@ -192,6 +197,7 @@ export default {
   data() {
     return {
       valid: true,
+      loginTabs: '',
       email: 'admin@flatlogic.com',
       emailRules: [
         v => !!v || 'E-mail is required',
@@ -227,6 +233,7 @@ export default {
 
       this.registerUser({creds:{email, password}});
       this.regErrorMessage ? this.alert = true : this.alert = false;
+      this.loginTabs = 'tab-login';
     },
     validate(){
       if (this.$refs.log.validate()) {

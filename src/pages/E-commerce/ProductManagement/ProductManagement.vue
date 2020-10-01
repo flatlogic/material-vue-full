@@ -19,6 +19,8 @@
           </v-card-title>
           <v-card-text class="px-5">
             <v-data-table
+              :loading="isReceiving"
+              loading-text="Loading... Please wait"
               class="product-table"
               show-select
               :headers="headers"
@@ -57,7 +59,7 @@
                             <v-text-field outlined v-model="editedItem.rating" label="Rating"></v-text-field>
                           </v-col>
                           <v-col cols="12" sm="6" md="4">
-                            <v-select outlined :items="images" v-model="editedItem.image" label="Image">
+                            <v-select outlined :items="images" v-model="editedItem.img" label="Image">
                               <template v-slot:item="{ item }">
                                 <v-img :src="item" width="50" style="margin: 2px"></v-img>
                               </template>
@@ -74,8 +76,8 @@
                   </v-card>
                 </v-dialog>
               </template>
-              <template v-slot:item.image="{ item }">
-                <v-img class="my-3" width="100" :src=item.image></v-img>
+              <template v-slot:item.img="{ item }">
+                <v-img class="my-3" width="100" :src=item.img></v-img>
               </template>
               <template v-slot:item.title="{ item }">
                 <a class="primaryConst--text">{{ item.title }}</a>
@@ -85,7 +87,7 @@
                   <span class="warning--text" style="font-size: 1rem">{{ item.rating }} </span><v-icon size="20" color="warning">mdi-star</v-icon>
                 </div>
               </template>
-              <template v-slot:item.actions="{ item }">
+              <template v-slot:item.api="{ item }">
                 <v-btn
                   class="mr-3 button-shadow"
                   @click="editItem(item)"
@@ -100,9 +102,6 @@
                   color="secondary"
                 >Delete
                 </v-btn>
-              </template>
-              <template v-slot:no-data>
-                <v-btn color="primary" @click="initialize">Reset</v-btn>
               </template>
             </v-data-table>
           </v-card-text>
@@ -133,10 +132,11 @@
 
 <script>
   import config from "@/config";
+  import { mapActions, mapState } from 'vuex';
 
   export default {
     name: 'ProductManagement',
-      data() {
+    data() {
         return {
           snackbar: null,
           search: '',
@@ -148,26 +148,25 @@
               sortable: false,
               value: 'id',
             },
-            { text: 'Image', value: 'image', sortable: false },
+            { text: 'Image', value: 'img', sortable: false },
             { text: 'Title', value: 'title' },
             { text: 'Subtitle', value: 'subtitle' },
             { text: 'Price', value: 'price' },
             { text: 'Rating', value: 'rating' },
-            { text: 'Actions', value: 'actions', sortable: false },
+            { text: 'Actions', value: 'api', sortable: false },
           ],
           selected: [],
-          products: [],
           editedIndex: -1,
           editedItem: {
             title: '',
-            image: '',
+            img: '',
             subtitle: '',
             price: '',
             rating: '',
           },
           defaultItem: {
             title: '',
-            image: '',
+            img: '',
             subtitle: '',
             price: '',
             rating: '',
@@ -182,149 +181,25 @@
          ]
         }
       },
-
-      computed: {
+    computed: {
+        ...mapState('products', ['products', "isReceiving", "isDeleting", "idToDelete"]),
         formTitle () {
           return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
         },
       },
-
-      watch: {
+    watch: {
         dialog (val) {
           val || this.close()
         },
       },
-
-      created () {
-        this.initialize(),
+    created () {
         this.addSuccessNotification()
       },
-
-      methods: {
-        initialize () {
-          this.products = [
-            {
-              id: '1',
-              select: false,
-              image: require('@/assets/img/e-commerce/low/1.png'),
-              title: 'Trainers',
-              subtitle: 'Trainers in white',
-              price: '$80',
-              rating: '4.6',
-              actions: true,
-            },
-            {
-              id: '2',
-              select: false,
-              image: require('@/assets/img/e-commerce/low/2.png'),
-              title: 'Boots',
-              subtitle: 'Trainers in blue',
-              price: '$37',
-              rating: '4.6',
-              actions: true,
-            },
-            {
-              id: '3',
-              select: false,
-              image: require('@/assets/img/e-commerce/low/3.png'),
-              title: 'Flat sandals',
-              subtitle: 'Trainers in white',
-              price: '$70',
-              rating: '4.6',
-              actions: true,
-            },
-            {
-              id: '4',
-              select: false,
-              image: require('@/assets/img/e-commerce/low/4.png'),
-              title: 'Trainers',
-              subtitle: 'Trainers in blue',
-              price: '$85',
-              rating: '4.6',
-              actions: true,
-            },
-            {
-              id: '5',
-              select: false,
-              image: require('@/assets/img/e-commerce/low/5.png'),
-              title: 'Flat sandals',
-              subtitle: 'Trainers in white',
-              price: '$12',
-              rating: '4.6',
-              actions: true,
-            },
-            {
-              id: '6',
-              select: false,
-              image: require('@/assets/img/e-commerce/low/6.png'),
-              title: 'Flat sandals',
-              subtitle: 'Trainers in blue',
-              price: '$76',
-              rating: '4.6',
-              actions: true,
-            },
-            {
-              id: '7',
-              select: false,
-              image: require('@/assets/img/e-commerce/low/1.png'),
-              title: 'Trainers',
-              subtitle: 'Trainers in white',
-              price: '$80',
-              rating: '4.6',
-              actions: '1234',
-            },
-            {
-              id: '8',
-              select: false,
-              image: require('@/assets/img/e-commerce/low/2.png'),
-              title: 'Boots',
-              subtitle: 'Trainers in blue',
-              price: '$37',
-              rating: '4.6',
-              actions: true,
-            },
-            {
-              id: '9',
-              select: false,
-              image: require('@/assets/img/e-commerce/low/3.png'),
-              title: 'Flat sandals',
-              subtitle: 'Trainers in white',
-              price: '$70',
-              rating: '4.6',
-              actions: true,
-            },
-            {
-              id: '10',
-              select: false,
-              image: require('@/assets/img/e-commerce/low/4.png'),
-              title: 'Trainers',
-              subtitle: 'Trainers in blue',
-              price: '$85',
-              rating: '4.6',
-              actions: true,
-            },
-            {
-              id: '11',
-              select: false,
-              image: require('@/assets/img/e-commerce/low/5.png'),
-              title: 'Flat sandals',
-              subtitle: 'Trainers in white',
-              price: '$12',
-              rating: '4.6',
-              actions: true,
-            },
-            {
-              id: '12',
-              select: false,
-              image: require('@/assets/img/e-commerce/low/6.png'),
-              title: 'Flat sandals',
-              subtitle: 'Trainers in blue',
-              price: '$76',
-              rating: '4.6',
-              actions: true,
-            },
-          ]
-        },
+    mounted() {
+      this.getProductsRequest()
+    },
+    methods: {
+        ...mapActions('products', ["getProductsRequest", "deleteProductRequest"]),
 
         editItem (item) {
           this.editedIndex = this.products.indexOf(item)

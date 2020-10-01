@@ -24,7 +24,7 @@ export default {
   actions: {
     registerUser({dispatch}, payload) {
       if (!config.isBackend) {
-        router.go();
+        router.push('/user/profile');
       }
 
       else {
@@ -33,7 +33,6 @@ export default {
         if (creds.email.length > 0 && creds.password.length > 0) {
           axios.post("/auth/signup", creds).then(() => {
             dispatch('receiveRegister');
-            router.go();
           }).catch(err => {
             console.log(err.response.data)
             dispatch('registerError', err.response.data);
