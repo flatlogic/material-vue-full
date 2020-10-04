@@ -40,7 +40,7 @@ export default {
           return p;
         }),
         isUpdating: false,
-        productMessage: 'Product has been Created!',
+        productMessage: 'Products has been updating!',
       })
     },
     UPDATING_PRODUCT(state) {
@@ -61,9 +61,6 @@ export default {
       state.isDeleting = true;
       state.idToDelete = payload.id;
     },
-    RECEIVED_IMAGES(state, payload) {
-      state.images = payload;
-    }
   },
   actions: {
     getProductsRequest({dispatch}) {
@@ -97,20 +94,17 @@ export default {
       if (!config.isBackend) return;
 
       dispatch("updatingProduct");
-      axios.put('/products/' + payload.product.id, payload.product).then(res => {
+      axios.put('/products/' + payload.id, payload).then(res => {
         dispatch("updateProduct", res.data);
-        payload.$toasted.success("Product has been Updated!");
       })
     },
     createProductRequest({dispatch}, payload) {
       // We check if app runs with backend mode
       if (!config.isBackend) return;
 
-      dispatch("updatingProduct");
+      dispatch("receivingProducts");
       axios.post('/products', payload).then(res => {
-        dispatch("updateProduct", res.data);
-        // router.push('/app/ecommerce/management');
-        // payload.$toasted.success("Product has been Created!");
+        dispatch("receiveProduct", res.data);
       })
     },
     deleteProductRequest({dispatch}, payload) {
@@ -121,20 +115,6 @@ export default {
       axios.delete('/products/' + payload.id).then(() => {
         dispatch("deleteProduct", {id: payload.id});
       })
-    },
-    getProductsImagesRequest({dispatch}, payload) {
-      // We check if app runs with backend mode
-      if (!config.isBackend) return;
-
-      axios.get('/products/images-list').then(res => {
-        dispatch("receiveProductImages", res.data);
-        if (!payload.img && res.data.length) {
-          dispatch("updateProduct", {id: payload.id, img: res.data[0]});
-        }
-      })
-    },
-    receiveProductImages({commit}, payload) {
-      commit("RECEIVED_IMAGES", payload)
     },
     receiveProducts({commit}, payload) {
       commit("RECEIVED_PRODUCTS", payload)

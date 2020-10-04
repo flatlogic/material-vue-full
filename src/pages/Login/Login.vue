@@ -172,7 +172,7 @@
       v-model="alert"
       color="error"
     >
-      {{ errorMessage }}
+      {{ message }}
 
       <template v-slot:action="{ attrs }">
         <v-btn
@@ -212,7 +212,8 @@ export default {
         v => !!v || 'Password is required',
         v => v.length >= 6 || 'Min 6 characters'
       ],
-      alert: false
+      alert: false,
+      message: ''
     }
   },
   methods: {
@@ -222,7 +223,6 @@ export default {
       const email = this.email;
       const password = this.password;
       this.loginUser({email, password});
-      this.errorMessage ? this.alert = true : this.alert = false;
     },
     googleLogin() {
       this.loginUser({social: "google"});
@@ -232,8 +232,10 @@ export default {
       const password = this.createPassword;
 
       this.registerUser({creds:{email, password}});
-      this.regErrorMessage ? this.alert = true : this.alert = false;
-      this.loginTabs = 'tab-login';
+      setTimeout(() => {
+        this.loginTabs = 'tab-login';
+      }, 1500)
+
     },
     validate(){
       if (this.$refs.log.validate()) {
@@ -254,8 +256,14 @@ export default {
   },
 
   watch: {
-    errorMessage(newValue) {
-      newValue.length > 0 ? this.alert = true : this.alert = false;
+    errorMessage() {
+      this.message = this.errorMessage;
+      this.alert = true;
+
+    },
+    regErrorMessage() {
+      this.message = this.regErrorMessage;
+      this.alert = true;
     }
   },
 

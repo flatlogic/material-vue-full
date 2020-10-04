@@ -19,7 +19,7 @@
           </v-card-title>
           <v-card-text class="px-5">
             <v-data-table
-              :loading="isReceiving"
+              :loading="isReceiving || isDeleting"
               loading-text="Loading... Please wait"
               class="product-table"
               show-select
@@ -33,6 +33,7 @@
                     <v-btn
                       color="success"
                       dark
+                      :loading="isUpdating"
                       class="my-4 button-shadow"
                       v-bind="attrs"
                       v-on="on"
@@ -55,7 +56,7 @@
                             <v-text-field outlined v-model="editedItem.price" label="Price"></v-text-field>
                           </v-col>
                           <v-col cols="12" sm="6" md="4">
-                            <v-text-field outlined v-model="editedItem.rating" label="Rating"></v-text-field>
+                            <v-text-field :rules="ratingRules" outlined v-model="editedItem.rating" type="number" label="Rating"></v-text-field>
                           </v-col>
                           <v-col cols="12" sm="6" md="4">
                             <v-select outlined :items="images" v-model="editedItem.img" label="Image">
@@ -154,6 +155,11 @@
           { text: 'Rating', value: 'rating' },
           { text: 'Actions', value: 'api', sortable: false },
         ],
+        ratingRules: [
+          v => !!v || "This field is required",
+          v => ( v && v >= 0 ) || "Rating should be above 0",
+          v => ( v && v <= 5 ) || "Max Rating not be above 5",
+        ],
         selected: [],
         editedIndex: -1,
         editedItem: {
@@ -182,7 +188,7 @@
       }
     },
     computed: {
-        ...mapState('products', ['products', "isReceiving", "isDeleting", "idToDelete", "productMessage"]),
+        ...mapState('products', ['products', "isReceiving", "isDeleting", "idToDelete", "productMessage", "isUpdating"]),
         formTitle () {
           return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
         },
@@ -209,23 +215,20 @@
           "deleteProductRequest",
           "updateProductRequest",
           "createProductRequest"
-        ]),
-
+        ]
+      ),
       editItem (item) {
         this.editedIndex = this.products.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialog = true
       },
-
       deleteItem (item) {
-        // const index = this.products.indexOf(item)
         if (!config.isBackend ) {
           confirm('Are you sure you want to delete this item?') && this.products.splice(item.id, 1)
         } else {
           confirm('Are you sure you want to delete this item?') && this.deleteProductRequest({id: item.id})
         }
       },
-
       close () {
         this.dialog = false
         this.$nextTick(() => {
@@ -233,10 +236,12 @@
           this.editedIndex = -1
         })
       },
-
       save () {
         if (this.editedIndex > -1) {
+          !config.isBackend ?
           Object.assign(this.products[this.editedIndex], this.editedItem)
+          :
+          this.updateProductRequest(this.editedItem)
         } else {
           !config.isBackend ?
           this.products.push(this.editedItem)
