@@ -33,7 +33,6 @@
                     <v-btn
                       color="success"
                       dark
-                      :loading="isUpdating"
                       class="my-4 button-shadow"
                       v-bind="attrs"
                       v-on="on"
@@ -97,7 +96,6 @@
                 </v-btn>
                 <v-btn
                   @click="deleteItem(item)"
-                  :loading="isDeleting"
                   small
                   class="button-shadow"
                   color="secondary"
@@ -184,7 +182,7 @@
           require('@/assets/img/e-commerce/low/5.png'),
           require('@/assets/img/e-commerce/low/6.png')
        ],
-        notification: 'This page is only available in React Material Admin Full with Node.js integration!'
+        notification: 'This page is only available in Vue Material Admin Full with Node.js integration!'
       }
     },
     computed: {

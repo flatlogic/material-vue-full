@@ -41,13 +41,14 @@
         <v-card class="ma-1">
           <v-card-text>
             <v-data-table
+              :loading="isReceiving || isDeleting"
+              loading-text="Loading... Please wait"
               class="users-table"
               show-select
               :headers="headers"
               :items="users"
               sort-by="calories"
-              :items-per-page="itemPerPage"
-            >
+              :items-per-page="itemPerPage">
               <template v-slot:top>
                 <v-dialog v-model="dialog" max-width="500px">
                   <v-card class="edit-dialog" >
@@ -58,7 +59,7 @@
                       <v-container>
                         <v-row>
                           <v-col cols="12" sm="6">
-                            <v-text-field outlined v-model="editedItem.name" label="Name"></v-text-field>
+                            <v-text-field outlined v-model="editedItem.firstName" label="Name"></v-text-field>
                           </v-col>
                           <v-col cols="12" md="6">
                             <v-text-field outlined v-model="editedItem.email" label="Email"></v-text-field>
@@ -88,13 +89,32 @@
                 </v-dialog>
               </template>
               <template v-slot:item.image="{ item }">
-                <v-img class="my-3" width="34" :src=item.image></v-img>
+                <v-img v-if="item.role === 'admin'" class="my-3" width="34" :src=images[0]></v-img>
+                <v-avatar
+                  v-else
+                  color="warning"
+                  size="34">
+                  <span class="white--text headline">{{ item.firstName[0].toUpperCase() }}</span>
+                </v-avatar>
               </template>
-              <template v-slot:item.name="{ item }">
-                <a class="primaryConst--text">{{ item.name }}</a>
+              <template v-slot:item.firstName="{ item }">
+                <a class="primaryConst--text">{{ item.firstName }}</a>
               </template>
-              <template v-slot:item.status="{ item }">
-                <v-chip :color="item.status === 'Active' ? 'primaryConst white--text' : 'secondaryConst white--text'" small>{{ item.status }}</v-chip>
+              <template v-slot:item.lastName="{ item }">
+                <a class="primaryConst--text">{{ item.lastName }}</a>
+              </template>
+              <template v-slot:item.company>
+                Flatlogic
+              </template>
+              <template v-slot:item.disabled="{ item }">
+                <v-chip
+                    :color="item.status !== 'false' ? 'primaryConst white--text' : 'secondaryConst white--text'"
+                    small>
+                  {{ item.disabled === 'false' ? 'Inactive' : 'Active' }}
+                </v-chip>
+              </template>
+              <template v-slot:item.createdAt="{ item }">
+                {{ new Date(item.createdAt).toLocaleString("en-US", { year: 'numeric', month: 'numeric', day: 'numeric' }) }}
               </template>
               <template v-slot:item.actions="{ item }">
                 <v-btn icon color="primary" @click="editItem(item)">
@@ -112,54 +132,71 @@
         </v-card>
       </v-col>
     </v-row>
+    <v-snackbar
+      v-model="snackbar"
+      color="success"
+      right
+      top
+      style="top: 50px"
+    >
+      {{ text }}
+      <template v-slot:action="{ attrs }">
+        <v-btn
+          dark
+          text
+          v-bind="attrs"
+          @click="snackbar = false"
+        >
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
   </v-container>
 </template>
 
 <script>
 import mock from "./mock"
+import config from "../../../config"
+import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'UserList',
   data() {
     return {
       mock,
+      config,
+      snackbar: null,
       dialog: false,
       headers: [
-        {
-          text: 'ID',
-          align: 'start',
-          sortable: false,
-          value: 'id',
-        },
         { text: 'Image', value: 'image', sortable: false },
-        { text: 'Name', value: 'name' },
+        { text: 'First Name', value: 'firstName' },
+        { text: 'Last Name', value: 'lastName' },
         { text: 'Role', value: 'role' },
         { text: 'Company', value: 'company' },
         { text: 'Email', value: 'email' },
-        { text: 'Status', value: 'status' },
-        { text: 'Create', value: 'create' },
+        { text: 'Status', value: 'disabled' },
+        { text: 'Create', value: 'createdAt' },
         { text: 'Actions', value: 'actions', sortable: false },
       ],
       selected: [],
-      users: [],
       role: ['Admin', 'User'],
       editedIndex: -1,
       editedItem: {
-        name: '',
+        firstName: '',
         image: '',
         role: '',
         company: '',
         email: '',
-        status: '',
+        disabled: '',
         create: '',
       },
       defaultItem: {
-        name: '',
+        firstName: '',
         image: '',
         role: '',
         company: '',
         email: '',
-        status: '',
+        disabled: '',
         create: '',
       },
       images: [
@@ -169,11 +206,14 @@ export default {
         require('@/assets/img/user/avatars/4.png'),
         require('@/assets/img/user/avatars/5.png'),
       ],
-      itemPerPage: 5
+      itemPerPage: 5,
+      text: '',
+      notification: 'This page is only available in Vue Material Admin Full with Node.js integration!'
     }
   },
 
   computed: {
+    ...mapState('usersList', ['users', 'isReceiving', 'isDeleting', 'idToDelete', 'usersMessage', 'isUpdating']),
     formTitle () {
       return this.editedIndex === -1 ? 'New Item' : 'Edit User'
     },
@@ -183,16 +223,24 @@ export default {
     dialog (val) {
       val || this.close()
     },
+    usersMessage() {
+      this.notification = this.productMessage;
+      this.addSuccessNotification()
+    }
   },
 
   created () {
-    this.initialize()
+    this.getUsersRequest(),
+      this.addSuccessNotification()
   },
 
   methods: {
-    initialize () {
-      this.users = mock
-    },
+    ...mapActions('usersList', [
+      "getUsersRequest",
+      "deleteUserRequest",
+      "updateUserRequest",
+      "createUserRequest"
+    ]),
 
     editItem(item) {
       this.editedIndex = this.users.indexOf(item);
@@ -201,8 +249,12 @@ export default {
     },
 
     deleteItem(item) {
-      const index = this.users.indexOf(item);
-      confirm('Are you sure you want to delete this item?') && this.users.splice(index, 1)
+      if (!config.isBackend) {
+        const index = this.users.indexOf(item);
+        confirm('Are you sure you want to delete this user?') && this.users.splice(index, 1)
+      } else {
+        confirm('Are you sure you want to delete this user?') && this.deleteUserRequest({id: item.id})
+      }
     },
 
     close () {
@@ -215,11 +267,23 @@ export default {
 
     save () {
       if (this.editedIndex > -1) {
+        !config.isBackend ?
         Object.assign(this.users[this.editedIndex], this.editedItem)
+        :
+        this.updateUserRequest(this.editedItem)
       } else {
+        !config.isBackend ?
         this.users.push(this.editedItem)
+        :
+        this.createUserRequest(this.editedItem)
       }
       this.close()
+    },
+
+    addSuccessNotification() {
+      this.snackbar = true;
+      this.color = config.light.success;
+      this.text = this.notification;
     },
   },
 }
