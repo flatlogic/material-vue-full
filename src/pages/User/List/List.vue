@@ -44,10 +44,49 @@
               class="users-table"
               show-select
               :headers="headers"
-              :items="products"
+              :items="users"
               sort-by="calories"
               :items-per-page="itemPerPage"
             >
+              <template v-slot:top>
+                <v-dialog v-model="dialog" max-width="500px">
+                  <v-card class="edit-dialog" >
+                    <v-card-title>
+                      <span class="headline">{{ formTitle }}</span>
+                    </v-card-title>
+                    <v-card-text>
+                      <v-container>
+                        <v-row>
+                          <v-col cols="12" sm="6">
+                            <v-text-field outlined v-model="editedItem.name" label="Name"></v-text-field>
+                          </v-col>
+                          <v-col cols="12" md="6">
+                            <v-text-field outlined v-model="editedItem.email" label="Email"></v-text-field>
+                          </v-col>
+                          <v-col cols="12" sm="4">
+                            <v-select outlined :items="role" v-model="editedItem.role" label="Role"></v-select>
+                          </v-col>
+                          <v-col cols="12" sm="6" md="4">
+                            <v-text-field outlined v-model="editedItem.company" label="Company"></v-text-field>
+                          </v-col>
+                          <v-col cols="12" sm="6" md="4">
+                            <v-select outlined :items="images" v-model="editedItem.img" label="Image">
+                              <template v-slot:item="{ item }">
+                                <v-img :src="item" width="50" style="margin: 2px"></v-img>
+                              </template>
+                            </v-select>
+                          </v-col>
+                        </v-row>
+                      </v-container>
+                    </v-card-text>
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <v-btn color="primary" outlined @click="close">Cancel</v-btn>
+                      <v-btn color="success" class="button-shadow" @click="save">Save</v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </v-dialog>
+              </template>
               <template v-slot:item.image="{ item }">
                 <v-img class="my-3" width="34" :src=item.image></v-img>
               </template>
@@ -68,9 +107,6 @@
                   <v-icon>mdi-delete-outline</v-icon>
                 </v-btn>
               </template>
-              <template v-slot:no-data>
-                <v-btn color="primary" @click="initialize">Reset</v-btn>
-              </template>
             </v-data-table>
           </v-card-text>
         </v-card>
@@ -80,10 +116,13 @@
 </template>
 
 <script>
+import mock from "./mock"
+
 export default {
   name: 'UserList',
   data() {
     return {
+      mock,
       dialog: false,
       headers: [
         {
@@ -102,7 +141,8 @@ export default {
         { text: 'Actions', value: 'actions', sortable: false },
       ],
       selected: [],
-      products: [],
+      users: [],
+      role: ['Admin', 'User'],
       editedIndex: -1,
       editedItem: {
         name: '',
@@ -135,7 +175,7 @@ export default {
 
   computed: {
     formTitle () {
-      return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
+      return this.editedIndex === -1 ? 'New Item' : 'Edit User'
     },
   },
 
@@ -151,166 +191,33 @@ export default {
 
   methods: {
     initialize () {
-      this.products = [
-        {
-          id: '1',
-          image: require('@/assets/img/user/avatars/1.png'),
-          name: 'Jane Hew',
-          role: 'Admin',
-          company: 'Flatlogic',
-          email: 'admin@flatlogic.com',
-          status: 'Active',
-          create: '2020-06-07',
-          actions: true,
-        },
-        {
-          id: '2',
-          image: require('@/assets/img/user/avatars/2.png'),
-          name: 'Axel Pittman',
-          role: 'Admin',
-          company: 'Flatlogic',
-          email: 'admin@flatlogic.com',
-          status: 'Inactive',
-          create: '2020-06-07',
-          actions: true,
-        },
-        {
-          id: '3',
-          image: require('@/assets/img/user/avatars/3.png'),
-          name: 'Sophia Fernandez',
-          role: 'Admin',
-          company: 'Flatlogic',
-          email: 'admin@flatlogic.com',
-          status: 'Active',
-          create: '2020-06-07',
-          actions: true,
-        },
-        {
-          id: '4',
-          image: require('@/assets/img/user/avatars/4.png'),
-          name: 'Bob Nilson',
-          role: 'Admin',
-          company: 'Flatlogic',
-          email: 'admin@flatlogic.com',
-          status: 'Inactive',
-          create: '2020-06-07',
-          actions: true,
-        },
-        {
-          id: '5',
-          image: require('@/assets/img/user/avatars/5.png'),
-          name: 'Jessica Nilson',
-          role: 'Admin',
-          company: 'Flatlogic',
-          email: 'admin@flatlogic.com',
-          status: 'Active',
-          create: '2020-06-07',
-          actions: true,
-        },
-        {
-          id: '6',
-          image: require('@/assets/img/user/avatars/1.png'),
-          name: 'Jane Hew',
-          role: 'Admin',
-          company: 'Flatlogic',
-          email: 'admin@flatlogic.com',
-          status: 'Inactive',
-          create: '2020-06-07',
-          actions: true,
-        },
-        {
-          id: '7',
-          image: require('@/assets/img/user/avatars/2.png'),
-          name: 'Axel Pittman',
-          role: 'Admin',
-          company: 'Flatlogic',
-          email: 'admin@flatlogic.com',
-          status: 'Active',
-          create: '2020-06-07',
-          actions: '1234',
-        },
-        {
-          id: '8',
-          image: require('@/assets/img/user/avatars/3.png'),
-          name: 'Sophia Fernandez',
-          role: 'User',
-          company: 'Flatlogic',
-          email: 'admin@flatlogic.com',
-          status: 'Inactive',
-          create: '2020-06-07',
-          actions: true,
-        },
-        {
-          id: '9',
-          image: require('@/assets/img/user/avatars/4.png'),
-          name: 'Bob Nilson',
-          role: 'Writer',
-          company: 'Flatlogic',
-          email: 'admin@flatlogic.com',
-          status: 'Active',
-          create: '2020-06-07',
-          actions: true,
-        },
-        {
-          id: '10',
-          image: require('@/assets/img/user/avatars/5.png'),
-          name: 'Jessica Nilson',
-          role: 'User',
-          company: 'Flatlogic',
-          email: 'admin@flatlogic.com',
-          status: 'Inactive',
-          create: '2020-06-07',
-          actions: true,
-        },
-        {
-          id: '11',
-          image: require('@/assets/img/user/avatars/1.png'),
-          name: 'Jane Hew',
-          role: 'User',
-          company: 'Flatlogic',
-          email: 'admin@flatlogic.com',
-          status: 'Active',
-          create: '2020-06-07',
-          actions: true,
-        },
-        {
-          id: '12',
-          image: require('@/assets/img/user/avatars/2.png'),
-          name: 'Axel Pittman',
-          role: 'Writer',
-          company: 'Flatlogic',
-          email: 'admin@flatlogic.com',
-          status: 'Inactive',
-          create: '2020-06-07',
-          actions: true,
-        },
-      ]
+      this.users = mock
     },
 
-    editItem (item) {
-      this.editedIndex = this.products.indexOf(item)
-      this.editedItem = Object.assign({}, item)
+    editItem(item) {
+      this.editedIndex = this.users.indexOf(item);
+      this.editedItem = Object.assign({}, item);
       this.dialog = true
     },
 
-    deleteItem (item) {
-      const index = this.products.indexOf(item)
-      confirm('Are you sure you want to delete this item?') && this.products.splice(index, 1)
+    deleteItem(item) {
+      const index = this.users.indexOf(item);
+      confirm('Are you sure you want to delete this item?') && this.users.splice(index, 1)
     },
 
     close () {
-      this.dialog = false
+      this.dialog = false;
       this.$nextTick(() => {
-        this.editedItem = Object.assign({}, this.defaultItem)
+        this.editedItem = Object.assign({}, this.defaultItem);
         this.editedIndex = -1
       })
     },
 
     save () {
       if (this.editedIndex > -1) {
-        Object.assign(this.products[this.editedIndex], this.editedItem)
+        Object.assign(this.users[this.editedIndex], this.editedItem)
       } else {
-        this.products.push(this.editedItem)
+        this.users.push(this.editedItem)
       }
       this.close()
     },
