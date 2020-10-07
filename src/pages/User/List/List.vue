@@ -41,7 +41,7 @@
         <v-card class="ma-1">
           <v-card-text>
             <v-data-table
-              :loading="isReceiving || isDeleting "
+              :loading="isReceiving || isDeleting || isUpdating"
               loading-text="Loading... Please wait"
               class="users-table"
               show-select
