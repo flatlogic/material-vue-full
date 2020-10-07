@@ -99,10 +99,13 @@ export default {
     createUserRequest({dispatch}, payload) {
       // We check if app runs with backend mode
       if (!config.isBackend) return;
-
       dispatch("receivingUsers");
-      axios.post('/users', payload).then(res => {
+      axios.post('/users', {data: payload}).then(res => {
         dispatch("receiveUser", res.data);
+      })
+      dispatch("receivingUsers");
+      axios.get('/users').then(res => {
+        dispatch("receiveUsers", res.data.rows);
       })
     },
     deleteUserRequest({dispatch}, payload) {

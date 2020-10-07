@@ -27,44 +27,55 @@
                       <v-form>
                         <p class="text-h5">Create New Account</p>
                         <v-text-field
-                            class="mb-4"
-                            outlined
-                            dense
-                            placeholder="User Name"
-                            persistent-hint
-                            single-line hint="Please enter your user name">
+                          class="mb-4"
+                          v-model="user.firstName"
+                          outlined
+                          dense
+                          placeholder="User First Name"
+                          persistent-hint
+                          single-line hint="Please enter your user first name">
                         </v-text-field>
                         <v-text-field
-                            class="mb-4"
-                            outlined
-                            dense
-                            placeholder="Email Address"
-                            persistent-hint
-                            single-line hint="We’ll never share your email with anyone else">
+                          class="mb-4"
+                          v-model="user.lastName"
+                          outlined
+                          dense
+                          placeholder="User Last Name"
+                          persistent-hint
+                          single-line hint="Please enter your user last name">
                         </v-text-field>
                         <v-text-field
-                            class="mb-4"
-                            outlined
-                            dense
-                            placeholder="Password"
-                            persistent-hint
-                            single-line hint="Enter your password. Min 6 characters long">
+                          class="mb-4"
+                          v-model="user.email"
+                          outlined
+                          dense
+                          placeholder="Email Address"
+                          persistent-hint
+                          single-line hint="We’ll never share your email with anyone else">
+                        </v-text-field>
+                        <v-text-field
+                          class="mb-4"
+                          v-model="user.password"
+                          outlined
+                          dense
+                          placeholder="Password"
+                          persistent-hint
+                          single-line hint="Enter your password. Min 6 characters long">
                         </v-text-field>
                         <v-select
-                            class="mb-4"
-                            :items=items
-                            outlined
-                            dense
-                            placeholder="Role"
-                            persistent-hint
-                            single-line hint="Please choose the role">
+                          class="mb-4"
+                          :items=items
+                          outlined
+                          dense
+                          placeholder="Role"
+                          persistent-hint
+                          single-line hint="Please choose the role">
                         </v-select>
                         <div class="d-flex justify-end">
                           <v-btn
-                                  class="button-shadow"
-                                  color="primary"
-                                  @click="e1 = 2"
-                          >
+                            class="button-shadow"
+                            color="primary"
+                            @click="e1 = 2">
                             Next
                           </v-btn>
                         </div>
@@ -84,59 +95,59 @@
                         <p>Photo:</p>
                         <v-file-input multiple label="File input" class="mb-4"></v-file-input>
                         <v-text-field
-                            class="mb-4"
-                            outlined
-                            dense
-                            placeholder="First Name"
-                            persistent-hint
-                            single-line hint="Please enter your user first name">
+                          class="mb-4"
+                          outlined
+                          dense
+                          placeholder="First Name"
+                          persistent-hint
+                          single-line hint="Please enter your user first name">
                         </v-text-field>
                         <v-text-field
-                            class="mb-4"
-                            outlined
-                            dense
-                            placeholder="Last Name"
-                            persistent-hint
-                            single-line hint="Please enter your user last name">
+                          class="mb-4"
+                          outlined
+                          dense
+                          placeholder="Last Name"
+                          persistent-hint
+                          single-line hint="Please enter your user last name">
                         </v-text-field>
                         <v-text-field
-                            class="mb-4"
-                            outlined
-                            dense
-                            placeholder="Contact Number"
-                            persistent-hint
-                            single-line hint="Enter your contact number">
+                          class="mb-4"
+                          outlined
+                          dense
+                          placeholder="Contact Number"
+                          persistent-hint
+                          single-line hint="Enter your contact number">
                         </v-text-field>
                         <v-text-field
-                            class="mb-4"
-                            outlined
-                            dense
-                            placeholder="Adress"
-                            persistent-hint
-                            single-line hint="Enter your address">
+                          class="mb-4"
+                          outlined
+                          dense
+                          placeholder="Address"
+                          persistent-hint
+                          single-line hint="Enter your address">
                         </v-text-field>
                         <v-select
-                            class="mb-4"
-                            :items=items
-                            outlined
-                            dense
-                            placeholder="Role"
-                            persistent-hint
-                            single-line hint="Please choose the role">
+                          class="mb-4"
+                          :items=items
+                          outlined
+                          dense
+                          placeholder="Role"
+                          persistent-hint
+                          single-line hint="Please choose the role">
                         </v-select>
                         <div class="d-flex justify-center">
                           <v-btn
-                              outlined
-                              color="primary"
-                              @click="e1 = 1"
+                            outlined
+                            color="primary"
+                            @click="e1 = 1"
                           >
                             Back
                           </v-btn>
                           <v-spacer></v-spacer>
                           <v-btn
-                              class="button-shadow"
-                              color="primary"
-                              @click="e1 = 3"
+                            class="button-shadow"
+                            color="primary"
+                            @click="e1 = 3"
                           >
                             Next
                           </v-btn>
@@ -154,50 +165,50 @@
                       <v-form>
                         <p class="text-h5">Business Details</p>
                         <v-text-field
-                            class="mb-4"
-                            outlined
-                            dense
-                            placeholder="Company Name"
-                            persistent-hint
-                            single-line hint="Please enter your company name">
+                          class="mb-4"
+                          outlined
+                          dense
+                          placeholder="Company Name"
+                          persistent-hint
+                          single-line hint="Please enter your company name">
                         </v-text-field>
                         <v-text-field
-                            class="mb-4"
-                            outlined
-                            dense
-                            placeholder="Company Registered ID"
-                            persistent-hint
-                            single-line hint="Please enter your company registered ID">
+                          class="mb-4"
+                          outlined
+                          dense
+                          placeholder="Company Registered ID"
+                          persistent-hint
+                          single-line hint="Please enter your company registered ID">
                         </v-text-field>
                         <v-text-field
-                            class="mb-4"
-                            outlined
-                            dense
-                            placeholder="Company Email"
-                            persistent-hint
-                            single-line hint="Enter your company email">
+                          class="mb-4"
+                          outlined
+                          dense
+                          placeholder="Company Email"
+                          persistent-hint
+                          single-line hint="Enter your company email">
                         </v-text-field>
                         <v-text-field
-                            class="mb-4"
-                            outlined
-                            dense
-                            placeholder="Company Contact"
-                            persistent-hint
-                            single-line hint="Enter your company contact">
+                          class="mb-4"
+                          outlined
+                          dense
+                          placeholder="Company Contact"
+                          persistent-hint
+                          single-line hint="Enter your company contact">
                         </v-text-field>
                         <div class="d-flex justify-center">
                           <v-btn
-                              outlined
-                              color="primary"
-                              @click="e1 = 2"
+                            outlined
+                            color="primary"
+                            @click="e1 = 2"
                           >
                             Back
                           </v-btn>
                           <v-spacer></v-spacer>
                           <v-btn
-                              class="button-shadow"
-                              color="primary"
-                              @click="e1 = 4"
+                            class="button-shadow"
+                            color="primary"
+                            @click="e1 = 4"
                           >
                             Next
                           </v-btn>
@@ -215,66 +226,67 @@
                       <v-form>
                         <p class="text-h5">Social</p>
                         <v-text-field
-                            class="mb-4"
-                            outlined
-                            dense
-                            placeholder="Facebook"
-                            persistent-hint
-                            single-line hint="Please enter your Facebook link">
+                          class="mb-4"
+                          outlined
+                          dense
+                          placeholder="Facebook"
+                          persistent-hint
+                          single-line hint="Please enter your Facebook link">
                         </v-text-field>
                         <v-text-field
-                            class="mb-4"
-                            outlined
-                            dense
-                            placeholder="Twitter"
-                            persistent-hint
-                            single-line hint="Please enter your Twitter link">
+                          class="mb-4"
+                          outlined
+                          dense
+                          placeholder="Twitter"
+                          persistent-hint
+                          single-line hint="Please enter your Twitter link">
                         </v-text-field>
                         <v-text-field
-                            class="mb-4"
-                            outlined
-                            dense
-                            placeholder="Instagram"
-                            persistent-hint
-                            single-line hint="Please enter your Instagram link">
+                          class="mb-4"
+                          outlined
+                          dense
+                          placeholder="Instagram"
+                          persistent-hint
+                          single-line hint="Please enter your Instagram link">
                         </v-text-field>
                         <v-text-field
-                            class="mb-4"
-                            outlined
-                            dense
-                            placeholder="GitHub"
-                            persistent-hint
-                            single-line hint="Please enter your GitHub link">
+                          class="mb-4"
+                          outlined
+                          dense
+                          placeholder="GitHub"
+                          persistent-hint
+                          single-line hint="Please enter your GitHub link">
                         </v-text-field>
                         <v-text-field
-                            class="mb-4"
-                            outlined
-                            dense
-                            placeholder="CodePen"
-                            persistent-hint
-                            single-line hint="Please enter your CodePen link">
+                          class="mb-4"
+                          outlined
+                          dense
+                          placeholder="CodePen"
+                          persistent-hint
+                          single-line hint="Please enter your CodePen link">
                         </v-text-field>
                         <v-text-field
-                            class="mb-4"
-                            outlined
-                            dense
-                            placeholder="Slack"
-                            persistent-hint
-                            single-line hint="Please enter your Slack link">
+                          class="mb-4"
+                          outlined
+                          dense
+                          placeholder="Slack"
+                          persistent-hint
+                          single-line hint="Please enter your Slack link">
                         </v-text-field>
                         <div class="d-flex justify-center">
                           <v-btn
-                              outlined
-                              color="primary"
-                              @click="e1 = 3"
+                            outlined
+                            color="primary"
+                            @click="e1 = 3"
                           >
                             Back
                           </v-btn>
                           <v-spacer></v-spacer>
                           <v-btn
-                              class="button-shadow"
-                              color="primary"
-                              to="/user/list"
+                            class="button-shadow"
+                            color="primary"
+                            @click="createUser()"
+
                           >
                             Finish
                           </v-btn>
@@ -295,13 +307,38 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+import router from '@/Routes';
+
 export default {
   data () {
     return {
       e1: 1,
       items: ['Admin', 'User'],
+      user: {
+        firstName: '',
+        lastName: '',
+        password: '',
+        createdAt: new Date(),
+        image: '',
+        role: '',
+        company: 'Flatlogic',
+        email: '',
+        disabled: '',
+        create: '',
+      },
     }
   },
+
+  methods: {
+    ...mapActions('usersList', [
+      "createUserRequest"
+    ]),
+    createUser() {
+      this.createUserRequest(this.user)
+      router.push('/user/list')
+    }
+  }
 }
 </script>
 

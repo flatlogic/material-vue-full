@@ -170,10 +170,8 @@
     </v-container>
     <v-snackbar
       v-model="alert"
-      color="error"
-    >
+      color="error">
       {{ message }}
-
       <template v-slot:action="{ attrs }">
         <v-btn
           dark
@@ -231,7 +229,7 @@ export default {
       const email = this.createEmail;
       const password = this.createPassword;
 
-      this.registerUser({creds:{email, password}});
+      this.registerUser({ creds: {email, password} });
       setTimeout(() => {
         this.loginTabs = 'tab-login';
       }, 1500)

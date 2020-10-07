@@ -41,7 +41,7 @@
         <v-card class="ma-1">
           <v-card-text>
             <v-data-table
-              :loading="isReceiving || isDeleting"
+              :loading="isReceiving || isDeleting "
               loading-text="Loading... Please wait"
               class="users-table"
               show-select
@@ -68,7 +68,7 @@
                             <v-select outlined :items="role" v-model="editedItem.role" label="Role"></v-select>
                           </v-col>
                           <v-col cols="12" sm="6" md="4">
-                            <v-text-field outlined v-model="editedItem.company" label="Company"></v-text-field>
+                            <v-text-field outlined v-model="editedItem.company" value="Flatlogic" label="Company"></v-text-field>
                           </v-col>
                           <v-col cols="12" sm="6" md="4">
                             <v-select outlined :items="images" v-model="editedItem.img" label="Image">
@@ -89,7 +89,7 @@
                 </v-dialog>
               </template>
               <template v-slot:item.image="{ item }">
-                <v-img v-if="item.role === 'admin'" class="my-3" width="34" :src=images[0]></v-img>
+                <v-img v-if="item.role === 'admin'" class="my-3" width="34" src="../../../assets/img/user/avatars/1.png"></v-img>
                 <v-avatar
                   v-else
                   color="warning"
@@ -137,16 +137,14 @@
       color="success"
       right
       top
-      style="top: 50px"
-    >
+      style="top: 50px">
       {{ text }}
       <template v-slot:action="{ attrs }">
         <v-btn
           dark
           text
           v-bind="attrs"
-          @click="snackbar = false"
-        >
+          @click="snackbar = false">
           Close
         </v-btn>
       </template>
@@ -185,7 +183,7 @@ export default {
         firstName: '',
         image: '',
         role: '',
-        company: '',
+        company: 'Flatlogic',
         email: '',
         disabled: '',
         create: '',
@@ -194,7 +192,7 @@ export default {
         firstName: '',
         image: '',
         role: '',
-        company: '',
+        company: 'Flatlogic',
         email: '',
         disabled: '',
         create: '',
@@ -224,14 +222,14 @@ export default {
       val || this.close()
     },
     usersMessage() {
-      this.notification = this.productMessage;
+      this.notification = this.usersMessage;
       this.addSuccessNotification()
     }
   },
 
   created () {
-    this.getUsersRequest(),
-      this.addSuccessNotification()
+    this.getUsersRequest()
+    this.addSuccessNotification()
   },
 
   methods: {
