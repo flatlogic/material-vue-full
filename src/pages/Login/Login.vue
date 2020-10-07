@@ -9,10 +9,10 @@
           </div>
         </v-col>
         <v-col cols="12" lg="5" class="login-part d-flex align-center justify-center">
-          <v-row no-gutters>
+          <v-row no-gutters class="align-start">
             <v-col cols="12" class="login-part d-flex align-center justify-center flex-column">
-              <div class="login-wrapper">
-                <v-tabs grow v-model="loginTabs">
+              <div class="login-wrapper pt-16 pt-sm-0">
+                <v-tabs grow v-model="loginTabs" class="my-16">
                   <v-tabs-slider></v-tabs-slider>
                   <v-tab :href="`#tab-login`">
                     LOGIN
@@ -37,7 +37,7 @@
                               <v-img src="@/assets/google.svg" max-width="30" class="mr-4"></v-img>
                               Sign in with Google</v-btn>
                           </v-col>
-                          <v-col cols="12" class="d-flex align-center my-8">
+                          <v-col cols="12" class="d-flex align-center my-3 my-sm-8">
                             <v-divider></v-divider>
                             <span class="px-5"> or </span>
                             <v-divider></v-divider>
@@ -142,7 +142,7 @@
                             </v-col>
                           </v-form>
 
-                          <v-col cols="12" class="d-flex align-center my-4">
+                          <v-col cols="12" class="d-flex align-center my-2 my-sm-8">
                             <v-divider></v-divider>
                             <span class="px-5"> or </span>
                             <v-divider></v-divider>
