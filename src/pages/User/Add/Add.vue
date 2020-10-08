@@ -283,11 +283,10 @@
                           </v-btn>
                           <v-spacer></v-spacer>
                           <v-btn
+                            :loading="isReceiving"
                             class="button-shadow"
                             color="primary"
-                            @click="createUser()"
-
-                          >
+                            @click="createUser()">
                             Finish
                           </v-btn>
                         </div>
@@ -307,7 +306,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import {mapActions, mapState} from "vuex";
 import router from '@/Routes';
 
 export default {
@@ -332,12 +331,17 @@ export default {
 
   methods: {
     ...mapActions('usersList', [
-      "createUserRequest"
+      'createUserRequest',
+      'getUsersRequest'
     ]),
     createUser() {
       this.createUserRequest(this.user)
+      this.getUsersRequest()
       router.push('/user/list')
     }
+  },
+  computed: {
+    ...mapState('usersList', ['isReceiving'])
   }
 }
 </script>

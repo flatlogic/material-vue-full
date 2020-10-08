@@ -41,7 +41,7 @@
         <v-card class="ma-1">
           <v-card-text>
             <v-data-table
-              :loading="isReceiving || isDeleting || isUpdating"
+              :loading="isReceiving || isDeleting"
               loading-text="Loading... Please wait"
               class="users-table"
               show-select
@@ -65,17 +65,24 @@
                             <v-text-field outlined v-model="editedItem.email" label="Email"></v-text-field>
                           </v-col>
                           <v-col cols="12" sm="4">
-                            <v-select outlined :items="role" v-model="editedItem.role" label="Role"></v-select>
+                            <v-select hide-details outlined :items="role" v-model="editedItem.role" :value="editedItem.role" label="Role"></v-select>
                           </v-col>
                           <v-col cols="12" sm="6" md="4">
-                            <v-text-field outlined v-model="editedItem.company" value="Flatlogic" label="Company"></v-text-field>
+                            <v-text-field hide-details outlined value="Flatlogic" label="Company"></v-text-field>
                           </v-col>
                           <v-col cols="12" sm="6" md="4">
-                            <v-select outlined :items="images" v-model="editedItem.img" label="Image">
+                            <v-select hide-details outlined :items="images" v-model="editedItem.img" label="Image">
                               <template v-slot:item="{ item }">
                                 <v-img :src="item" width="50" style="margin: 2px"></v-img>
                               </template>
                             </v-select>
+                          </v-col>
+                          <v-col cols="12" class="d-flex align-center">
+                            <v-switch
+                              class="disabledUser"
+                              v-model="editedItem.disabled"
+                              :label="`${editedItem.firstName}: ${editedItem.disabled ? 'Inactive' : 'Active'}`"
+                            ></v-switch>
                           </v-col>
                         </v-row>
                       </v-container>
@@ -103,14 +110,17 @@
               <template v-slot:item.lastName="{ item }">
                 <a class="primaryConst--text">{{ item.lastName }}</a>
               </template>
+              <template v-slot:item.role="{ item }">
+                {{ item.role }}
+              </template>
               <template v-slot:item.company>
                 Flatlogic
               </template>
               <template v-slot:item.disabled="{ item }">
                 <v-chip
-                    :color="item.status !== 'false' ? 'primaryConst white--text' : 'secondaryConst white--text'"
-                    small>
-                  {{ item.disabled === 'false' ? 'Inactive' : 'Active' }}
+                  :color="!item.disabled ? 'primaryConst white--text' : 'secondaryConst white--text'"
+                  small>
+                  {{ item.disabled ? 'Inactive' : 'Active' }}
                 </v-chip>
               </template>
               <template v-slot:item.createdAt="{ item }">
@@ -177,13 +187,14 @@ export default {
         { text: 'Actions', value: 'actions', sortable: false },
       ],
       selected: [],
-      role: ['Admin', 'User'],
+      switch1: true,
+      role: ['admin', 'user'],
       editedIndex: -1,
       editedItem: {
         firstName: '',
         image: '',
         role: '',
-        company: 'Flatlogic',
+        company: '',
         email: '',
         disabled: '',
         create: '',
@@ -192,7 +203,7 @@ export default {
         firstName: '',
         image: '',
         role: '',
-        company: 'Flatlogic',
+        company: '',
         email: '',
         disabled: '',
         create: '',
@@ -226,7 +237,6 @@ export default {
       this.addSuccessNotification()
     }
   },
-
   created () {
     this.getUsersRequest()
     this.addSuccessNotification()

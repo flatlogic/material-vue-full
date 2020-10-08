@@ -95,6 +95,11 @@ export default {
       axios.put(`/users/${id}`, {id, data: payload}).then(res => {
         dispatch("updateUser", res.data);
       });
+
+      dispatch("receivingUsers");
+      axios.get('/users').then(res => {
+        dispatch("receiveUsers", res.data.rows);
+      })
     },
     createUserRequest({dispatch}, payload) {
       // We check if app runs with backend mode
@@ -102,6 +107,11 @@ export default {
       dispatch("receivingUsers");
       axios.post('/users', {data: payload}).then(res => {
         dispatch("receiveUser", res.data);
+      })
+
+      dispatch("receivingUsers");
+      axios.get('/users').then(res => {
+        dispatch("receiveUsers", res.data.rows);
       })
     },
     deleteUserRequest({dispatch}, payload) {

@@ -38,7 +38,7 @@
                       v-on="on"
                     >Create Product</v-btn>
                   </template>
-                  <v-card class="edit-dialog" >
+                  <v-card class="edit-dialog">
                     <v-card-title>
                       <span class="headline">{{ formTitle }}</span>
                     </v-card-title>
@@ -112,16 +112,14 @@
         color="success"
         right
         top
-        style="top: 50px"
-    >
+        style="top: 50px">
       {{ text }}
       <template v-slot:action="{ attrs }">
         <v-btn
           dark
           text
           v-bind="attrs"
-          @click="snackbar = false"
-        >
+          @click="snackbar = false">
           Close
         </v-btn>
       </template>
@@ -196,8 +194,10 @@
           val || this.close()
         },
       productMessage() {
-        this.notification = this.productMessage;
-        this.addSuccessNotification()
+        if (this.productMessage !== '') {
+          this.notification = this.productMessage
+          this.addSuccessNotification()
+        }
       }
     },
     created () {
