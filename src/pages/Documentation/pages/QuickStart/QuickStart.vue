@@ -9,11 +9,13 @@
               <li>Mac OS X, Windows, or Linux</li>
               <li>Node.js v9 or newer</li>
               <li>Vue JS 2.6</li>
+              <li>Running our <a href="https://github.com/flatlogic/user-management-template-backend">Node.js backend</a> (Required only in full stack version)</li>
             </ul>
             <p class="text-h5 mt-4">Quick Start:</p>
             <ul>
               <li>yarn install</li>
               <li>yarn serve</li>
+              <li>For running the app with backend support please run yarn serve:backend (Required only in full stack version)</li>
             </ul>
             <p class="text-h5 mt-4">There are also other tasks:</p>
             <ul>
@@ -21,7 +23,7 @@
               <li>yarn lint : to check the source code for syntax errors and potential issues</li>
             </ul>
             <br>
-            <p>For more instruction please refer to Angular Material Admin Full readme.md.</p>
+            <p>For more instruction please refer to Vue Material Admin Full readme.md</p>
           </v-card-text>
         </v-card>
       </v-col>
