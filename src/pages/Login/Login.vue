@@ -12,7 +12,7 @@
           <v-row no-gutters class="align-start">
             <v-col cols="12" class="login-part d-flex align-center justify-center flex-column">
               <div class="login-wrapper pt-16 pt-sm-0">
-                <v-tabs grow v-model="loginTabs" class="my-16">
+                <v-tabs grow v-model="loginTabs" class="my-16" light>
                   <v-tabs-slider></v-tabs-slider>
                   <v-tab :href="`#tab-login`">
                     LOGIN
@@ -29,6 +29,7 @@
                             <p class="login-slogan display-2 text-center font-weight-medium my-10">Good Morning, User</p>
                             <v-btn
                               height="45"
+                              light
                               block
                               color="white"
                               elevation="0"
@@ -38,9 +39,9 @@
                               Sign in with Google</v-btn>
                           </v-col>
                           <v-col cols="12" class="d-flex align-center my-3 my-sm-8">
-                            <v-divider></v-divider>
-                            <span class="px-5"> or </span>
-                            <v-divider></v-divider>
+                            <v-divider light></v-divider>
+                            <span class="px-5 black--text"> or </span>
+                            <v-divider light></v-divider>
                           </v-col>
                           <v-form
                             ref="log"
@@ -49,6 +50,7 @@
                           >
                             <v-col>
                               <v-text-field
+                                light
                                 id="email"
                                 ref="email"
                                 v-model="email"
@@ -59,6 +61,7 @@
                                 required
                               ></v-text-field>
                               <v-text-field
+                                light
                                 id="password"
                                 ref="password"
                                 v-model="password"
@@ -105,6 +108,7 @@
                           <v-form>
                             <v-col>
                               <v-text-field
+                                light
                                 v-model="createFullName"
                                 hide-details
                                 single-line
@@ -112,6 +116,7 @@
                                 required
                               ></v-text-field>
                               <v-text-field
+                                light
                                 v-model="createEmail"
                                 :rules="emailRules"
                                 single-line
@@ -120,6 +125,7 @@
                                 required
                               ></v-text-field>
                               <v-text-field
+                                light
                                 v-model="createPassword"
                                 :rules="passRules"
                                 hide-details
@@ -132,6 +138,7 @@
                             </v-col>
                             <v-col class="d-flex justify-space-between">
                               <v-btn
+                                light
                                 large
                                 block
                                 :disabled="createFullName.length === 0 || createEmail.length === 0 || createPassword === 0"
@@ -143,12 +150,12 @@
                           </v-form>
 
                           <v-col cols="12" class="d-flex align-center my-2 my-sm-8">
-                            <v-divider></v-divider>
-                            <span class="px-5"> or </span>
-                            <v-divider></v-divider>
+                            <v-divider light></v-divider>
+                            <span class="px-5 black--text"> or </span>
+                            <v-divider light></v-divider>
                           </v-col>
 
-                          <v-btn @click="googleLogin" height="45" block color="white" elevation="0" class="google text-capitalize">
+                          <v-btn light @click="googleLogin" height="45" block color="white" elevation="0" class="google text-capitalize">
                             <v-img src="@/assets/google.svg" max-width="30" class="mr-4"></v-img>
                             Sign in with Google</v-btn>
                         </v-row>
