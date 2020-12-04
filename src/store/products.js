@@ -68,10 +68,10 @@ export default {
       if (!config.isBackend) {
         dispatch("receiveProducts", mock);
       }
-
       else {
         dispatch("receivingProducts");
         axios.get('/products').then(res => {
+          console.log(res.data)
           dispatch("receiveProducts", res.data);
         })
       }
@@ -81,7 +81,6 @@ export default {
       if (!config.isBackend) {
         dispatch("receiveProduct", mock.find(arr => arr.id === id));
       }
-
       else {
         dispatch("receivingProduct");
         axios.get('/products/' + id).then(res => {

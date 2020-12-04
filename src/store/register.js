@@ -34,7 +34,6 @@ export default {
           axios.post("/auth/signup", creds).then(() => {
             dispatch('receiveRegister');
           }).catch(err => {
-            console.log(err.response.data)
             dispatch('registerError', err.response.data);
           })
         } else {

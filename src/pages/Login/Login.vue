@@ -273,7 +273,6 @@ export default {
   },
 
   created() {
-    console.log('Backend: ' + !!config.isBackend)
     let token = localStorage.getItem('token');
     if (token) {
       this.receiveToken(token);

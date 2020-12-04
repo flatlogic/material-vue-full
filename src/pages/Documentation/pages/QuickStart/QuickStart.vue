@@ -9,7 +9,8 @@
               <li>Mac OS X, Windows, or Linux</li>
               <li>Node.js v9 or newer</li>
               <li>Vue JS 2.6</li>
-              <li>Running our <a href="https://github.com/flatlogic/user-management-template-backend">Node.js backend</a> (Required only in full stack version)</li>
+              <li>Running our <a href="https://github.com/flatlogic/user-management-template-backend">Node.js</a>
+                or <a href="https://github.com/flatlogic/app-generator-java">Java</a> backend (Required only in full stack version)</li>
             </ul>
             <p class="text-h5 mt-4">Quick Start:</p>
             <ul>
