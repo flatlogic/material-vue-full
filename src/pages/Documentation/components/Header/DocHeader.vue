@@ -36,7 +36,7 @@
     >Live Preview
     </v-btn>
 
-    <v-btn outlined class="mr-3" color="secondary">Buy</v-btn>
+    <v-btn outlined class="mr-3" color="secondary" href="https://flatlogic.com/templates/vue-material-template-full">Buy</v-btn>
 
   </v-app-bar>
 </template>
