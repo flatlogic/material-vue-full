@@ -1,5 +1,11 @@
 # Changelog
 
+## [v.1.0.3]
+
+### Updated
+- Change badge text in the sidebar
+- Change alert text in the usermanager/ecommerce
+
 ## [v.1.0.2]
 
 ### Updated
