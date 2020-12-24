@@ -217,7 +217,7 @@ export default {
       ],
       itemPerPage: 5,
       text: '',
-      notification: 'This page is only available in Vue Material Admin Full with Node.js integration!'
+      notification: 'This page is only available in Vue Material Admin Full with NodeJS/.NET integration!'
     }
   },
 

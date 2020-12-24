@@ -12,16 +12,16 @@
 </template>
 
 <script>
-    import Header from '@/components/Header/Header';
-    import Sidebar from '@/components/Sidebar/Sidebar';
-    import Footer from "@/components/Footer/Footer";
-    import Breadcrumbs from "@/components/Breadcrumbs/Breadcrumbs";
-    import Helper from "@/components/Helper/Helper";
+import Header from '@/components/Header/Header';
+import Sidebar from '@/components/Sidebar/Sidebar';
+import Footer from '@/components/Footer/Footer';
+import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs';
+import Helper from '@/components/Helper/Helper';
 
-    export default {
-        name: 'Layout',
-        components: { Helper, Footer, Header, Sidebar, Breadcrumbs },
-    };
+export default {
+  name: 'Layout',
+  components: { Helper, Footer, Header, Sidebar, Breadcrumbs },
+};
 </script>
 
 <style src="./Layout.scss" lang="scss" />

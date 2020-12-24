@@ -180,7 +180,7 @@
           require('@/assets/img/e-commerce/low/5.png'),
           require('@/assets/img/e-commerce/low/6.png')
        ],
-        notification: 'This page is only available in Vue Material Admin Full with Node.js integration!'
+        notification: 'This page is only available in Vue Material Admin Full with NodeJS/.NET integration!'
       }
     },
     computed: {
