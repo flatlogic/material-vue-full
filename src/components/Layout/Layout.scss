@@ -12,5 +12,11 @@ body {
     border-radius: 36px;
     border: none;
   }
+  .v-main__wrap {
+    padding: 70px $content-padding $content-padding;
+    @media #{map-get($display-breakpoints, 'sm-and-down')} {
+      padding: 70px $content-padding / 1.5 $content-padding / 1.5;
+    }
+  }
 }
 

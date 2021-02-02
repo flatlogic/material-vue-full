@@ -1,5 +1,11 @@
 # Changelog
 
+## [v.1.0.4]
+
+### Updated
+- Update dependencies
+- Fix layout
+
 ## [v.1.0.3]
 
 ### Updated
