@@ -398,6 +398,7 @@
       ),
       logOut: function () {
         window.localStorage.setItem('authenticated', false);
+        window.localStorage.removeItem('token');
         this.$router.push('/login');
         },
       addSection: function () {
