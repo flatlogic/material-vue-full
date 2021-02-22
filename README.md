@@ -2,7 +2,7 @@
 
 Free and open-source admin dashboard template built with Vue and Vuetify. Developed with ❤️ by [Flatlogic](https://flatlogic.com/). If you love our project please star ⭐️ our repo!
 
-[View Demo](https://templates-flatlogic.herokuapp.com/vue-material/) | [Download](https://github.com/flatlogic/material-vue-full.git) | [More templates](https://flatlogic.com/templates)
+[View Demo](https://templates-flatlogic.herokuapp.com/vue-material/) | [Download](https://github.com/flatlogic/material-vue-full.git) | [More templates](https://flatlogic.com/templates) | [Support forum](https://flatlogic.com/forum)
 
 [![image](https://github.com/flatlogic/material-vue-full/blob/master/src/assets/img/screenshots/1.png)](https://templates-flatlogic.herokuapp.com/vue-material/)
 

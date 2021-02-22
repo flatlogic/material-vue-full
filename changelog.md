@@ -1,5 +1,7 @@
 # Changelog
 
+## [v.1.0.5]
+
 ## [v.1.0.4]
 
 ### Updated

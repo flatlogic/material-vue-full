@@ -20,6 +20,9 @@
               <li>Fully Documented Codebase</li>
               <li>And even more coming soon!</li>
             </ul>
+            <p class="text-h5 mt-3">Support forum</p>
+            <p class="lead">For any additional information please go to our <a href="https://flatlogic.com/forum" target="_blank" rel="noopener noreferrer">Support forum</a> and raise your questions or feedback provide there. We highly appreciate your participation!</p>
+            
           </v-card-text>
         </v-card>
       </v-col>
