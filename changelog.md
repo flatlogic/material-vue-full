@@ -2,6 +2,8 @@
 
 ## [v.1.0.5]
 
+- Updated documentation
+
 ## [v.1.0.4]
 
 ### Updated
