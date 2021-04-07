@@ -36,11 +36,11 @@ We have implemented some basic pages, so you can see our template in action.
 
 1. Clone repository
 ```shell
-git clone https://github.com/flatlogic/material-vue.git
+git clone https://github.com/flatlogic/material-vue-full.git
 ```
 2. Get in the project folder
 ```shell
-cd material-vue
+cd material-vue-full
 ```
 3. Install dependencies via npm or yarn
 ```shell
