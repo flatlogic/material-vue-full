@@ -1,7 +1,11 @@
 # Changelog
 
-## [v.1.0.5]
+## [v.1.0.6]
+### Updated  - 09/04/2021 
+- Updated documentation
+- Update notifications in User List and Product pages 
 
+## [v.1.0.5]
 - Updated documentation
 
 ## [v.1.0.4]

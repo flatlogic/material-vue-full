@@ -113,7 +113,7 @@
         right
         top
         style="top: 50px">
-      {{ text }}
+      <div v-html="text" class=""></div>
       <template v-slot:action="{ attrs }">
         <v-btn
           dark
@@ -180,7 +180,9 @@
           require('@/assets/img/e-commerce/low/5.png'),
           require('@/assets/img/e-commerce/low/6.png')
        ],
-        notification: 'This page is only available in Vue Material Admin Full with NodeJS/.NET integration!'
+        notification: '<p class="font-weight-bold mb-0">This page is only available in Vue Material Admin Full with ' +
+            '<a rel="noreferrer noopener" target="_blank" class="white--text text-decoration-none" href="https://flatlogic.com/templates/sing-app-vue-node-js">NodeJS</a>/' +
+            '<a rel="noreferrer noopener" target="_blank" class="white--text text-decoration-none" href="https://flatlogic.com/templates/sing-app-vue-laravel">PHP</a> backend integration!</p>'
       }
     },
     computed: {
