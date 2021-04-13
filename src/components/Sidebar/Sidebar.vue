@@ -78,6 +78,7 @@
           color="primary"
           v-else
           :key="item.text"
+          :href="item.href ? item.href : null"
           :to="item.link === '#' ? '' : item.link"
           @click="item.action ? item.action() : null"
           link
@@ -342,9 +343,9 @@
           },
           { divider: true },
           { heading: 'HELP' },
-          { title: 'Library', icon: 'mdi-book-variant-multiple'},
-          { title: 'Support', icon: 'mdi-forum'},
-          { title: 'FAQ', icon: 'mdi-help-circle-outline', },
+          { title: 'Library', icon: 'mdi-book-variant-multiple', href: 'https://flatlogic.com/templates'},
+          { title: 'Support', icon: 'mdi-forum', href: 'https://flatlogic.com/forum/'},
+          { title: 'FAQ', icon: 'mdi-help-circle-outline', href:'https://flatlogic.com/templates/vue-material-template'},
           { divider: true },
           { heading: 'PROJECTS' },
           { title: 'My recent', icon: 'mdi-circle-medium', color: 'warning'},

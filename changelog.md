@@ -1,7 +1,16 @@
 # Changelog
 
-## [v.1.0.6]
-### Updated  - 09/04/2021 
+## [v.1.0.6] - 13/04/2021
+
+### Update dependencies
+    amcharts/amcharts4: 4.10.14 -> 4.10.17
+    apexcharts: 3.24.0 -> 3.26.0
+    core-js: 3.8.3 ->  3.10.1
+    vue-apexcharts: 1.6.0 -> 1.6.1
+    vuetify: 2.3.19 -> 2.4.9
+
+## [v.1.0.6] - 09/04/2021
+### Updated  
 - Updated documentation
 - Update notifications in User List and Product pages 
 
