@@ -54,7 +54,8 @@
         <v-card-actions>
           <v-col cols="12">
             <v-btn color="successConst white--text" block @click="menu = false" class="button-shadow mb-2" href="https://flatlogic.com/templates/vue">Buy</v-btn>
-            <v-btn color="primaryConst white--text" block @click="menu = false" class="button-shadow" to="/documentation/overview">Documentation</v-btn>
+            <v-btn color="primaryConst white--text" block @click="menu = false" class="button-shadow mb-2" to="/documentation/overview">Documentation</v-btn>
+            <v-btn color="info white--text" block @click="menu = false" class="button-shadow" href="https://flatlogic.com/forum">Support</v-btn>
           </v-col>
         </v-card-actions>
       </v-card>
