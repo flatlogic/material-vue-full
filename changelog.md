@@ -1,6 +1,6 @@
 # Changelog
 
-## [v.1.0.6] - 13/04/2021
+## [v.1.0.6] - 04/13/2021
 
 ### Update dependencies
     amcharts/amcharts4: 4.10.14 -> 4.10.17
