@@ -1,5 +1,10 @@
 # Changelog
 
+## [v.1.0.7] - 04/20/2021
+
+### Fixed
+ - Sidebar sub-menu
+
 ## [v.1.0.6] - 04/13/2021
 
 ### Update dependencies

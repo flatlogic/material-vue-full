@@ -43,6 +43,7 @@
           :key="item.title"
           v-model="item.model"
         >
+
           <template v-slot:prependIcon>
             <v-icon size="24" class="mr-0" color="greyTint"> {{ item.icon }} </v-icon>
           </template>
@@ -57,6 +58,7 @@
           </template>
 
           <v-list-item
+            v-show="!item.type"
             v-for="(child, i) in item.children"
             :key="i"
             :to="child.link"
@@ -73,6 +75,30 @@
                 </v-list-item-title>
             </v-list-item-content>
           </v-list-item>
+
+          <template v-if="item.type">
+            <v-list-group
+              v-for="(item, i) in item.children"
+              :key="i"
+              :value="true"
+              no-action
+              sub-group
+            >
+              <template v-slot:activator>
+                <v-list-item-content>
+                  <v-list-item-title>{{ item.title }}</v-list-item-title>
+                </v-list-item-content>
+              </template>
+
+              <v-list-item
+                  v-for="(child, i) in item.children"
+                  :key="i"
+                  link
+              >
+                <v-list-item-title v-text="child.title"></v-list-item-title>
+              </v-list-item>
+            </v-list-group>
+          </template>
         </v-list-group>
         <v-list-item
           color="primary"
@@ -328,15 +354,21 @@
             title: 'Menu Levels',
             icon: 'mdi-folder',
             model: false,
+            type: 'sub-menu',
             children: [
-              { title: 'Level 1.1', icon: 'mdi-circle-small', },
+              { title: 'Level 1.1',
+                icon: 'mdi-circle-small',
+                children: [
+                  { title: 'Level 1.2', icon: 'mdi-circle-small', link: '/extra/calendar'},
+                  { title: 'Level 1.3', icon: 'mdi-circle-small', link: '/extra/invoice'},
+                ]},
               {
-                title: 'Level 1.2',
+                title: 'Level 2.1',
                 icon: 'mdi-folder',
                 model: false,
                 children: [
-                  { title: 'Calendar', icon: 'mdi-circle-small', link: '/extra/calendar'},
-                  { title: 'Invoice', icon: 'mdi-circle-small', link: '/extra/invoice'},
+                  { title: 'Level 2.2', icon: 'mdi-circle-small', link: '/extra/calendar'},
+                  { title: 'Level 2.3', icon: 'mdi-circle-small', link: '/extra/invoice'},
                 ],
               },
             ],
