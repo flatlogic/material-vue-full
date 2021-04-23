@@ -5,8 +5,8 @@
         <v-card class="mx-1 mb-1">
           <v-card-text class="pa-5">
             <p class="text-h5">Vue Material Admin</p>
-            <p>Angular Material Admin Full is an admin dashboard template built with Angular 9. You can use Angular
-              Material Admin Full to build any type of web applications like SAAS, CMS, financial dashboards, project
+            <p>Vue Material Admin Full is an admin dashboard template built with Vue 2.6. You can use
+              Vue Admin Full to build any type of web applications like SAAS, CMS, financial dashboards, project
               management tools, etc.</p>
             <p class="text-h5">Features</p>
             <ul>
