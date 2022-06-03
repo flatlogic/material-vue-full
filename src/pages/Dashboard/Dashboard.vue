@@ -1,6 +1,13 @@
 <template>
-  <v-container fluid class="">
+  <div>
     <div class="dashboard-page">
+      <h1 class="page-title mt-2">
+        Welcome,
+        {{
+          currentUser && currentUser.firstName ? currentUser.firstName : 'User'
+        }}
+      </h1>
+
       <v-card width="100%" class="breadcrumbs mx-1 mb-6">
         <v-row no-gutters class="d-flex align-center mt-8 mb-3 px-5 py-1 mx-1">
           <v-col cols="12" md="6" class="d-sm-flex justify-md-start justify-space-between align-center">
@@ -19,10 +26,10 @@
           <v-col cols="12" md="6" class="d-sm-flex justify-space-between align-center justify-md-end">
             <div class="mb-3 mb-sm-0">
               <v-menu
-                  v-model="menu"
-                  :close-on-content-click="false"
-                  transition="scale-transition"
-                  offset-y
+                v-model="menu"
+                :close-on-content-click="false"
+                transition="scale-transition"
+                offset-y
               >
                 <template v-slot:activator="{ on, attrs }">
                   <v-text-field
@@ -61,6 +68,17 @@
           </v-col>
         </v-row>
       </v-card>
+<!--      <v-card width="100%" class="mx-1 mb-6">-->
+<!--        <v-row no-gutters class="d-flex align-center mt-8 mb-3 px-5 py-1 mx-1">-->
+<!--          <v-col-->
+<!--            cols="12"-->
+<!--            md="6"-->
+<!--            class="d-sm-flex justify-content-center align-center"-->
+<!--          >-->
+<!--            <img class="d-block" src="../../assets/logo.svg" alt="Vue" />-->
+<!--          </v-col>-->
+<!--        </v-row>-->
+<!--      </v-card>-->
       <v-row>
         <v-col lg=3 sm=6 md=4 cols=12>
           <v-card class="support-card ma-1" height="240">
@@ -252,9 +270,9 @@
                 </template>
                 <v-list>
                   <v-list-item
-                      v-for="(item, i) in mock.menu"
-                      :key="i"
-                      @click="() => {}"
+                    v-for="(item, i) in mock.menu"
+                    :key="i"
+                    @click="() => {}"
                   >
                     <v-list-item-title>{{ item }}</v-list-item-title>
                   </v-list-item>
@@ -558,16 +576,17 @@
           </v-card>
         </v-col>
       </v-row>
+
     </div>
-  </v-container>
+  </div>
 </template>
 
 <script>
-  import mock from './mock'
-  import ApexChart from 'vue-apexcharts'
-  import moment from 'moment'
-  import { mapState } from 'vuex'
+  import { mapState } from 'vuex';
+  import moment from 'moment';
   import config from "@/config";
+  import mock from './mock';
+  import ApexChart from 'vue-apexcharts';
 
   export default {
     name: 'Dashboard',
@@ -634,22 +653,6 @@
       };
     },
     methods: {
-      getRandomDataForTrends() {
-        const arr = [];
-        for (let i = 0; i < 12; i += 1) {
-          arr.push(Math.random().toFixed(1) * 10);
-        }
-        return arr;
-      },
-      generatePieSeries() {
-        let series = [];
-
-        for (let i = 0; i < 4; i++) {
-          let y = Math.floor(Math.random() * (500 - 100 + 100)) + 100;
-          series.push(y)
-        }
-        return series;
-      },
       getRandomInt(min, max) {
         let rand = min - 0.5 + Math.random() * (max - min + 1);
         return Math.round(rand);
@@ -839,11 +842,14 @@
         ]
       },
     },
+
     computed: {
-      ...mapState(['theme']),
+      ...mapState({
+        currentUser: (state) => state.auth.currentUser,
+      }),
       computedDate() {
         return this.date ? moment(this.date).format('Do MMM YYYY, dddd') : ''
-      },
+      }
     },
 
     mounted() {
@@ -882,5 +888,3 @@
     },
   };
 </script>
-
-<style src="./Dashboard.scss" lang="scss"/>

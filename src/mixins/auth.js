@@ -1,18 +1,16 @@
-import jwt from "jsonwebtoken";
-import config from "../config";
+import decode from 'jwt-decode';
 
-export function isAuthenticated(token) {
-    // We check if app runs with backend mode
-    if (!config.isBackend && token) return true;
-    if (!token) return;
-    const date = new Date().getTime() / 1000;
-    const data = jwt.decode(token);
-    if (!data) return;
-    return date < data.exp;
+export function isAuthenticated() {
+  const token = localStorage.getItem('token');
+  if (!token) return;
+  const date = new Date().getTime() / 1000;
+  const data = decode(token);
+  if (!data) return;
+  return date < data.exp;
 }
 
 export const AuthMixin = {
-    methods: {
-        isAuthenticated
-    }
+  methods: {
+    isAuthenticated,
+  },
 };

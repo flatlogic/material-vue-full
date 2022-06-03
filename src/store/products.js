@@ -74,6 +74,10 @@ export default {
           console.log(res.data)
           dispatch("receiveProducts", res.data);
         })
+          .catch((e) => {
+            console.log(e);
+            dispatch("receiveProducts", mock);
+          })
       }
     },
     loadProductRequest({dispatch}, id) {

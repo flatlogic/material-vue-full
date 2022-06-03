@@ -2,30 +2,27 @@ export default {
   namespaced: true,
   state: {
     drawer: true,
-    theme: false
+    darkTheme: false,
   },
   mutations: {
     toggleDrawer(state) {
       state.drawer = !state.drawer;
     },
-    toggleTheme(state) {
-      state.theme = !state.theme;
+    DARK_THEME_TOGGLED(state) {
+      state.darkTheme = !state.darkTheme;
     },
   },
   actions: {
     TOGGLE_DRAWER({ commit }) {
       commit('toggleDrawer');
     },
-    TOGGLE_THEME({ commit }) {
-      commit('toggleTheme');
+    toggleDarkTheme({ commit }) {
+      commit('DARK_THEME_TOGGLED');
     },
   },
   getters: {
     DRAWER_STATE(state) {
       return state.drawer;
     },
-    THEME_STATE(state) {
-      return state.theme;
-    },
   },
-}
+};

@@ -1,12 +1,11 @@
-import config from "../config";
-import axios from "axios";
-import router from '../Routes';
+import axios from 'axios';
+import router from '../router';
 
 export default {
   namespaced: true,
   state: {
     isFetching: false,
-    errorMessage: ''
+    errorMessage: '',
   },
   mutations: {
     REGISTER_REQUEST(state) {
@@ -22,33 +21,41 @@ export default {
     },
   },
   actions: {
-    registerUser({dispatch}, payload) {
-      if (!config.isBackend) {
-        router.push('/user/profile');
-      }
-
-      else {
+    async registerUser({ dispatch }, payload) {
+      try {
         dispatch('requestRegister');
-        const creds = payload.creds;
-        if (creds.email.length > 0 && creds.password.length > 0) {
-          axios.post("/auth/signup", creds).then(() => {
-            dispatch('receiveRegister');
-          }).catch(err => {
-            dispatch('registerError', err.response.data);
-          })
+        if (payload.email && payload.password) {
+          await axios.post('/auth/signup', payload);
+          dispatch('receiveRegister');
         } else {
           dispatch('registerError', 'Something was wrong. Try again');
         }
+      } catch (e) {
+        dispatch('registerError', e.response.data);
       }
     },
-    requestRegister({commit}) {
+    requestRegister({ commit }) {
       commit('REGISTER_REQUEST');
     },
-    receiveRegister({commit}) {
+    receiveRegister({ commit }) {
       commit('REGISTER_SUCCESS');
     },
-    registerError({commit}, payload) {
+    registerError({ commit }, payload) {
       commit('REGISTER_FAILURE', payload);
+    },
+    // eslint-disable-next-line no-empty-pattern
+    verifyEmail({ dispatch }, payload) {
+      try {
+        const res = axios.put('/auth/verify-email', { token: payload });
+        if (res) {
+          dispatch('snackbar/showSnackbar', 'Your email was verified', {
+            root: true,
+          });
+          router.push('/login');
+        }
+      } catch (e) {
+        dispatch('snackbar/showSnackbar', e, { root: true });
+      }
     },
   },
 };
