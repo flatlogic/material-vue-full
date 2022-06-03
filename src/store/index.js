@@ -10,6 +10,7 @@ import forgot from './forgot';
 import reset from './reset';
 import users from './lists/usersList';
 import usersForm from './forms/usersForm';
+import products from '@/store/products';
 
 Vue.use(Vuex);
 
@@ -22,7 +23,7 @@ export default new Vuex.Store({
     forgot,
     reset,
     snackbar,
-
+    products,
     users,
     usersForm,
   },

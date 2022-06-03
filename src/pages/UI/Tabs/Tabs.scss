@@ -1,0 +1,16 @@
+.tab-example, .tab-icons {
+  .v-item-group.v-slide-group.v-tabs-bar {
+    background-color: #f5f5f5;
+    box-shadow: 0 1px 0px -1px rgba(0,0,0,0.2), 0 4px 5px 0 rgba(0,0,0,0.10), 0 1px 1px 0 rgba(0,0,0,0.12);
+    margin-bottom: 10px;
+    &.theme--dark {
+      background-color: #212121;
+    }
+  }
+  .theme--dark.v-tabs-items {
+    background-color: transparent;
+  }
+  .theme--dark.v-sheet {
+    background-color: transparent;
+  }
+}

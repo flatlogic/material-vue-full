@@ -1,0 +1,33 @@
+@import "../../../styles/app";
+
+.user-list  {
+  .v-text-field--outlined .v-label {
+    top: 6px;
+  }
+  .users-table {
+    .v-data-table-header th{
+      font-size: $fs-medium;
+      color: var(--v-greyTint-base)!important;
+      font-weight: 400;
+    }
+    &.theme--dark {
+      .v-data-table {
+        background-color: transparent;
+      }
+    }
+  }
+  .theme--dark {
+    &.v-data-table {
+      background-color: transparent;
+    }
+
+    &.v-toolbar.v-sheet {
+      background-color: transparent;
+    }
+  }
+  .disabledUser {
+    .v-label {
+      top: 0;
+    }
+  }
+}

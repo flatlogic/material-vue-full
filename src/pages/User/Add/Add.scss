@@ -1,0 +1,14 @@
+.user-add-page {
+  .v-input .v-label {
+    height: 23px;
+  }
+  .v-stepper__header, .v-stepper__content, .v-stepper__items {
+    box-shadow: 0 3px 11px 0 #E8EAFC, 0 3px 3px -2px #B2B2B21A, 0 1px 8px 0 #9A9A9A1A!important;
+  }
+  .v-card.v-sheet.theme--dark {
+    .v-stepper__header, .v-stepper__items{
+      box-shadow: none!important;
+    }
+
+  }
+}

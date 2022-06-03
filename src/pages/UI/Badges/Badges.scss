@@ -1,0 +1,9 @@
+@import '../../../styles/app';
+
+.badge-page {
+  .v-slide-group__prev.v-slide-group__prev--disabled {
+    display: none!important;
+  }
+}
+
+

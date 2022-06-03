@@ -1,0 +1,33 @@
+@import '../../../styles/app';
+
+.pagination-pages {
+  .v-card {
+    &.theme--dark {
+      .pagination-example, .pagination-length, .pagination-circle {
+        button {
+          box-shadow: none;
+        }
+      }
+      .pagination-disabled {
+        button {
+          box-shadow: none;
+          background-color: transparent;
+        }
+      }
+    }
+    &.theme--light {
+      .pagination-example, .pagination-length, .pagination-circle {
+        button {
+          box-shadow: $button-shadow;
+        }
+      }
+      .pagination-disabled {
+        button {
+          box-shadow: none;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+}

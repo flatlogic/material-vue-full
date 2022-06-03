@@ -1,0 +1,36 @@
+@import '../../../styles/app';
+
+.search-result-page {
+  .main-pagination {
+    .v-pagination {
+      &.theme--dark {
+        li button {
+          box-shadow: none;
+        }
+      }
+      &.theme--light {
+        li button {
+          box-shadow: $button-shadow;
+        }
+      }
+    }
+  }
+  .v-list-item:hover {
+    background-color: #B1BCFF;
+  }
+
+  .v-pagination {
+    &.theme--dark {
+        button {
+          box-shadow: none;
+        }
+    }
+    &.theme--light {
+      .v-pagination {
+        button {
+          box-shadow: $button-shadow;
+        }
+      }
+    }
+  }
+}

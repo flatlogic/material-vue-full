@@ -1,0 +1,22 @@
+@import '../../../styles/app';
+
+.invoice-page {
+  .invoiceLogo {
+    max-height: 100px;
+  }
+
+  .v-data-table {
+    table tbody {
+      tr:nth-child(odd) {
+        background-color: #F3F5FF;
+      }
+    }
+    &.theme--dark {
+      table tbody {
+        tr:nth-child(odd) {
+          background-color: #4a4a4a;
+        }
+      }
+    }
+  }
+}

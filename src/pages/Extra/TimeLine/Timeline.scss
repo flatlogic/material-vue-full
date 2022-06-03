@@ -1,0 +1,37 @@
+@import '../../../styles/app';
+
+.timeline-title-page {
+  .v-timeline-item__opposite {
+    align-self: self-start;
+  }
+
+  .v-timeline::before {
+    background-color: #4a4a4a;
+  }
+
+  .v-timeline-item__divider {
+    .v-timeline-item__dot {
+      .v-icon {
+        font-size: 16px;
+      }
+    }
+  }
+  .v-text-field .v-label {
+    top: 0;
+    height: 25px;
+    padding-left: 0;
+  }
+  .v-sheet, v-list {
+    &.theme--dark {
+      background-color: transparent;
+    }
+  }
+
+
+    .v-timeline-item__dot:nth-child(even) {
+      background-color: rgba(var(--v-primary-base), 0.8)!important;
+    }
+
+
+}
+

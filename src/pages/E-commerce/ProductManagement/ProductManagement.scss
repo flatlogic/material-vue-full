@@ -1,0 +1,43 @@
+@import "../../../styles/app";
+
+.product-management {
+  .v-data-table > .v-data-table__wrapper > table > thead > tr > th {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--v-greyBold-base);
+  }
+  .search {
+    .v-label {
+      height: 25px;
+      top: 0;
+    }
+  }
+  .product-table {
+    .v-data-table-header th {
+      font-size: $fs-medium;
+      color: var(--v-greyTint-base)!important;
+      font-weight: 400;
+    }
+    tbody tr td {
+      font-size: $fs-base!important;
+    }
+    &.theme--dark {
+      &.v-data-table {
+        background-color: transparent;
+      }
+    }
+
+    .v-data-table > .v-data-table__wrapper > table > tbody > tr > td {
+      color: var(--v-greyBold-base)!important;
+      .v-avatar {
+        color: white;
+      }
+    }
+  }
+}
+.edit-dialog .v-card__text .v-input {
+  .v-label {
+    top: 14px;
+    height: 25px;
+  }
+}

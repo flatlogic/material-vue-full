@@ -1,0 +1,19 @@
+.detail-page {
+  .v-input .v-label {
+    height: 23px;
+    top: 14px;
+  }
+
+  .v-card {
+    position: relative;
+    .v-chip {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+  }
+  .v-input .v-label {
+    height: 25px;
+    top: 16px;
+  }
+}

@@ -1,0 +1,29 @@
+.user-edit {
+  .v-input .v-label {
+    height: 23px;
+  }
+  .v-item-group.v-slide-group.v-tabs-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    height: 70px;
+  }
+  .v-slide-group__wrapper {
+    height: 50px;
+  }
+
+  .theme--dark.v-tabs > .v-tabs-bar {
+    background-color: #23232D;
+  }
+  .theme--light.v-tabs > .v-tabs-bar {
+    background-color: white;
+  }
+  .v-slide-group__prev.v-slide-group__prev--disabled {
+    display: none!important;
+  }
+  .v-item-group.v-slide-group.v-tabs-bar {
+    padding: 0 10px;
+  }
+}
+
+

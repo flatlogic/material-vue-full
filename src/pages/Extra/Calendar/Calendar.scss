@@ -1,0 +1,70 @@
+.calendar-page {
+  .v-event-draggable {
+    padding-left: 6px;
+  }
+
+  .v-event-timed {
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .v-event-drag-bottom {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 4px;
+    height: 4px;
+    cursor: ns-resize;
+
+    &::after {
+      display: none;
+      position: absolute;
+      left: 50%;
+      height: 4px;
+      border-top: 1px solid white;
+      border-bottom: 1px solid white;
+      width: 16px;
+      margin-left: -8px;
+      opacity: 0.8;
+      content: '';
+    }
+
+    &:hover::after {
+      display: block;
+    }
+  }
+
+  .theme--dark {
+    &.v-sheet {
+      background-color: transparent;
+    }
+    &.v-calendar-daily {
+      background-color: transparent;
+    }
+  }
+  .v-toolbar__content {
+    padding: 0;
+  }
+
+  .v-calendar-daily .v-calendar-daily__body .v-calendar-daily__scroll-area {
+
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--v-greyTint-base);
+        border-radius: 36px;
+        border: none;
+      }
+
+  }
+  .v-calendar-monthly.theme--dark {
+    .v-outside {
+      background-color: transparent!important;
+    }
+  }
+}
+
