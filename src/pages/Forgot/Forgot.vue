@@ -5,7 +5,7 @@
         <v-col cols="7" class="main-part d-none d-md-none d-lg-flex">
           <div class="d-flex">
             <v-img src="@/assets/logo.svg" contain></v-img>
-            <p>vue material test model</p>
+            <p>Vue Material Admin </p>
           </div>
         </v-col>
 

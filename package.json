@@ -1,6 +1,7 @@
 {
-  "name": "vuematerialtestmodel",
-  "description": "vue material test model - template backend",
+  "name": "vue-material-admin-full",
+  "version": "1.1.0",
+  "description": "vue-material-admin-full",
   "private": true,
   "scripts": {
     "start": "vue-cli-service serve --port 3000",

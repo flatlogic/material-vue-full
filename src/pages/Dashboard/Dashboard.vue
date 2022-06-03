@@ -1,17 +1,10 @@
 <template>
   <div>
     <div class="dashboard-page">
-      <h1 class="page-title mt-2">
-        Welcome,
-        {{
-          currentUser && currentUser.firstName ? currentUser.firstName : 'User'
-        }}
-      </h1>
-
       <v-card width="100%" class="breadcrumbs mx-1 mb-6">
         <v-row no-gutters class="d-flex align-center mt-8 mb-3 px-5 py-1 mx-1">
           <v-col cols="12" md="6" class="d-sm-flex justify-md-start justify-space-between align-center">
-            <h1 class="main-page-title greyMedium--text mb-0 mr-2 pt-4 pt-md-0">Dashboard</h1>
+            <h2 class="main-page-title greyMedium--text mb-0 mr-2 pt-4 pt-md-0">Dashboard</h2>
             <div class="ml-0 ml-sm-4">
               <v-tabs color="secondary">
                 <v-tab

@@ -5,7 +5,7 @@
         <v-col cols="7" class="main-part d-none d-md-none d-lg-flex">
           <div class="d-flex">
             <v-img src="@/assets/logo.svg" contain></v-img>
-            <p>vue material admin</p>
+            <p>Vue Material Admin</p>
           </div>
         </v-col>
         <v-col
@@ -223,7 +223,7 @@
             <v-col cols="12" class="d-flex justify-center">
               <v-footer>
                 <div class="primary--text">
-                  {{ new Date().getFullYear() }} &copy; vue material test model
+                  {{ new Date().getFullYear() }} &copy; Vue Material Admin
                   - Made by <a href="https://flatlogic.com/">Flatlogic</a>
                 </div>
               </v-footer>
