@@ -1,5 +1,21 @@
 # Changelog
 
+## [v.1.1.0] - 03/06/2022
+
+### Updated
+### Update dependencies
+    amcharts/amcharts4: 4.10.22 -> 4.10.25
+    amcharts/amcharts4-geodata: 4.1.22 -> 4.1.23
+    apexcharts: 3.29.0 -> 3.35.3
+    axios: 0.23.0 -> 0.27.2
+    core-js: 3.19.0 ->  3.22.7
+    moment: 2.29.1 -> 2.29.3
+    vue-router: 3.5.2 -> 3.5.3
+    vue-apexcharts: 1.6.0 -> 1.6.1
+    vuetify: 2.5.10 -> 2.6.6
+- Updated sidebar
+- Updated links in sidebar
+
 ## [v.1.0.8] - 10/22/2021
 
 ### Updated
