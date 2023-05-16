@@ -1,5 +1,20 @@
 # Changelog
 
+## [v.1.1.1] - 16/05/2023
+
+### Updated
+### Update dependencies
+    amcharts/amcharts4: 4.10.25 -> 4.10.35
+    amcharts/amcharts4-geodata: 4.1.23 -> 4.1.26
+    core-js: 3.22.7 ->  3.30.2
+    dayjs: 1.11.2 -> 1.11.7
+    moment: 2.29.3 -> 2.29.4
+    vue: 2.6.14 -> 2.7.14
+    sass: 1.52.1 -> 1.62.1
+    sass-loader: 8.0.2 -> 10.4.1
+    vue-template-compiler: 2.6.14 -> 2.7.14
+    vuetify-loader: 1.7.3 -> 1.9.2
+
 ## [v.1.1.0] - 03/06/2022
 
 ### Updated
