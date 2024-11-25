@@ -1,6 +1,6 @@
 # Changelog
 
-## [2.1.1] - 22/11/2024
+## [v.1.1.2] - 22/11/2024
 
 - Updated dependencies
 
