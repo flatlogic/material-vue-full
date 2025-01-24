@@ -93,6 +93,12 @@ Looking for a perfect codebase generator for your Startup? Try [Flatlogic AI Web
 | **Vue**       | [Material Vue](https://github.com/flatlogic/material-vue-full) | [Light Blue Vue](https://github.com/flatlogic/light-blue-vue) | [Sing App Vue](https://github.com/flatlogic/sing-app-vue) | - | - |
 | **Bootstrap** | - | [Light Blue HTML5](https://github.com/flatlogic/light-blue-html5) | [Sing App HTML5](https://github.com/flatlogic/sing-app-html5) | - | [One Bootstrap](https://github.com/flatlogic/one-bootstrap-template-full) |
 
+
+Additionally, these templates are tailored for specific business needs:
+- [E-Commerce Frontend (React)](https://github.com/flatlogic/ecommerce-frontend) - A complete e-commerce solution.
+- [Bookkeeper UI (React)](https://github.com/flatlogic/bookkeeper-ui) - Accounting dashboard for finance management.
+- [User Management Template (React)](https://github.com/flatlogic/user-management-template) - User authentication and management.
+
 ---
 
 ## 👨‍💻 How to Contribute
