@@ -1,85 +1,116 @@
+# 🚀 Vue Material Admin - A Free Vue Material Dashboard!
 
-# 🤘 Vue Material Admin
+[View Demo](https://flatlogic.com/templates/vue-material-template-full/demo) | [Download](https://github.com/flatlogic/material-vue-full/archive/refs/heads/master.zip) | [More Templates](https://flatlogic.com/templates) | [Discord Community](https://discord.gg/flatlogic-community) | [Support Forum](https://flatlogic.com/forum)
 
-Free and open-source admin dashboard template built with Vue and Vuetify. Developed with ❤️ by [Flatlogic](https://flatlogic.com/). If you love our project please star ⭐️ our repo!
+**Originally a premium product priced at $69+, made available for free in January 2025!** 🎉
 
-[View Demo](https://templates-flatlogic.herokuapp.com/vue-material/) | [Download](https://github.com/flatlogic/material-vue-full.git) | [More templates](https://flatlogic.com/templates) | [Support forum](https://flatlogic.com/forum)
+[![image](https://github.com/flatlogic/material-vue-full/blob/master/src/assets/img/screenshots/1.png)](https://flatlogic.com/templates/vue-material-template-full/demo)
 
-[![image](https://github.com/flatlogic/material-vue-full/blob/master/src/assets/img/screenshots/1.png)](https://templates-flatlogic.herokuapp.com/vue-material/)
+Looking for a perfect codebase generator for your Startup? Try [Flatlogic AI Web App Generator](https://flatlogic.com/generator) - our new tool, sort of a template++.
 
-## Features
+---
 
-Vue Material Admin is a great template to quick-start development of SAAS, CMS, IoT Dashboard, E-Commerce apps, etc  
-Lite version of a Vue Material Admin includes following features and pages:
+## 🎯 Why Vue Material Admin?
+- **Ex-Premium**: This template was previously paid. Enjoy it for free now. 😉
+- **Vuetify Framework**: Built using Vue.js and Material Design principles.
+- **Join the Community**: [Flatlogic Discord](https://discord.gg/flatlogic-community) is where the action happens.
+- **Free Node.js Backend**: Pair it up with [this backend](https://github.com/flatlogic/nodejs-backend) to go full-stack.
 
-* Vuetify
-* Responsive layout
-* Vue Apex Charts
-* Simple login / logout
-* Error page
-* Styled Vuetify components like buttons, modals, etc
+---
 
-## Pages
-We have implemented some basic pages, so you can see our template in action.
+## 🚀 Quick Start
 
-* Dashboard sample
-* Typography
-* Tables
-* Notifications
-* Charts
-* Icons
-* Maps
-* Chat
-* Login
-* Error page
+1. **Clone the repo**  
+   ```bash
+   git clone https://github.com/flatlogic/material-vue-full.git
+   cd material-vue-full
+   ```
+2. **Install dependencies**  
+   ```bash
+   yarn install  # Or npm install
+   ```
+3. **Run the app**  
+   ```bash
+   yarn start
+   ```
+   Navigate to http://localhost:3000/.
 
-## Instalation
+4. **Backend Support**  
+   ```bash
+   yarn start:backend
+   ```
 
-1. Clone repository
-```shell
-git clone https://github.com/flatlogic/material-vue.git
-```
-2. Get in the project folder
-```shell
-cd material-vue
-```
-3. Install dependencies via npm or yarn
-```shell
-yarn
-```
+5. **Build for production**  
+   ```bash
+   yarn build
+   ```
 
-## To start the project:
+---
 
-Run development server
+## 🧩 Features
 
-```shell
-yarn start:backend
-```
+- Vuetify-based UI Components
+- Fully Responsive Layout
+- Three Color Themes & Dark Mode
+- Vue 2.6.11
+- Vue Router for Navigation
+- Various Chart Libraries (Highcharts, Apexcharts)
+- User Management Pages
+- Sass and Vuex Integration
 
-## Support
-For any additional information please refer to [Flatlogic homepage](https://flatlogic.com).
+---
 
-## How can I support developers?
-- Star our GitHub repo :star:
-- [Tweet about it](https://twitter.com/intent/tweet?text=Amazing%20dashboard%20built%20with%20%23VueJS%20and%20%23Bootstrap!&url=https://github.com/flatlogic/light-blue-vue-admin&via=flatlogic).
-- Create pull requests, submit bugs, suggest new features or documentation updates :wrench:
-- Follow [@flatlogic on Twitter](https://twitter.com/flatlogic).
-- Subscribe to Flatlogic newsletter at [flatlogic.com](https://flatlogic.com/)
-- Like our page on [Facebook](https://www.facebook.com/flatlogic/) :thumbsup:
+## 🛠 Built With
+- Vue 2.6.11
+- Vuetify
+- Vue Router
+- Sass
+- Vuex
+- Webpack
 
-## More from Flatlogic
-- [Awesome Bootstrap Checkboxes & Radios](https://github.com/flatlogic/awesome-bootstrap-checkbox) - ✅ Pure css way to make inputs look prettier
-- [React Native Starter](https://github.com/flatlogic/react-native-starter) - 🚀 A powerful react native starter template that bootstraps development of your mobile application
-- [React Dashboard](https://github.com/flatlogic/react-dashboard) - 🔥 React Dashboard - isomorphic admin dashboard template with GraphQL
-- [Sing App](https://github.com/flatlogic/sing-app) - 💥 Free and open-source admin dashboard template built with Bootstrap 4
-- [Light Blue Dashboard](https://github.com/flatlogic/light-blue-dashboard) - 💦 Free and open-source (no frameworks) admin dashboard template built with Bootstrap
+---
 
-## Premium themes
-Looking for premium themes and templates? Check out our other template at [flatlogic.com](https://flatlogic.com/admin-dashboards).
+## 📦 Pages
+- Dashboard
+- E-Commerce (Product Management, Product Grid, Product Page)
+- User Management (User List, Add, Edit)
+- Forms (Validation, Elements)
+- Charts (Line, Pie, Bar)
+- Tables (Basic, Dynamic)
+- Maps (Google, Vector)
+- Core (Typography, Colors, Grid)
+- Extra (Calendar, Invoice, Gallery, Search Result, Timeline)
+- Authentication (Login, Error Pages)
 
-## License
+---
 
-Flatlogic One React Template version is [MIT](https://github.com/flatlogic/one-react-template/blob/master/LICENCE)-licensed.
+## 🌍 Available Variants
 
-* that's a joke actually, but we would really appreciate if you support us by buying a premium version. Anyways free is just free and is limited to only few components, while premium one has more and comes with premium support.
+|               | **Material**                                              | **Transparent**                                         | **Classic**                                          | **Sofia**                                          | **Flatlogic**                                      |
+|---------------|-----------------------------------------------------------|---------------------------------------------------------|-------------------------------------------------------|-----------------------------------------------------|----------------------------------------------------|
+| **React**     | [React Material Admin](https://github.com/flatlogic/react-material-admin-full) | [Light Blue React](https://github.com/flatlogic/light-blue-react) | [Sing App React](https://github.com/flatlogic/sing-app-react) | [Sofia React](https://github.com/flatlogic/sofia-react) | [One React](https://github.com/flatlogic/one-react) |
+| **Angular**   | [Angular Material Admin](https://github.com/flatlogic/angular-material-admin-full) | [Light Blue Angular](https://github.com/flatlogic/light-blue-angular) | [Sing App Angular](https://github.com/flatlogic/sing-app-angular) | - | - |
+| **Vue**       | [Material Vue](https://github.com/flatlogic/material-vue-full) | [Light Blue Vue](https://github.com/flatlogic/light-blue-vue) | [Sing App Vue](https://github.com/flatlogic/sing-app-vue) | - | - |
+| **Bootstrap** | - | [Light Blue HTML5](https://github.com/flatlogic/light-blue-html5) | [Sing App HTML5](https://github.com/flatlogic/sing-app-html5) | - | [One Bootstrap](https://github.com/flatlogic/one-bootstrap-template-full) |
 
+---
+
+## 👨‍💻 How to Contribute
+- **Star this repo ⭐** - show some love.
+- **Report bugs** - but be nice.
+- **Join the [Discord](<insert-discord-invite-link>)** - meet fellow devs.
+
+---
+
+## 🔥 About Flatlogic
+[Flatlogic AI Software Engineer](https://flatlogic.com/ai-software-development-agent) builds modern business software so you don't have to. Our AI Software Development Agent helps you generate, deploy, and maintain enterprise applications with minimal effort.
+
+---
+
+## 📜 License
+This template is free to use. Modify it, break it, make it your own. Just don’t try to sell it back to us. 😎
+
+---
+
+> **Questions or feedback?**  
+> Join our [Flatlogic Community Discord](https://discord.gg/flatlogic-community) or visit our [support forum](https://flatlogic.com/forum). We might even reply!
