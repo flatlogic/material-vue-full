@@ -2,7 +2,7 @@
 
 .pagination-pages {
   .v-card {
-    &.theme--dark {
+    &.v-theme--dark {
       .pagination-example, .pagination-length, .pagination-circle {
         button {
           box-shadow: none;
@@ -15,7 +15,7 @@
         }
       }
     }
-    &.theme--light {
+    &.v-theme--light {
       .pagination-example, .pagination-length, .pagination-circle {
         button {
           box-shadow: $button-shadow;

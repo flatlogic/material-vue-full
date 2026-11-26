@@ -3,13 +3,13 @@
     <v-row>
       <v-col cols="12">
         <v-card class="mb-1">
-          <v-card-title class="pa-5 pb-3">
-            <p>Products</p><span class="grey--text font-weight-regular subtitle-2 pt-1">{{'\xa0 (' +  products.length }} total) </span>
+          <v-card-title class="d-flex align-center pa-5 pb-3">
+            <p>Products</p><span class="text-grey font-weight-regular text-subtitle-2 pt-1">{{'\xa0 (' +  products.length }} total) </span>
             <v-spacer></v-spacer>
             <div>
               <v-text-field
                 v-model="search"
-                append-icon="mdi-magnify"
+                append-inner-icon="mdi-magnify"
                 label="Search"
                 single-line
                 hide-details
@@ -26,41 +26,39 @@
               :headers="headers"
               :items="products"
               :search="search"
-              sort-by="id">
-              <template v-slot:top>
+              :sort-by="[{ key: 'id', order: 'asc' }]">
+              <template #top>
                 <v-dialog v-model="dialog" max-width="500px">
-                  <template v-slot:activator="{ on, attrs }">
+                  <template #activator="{ props }">
                     <v-btn
                       color="success"
-                      dark
                       class="my-4 button-shadow"
-                      v-bind="attrs"
-                      v-on="on"
+                      v-bind="props"
                     >Create Product</v-btn>
                   </template>
                   <v-card class="edit-dialog">
                     <v-card-title>
-                      <span class="headline">{{ formTitle }}</span>
+                      <span class="text-h5">{{ formTitle }}</span>
                     </v-card-title>
                     <v-card-text>
                       <v-container>
                         <v-row>
                           <v-col cols="12" sm="6">
-                            <v-text-field outlined v-model="editedItem.title" label="Product name"></v-text-field>
+                            <v-text-field variant="outlined" v-model="editedItem.title" label="Product name"></v-text-field>
                           </v-col>
                           <v-col cols="12" sm="6">
-                            <v-text-field outlined v-model="editedItem.subtitle" label="Subtitle"></v-text-field>
+                            <v-text-field variant="outlined" v-model="editedItem.subtitle" label="Subtitle"></v-text-field>
                           </v-col>
                           <v-col cols="12" sm="6" md="4">
-                            <v-text-field outlined v-model="editedItem.price" label="Price"></v-text-field>
+                            <v-text-field variant="outlined" v-model="editedItem.price" label="Price"></v-text-field>
                           </v-col>
                           <v-col cols="12" sm="6" md="4">
-                            <v-text-field :rules="ratingRules" outlined v-model="editedItem.rating" type="number" label="Rating"></v-text-field>
+                            <v-text-field :rules="ratingRules" variant="outlined" v-model="editedItem.rating" type="number" label="Rating"></v-text-field>
                           </v-col>
                           <v-col cols="12" sm="6" md="4">
-                            <v-select outlined :items="images" v-model="editedItem.img" label="Image">
-                              <template v-slot:item="{ item }">
-                                <v-img :src="item" width="50" style="margin: 2px"></v-img>
+                            <v-select variant="outlined" :items="images" v-model="editedItem.img" label="Image">
+                              <template #item="{ item, props }">
+                                <v-list-item v-bind="props" :title="null"><v-img :src="item.raw" width="50" alt="Available image" /></v-list-item>
                               </template>
                             </v-select>
                           </v-col>
@@ -69,34 +67,34 @@
                     </v-card-text>
                     <v-card-actions>
                       <v-spacer></v-spacer>
-                      <v-btn color="primary" outlined @click="close">Cancel</v-btn>
+                      <v-btn color="primary" variant="outlined" @click="close">Cancel</v-btn>
                       <v-btn color="success" class="button-shadow" @click="save">Save</v-btn>
                     </v-card-actions>
                   </v-card>
                 </v-dialog>
               </template>
-              <template v-slot:item.img="{ item }">
+              <template #item.img="{ item }">
                 <v-img class="my-3" width="100" :src=item.img></v-img>
               </template>
-              <template v-slot:item.title="{ item }">
-                <a class="primaryConst--text">{{ item.title }}</a>
+              <template #item.title="{ item }">
+                <a class="text-primaryConst">{{ item.title }}</a>
               </template>
-              <template v-slot:item.rating="{ item }">
+              <template #item.rating="{ item }">
                 <div class="d-flex align-center">
-                  <span class="warning--text" style="font-size: 1rem">{{ item.rating }} </span><v-icon size="20" color="warning">mdi-star</v-icon>
+                  <span class="text-warning" style="font-size: 1rem">{{ item.rating }} </span><v-icon size="20" color="warning">mdi-star</v-icon>
                 </div>
               </template>
-              <template v-slot:item.api="{ item }">
+              <template #item.api="{ item }">
                 <v-btn
                   class="mr-3 button-shadow"
                   @click="editItem(item)"
-                  small
+                  size="small"
                   color="success"
                 >Edit
                 </v-btn>
                 <v-btn
                   @click="deleteItem(item)"
-                  small
+                  size="small"
                   class="button-shadow"
                   color="secondary"
                 >Delete
@@ -108,17 +106,16 @@
       </v-col>
     </v-row>
     <v-snackbar
+      :close-on-back="false"
         v-model="snackbar"
         color="success"
-        right
-        top
+      location="top end"
         style="top: 50px">
-      <div v-html="text" class=""></div>
-      <template v-slot:action="{ attrs }">
+      <div>{{ text }}</div>
+      <template #actions="{ props }">
         <v-btn
-          dark
-          text
-          v-bind="attrs"
+          variant="text"
+          v-bind="props"
           @click="snackbar = false">
           Close
         </v-btn>
@@ -140,16 +137,16 @@
         dialog: false,
         headers: [
           {
-            text: 'ID',
+            title: 'ID',
             align: 'start',
-            value: 'id',
+            key: 'id',
           },
-          { text: 'Image', value: 'img', sortable: false },
-          { text: 'Title', value: 'title' },
-          { text: 'Subtitle', value: 'subtitle' },
-          { text: 'Price', value: 'price' },
-          { text: 'Rating', value: 'rating' },
-          { text: 'Actions', value: 'api', sortable: false },
+          { title: 'Image', key: 'img', sortable: false },
+          { title: 'Title', key: 'title' },
+          { title: 'Subtitle', key: 'subtitle' },
+          { title: 'Price', key: 'price' },
+          { title: 'Rating', key: 'rating' },
+          { title: 'Actions', key: 'api', sortable: false },
         ],
         ratingRules: [
           v => !!v || "This field is required",
@@ -173,16 +170,14 @@
           rating: '',
         },
         images: [
-          require('@/assets/img/e-commerce/low/1.png'),
-          require('@/assets/img/e-commerce/low/2.png'),
-          require('@/assets/img/e-commerce/low/3.png'),
-          require('@/assets/img/e-commerce/low/4.png'),
-          require('@/assets/img/e-commerce/low/5.png'),
-          require('@/assets/img/e-commerce/low/6.png')
+          new URL('../../../assets/img/e-commerce/low/1.png', import.meta.url).href,
+          new URL('../../../assets/img/e-commerce/low/2.png', import.meta.url).href,
+          new URL('../../../assets/img/e-commerce/low/3.png', import.meta.url).href,
+          new URL('../../../assets/img/e-commerce/low/4.png', import.meta.url).href,
+          new URL('../../../assets/img/e-commerce/low/5.png', import.meta.url).href,
+          new URL('../../../assets/img/e-commerce/low/6.png', import.meta.url).href
        ],
-        notification: '<p class="font-weight-bold mb-0">This page is only available in Vue Material Admin Full with ' +
-            '<a rel="noreferrer noopener" target="_blank" class="white--text text-decoration-none" href="https://flatlogic.com/templates/sing-app-vue-node-js">NodeJS</a>/' +
-            '<a rel="noreferrer noopener" target="_blank" class="white--text text-decoration-none" href="https://flatlogic.com/templates/sing-app-vue-laravel">PHP</a> backend integration!</p>'
+        notification: 'Demo changes last until you reload the page. Connect a backend to save them.'
       }
     },
     computed: {
@@ -222,11 +217,9 @@
         this.editedItem = Object.assign({}, item)
         this.dialog = true
       },
-      deleteItem (item) {
-        if (!config.isBackend ) {
-          confirm('Are you sure you want to delete this item?') && this.products.splice(item.id, 1)
-        } else {
-          confirm('Are you sure you want to delete this item?') && this.deleteProductRequest({id: item.id})
+      async deleteItem(item) {
+        if (window.confirm('Delete this product?')) {
+          await this.deleteProductRequest({ id: item.id });
         }
       },
       close () {
@@ -236,19 +229,13 @@
           this.editedIndex = -1
         })
       },
-      save () {
+      async save() {
         if (this.editedIndex > -1) {
-          !config.isBackend ?
-          Object.assign(this.products[this.editedIndex], this.editedItem)
-          :
-          this.updateProductRequest(this.editedItem)
+          await this.updateProductRequest(this.editedItem);
         } else {
-          !config.isBackend ?
-          this.products.push(this.editedItem)
-          :
-          this.createProductRequest(this.editedItem)
+          await this.createProductRequest(this.editedItem);
         }
-        this.close()
+        this.close();
       },
       addSuccessNotification() {
         this.snackbar = true;

@@ -1,18 +1,18 @@
-import Vue from 'vue';
-import Vuetify from 'vuetify/lib';
-import config from '@/config';
+import { createVuetify } from 'vuetify';
+import * as components from 'vuetify/components';
+import * as directives from 'vuetify/directives';
 import 'font-awesome/css/font-awesome.css';
+import config from '@/config';
 
-Vue.use(Vuetify);
-
-export default new Vuetify({
+export default createVuetify({
+  components,
+  directives,
+  defaults: { VTextField: { variant: 'underlined' }, VChip: { variant: 'flat' } },
   theme: {
-    options: {
-      customProperties: true,
-    },
+    defaultTheme: 'light',
     themes: {
-      dark: config.dark,
-      light: config.light,
+      light: { dark: false, colors: config.light },
+      dark: { dark: true, colors: config.dark },
     },
   },
 });

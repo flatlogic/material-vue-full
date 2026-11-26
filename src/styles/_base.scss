@@ -26,7 +26,7 @@ body {
 
     .page-title {
       font-size: 2.4rem;
-      color: var(--v-greyMedium-base);
+      color: rgb(var(--v-theme-greyMedium));
       margin-bottom: 0;
     }
 
@@ -35,7 +35,7 @@ body {
 
       .v-card__title {
         p {
-          color: var(--v-greyMedium-base);
+          color: rgb(var(--v-theme-greyMedium));
           line-height: 1.33;
           margin: 0;
           font-size: 20px;
@@ -45,7 +45,7 @@ body {
         .v-btn.v-btn--flat.v-btn--icon.v-btn--round {
           &:hover {
             transition: 300ms all;
-            background-color: var(--v-primary-base);
+            background-color: rgb(var(--v-theme-primary));
 
             .v-icon {
               color: rgba(255, 255, 255, 0.35) !important;
@@ -121,14 +121,14 @@ body {
     .button-shadow {
       box-shadow: $button-shadow;
 
-      &.theme--dark {
+      &.v-theme--dark {
         box-shadow: none;
       }
     }
 
     code,
     pre {
-      color: var(--v-greyBoldConst-base);
+      color: rgb(var(--v-theme-greyBoldConst));
       background-color: #f3f5ff;
       padding: 7px;
       font-weight: 500;
@@ -140,19 +140,19 @@ body {
     }
 
     .v-btn.default {
-      &.theme--dark {
+      &.v-theme--dark {
         .v-btn__content {
           color: #000;
         }
       }
       .v-btn__content {
-        color: var(--v-greyBold-base);
+        color: rgb(var(--v-theme-greyBold));
       }
     }
   }
-  div.v-application.theme--dark {
+  div.v-application.v-theme--dark {
     background-color: $body-bg-dark !important;
-    .main-header.theme--dark {
+    .main-header.v-theme--dark {
       background-color: #31313c !important;
     }
     .content {

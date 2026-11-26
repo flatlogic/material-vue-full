@@ -73,13 +73,13 @@ export default {
       secondSlideShow: {
         items: [
           {
-            src: require('@/assets/img/carusel/small-1.png'),
+            src: new URL('../../../assets/img/carusel/small-1.png', import.meta.url).href,
           },
           {
-            src: require('@/assets/img/carusel/small-2.png'),
+            src: new URL('../../../assets/img/carusel/small-2.png', import.meta.url).href,
           },
           {
-            src: require('@/assets/img/carusel/small-3.png'),
+            src: new URL('../../../assets/img/carusel/small-3.png', import.meta.url).href,
           },
         ]
       },
@@ -87,15 +87,15 @@ export default {
         items: [
           {
             text: 'Alaska - Glacier Bay National Park, United States',
-            src: require('@/assets/img/carusel/big-1.png'),
+            src: new URL('../../../assets/img/carusel/big-1.png', import.meta.url).href,
           },
           {
             text: 'San Francisco – Oakland Bay Bridge, United States',
-            src: require('@/assets/img/carusel/big-2.png'),
+            src: new URL('../../../assets/img/carusel/big-2.png', import.meta.url).href,
           },
           {
             text: 'Bali, Indonesia',
-            src: require('@/assets/img/carusel/big-3.png'),
+            src: new URL('../../../assets/img/carusel/big-3.png', import.meta.url).href,
           },
         ]
       }

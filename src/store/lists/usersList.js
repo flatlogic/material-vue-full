@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '@/api';
 
 export default {
   namespaced: true,
@@ -31,7 +31,7 @@ export default {
     },
   },
   actions: {
-    async getData({ commit, dispatch }, { page, limit, field, sort }) {
+    async getData({ commit, dispatch }, { page = 0, limit = 10, field, sort } = {}) {
       commit('showLoader');
       try {
         const response = await axios.get(`/users`, {
@@ -45,16 +45,16 @@ export default {
         commit('hideLoader');
       }
     },
-    async getFilteredData({ commit }, request) {
+    async getFilteredData({ commit, dispatch }, request) {
       try {
         commit('showLoader');
         const response = await axios.get(`/users${request}`);
         commit('getData', response.data.rows);
-        commit('hideLoader');
+        commit('COUNT_UPDATED', response.data.count);
       } catch (e) {
-        this._vm.$toasted.show('Error: ' + e, {
-          type: 'error',
-        });
+        dispatch('snackbar/showSnackbar', e.message, { root: true });
+      } finally {
+        commit('hideLoader');
       }
     },
     async deleteItem({ dispatch, state }) {

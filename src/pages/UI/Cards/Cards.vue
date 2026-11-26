@@ -5,7 +5,7 @@
         <v-card class="overflow-hidden mx-1 mb-1">
           <v-img
             :src="cards[0].src"
-            class="white--text align-start"
+            class="text-white align-start"
             gradient="to top, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="500">
             <v-card-text class="pa-5">
@@ -14,9 +14,8 @@
               <p>A lifestyle brand is a company that markets its products or services to embody the interests, attitudes,
                 and opinions of a group or a culture. Lifestyle brands seek to inspire, guide, and motivate people, with
                 the goal of their products contributing to the definition of the consumer's way of life.</p>
-              <v-btn
+              <v-btn theme="dark"
                 color="primary"
-                dark
                 class="button-shadow">
                 Learn More
               </v-btn>
@@ -31,12 +30,12 @@
         <v-card class="overflow-hidden mx-1">
           <v-img
             :src="cards[1].src"
-            class="white--text align-end"
+            class="text-white align-end"
             height="215"
           ></v-img>
           <v-card-text class="pa-5">
-            <h3 class="greyBold--text">Lizard</h3>
-            <p class="greyBold--text">Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all
+            <h3 class="text-greyBold">Lizard</h3>
+            <p class="text-greyBold">Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all
               continents except Antarctica</p>
           </v-card-text>
           <v-card-actions class="ma-2">
@@ -58,15 +57,15 @@
       <v-col cols="12" md="4">
         <v-card class="overflow-hidden mx-1 mb-8">
           <v-card-title>
-            <span class="success--text mr-2">Avr Rating</span>
+            <span class="text-success mr-2">Avr Rating</span>
             <span>All Time</span>
           </v-card-title>
           <v-divider></v-divider>
           <v-card-text class="">
             <v-row>
               <v-col cols="6">
-                <template v-for="n in 5">
-                  <v-icon :key="n" color="warning">mdi-star</v-icon>
+                <template v-for="n in 5" :key="n">
+                  <v-icon  color="warning">mdi-star</v-icon>
                 </template>
               </v-col>
               <v-spacer></v-spacer>
@@ -76,7 +75,7 @@
             </v-row>
             <v-row>
               <v-col>
-                <span class="body-1 success--text">69%</span> of customers recommend this product
+                <span class="body-1 text-success">69%</span> of customers recommend this product
               </v-col>
             </v-row>
           </v-card-text>
@@ -92,25 +91,25 @@
         <v-card class="overflow-hidden mx-1 mb-1">
           <v-card-text class="pa-0">
             <v-list-item class="grow">
-              <v-list-item-avatar>
+              <v-avatar>
                 <v-avatar color="primary" size="36">
-                  <span class="white--text fs-large">R</span>
+                  <span class="text-white fs-large">R</span>
                 </v-avatar>
-              </v-list-item-avatar>
-              <v-list-item-content>
+              </v-avatar>
+              <div>
                 <v-list-item-title>Weekly Inspiration</v-list-item-title>
                 <v-list-item-subtitle>September 14, 2016</v-list-item-subtitle>
-              </v-list-item-content>
+              </div>
             </v-list-item>
           </v-card-text>
           <v-img
             :src="cards[2].src"
-            class="white--text align-end"
+            class="text-white align-end"
             height="215"
           >
           </v-img>
           <v-card-text class="pa-5 pb-0">
-            <p class="greyBold--text">There are at least 109 mountains on Earts with elevations greeter than 7,200 meters</p>
+            <p class="text-greyBold">There are at least 109 mountains on Earts with elevations greeter than 7,200 meters</p>
           </v-card-text>
           <v-card-actions class="pa-5 pt-0">
             <v-btn icon>
@@ -126,11 +125,11 @@
         <v-card class="overflow-hidden mx-1 mb-1">
           <v-img
             :src="cards[3].src"
-            class="white--text align-end"
+            class="text-white align-end"
             height="215"
           ></v-img>
           <v-card-title>Technologies</v-card-title>
-          <v-card-subtitle class="greyBold--text">React Native Starter</v-card-subtitle>
+          <v-card-subtitle class="text-greyBold">React Native Starter</v-card-subtitle>
           <v-divider></v-divider>
           <v-card-actions class="ma-2">
             <p class="mb-0">from $49.95</p>
@@ -159,10 +158,10 @@ export default {
         'Print'
       ],
       cards: [
-        { title: 'Pre-fab homes', src: require('@/assets/img/cards/mac.png'), flex: 12 },
-        { title: 'Lizard', src: require('@/assets/img/cards/candy.png'), flex: 6 },
-        { title: 'Best airlines', src: require('@/assets/img/cards/city.png'), flex: 6 },
-        { title: 'Best airlines', src: require('@/assets/img/cards/rns.png'), flex: 6 },
+        { title: 'Pre-fab homes', src: new URL('../../../assets/img/cards/mac.png', import.meta.url).href, flex: 12 },
+        { title: 'Lizard', src: new URL('../../../assets/img/cards/candy.png', import.meta.url).href, flex: 6 },
+        { title: 'Best airlines', src: new URL('../../../assets/img/cards/city.png', import.meta.url).href, flex: 6 },
+        { title: 'Best airlines', src: new URL('../../../assets/img/cards/rns.png', import.meta.url).href, flex: 6 },
       ],
     }
   }

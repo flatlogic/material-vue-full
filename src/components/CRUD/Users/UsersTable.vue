@@ -26,17 +26,15 @@
       </v-row>
     </v-card>
 
-    <v-data-table
+    <v-data-table-server
       :headers="headers"
       :items="tableData"
       :search="search"
       :loading="loading"
       @click:row="rowClickHandler"
-      :options.sync="options"
-      :server-items-length="count"
-      :footer-props="{
-        'items-per-page-options': [10, 20, 50, 100],
-      }"
+      @update:options="loadPage"
+      :items-length="count"
+      :items-per-page-options="[10, 20, 50, 100]"
     >
       <template v-slot:top>
         <v-text-field
@@ -67,8 +65,8 @@
 
       <template v-slot:item.actions="{ item }">
         <v-menu>
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn icon v-bind="attrs" v-on="on">
+          <template #activator="{ props }">
+            <v-btn icon v-bind="props">
               <v-icon color="greyTint">mdi-dots-vertical</v-icon>
             </v-btn>
           </template>
@@ -91,11 +89,11 @@
       <template v-slot:no-data>
         <span>No matching records</span>
       </template>
-    </v-data-table>
+    </v-data-table-server>
 
     <v-dialog v-model="modal" max-width="390">
       <v-card>
-        <v-card-title class="headline greyMedium--text"
+        <v-card-title class="headline text-greyMedium"
           >Confirm delete</v-card-title
         >
 
@@ -126,14 +124,14 @@
         search: '',
         modal: false,
         headers: [
-          { text: 'First Name', value: 'firstName' },
-          { text: 'Last Name', value: 'lastName' },
-          { text: 'Phone Number', value: 'phoneNumber' },
-          { text: 'E-Mail', value: 'email' },
-          { text: 'Role', value: 'role' },
-          { text: 'Disabled', value: 'disabled' },
-          { text: 'Avatar', value: 'avatar' },
-          { text: 'Actions', value: 'actions', sortable: false },
+          { title: 'First Name', key: 'firstName' },
+          { title: 'Last Name', key: 'lastName' },
+          { title: 'Phone Number', key: 'phoneNumber' },
+          { title: 'E-Mail', key: 'email' },
+          { title: 'Role', key: 'role' },
+          { title: 'Disabled', key: 'disabled' },
+          { title: 'Avatar', key: 'avatar' },
+          { title: 'Actions', key: 'actions', sortable: false },
         ],
         showFilters: false,
         filters: [
@@ -142,21 +140,7 @@
           { label: 'Phone Number', title: 'phoneNumber' },
           { label: 'E-Mail', title: 'email' },
         ],
-        options: {},
       };
-    },
-    watch: {
-      options: {
-        handler() {
-          this.getData({
-            page: this.options.page - 1,
-            limit: this.options.itemsPerPage,
-            field: this.options.sortBy[0],
-            sort: this.options.sortDesc[0] === true ? 'desc' : 'asc',
-          });
-        },
-        deep: true,
-      },
     },
     computed: {
       ...mapState({
@@ -170,12 +154,21 @@
         return dataFormatter;
       },
       externalLink: () => {
-        return process.env.NODE_ENV === 'production'
+        return import.meta.env.PROD
           ? window.location.origin + '/api-docs/#/Users'
           : 'http://localhost:8080/api-docs/#/Users';
       },
     },
     methods: {
+      loadPage({ page, itemsPerPage, sortBy }) {
+        const column = sortBy[0];
+        return this.getData({
+          page: page - 1,
+          limit: itemsPerPage,
+          field: column?.key,
+          sort: column?.order || 'asc',
+        });
+      },
       ...mapActions({
         getData: 'users/getData',
         getFilteredData: 'users/getFilteredData',
@@ -216,8 +209,8 @@
         let id = data.id;
         this.config.splice(id, 1, data);
       },
-      rowClickHandler(row) {
-        this.$router.push(`/admin/users/${row.id}/edit`);
+      rowClickHandler(event, { item }) {
+        this.$router.push(`/admin/users/${item.id}/edit`);
       },
     },
   };

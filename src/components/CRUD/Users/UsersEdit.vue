@@ -8,21 +8,21 @@
           </v-col>
 
           <v-col cols="3" class="d-flex align-center">
-            <p class="fs-normal greyBold--text mb-0">First Name</p>
+            <p class="fs-normal text-greyBold mb-0">First Name</p>
           </v-col>
           <v-col cols="9">
             <v-text-field label="First Name" v-model="firstName"></v-text-field>
           </v-col>
 
           <v-col cols="3" class="d-flex align-center">
-            <p class="fs-normal greyBold--text mb-0">Last Name</p>
+            <p class="fs-normal text-greyBold mb-0">Last Name</p>
           </v-col>
           <v-col cols="9">
             <v-text-field label="Last Name" v-model="lastName"></v-text-field>
           </v-col>
 
           <v-col cols="3" class="d-flex align-center">
-            <p class="fs-normal greyBold--text mb-0">Phone Number</p>
+            <p class="fs-normal text-greyBold mb-0">Phone Number</p>
           </v-col>
           <v-col cols="9">
             <v-text-field
@@ -32,17 +32,17 @@
           </v-col>
 
           <v-col cols="3" class="d-flex align-center">
-            <p class="fs-normal greyBold--text mb-0">E-Mail</p>
+            <p class="fs-normal text-greyBold mb-0">E-Mail</p>
           </v-col>
           <v-col cols="9">
             <v-text-field label="E-Mail" v-model="email"></v-text-field>
           </v-col>
 
           <v-col cols="3" class="d-flex align-center">
-            <p class="fs-normal greyBold--text mb-0">Role</p>
+            <p class="fs-normal text-greyBold mb-0">Role</p>
           </v-col>
           <v-col cols="9">
-            <v-radio-group v-model="role" row>
+            <v-radio-group v-model="role" inline>
               <v-col cols="12" sm="4" md="4">
                 <v-radio label="admin" value="admin"></v-radio>
               </v-col>
@@ -54,7 +54,7 @@
           </v-col>
 
           <v-col cols="3" class="d-flex align-center">
-            <p class="fs-normal greyBold--text mb-0">Disabled</p>
+            <p class="fs-normal text-greyBold mb-0">Disabled</p>
           </v-col>
           <v-col cols="9">
             <v-checkbox
@@ -74,10 +74,10 @@
           />
 
           <v-col cols="3" class="d-flex align-center">
-            <p class="fs-normal greyBold--text mb-0">Password</p>
+            <p class="fs-normal text-greyBold mb-0">Password</p>
           </v-col>
           <v-col cols="9">
-            <v-text-field label="Password" v-model="password"></v-text-field>
+            <v-text-field label="New password" type="password" autocomplete="new-password" v-model="password"></v-text-field>
           </v-col>
 
           <v-col cols="12 mt-5">
@@ -147,7 +147,7 @@
         edit: 'usersForm/edit',
       }),
       async submitHandler() {
-        const data = this.data;
+        const data = {};
 
         data.firstName = this.firstName;
 
@@ -163,7 +163,9 @@
 
         data.avatar = this.avatar;
 
-        data.password = this.password;
+        if (this.password) {
+          data.password = this.password;
+        }
 
         try {
           await this.edit({ id: this.id, data });
@@ -193,7 +195,8 @@
 
         this.avatar = this.data.avatar;
 
-        this.password = this.data.password;
+        this.disabled = this.data.disabled;
+        this.password = '';
       },
     },
     async beforeMount() {
@@ -212,8 +215,6 @@
     components: {
       ImageUploader,
       FileUploader,
-      VDatetimePicker: () =>
-        import('vuetify-datetime-picker/src/components/DatetimePicker.vue'),
     },
   };
 </script>

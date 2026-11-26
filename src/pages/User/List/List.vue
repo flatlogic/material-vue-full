@@ -9,23 +9,23 @@
                 <v-icon class="mr-2">mdi-plus</v-icon>
                 Add
               </v-btn>
-              <v-btn color="primary" outlined class="button-shadow">
+              <v-btn color="primary" variant="outlined" class="button-shadow">
                 <v-icon class="mr-2">mdi-filter-variant</v-icon>
                 Filters
               </v-btn>
             </v-col>
             <v-col cols="12" md="6" class="d-flex justify-end mt-3 mt-md-0">
-              <v-btn color="secondary" outlined :block=$vuetify.breakpoint.smAndDown>
+              <v-btn color="secondary" variant="outlined" :block=$vuetify.display.smAndDown>
                 <v-icon class="mr-3">mdi-download</v-icon>
                 Download
               </v-btn>
             </v-col>
             <v-col cols="12" class="d-flex justify-end mt-3">
-              <div :style="$vuetify.breakpoint.smAndDown ? 'width: 100%' : 'width: 250px'">
+              <div :style="$vuetify.display.smAndDown ? 'width: 100%' : 'width: 250px'">
                 <v-text-field
-                  dense
-                  :full-width=$vuetify.breakpoint.smAndDown
-                  outlined
+                  density="compact"
+                  v-model="search"
+                  variant="outlined"
                   hide-details
                   label="Search"
                   prepend-inner-icon="mdi-magnify"
@@ -47,33 +47,33 @@
               show-select
               :headers="headers"
               :items="users"
-              sort-by="calories"
+              :search="search"
               :items-per-page="itemPerPage">
-              <template v-slot:top>
+              <template #top>
                 <v-dialog v-model="dialog" max-width="500px">
                   <v-card class="edit-dialog" >
                     <v-card-title>
-                      <span class="headline">{{ formTitle }}</span>
+                      <span class="text-h5">{{ formTitle }}</span>
                     </v-card-title>
                     <v-card-text>
                       <v-container>
                         <v-row>
                           <v-col cols="12" sm="6">
-                            <v-text-field outlined v-model="editedItem.firstName" label="Name"></v-text-field>
+                            <v-text-field variant="outlined" v-model="editedItem.firstName" label="Name"></v-text-field>
                           </v-col>
                           <v-col cols="12" md="6">
-                            <v-text-field outlined v-model="editedItem.email" label="Email"></v-text-field>
+                            <v-text-field variant="outlined" v-model="editedItem.email" label="Email"></v-text-field>
                           </v-col>
                           <v-col cols="12" sm="4">
-                            <v-select hide-details outlined :items="role" v-model="editedItem.role" :value="editedItem.role" label="Role"></v-select>
+                            <v-select hide-details variant="outlined" :items="role" v-model="editedItem.role" label="Role"></v-select>
                           </v-col>
                           <v-col cols="12" sm="6" md="4">
-                            <v-text-field hide-details outlined value="Flatlogic" label="Company"></v-text-field>
+                            <v-text-field hide-details variant="outlined" v-model="editedItem.company" label="Company"></v-text-field>
                           </v-col>
                           <v-col cols="12" sm="6" md="4">
-                            <v-select hide-details outlined :items="images" v-model="editedItem.img" label="Image">
-                              <template v-slot:item="{ item }">
-                                <v-img :src="item" width="50" style="margin: 2px"></v-img>
+                            <v-select hide-details variant="outlined" :items="images" v-model="editedItem.avatar" label="Image">
+                              <template #item="{ item, props }">
+                                <v-list-item v-bind="props" :title="null"><v-img :src="item.raw" width="50" alt="Available image" /></v-list-item>
                               </template>
                             </v-select>
                           </v-col>
@@ -89,51 +89,51 @@
                     </v-card-text>
                     <v-card-actions>
                       <v-spacer></v-spacer>
-                      <v-btn color="primary" outlined @click="close">Cancel</v-btn>
+                      <v-btn color="primary" variant="outlined" @click="close">Cancel</v-btn>
                       <v-btn color="success" class="button-shadow" @click="save">Save</v-btn>
                     </v-card-actions>
                   </v-card>
                 </v-dialog>
               </template>
-              <template v-slot:item.image="{ item }">
-                <v-img v-if="item.role === 'admin'" class="my-3" width="34" src="../../../assets/img/user/avatars/1.png"></v-img>
+              <template #item.image="{ item }">
+                <v-img v-if="item.avatar" class="my-3" width="34" :src="item.avatar" alt=""></v-img>
                 <v-avatar
                   v-else
                   color="warning"
                   size="34">
-                  <span class="white--text headline">{{ item.firstName[0].toUpperCase() }}</span>
+                  <span class="text-white text-h5">{{ (item.firstName || item.email || '?')[0].toUpperCase() }}</span>
                 </v-avatar>
               </template>
-              <template v-slot:item.firstName="{ item }">
-                <a class="primaryConst--text">{{ item.firstName }}</a>
+              <template #item.firstName="{ item }">
+                <a class="text-primaryConst">{{ item.firstName }}</a>
               </template>
-              <template v-slot:item.lastName="{ item }">
-                <a class="primaryConst--text">{{ item.lastName }}</a>
+              <template #item.lastName="{ item }">
+                <a class="text-primaryConst">{{ item.lastName }}</a>
               </template>
-              <template v-slot:item.role="{ item }">
+              <template #item.role="{ item }">
                 {{ item.role }}
               </template>
-              <template v-slot:item.company>
-                Flatlogic
+              <template #item.company="{ item }">
+                {{ item.company || 'Flatlogic' }}
               </template>
-              <template v-slot:item.disabled="{ item }">
+              <template #item.disabled="{ item }">
                 <v-chip
-                  :color="!item.disabled ? 'primaryConst white--text' : 'secondaryConst white--text'"
-                  small>
+                  :color="!item.disabled ? 'primaryConst' : 'secondaryConst'"
+                  size="small">
                   {{ item.disabled ? 'Inactive' : 'Active' }}
                 </v-chip>
               </template>
-              <template v-slot:item.createdAt="{ item }">
+              <template #item.createdAt="{ item }">
                 {{ new Date(item.createdAt).toLocaleString("en-US", { year: 'numeric', month: 'numeric', day: 'numeric' }) }}
               </template>
-              <template v-slot:item.actions="{ item }">
-                <v-btn icon color="primary" @click="editItem(item)">
+              <template #item.actions="{ item }">
+                <v-btn variant="text" icon color="primary" @click="editItem(item)">
                   <v-icon>mdi-pencil-outline</v-icon>
                 </v-btn>
-                <v-btn icon color="primary">
+                <v-btn variant="text" icon color="primary">
                   <v-icon>mdi-information-outline</v-icon>
                 </v-btn>
-                <v-btn icon color="primary" @click="deleteItem(item)">
+                <v-btn variant="text" icon color="primary" @click="deleteItem(item)">
                   <v-icon>mdi-delete-outline</v-icon>
                 </v-btn>
               </template>
@@ -143,17 +143,16 @@
       </v-col>
     </v-row>
     <v-snackbar
+      :close-on-back="false"
       v-model="snackbar"
       color="success"
-      right
-      top
+      location="top end"
       style="top: 50px">
-      <div v-html="text" class=""></div>
-      <template v-slot:action="{ attrs }">
+      <div>{{ text }}</div>
+      <template #actions="{ props }">
         <v-btn
-          dark
-          text
-          v-bind="attrs"
+          variant="text"
+          v-bind="props"
           @click="snackbar = false">
           Close
         </v-btn>
@@ -172,19 +171,20 @@ export default {
   data() {
     return {
       mock,
+      search: '',
       config,
       snackbar: null,
       dialog: false,
       headers: [
-        { text: 'Image', value: 'image', sortable: false },
-        { text: 'First Name', value: 'firstName' },
-        { text: 'Last Name', value: 'lastName' },
-        { text: 'Role', value: 'role' },
-        { text: 'Company', value: 'company' },
-        { text: 'Email', value: 'email' },
-        { text: 'Status', value: 'disabled' },
-        { text: 'Create', value: 'createdAt' },
-        { text: 'Actions', value: 'actions', sortable: false },
+        { title: 'Image', key: 'image', sortable: false },
+        { title: 'First Name', key: 'firstName' },
+        { title: 'Last Name', key: 'lastName' },
+        { title: 'Role', key: 'role' },
+        { title: 'Company', key: 'company' },
+        { title: 'Email', key: 'email' },
+        { title: 'Status', key: 'disabled' },
+        { title: 'Create', key: 'createdAt' },
+        { title: 'Actions', key: 'actions', sortable: false },
       ],
       selected: [],
       switch1: true,
@@ -209,17 +209,15 @@ export default {
         create: '',
       },
       images: [
-        require('@/assets/img/user/avatars/1.png'),
-        require('@/assets/img/user/avatars/2.png'),
-        require('@/assets/img/user/avatars/3.png'),
-        require('@/assets/img/user/avatars/4.png'),
-        require('@/assets/img/user/avatars/5.png'),
+        new URL('../../../assets/img/user/avatars/1.png', import.meta.url).href,
+        new URL('../../../assets/img/user/avatars/2.png', import.meta.url).href,
+        new URL('../../../assets/img/user/avatars/3.png', import.meta.url).href,
+        new URL('../../../assets/img/user/avatars/4.png', import.meta.url).href,
+        new URL('../../../assets/img/user/avatars/5.png', import.meta.url).href,
       ],
       itemPerPage: 5,
       text: '',
-      notification: '<p class="font-weight-bold mb-0">This page is only available in Vue Material Admin Full with ' +
-          '<a rel="noreferrer noopener" target="_blank" class="white--text text-decoration-none" href="https://flatlogic.com/templates/sing-app-vue-node-js">NodeJS</a>/' +
-          '<a rel="noreferrer noopener" target="_blank" class="white--text text-decoration-none" href="https://flatlogic.com/templates/sing-app-vue-laravel">PHP</a> backend integration!</p>'
+      notification: 'Demo changes last until you reload the page. Connect a backend to save them.'
     }
   },
 
@@ -258,12 +256,9 @@ export default {
       this.dialog = true
     },
 
-    deleteItem(item) {
-      if (!config.isBackend) {
-        const index = this.users.indexOf(item);
-        confirm('Are you sure you want to delete this user?') && this.users.splice(index, 1)
-      } else {
-        confirm('Are you sure you want to delete this user?') && this.deleteUserRequest({id: item.id})
+    async deleteItem(item) {
+      if (window.confirm('Delete this user?')) {
+        await this.deleteUserRequest({ id: item.id });
       }
     },
 
@@ -275,19 +270,13 @@ export default {
       })
     },
 
-    save () {
+    async save() {
       if (this.editedIndex > -1) {
-        !config.isBackend ?
-        Object.assign(this.users[this.editedIndex], this.editedItem)
-        :
-        this.updateUserRequest(this.editedItem)
+        await this.updateUserRequest(this.editedItem);
       } else {
-        !config.isBackend ?
-        this.users.push(this.editedItem)
-        :
-        this.createUserRequest(this.editedItem)
+        await this.createUserRequest(this.editedItem);
       }
-      this.close()
+      this.close();
     },
 
     addSuccessNotification() {

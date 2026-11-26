@@ -1,18 +1,18 @@
 <template>
   <v-app>
-    <Header />
+    <AppHeader />
     <Sidebar />
     <v-main class="content mx-0 mx-md-2">
       <div class="wrapper">
         <Breadcrumbs />
         <router-view />
-        <Footer class="footer" />
+        <AppFooter class="footer" />
         <Helper />
-        <v-snackbar :value="snackbar" @input="changeSnackbar">
+        <v-snackbar :model-value="snackbar" @update:model-value="changeSnackbar">
           {{ snackbarText }}
 
-          <template v-slot:action="{ attrs }">
-            <v-btn color="white" text v-bind="attrs" @click="hideSnackbar()">
+          <template #actions>
+            <v-btn variant="text" color="white" @click="hideSnackbar()">
               Close
             </v-btn>
           </template>
@@ -23,16 +23,16 @@
 </template>
 
 <script>
-  import Header from '@/components/Header/Header';
+  import AppHeader from '@/components/Header/Header';
   import Sidebar from '@/components/Sidebar/Sidebar';
-  import Footer from '@/components/Footer/Footer';
+  import AppFooter from '@/components/Footer/Footer';
   import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs';
   import Helper from '@/components/Helper/Helper';
   import { mapMutations, mapState } from 'vuex';
 
   export default {
     name: 'Layout',
-    components: { Helper, Footer, Header, Sidebar, Breadcrumbs },
+    components: { Helper, AppFooter, AppHeader, Sidebar, Breadcrumbs },
     computed: {
       ...mapState({
         snackbar: (state) => state.snackbar.show,
@@ -61,14 +61,14 @@
       background: transparent;
     }
     &::-webkit-scrollbar-thumb {
-      background-color: var(--v-greyTint-base);
+      background-color: rgb(var(--v-theme-greyTint));
       border-radius: 36px;
       border: none;
     }
-    .v-main__wrap {
-      padding: 70px $content-padding $content-padding;
+    .content > .wrapper {
+      padding: 0 $content-padding $content-padding;
       @media #{map-get($display-breakpoints, 'sm-and-down')} {
-        padding: 70px $content-padding / 1.5 $content-padding / 1.5;
+        padding: 0 calc($content-padding / 1.5) calc($content-padding / 1.5);
       }
     }
   }

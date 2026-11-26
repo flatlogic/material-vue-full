@@ -7,7 +7,7 @@ export default {
       iconSize: '16',
       opposite: 'yesterday<h5>8:03 pm</h5>',
       title: 'Jessica Nilson',
-      avatar: require('@/assets/img/time-line/a1.jpg'),
+      avatar: new URL('../../../assets/img/time-line/a1.jpg', import.meta.url).href,
       nick: '@jess',
       subtitle: '10:12 am - Publicly near Minsk',
       content: {
@@ -19,14 +19,14 @@ export default {
         {
           divider: true,
           id: 1,
-          avatar: require('@/assets/img/time-line/a1.jpg'),
+          avatar: new URL('../../../assets/img/time-line/a1.jpg', import.meta.url).href,
           title: '<a>Jessica Nilson</a> <small>7 mins ago</small>',
           subtitle: 'Someone said they were the best people out there just few years ago. Don\'t know better options.'
         },
         {
           divider: true,
           id: 2,
-          avatar: require('@/assets/img/time-line/a2.jpg'),
+          avatar: new URL('../../../assets/img/time-line/a2.jpg', import.meta.url).href,
           title: '<a>Jessica Nilson</a> <small>7 mins ago</small>',
           subtitle: 'Someone said they were the best people out there just few years ago. Don\'t know better options.'
         },
@@ -39,7 +39,7 @@ export default {
       iconSize: '16',
       opposite: 'yesterday<h5>8:03 pm</h5>',
       title: 'Jessica Nilson',
-      avatar: require('@/assets/img/time-line/a2.jpg'),
+      avatar: new URL('../../../assets/img/time-line/a2.jpg', import.meta.url).href,
       nick: '@jess',
       subtitle: '10:12 am - Publicly near Minsk',
       content: {
@@ -55,7 +55,7 @@ export default {
       iconSize: '16',
       opposite: 'yesterday<h5>8:03 pm</h5>',
       title: 'Jessica Nilson',
-      avatar: require('@/assets/img/time-line/a3.jpg'),
+      avatar: new URL('../../../assets/img/time-line/a3.jpg', import.meta.url).href,
       nick: '@jess',
       subtitle: '10:12 am - Publicly near Minsk',
       content: {
@@ -67,7 +67,7 @@ export default {
         {
           divider: true,
           id: 1,
-          avatar: require('@/assets/img/time-line/a3.jpg'),
+          avatar: new URL('../../../assets/img/time-line/a3.jpg', import.meta.url).href,
           title: '<a>Jessica Nilson</a> <small>7 mins ago</small>',
           subtitle: 'Someone said they were the best people out there just few years ago. Don\'t know better options.'
         },
@@ -80,7 +80,7 @@ export default {
       iconSize: '28',
       opposite: 'yesterday<h5>8:03 pm</h5>',
       title: 'Jessica Nilson',
-      avatar: require('@/assets/img/time-line/a4.jpg'),
+      avatar: new URL('../../../assets/img/time-line/a4.jpg', import.meta.url).href,
       nick: '@jess',
       subtitle: '10:12 am - Publicly near Minsk',
       content: {

@@ -7,11 +7,10 @@
             <p>Progress Linear</p>
             <v-spacer></v-spacer>
             <v-menu>
-              <template v-slot:activator="{ on, attrs }">
+              <template #activator="{ props }">
                 <v-btn
                         icon
-                        v-bind="attrs"
-                        v-on="on"
+                        v-bind="props"
                 >
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
@@ -28,14 +27,13 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal greyBold--text mb-5">Using the <code>indeterminate</code> prop, <code>v-progress-linear</code> continuously animates.</p>
-            <template v-for="prog in progress">
+            <p class="fs-normal text-greyBold mb-5">Using the <code>indeterminate</code> prop, <code>v-progress-linear</code> continuously animates.</p>
+            <template v-for="prog in progress" :key="prog.id * 3">
               <v-progress-linear
-                :key="prog.id * 3"
                 v-model="prog.value"
                 :color="prog.color"
               ></v-progress-linear>
-              <br v-bind:key="prog.value">
+              <br >
             </template>
           </v-card-text>
         </v-card>
@@ -46,11 +44,10 @@
             <p>Indeterminate</p>
             <v-spacer></v-spacer>
             <v-menu>
-              <template v-slot:activator="{ on, attrs }">
+              <template #activator="{ props }">
                 <v-btn
                         icon
-                        v-bind="attrs"
-                        v-on="on"
+                        v-bind="props"
                 >
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
@@ -67,14 +64,13 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal greyBold--text mb-5">The progress linear component can have a determinate state modified by <code>v-model</code>.</p>
-            <template v-for="prog in progress">
+            <p class="fs-normal text-greyBold mb-5">The progress linear component can have a determinate state modified by <code>v-model</code>.</p>
+            <template v-for="prog in progress" :key="prog.id2 * 10">
               <v-progress-linear
-                :key="prog.id2 * 10"
                 indeterminate
                 :color="prog.color"
               ></v-progress-linear>
-              <br v-bind:key="prog.color">
+              <br >
             </template>
           </v-card-text>
         </v-card>
@@ -85,11 +81,10 @@
             <p>Stream</p>
             <v-spacer></v-spacer>
             <v-menu>
-              <template v-slot:activator="{ on, attrs }">
+              <template #activator="{ props }">
                 <v-btn
                         icon
-                        v-bind="attrs"
-                        v-on="on"
+                        v-bind="props"
                 >
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
@@ -106,17 +101,16 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal greyBold--text mb-5">The <code>stream</code> property works with buffer-value to convey to the user
+            <p class="fs-normal text-greyBold mb-5">The <code>stream</code> property works with buffer-value to convey to the user
               that there is some action taking place. You can use any combination of <code>buffer-value</code> and <code>value</code> to achieve your design.</p>
-            <template v-for="prog in progress">
+            <template v-for="prog in progress" :key="prog.id">
               <v-progress-linear
-                :key="prog.id"
                 :buffer-value="prog.value"
-                :value="prog.value - 10"
+                :model-value="prog.value - 10"
                 stream
                 :color="prog.color"
               ></v-progress-linear>
-              <br v-bind:key="prog.color">
+              <br >
             </template>
           </v-card-text>
         </v-card>
@@ -127,11 +121,10 @@
             <p>Striped</p>
             <v-spacer></v-spacer>
             <v-menu>
-              <template v-slot:activator="{ on, attrs }">
+              <template #activator="{ props }">
                 <v-btn
                         icon
-                        v-bind="attrs"
-                        v-on="on"
+                        v-bind="props"
                 >
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
@@ -148,17 +141,16 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal greyBold--text mb-5">The <code>stream</code> property works with buffer-value to convey to the user
+            <p class="fs-normal text-greyBold mb-5">The <code>stream</code> property works with buffer-value to convey to the user
               that there is some action taking place. You can use any combination of <code>buffer-value</code> and <code>value</code> to achieve your design.</p>
-            <template v-for="prog in progress">
+            <template v-for="prog in progress" :key="prog.id2">
               <v-progress-linear
-                :key="prog.id2"
-                :value="prog.value"
+                :model-value="prog.value"
                 striped
                 height="20"
                 :color="prog.color"
               ></v-progress-linear>
-              <div class="w-100 mb-4" v-bind:key="prog.color"></div>
+              <div class="w-100 mb-4" ></div>
             </template>
           </v-card-text>
         </v-card>
@@ -171,11 +163,10 @@
             <p>Progress Circular</p>
             <v-spacer></v-spacer>
             <v-menu>
-              <template v-slot:activator="{ on, attrs }">
+              <template #activator="{ props }">
                 <v-btn
                   icon
-                  v-bind="attrs"
-                  v-on="on"
+                  v-bind="props"
                 >
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
@@ -192,13 +183,12 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal greyBold--text mb-5">The <code>v-progress-circular</code> component is used to convey data circularly to
+            <p class="fs-normal text-greyBold mb-5">The <code>v-progress-circular</code> component is used to convey data circularly to
               users.</p>
             <div class="d-flex justify-space-around">
-              <template v-for="circle in progressCircle">
+              <template v-for="circle in progressCircle" :key="circle.id2 * 10">
                 <v-progress-circular
-                    :key="circle.id2 * 10"
-                  :value="circle.value"
+                  :model-value="circle.value"
                   :color="circle.color"
                 ></v-progress-circular>
               </template>
@@ -212,11 +202,10 @@
             <p>Indeterminate</p>
             <v-spacer></v-spacer>
             <v-menu>
-              <template v-slot:activator="{ on, attrs }">
+              <template #activator="{ props }">
                 <v-btn
                   icon
-                  v-bind="attrs"
-                  v-on="on"
+                  v-bind="props"
                 >
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
@@ -233,12 +222,11 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal greyBold--text mb-5">Using the <code>indeterminate</code> prop, a <code>v-progress-circular</code> continues to animate indefinitely.</p>
+            <p class="fs-normal text-greyBold mb-5">Using the <code>indeterminate</code> prop, a <code>v-progress-circular</code> continues to animate indefinitely.</p>
             <div class="d-flex justify-space-around">
-              <template v-for="circle in progressCircle">
+              <template v-for="circle in progressCircle" :key="circle.id2">
                 <v-progress-circular
                   indeterminate
-                  :key="circle.id2"
                   :color="circle.color"
                 ></v-progress-circular>
               </template>
@@ -252,11 +240,10 @@
             <p>Size and Width</p>
             <v-spacer></v-spacer>
             <v-menu>
-              <template v-slot:activator="{ on, attrs }">
+              <template #activator="{ props }">
                 <v-btn
                   icon
-                  v-bind="attrs"
-                  v-on="on"
+                  v-bind="props"
                 >
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
@@ -273,15 +260,14 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal greyBold--text mb-5">The <code>size</code> and <code>width</code> props allow you to easily
+            <p class="fs-normal text-greyBold mb-5">The <code>size</code> and <code>width</code> props allow you to easily
               alter the size and width of the component.</p>
             <div class="d-flex justify-space-around align-center">
-              <template v-for="circle in progressCircle">
+              <template v-for="circle in progressCircle" :key="circle.id">
                 <v-progress-circular
-                  :value="circle.value"
+                  :model-value="circle.value"
                   :width="circle.width"
                   :size="circle.size"
-                  :key="circle.id"
                   :color="circle.color"
                 ></v-progress-circular>
               </template>
@@ -295,11 +281,10 @@
             <p>Rotate</p>
             <v-spacer></v-spacer>
             <v-menu>
-              <template v-slot:activator="{ on, attrs }">
+              <template #activator="{ props }">
                 <v-btn
                         icon
-                        v-bind="attrs"
-                        v-on="on"
+                        v-bind="props"
                 >
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
@@ -316,15 +301,14 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal greyBold--text mb-5">The <code>rotate</code> prop gives you the ability to customize the <code>v-progress-circular</code>'s origin.</p>
+            <p class="fs-normal text-greyBold mb-5">The <code>rotate</code> prop gives you the ability to customize the <code>v-progress-circular</code>'s origin.</p>
             <div class="d-flex justify-space-around align-center">
-              <template v-for="circle in progressCircleRotate">
+              <template v-for="circle in progressCircleRotate" :key="circle.id">
                 <v-progress-circular
-                    :value="value"
+                    :model-value="value"
                     width="15"
                     size="100"
                     :rotate="circle.rotate"
-                    :key="circle.id"
                     :color="circle.color"
                 >{{ value }}</v-progress-circular>
               </template>
@@ -339,7 +323,7 @@
 <script>
 
   export default {
-    name: 'Progress',
+    name: 'ProgressExamples',
     data () {
       return {
         menu: [
@@ -462,7 +446,7 @@
         this.value === 100 ? this.value = 0 : this.value += 5}, 1000)
     },
 
-    beforeDestroy () {
+    beforeUnmount () {
       clearInterval(this.interval)
     },
   }

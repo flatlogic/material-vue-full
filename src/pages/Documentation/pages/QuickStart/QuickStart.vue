@@ -7,20 +7,20 @@
             <p class="text-h5">Requirements:</p>
             <ul>
               <li>Mac OS X, Windows, or Linux</li>
-              <li>Node.js v9 or newer</li>
-              <li>Vue JS 2.6</li>
+              <li>Node.js 22.13+ (22.x), or Node.js 24 or newer</li>
+              <li>Vue 3.5</li>
               <li>Running our <a href="https://github.com/flatlogic/user-management-template-backend">Node.js</a> / <a href="https://github.com/flatlogic/app-generator-java">Java</a> / <a href="https://github.com/flatlogic/php-backend">PHP</a> backend (Required only in full stack version)</li>
             </ul>
             <p class="text-h5 mt-4">Quick Start:</p>
             <ul>
-              <li>yarn install</li>
-              <li>yarn serve</li>
-              <li>For running the app with backend support please run yarn serve:backend (Required only in full stack version)</li>
+              <li>npm ci</li>
+              <li>npm start</li>
+              <li>For running the app with backend support please run npm run start:backend (Required only in full stack version)</li>
             </ul>
             <p class="text-h5 mt-4">There are also other tasks:</p>
             <ul>
-              <li>yarn build : if you need just to build the app</li>
-              <li>yarn lint : to check the source code for syntax errors and potential issues</li>
+              <li>npm run build:demo for a standalone site, or npm run build for an API-backed site</li>
+              <li>npm run lint to check the source code for syntax errors and potential issues</li>
             </ul>
             <br>
             <p>For more instruction please refer to Vue Material Admin Full readme.md</p>

@@ -1,11 +1,16 @@
-import axios from "axios";
+import api from "@/api";
 import mock from "../pages/User/List/mock";
 import config from "../config";
+
+function userRow(user) {
+  const { id, firstName, lastName, role, company, email, disabled, createdAt, avatar, phoneNumber } = user;
+  return { id, firstName, lastName, role, company, email, disabled, createdAt, avatar, phoneNumber };
+}
 
 export default {
   namespaced: true,
   state: {
-    users: [],
+    users: config.isBackend ? [] : mock.map(item => ({ ...item })),
     images: [],
     isReceiving: false,
     isUpdating: false,
@@ -14,6 +19,9 @@ export default {
     usersMessage: ''
   },
   mutations: {
+    FINISHED_USER_REQUEST(state, flag) {
+      state[flag] = false;
+    },
     RECEIVED_USERS(state, payload) {
       state.users = payload;
       state.isReceiving = false;
@@ -40,21 +48,18 @@ export default {
           return u;
         }),
         isUpdating: false,
-        usersMessage: 'Users has been updating!',
+        usersMessage: 'User updated.',
       })
     },
     UPDATING_USER(state) {
       state.isUpdating = true;
     },
     DELETED_USER(state, payload) {
-      let indexToDelete = state.users.findIndex(p => p.id === payload.id);
-      let users = [...state.users];
-      users.splice(indexToDelete, 1);
-      state = Object.assign(state, {
-        users: [...users],
+      Object.assign(state, {
+        users: state.users.filter(item => item.id !== payload.id),
         isDeleting: false,
         idToDelete: null,
-        usersMessage: 'User has been Deleted!',
+        usersMessage: 'User deleted.',
       });
     },
     DELETING_USER(state, payload) {
@@ -63,62 +68,51 @@ export default {
     },
   },
   actions: {
-    getUsersRequest({dispatch}) {
-      // We check if app runs with backend mode
-      if (!config.isBackend) {
-        dispatch("receiveUsers", mock);
-      }
-
-      else {
-        dispatch("receivingUsers");
-        axios.get('/users').then(res => {
-          dispatch("receiveUsers", res.data.rows);
-        })
+    async getUsersRequest({ state, commit }) {
+      if (!config.isBackend) return state.users;
+      commit('RECEIVING_USERS');
+      try {
+        const { data } = await api.get('/users');
+        commit('RECEIVED_USERS', data.rows.map(userRow));
+      } finally {
+        commit('FINISHED_USER_REQUEST', 'isReceiving');
       }
     },
-    loadUserRequest({dispatch}, id) {
-      // We check if app runs with backend mode
-      if (!config.isBackend) {
-        dispatch("receiveUser", mock.find(arr => arr.id === id));
+    async loadUserRequest({ state }, id) {
+      if (!config.isBackend) return state.users.find(item => item.id === id);
+      const { data } = await api.get(`/users/${id}`);
+      return userRow(data);
+    },
+    async updateUserRequest({ commit }, payload) {
+      commit('UPDATING_USER');
+      try {
+        const item = config.isBackend
+          ? (await api.put(`/users/${payload.id}`, {id: payload.id, data: payload})).data
+          : payload;
+        commit('UPDATED_USER', userRow(item));
+      } finally {
+        commit('FINISHED_USER_REQUEST', 'isUpdating');
       }
-
-      else {
-        dispatch("receivingUser");
-        axios.get('/users/' + id).then(res => {
-          dispatch("receiveUser", res.data);
-        })
+    },
+    async createUserRequest({ commit }, payload) {
+      commit('RECEIVING_USER');
+      try {
+        const item = config.isBackend
+          ? (await api.post('/users', {data: payload})).data
+          : { ...payload, id: crypto.randomUUID(), createdAt: new Date().toISOString() };
+        commit('RECEIVED_USER', userRow(item));
+      } finally {
+        commit('FINISHED_USER_REQUEST', 'isReceiving');
       }
     },
-    updateUserRequest({dispatch}, payload) {
-      const id = payload.id;
-      dispatch("updatingUser");
-      axios.put(`/users/${id}`, {id, data: payload}).then(res => {
-        dispatch("updateUser", res.data);
-      });
-
-      dispatch("receivingUsers");
-      axios.get('/users').then(res => {
-        dispatch("receiveUsers", res.data.rows);
-      })
-    },
-    createUserRequest({dispatch}, payload) {
-      // We check if app runs with backend mode
-      if (!config.isBackend) return;
-      dispatch("receivingUsers");
-      axios.post('/users', {data: payload}).then(res => {
-        dispatch("receiveUser", res.data);
-      })
-
-      dispatch("receivingUsers");
-      axios.get('/users').then(res => {
-        dispatch("receiveUsers", res.data.rows);
-      })
-    },
-    deleteUserRequest({dispatch}, payload) {
-      dispatch("deletingUser", payload);
-      axios.delete('/users/' + payload.id).then(() => {
-        dispatch("deleteUser", {id: payload.id});
-      })
+    async deleteUserRequest({ commit }, payload) {
+      commit('DELETING_USER', payload);
+      try {
+        if (config.isBackend) await api.delete(`/users/${payload.id}`);
+        commit('DELETED_USER', payload);
+      } finally {
+        commit('FINISHED_USER_REQUEST', 'isDeleting');
+      }
     },
     receiveUsers({commit}, payload) {
       commit("RECEIVED_USERS", payload)

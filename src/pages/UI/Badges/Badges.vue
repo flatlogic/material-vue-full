@@ -7,11 +7,10 @@
             <p>Badge Example</p>
             <v-spacer></v-spacer>
             <v-menu>
-              <template v-slot:activator="{ on, attrs }">
+              <template #activator="{ props }">
                 <v-btn
                   icon
-                  v-bind="attrs"
-                  v-on="on"
+                  v-bind="props"
                 >
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
@@ -28,18 +27,17 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="overflow-x-auto pa-5 pt-0">
-            <p class="fs-normal greyBold--text mb-10">Badge generates a small badge to the top-right of its child(ren)</p>
-            <template v-for="badge in badgeExample" >
+            <p class="fs-normal text-greyBold mb-10">Badge generates a small badge to the top-right of its child(ren)</p>
+            <template v-for="badge in badgeExample" :key="badge.id" >
               <v-badge
                 :color="badge.content.toLocaleLowerCase()"
                 :content="badge.content"
-                :key="badge.id"
                 class="mb-2">
                 <div v-html="badge.html"></div>
               </v-badge>
-              <br :key="badge.content">
+              <br >
             </template>
-            <p class="fs-normal greyBold--text my-4">Badges can be used as part of links or buttons to provide a counter.</p>
+            <p class="fs-normal text-greyBold my-4">Badges can be used as part of links or buttons to provide a counter.</p>
             <div class="w-100 d-flex justify-start">
               <v-badge
                 color="success"
@@ -64,11 +62,10 @@
             <p>Icon Badges</p>
             <v-spacer></v-spacer>
             <v-menu>
-              <template v-slot:activator="{ on, attrs }">
+              <template #activator="{ props }">
                 <v-btn
                   icon
-                  v-bind="attrs"
-                  v-on="on">
+                  v-bind="props">
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
               </template>
@@ -83,14 +80,13 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal greyBold--text">Badge can also be used as a parent of a icon</p>
+            <p class="fs-normal text-greyBold">Badge can also be used as a parent of a icon</p>
             <div class="d-flex justify-center mb-10">
-              <template v-for="icon in iconBadges" >
+              <template v-for="icon in iconBadges" :key="icon.id" >
                 <v-badge
                   overlap
                   :color="icon.color"
                   :content="icon.content"
-                  :key="icon.id"
                   class="mr-4">
                   <v-icon color="greyBold" size="24"> {{ icon.name }} </v-icon>
                 </v-badge>
@@ -121,15 +117,14 @@
                 </v-tabs>
               </v-toolbar>
             </template>
-            <p class="fs-normal greyBold--text">You may to use dot badge via <code>dot</code> props</p>
+            <p class="fs-normal text-greyBold">You may to use dot badge via <code>dot</code> props</p>
             <div class="d-flex justify-center mb-10">
-              <template v-for="icon in dotBadges" >
+              <template v-for="icon in dotBadges" :key="icon.id" >
                 <v-badge
                   dot
                   overlap
                   :color="icon.color"
                   :content="icon.content"
-                  :key="icon.id"
                   class="mr-4"
                 >
                   <v-icon color="greyBold" size="24"> {{ icon.name }} </v-icon>
@@ -141,10 +136,10 @@
                 <p class="mt-1 mb-0 fs-base"> Typography </p>
               </v-badge>
             </div>
-            <p class="fs-normal greyBold--text">You can use the <code>bottom/top</code> and <code>left/right</code> properties to
+            <p class="fs-normal text-greyBold">You can use the <code>bottom/top</code> and <code>left/right</code> properties to
               move the badge to any corner of the wrapped element.</p>
             <div class="d-flex justify-center mb-7">
-              <template v-for="badge in positionBadges" >
+              <template v-for="badge in positionBadges" :key="badge.id" >
                 <v-badge
                   dot
                   overlap
@@ -152,7 +147,6 @@
                   :left="badge.position.left"
                   :color="badge.color"
                   :content="badge.content"
-                  :key="badge.id"
                   class="mr-4"
                 >
                   <v-icon color="greyBold" size="24"> {{ badge.name }} </v-icon>
@@ -174,11 +168,10 @@
             <p>Chips</p>
             <v-spacer></v-spacer>
             <v-menu>
-              <template v-slot:activator="{ on, attrs }">
+              <template #activator="{ props }">
                 <v-btn
                   icon
-                  v-bind="attrs"
-                  v-on="on"
+                  v-bind="props"
                 >
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
@@ -195,11 +188,10 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal greyBold--text">Chips allow users to enter information, make selections, filter content, or trigger actions.</p>
+            <p class="fs-normal text-greyBold">Chips allow users to enter information, make selections, filter content, or trigger actions.</p>
             <div class="mb-2">
-              <template v-for="chip in chips">
+              <template v-for="chip in chips" :key="chip.id">
                 <v-chip
-                  :key="chip.id"
                   :color="chip.color"
                   class="ma-2"
                 >
@@ -230,27 +222,27 @@
           {
             id: 1,
             content: 'Primary',
-            html: '<h1 class="greyBold--text">Example heading</h1>'
+            html: '<h1 class="text-greyBold">Example heading</h1>'
           },
           {
             id: 2,
             content: 'Secondary',
-            html: '<h2 class="greyBold--text">Example heading</h2>'
+            html: '<h2 class="text-greyBold">Example heading</h2>'
           },
           {
             id: 3,
             content: 'Warning',
-            html: '<h3 class="greyBold--text">Example heading</h3>'
+            html: '<h3 class="text-greyBold">Example heading</h3>'
           },
           {
             id: 4,
             content: 'Info',
-            html: '<h4 class="greyBold--text">Example heading</h4>'
+            html: '<h4 class="text-greyBold">Example heading</h4>'
           },
           {
             id: 5,
             content: 'Success',
-            html: '<h5 class="greyBold--text">Example heading</h5>'
+            html: '<h5 class="text-greyBold">Example heading</h5>'
           },
         ],
         iconBadges: [

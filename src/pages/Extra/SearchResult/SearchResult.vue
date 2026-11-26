@@ -69,16 +69,16 @@
             v-for="item in filtering"
             :key="item.id"
             link>
-            <v-list-item-content>
-              <v-list-item-title v-text="item.title"></v-list-item-title>
-            </v-list-item-content>
+            <div>
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </div>
 
-            <v-list-item-action>
+            <template #append>
               <v-badge
                 :color="item.color"
                 :content="item.count"
               ></v-badge>
-            </v-list-item-action>
+            </template>
           </v-list-item>
         </v-list>
       </v-col>
@@ -111,28 +111,28 @@
         ],
         searchResult: [
           {
-            img: require('@/assets/img/e-commerce/medium/1.png'),
+            img: new URL('../../../assets/img/e-commerce/medium/1.png', import.meta.url).href,
             title: 'Next generation admin template',
             subtitle: 'New York, NY 2018',
             text: 'Not just usual Metro. But something bigger. Not just usual widgets, but real widgets. Not just yet another admin template, but next generation admin template.',
             price: '$9700'
           },
           {
-            img: require('@/assets/img/e-commerce/medium/2.png'),
+            img: new URL('../../../assets/img/e-commerce/medium/2.png', import.meta.url).href,
             title: 'Try. Posted by Okendoken',
             subtitle: 'Los Angeles, NY 20188',
             text: 'You will never know exactly how something will go until you try it. You can think three hundred times and still have no precise result.',
             price: '$10300'
           },
           {
-            img: require('@/assets/img/e-commerce/medium/3.png'),
+            img: new URL('../../../assets/img/e-commerce/medium/3.png', import.meta.url).href,
             title: 'Vitaut the Great',
             subtitle: 'New York, NY 20188',
             text: 'The Great Prince of the Grand Duchy of Lithuania he had stopped the invasion to Europe of Timur (Tamerlan) from Asia heading a big Army of Belarusians, Lithuanians.',
             price: '$3200'
           },
           {
-            img: require('@/assets/img/e-commerce/medium/4.png'),
+            img: new URL('../../../assets/img/e-commerce/medium/4.png', import.meta.url).href,
             title: 'Can I use CSS3 Radial-Gradient?',
             subtitle: 'Minsk, NY 20188',
             text: 'Yes you can! Further more, you should! It let\'s you create really beautiful images either for elements or for the entire background.',

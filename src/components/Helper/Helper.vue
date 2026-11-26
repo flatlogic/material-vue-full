@@ -1,15 +1,13 @@
 <template>
-  <div class="helper text-center primary">
-    <v-menu
+  <div class="helper text-center bg-primary">
+    <v-menu location="start"
       v-model="menu"
       :close-on-content-click="false"
-      left
       tile
-      offset-x
-      nudge-left="15"
+      offset="15"
     >
-      <template v-slot:activator="{ on, attrs }">
-        <v-icon size="28" color="white" v-bind="attrs" v-on="on">
+      <template #activator="{ props }">
+        <v-icon size="28" color="white" v-bind="props">
           mdi-cog
         </v-icon>
       </template>
@@ -17,57 +15,57 @@
       <v-card class="helper-card px-0">
         <v-list>
           <v-list-item>
-            <v-list-item-content>
+            <div>
               <v-list-item-title class="text-center"
                 >Color Theme</v-list-item-title
               >
-            </v-list-item-content>
+            </div>
           </v-list-item>
           <v-list-item>
-            <v-list-item-action class="justify-center mr-0" style="width: 100%">
+            <div class="justify-center mr-0" style="width: 100%">
               <v-radio-group v-model="radios">
                 <v-radio
                   color="primary"
                   value="radio-1"
                   class="mb-0 mr-5"
-                  @click="mainTheme"
+                  @click="setPrimary(config.light.primary)"
                 ></v-radio>
                 <v-radio
                   color="secondary"
                   value="radio-2"
                   class="mb-0 mr-5"
-                  @click="secondTheme"
+                  @click="setPrimary(config.light.secondary)"
                 ></v-radio>
                 <v-radio
                   color="success"
                   value="radio-3"
                   class="mb-0"
-                  @click="thirdTheme"
+                  @click="setPrimary(config.light.success)"
                 ></v-radio>
               </v-radio-group>
-            </v-list-item-action>
+            </div>
           </v-list-item>
         </v-list>
         <v-divider></v-divider>
         <v-list>
           <v-list-item>
-            <v-list-item-content>
+            <div>
               <v-list-item-title class="text-center"
                 >Dark Mode</v-list-item-title
               >
-            </v-list-item-content>
+            </div>
           </v-list-item>
           <v-list-item>
-            <v-list-item-action class="justify-center mr-0" style="width: 100%">
+            <div class="justify-center mr-0" style="width: 100%">
               <v-switch v-model="switcher" color="secondary"></v-switch>
-            </v-list-item-action>
+            </div>
           </v-list-item>
         </v-list>
         <v-card-actions>
           <v-col cols="12">
-            <v-btn color="successConst white--text" block @click="menu = false" class="button-shadow mb-2" href="https://flatlogic.com/templates/vue">Buy</v-btn>
-            <v-btn color="primaryConst white--text" block @click="menu = false" class="button-shadow mb-2" to="/documentation/overview">Documentation</v-btn>
-            <v-btn color="info white--text" block @click="menu = false" class="button-shadow" href="https://flatlogic.com/forum">Support</v-btn>
+            <v-btn color="successConst text-white" block @click="menu = false" class="button-shadow mb-2" href="https://flatlogic.com/templates/vue">Buy</v-btn>
+            <v-btn color="primaryConst text-white" block @click="menu = false" class="button-shadow mb-2" to="/documentation/overview">Documentation</v-btn>
+            <v-btn color="info text-white" block @click="menu = false" class="button-shadow" href="https://flatlogic.com/forum">Support</v-btn>
           </v-col>
         </v-card-actions>
       </v-card>
@@ -77,10 +75,18 @@
 
 <script>
   import config from '../../config';
+  import { useTheme } from 'vuetify';
   import { mapActions } from 'vuex';
 
   export default {
     name: 'Helper',
+    setup() {
+      const theme = useTheme();
+      return {
+        selectPrimary(color) { theme.themes.value.light.colors.primary = color; },
+        selectMode(dark) { theme.change(dark ? 'dark' : 'light'); },
+      };
+    },
     data: () => ({
       fav: true,
       menu: false,
@@ -93,42 +99,15 @@
     }),
     methods: {
       ...mapActions('layout', ['toggleDarkTheme']),
-      mainTheme() {
-        if (this.$vuetify.theme.dark) {
-          this.toggleDarkTheme();
-          this.$vuetify.theme.dark = false;
-          this.$vuetify.theme.themes.light.primary = config.light.primary;
-          this.switcher = false;
-        } else {
-          this.$vuetify.theme.themes.light.primary = this.config.light.primary;
-        }
-      },
-      secondTheme() {
-        if (this.$vuetify.theme.dark) {
-          this.toggleDarkTheme();
-          this.$vuetify.theme.dark = false;
-          this.$vuetify.theme.themes.light.primary = config.light.secondary;
-          this.switcher = false;
-        } else {
-          this.$vuetify.theme.themes.light.primary =
-            this.config.light.secondary;
-        }
-      },
-      thirdTheme() {
-        if (this.$vuetify.theme.dark) {
-          this.toggleDarkTheme();
-          this.$vuetify.theme.dark = false;
-          this.$vuetify.theme.themes.light.primary = config.light.success;
-          this.switcher = false;
-        } else {
-          this.$vuetify.theme.themes.light.primary = this.config.light.success;
-        }
+      setPrimary(color) {
+        this.switcher = false;
+        this.selectPrimary(color);
       },
     },
     watch: {
-      switcher(newValue) {
-        this.toggleDarkTheme();
-        this.$vuetify.theme.dark = newValue;
+      switcher(dark) {
+        this.selectMode(dark);
+        if (dark !== this.$store.state.layout.darkTheme) this.toggleDarkTheme();
       },
     },
   };
@@ -152,11 +131,11 @@
     }
   }
 
-  .helper-card::v-deep .v-input--radio-group__input {
+  .helper-card :deep(.v-selection-control-group) {
     flex-direction: row;
   }
 
-  .v-menu__content.theme--dark {
+  .v-menu__content.v-theme--dark {
     box-shadow: none !important;
   }
 </style>

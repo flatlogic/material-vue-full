@@ -8,7 +8,7 @@
             class="d-flex align-center mt-8 mb-3 px-5 py-1 mx-1"
           >
             <v-col cols="3" class="d-flex align-center">
-              <p class="fs-normal greyBold--text mb-0">Current Password</p>
+              <p class="fs-normal text-greyBold mb-0">Current Password</p>
             </v-col>
             <v-col cols="9">
               <v-text-field
@@ -19,7 +19,7 @@
             </v-col>
 
             <v-col cols="3" class="d-flex align-center">
-              <p class="fs-normal greyBold--text mb-0">New Password</p>
+              <p class="fs-normal text-greyBold mb-0">New Password</p>
             </v-col>
             <v-col cols="9">
               <v-text-field
@@ -30,7 +30,7 @@
             </v-col>
 
             <v-col cols="3" class="d-flex align-center">
-              <p class="fs-normal greyBold--text mb-0">Confirm new Password</p>
+              <p class="fs-normal text-greyBold mb-0">Confirm new Password</p>
             </v-col>
             <v-col cols="9">
               <v-text-field

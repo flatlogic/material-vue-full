@@ -1,45 +1,39 @@
 <template>
-  <v-app-bar
+  <v-app-bar theme="dark"
     elevation="0"
     class="main-header"
     height="64"
-    fixed
     color="primary"
-    dark
   >
     <v-btn icon class="mx-1" @click.stop="TOGGLE_DRAWER">
       <template v-if="DRAWER_STATE">
-        <v-icon size="28" :class="$vuetify.theme.dark ? 'primary--text' : null"
+        <v-icon size="28" :class="$vuetify.theme.current.dark ? 'text-primary' : null"
           >mdi-arrow-left</v-icon
         >
       </template>
       <template v-else>
-        <v-icon size="28" :class="$vuetify.theme.dark ? 'primary--text' : null"
+        <v-icon size="28" :class="$vuetify.theme.current.dark ? 'text-primary' : null"
           >mdi-menu</v-icon
         >
       </template>
     </v-btn>
-    <v-toolbar-title :class="$vuetify.theme.dark ? 'primary--text' : null"
+    <v-toolbar-title :class="$vuetify.theme.current.dark ? 'text-primary' : null"
       >Vue Material Admin</v-toolbar-title
     >
     <v-spacer></v-spacer>
 
-    <Search />
+    <AppSearch />
 
-    <v-menu
-      offset-y
-      bottom
-      nudge-bottom="10"
-      left>
-      <template v-slot:activator="{ on, attrs }">
+    <v-menu location="bottom start"
+      offset="10">
+      <template #activator="{ props }">
         <v-btn
           @click="notificationsBadge ? notificationsBadge = !notificationsBadge : ''"
-          v-bind="attrs"
-          v-on="on"
+          v-bind="props"
           icon
           class="mr-2">
           <v-badge
-            :value="notificationsBadge"
+            :model-value="notificationsBadge"
             color="error"
             content="4"
             overlap>
@@ -51,42 +45,37 @@
         </v-btn>
       </template>
       <v-list>
-        <v-list-item-group color="primary">
+        <div color="primary">
           <v-list-item
             v-for="(item, i) in notifications"
             :key="i"
           >
-            <v-list-item-icon class="mr-4 mb-1">
+            <div class="mr-4 mb-1">
               <v-icon
                 :color="item.color"
-                v-text="item.icon"
-              ></v-icon>
-            </v-list-item-icon>
-            <v-list-item-content>
-              <v-list-item-title v-text="item.text"></v-list-item-title>
-            </v-list-item-content>
+              >{{ item.icon }}</v-icon>
+            </div>
+            <div>
+              <v-list-item-title>{{ item.text }}</v-list-item-title>
+            </div>
           </v-list-item>
-        </v-list-item-group>
+        </div>
       </v-list>
     </v-menu>
 
-    <v-menu
+    <v-menu location="bottom start"
       max-width="280"
-      offset-y
-      bottom
-      nudge-bottom="10"
-      left
+      offset="10"
     >
-      <template v-slot:activator="{ on, attrs }">
+      <template #activator="{ props }">
         <v-btn
           @click="messageBadge ? messageBadge = !messageBadge : ''"
-          v-bind="attrs"
-          v-on="on"
+          v-bind="props"
           style="font-size: 28px"
           icon
           class="mr-3">
           <v-badge
-            :value="messageBadge"
+            :model-value="messageBadge"
             color="warning"
             content="3"
             overlap
@@ -99,54 +88,49 @@
         </v-btn>
       </template>
       <v-list >
-        <div class="text-h5 grey--text text--darken-3 px-4 pt-4">New Messages</div>
-        <div class="subtitle-2 error--text font-weight-regular px-4 pb-2 link-item">4 new Messages</div>
-        <v-list-item-group color="primary" >
+        <div class="text-h5 text-grey-darken-3 px-4 pt-4">New Messages</div>
+        <div class="subtitle-2 text-error font-weight-regular px-4 pb-2 link-item">4 new Messages</div>
+        <div color="primary" >
           <v-list-item
             v-for="(item, i) in messages"
             :key="i"
           >
-            <v-list-item-icon class="mr-4 mb-1 d-flex flex-column">
-              <v-btn
-                fab
-                x-small
-                depressed
+            <div class="mr-4 mb-1 d-flex flex-column">
+              <v-btn icon size="x-small" variant="flat"
                 :color="item.color"
               >{{ item.text }}</v-btn>
               <div style="font-size: 11px">{{ item.time }}</div>
-            </v-list-item-icon>
+            </div>
             <v-list-item two-line >
-              <v-list-item-content style="width: 190px">
-                <v-list-item-title v-text="item.name" class="pb-2"></v-list-item-title>
-                <v-list-item-subtitle v-text="item.message" class="text-truncate"></v-list-item-subtitle>
-              </v-list-item-content>
+              <div style="width: 190px">
+                <v-list-item-title class="pb-2">{{ item.name }}</v-list-item-title>
+                <v-list-item-subtitle class="text-truncate">{{ item.message }}</v-list-item-subtitle>
+              </div>
             </v-list-item>
           </v-list-item>
-        </v-list-item-group>
+        </div>
         <div class="d-flex justify-center my-3">
-          <v-btn
-            large
+          <v-btn size="large"
             color="primary"
             rounded
             elevation="5"
             class="text-capitalize"
           >Send New Message
-            <v-icon right dark>mdi-send</v-icon>
+            <v-icon end theme="dark">mdi-send</v-icon>
           </v-btn>
         </div>
       </v-list>
     </v-menu>
 
-    <v-menu min-width="180" offset-y bottom left nudge-bottom="10">
-      <template v-slot:activator="{ on, attrs }">
+    <v-menu location="bottom start" min-width="180" offset="10">
+      <template #activator="{ props }">
         <v-avatar
           size="40"
-          v-bind="attrs"
-          v-on="on"
+          v-bind="props"
           :class="{ 'd-none': !avatar }"
           class="mr-3"
         >
-          <img :src="avatar" :alt="user.name" />
+          <img :src="avatar" :alt="currentUser?.firstName || 'Profile'" />
         </v-avatar>
         <div
           :class="{ 'd-none': avatar, 'd-flex': !avatar }"
@@ -157,37 +141,34 @@
             mr-2
             justify-center
             align-center
-            primary--text
+            text-primary
           "
-          v-bind="attrs"
-          v-on="on"
+          v-bind="props"
         >
           {{ firstUserLetter }}
         </div>
       </template>
       <v-list>
-        <div class="text-h5 grey--text text--darken-3 px-4 pt-4">
+        <div class="text-h5 text-grey-darken-3 px-4 pt-4">
           {{
             currentUser && currentUser.firstName
               ? currentUser.firstName
               : 'User'
           }}
         </div>
-        <v-list-item-group color="primary">
+        <div color="primary">
           <v-list-item v-for='(item, i) in account' :key='i' link :to="item.link">
-            <v-list-item-icon class="mr-4">
+            <div class="mr-4">
               <v-icon>{{item.icon}}</v-icon>
-            </v-list-item-icon>
-            <v-list-item-content>
+            </div>
+            <div>
               <v-list-item-title :color='item.color'>{{item.text}}</v-list-item-title>
-            </v-list-item-content>
+            </div>
           </v-list-item>
-        </v-list-item-group>
+        </div>
         <div class="d-flex justify-center my-3">
-          <v-btn
+          <v-btn size="large" variant="outlined"
             width="80%"
-            large
-            outlined
             color="primary"
             class="text-capitalize"
             @click="logoutUser"
@@ -208,15 +189,14 @@
 <script>
   import { mapActions, mapState } from 'vuex';
   import config from '../../config';
-  import Search from '@/components/Search/Search';
+  import AppSearch from '@/components/Search/Search';
 
   export default {
-    name: 'Header',
-    components: { Search },
+    name: 'AppHeader',
+    components: { AppSearch },
     data() {
       return {
         config,
-        user: JSON.parse(localStorage.getItem('user') || {}),
         notificationsBadge: true,
         messageBadge: true,
         notifications: [
@@ -270,7 +250,7 @@
 
 <style lang="scss" scoped>
   .main-header {
-    ::v-deep .v-list {
+    :deep(.v-list) {
       .v-list-item:hover {
         background-color: #f3f5ff;
         &:before {
@@ -279,7 +259,7 @@
       }
       .v-list-item:hover .v-list-item__icon {
         .v-icon {
-          color: rgba(var(--v-primary-base), 0.8) !important;
+          color: rgba(var(--v-theme-primary), 0.8) !important;
         }
       }
       .link-item {

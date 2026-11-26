@@ -1,4 +1,4 @@
-@import "src/styles/variables";
+@import "@/styles/variables";
 
 .profile-page {
   .user-card {
@@ -9,24 +9,24 @@
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      border: 3px dotted var(--v-error-base);
-      @include media-breakpoint-up(xs) {
+      border: 3px dotted rgb(var(--v-theme-error));
+      @media (min-width: 0px) {
         width: 200px;
         height: 200px;
       }
-      @include media-breakpoint-up(sm) {
+      @media (min-width: 600px) {
         width: 135px;
         height: 135px;
       }
-      @include media-breakpoint-up(md) {
+      @media (min-width: 960px) {
         width: 125px;
         height: 125px;
       }
-      @include media-breakpoint-up(lg) {
+      @media (min-width: 1280px) {
         width: 155px;
         height: 155px;
       }
-      @include media-breakpoint-up(xl) {
+      @media (min-width: 1920px) {
         width: 185px;
         height: 185px;
       }
@@ -35,23 +35,23 @@
         height: 94px;
         width: 94px;
         border-radius: 50%;
-        @include media-breakpoint-up(xs) {
+        @media (min-width: 0px) {
           width: 180px;
           height: 180px;
         }
-        @include media-breakpoint-up(sm) {
+        @media (min-width: 600px) {
           height: 114px;
           width: 114px;
         }
-        @include media-breakpoint-up(md) {
+        @media (min-width: 960px) {
           height: 104px;
           width: 104px;
         }
-        @include media-breakpoint-up(lg) {
+        @media (min-width: 1280px) {
           height: 134px;
           width: 134px;
         }
-        @include media-breakpoint-up(xl) {
+        @media (min-width: 1920px) {
           height: 154px;
           width: 154px;
         }
@@ -65,7 +65,7 @@
       font-size: 0.75rem;
     }
 
-    &.theme--dark {
+    &.v-theme--dark {
       .user-name {
         color: white;
       }
@@ -89,14 +89,14 @@
   .calendar-card {
     .v-picker.v-card {
       box-shadow: none!important;
-      .v-date-picker-header, .v-date-picker-table {
+      .v-date-picker-header, .v-date-picker-month {
         padding: 0;
         height: 100%;
         .v-date-picker-header__value button{
-          color: var(--v-greyMedium-base)!important;
+          color: rgb(var(--v-theme-greyMedium))!important;
         }
       }
-      .v-date-picker-table__events {
+      .v-date-picker-month__events {
         top: -9px;
         & > div {
           height: 6px;
@@ -104,13 +104,13 @@
         }
       }
     }
-    &.theme--dark {
+    &.v-theme--dark {
       .v-picker.v-card {
         box-shadow: none!important;
         .v-picker__body {
           background-color: transparent;
         }
-        .v-date-picker-header, .v-date-picker-table {
+        .v-date-picker-header, .v-date-picker-month {
           padding: 0;
           height: 100%;
         }
@@ -120,11 +120,11 @@
   .tasks-card {
     .done {
       .task-text, .task-time {
-        color:  var(--v-greyTint-base)!important;
+        color:  rgb(var(--v-theme-greyTint))!important;
         text-decoration: line-through;
       }
       .task-circle {
-        color: var(--v-greyTint-base)!important;
+        color: rgb(var(--v-theme-greyTint))!important;
       }
     }
     .task-text {
@@ -134,14 +134,14 @@
       display: none!important;
     }
 
-    &.theme--dark {
-      .v-tabs > .v-tabs-bar {
+    &.v-theme--dark {
+      .v-tabs {
         background-color: transparent;
-        .v-tab--active {
+        .v-tab--selected {
           color: white;
         }
       }
-      .v-item-group.v-tabs-items {
+      .v-tabs-window {
         background-color: transparent;
       }
     }
@@ -158,9 +158,9 @@
     .apexcharts-legend.position-bottom.apexcharts-align-center {
       justify-content: flex-start;
     }
-    &.theme--dark {
+    &.v-theme--dark {
       .apexcharts-legend-series .apexcharts-legend-text{
-        color: var(--v-greyTint-base)!important;
+        color: rgb(var(--v-theme-greyTint))!important;
       }
     }
   }
@@ -171,7 +171,7 @@
     }
   }
   .folder-card {
-    .v-image {
+    .v-img {
       position: relative;
       p {
         position: absolute;
@@ -188,13 +188,13 @@
         }
       }
     }
-    .theme--dark.v-tabs > .v-tabs-bar {
+    .v-theme--dark.v-tabs {
       background-color: transparent;
-      .v-tab--active {
+      .v-tab--selected {
         color: white;
       }
     }
-    .v-item-group.theme--dark.v-tabs-items {
+    .v-theme--dark.v-tabs-window {
       background-color: transparent;
     }
     .v-slide-group__prev.v-slide-group__prev--disabled {
@@ -203,32 +203,32 @@
   }
   .v-card {
     .v-card__title {
-      .v-select.v-input--is-dirty input {
+      .v-select.v-input--dirty input {
         display: none;
       }
 
       .v-select__selection {
         max-width: none;
-        color: var(--v-greyTint-base)!important;
+        color: rgb(var(--v-theme-greyTint))!important;
       }
       .v-text-field {
 
         margin-top: 0;
-        .v-input__append-inner .v-input__icon {
+        .v-field__append-inner .v-input__icon {
           i {
-            color: var(--v-greyTint-base)!important;
+            color: rgb(var(--v-theme-greyTint))!important;
             margin-top: 4px!important;
           }
         }
       }
-      .v-input--dense > .v-input__control > .v-input__slot {
+      .v-input--density-compact > .v-input__control > .v-field {
         justify-content: flex-end;
-        .v-select__slot {
+        .v-field__input {
           width: auto;
         }
       }
 
-      .v-text-field > .v-input__control > .v-input__slot:before, .v-text-field > .v-input__control > .v-input__slot:after {
+      .v-text-field > .v-input__control > .v-field:before, .v-text-field > .v-input__control > .v-field:after {
         content: none;
       }
     }

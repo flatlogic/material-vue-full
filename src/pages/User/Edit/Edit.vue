@@ -2,14 +2,12 @@
   <v-container fluid class="user-edit mt-3 mx-1">
     <v-row>
       <v-col cols="12">
-        <v-tabs
+        <v-tabs v-model="accountTab"
           color="primary"
-          centered
+          align-tabs="center"
         >
-          <v-tabs-slider></v-tabs-slider>
-
           <v-tab
-            :href="`#tab-account`"
+            value="tab-account"
             class="mr-5"
           >
             <v-icon class="mr-3">mdi-shield-account-variant-outline</v-icon>
@@ -17,26 +15,28 @@
           </v-tab>
           <v-tab
             class="mr-5"
-            :href="`#tab-profile`"
+            value="tab-profile"
           >
             <v-icon class="mr-3">mdi-account-outline</v-icon>
             Profile
           </v-tab>
           <v-tab
             class="mr-5"
-            :href="`#tab-password`"
+            value="tab-password"
           >
             <v-icon class="mr-3">mdi-lock</v-icon>
             Change Password
           </v-tab>
           <v-tab
-            :href="`#tab-settings`"
+            value="tab-settings"
           >
             <v-icon class="mr-3">mdi-cog</v-icon>
             Settings
           </v-tab>
 
-          <v-tab-item
+          </v-tabs>
+          <v-tabs-window v-model="accountTab">
+          <v-tabs-window-item
             :value="'tab-account'"
           >
             <v-card
@@ -51,18 +51,18 @@
                       <p class="text-h5">Account</p>
                       <v-text-field
                         class="mb-4"
-                        outlined
-                        dense
-                        value="User"
+                        variant="outlined"
+                        density="compact"
+                        model-value="User"
                         placeholder="User Name"
                         persistent-hint
                         single-line hint="Please enter your user name">
                       </v-text-field>
                       <v-text-field
                         class="mb-4"
-                        outlined
-                        dense
-                        value="user@mail.com"
+                        variant="outlined"
+                        density="compact"
+                        model-value="user@mail.com"
                         placeholder="User Email"
                         persistent-hint
                         single-line hint="Please enter your email">
@@ -70,16 +70,16 @@
                       <v-select
                         class="mb-4"
                         :items=items
-                        :value="items[1]"
-                        outlined
-                        dense
+                        :model-value="items[1]"
+                        variant="outlined"
+                        density="compact"
                         placeholder="Role"
                         persistent-hint
                         single-line hint="Please choose the role">
                       </v-select>
                       <div class="d-flex justify-center">
                         <v-btn
-                            outlined
+                            variant="outlined"
                             color="primary"
                         >
                           Reset
@@ -97,8 +97,8 @@
                 </v-row>
               </v-card-text>
             </v-card>
-          </v-tab-item>
-          <v-tab-item
+          </v-tabs-window-item>
+          <v-tabs-window-item
               :value="'tab-profile'"
           >
             <v-card
@@ -113,27 +113,27 @@
                       <p class="text-h5">Profile</p>
                       <v-text-field
                           class="mb-4"
-                          outlined
-                          dense
-                          value="Jane"
+                          variant="outlined"
+                          density="compact"
+                          model-value="Jane"
                           placeholder="User Name"
                           persistent-hint
                           single-line hint="Please enter your first name">
                       </v-text-field>
                       <v-text-field
                           class="mb-4"
-                          outlined
-                          dense
-                          value="Jonson"
+                          variant="outlined"
+                          density="compact"
+                          model-value="Jonson"
                           placeholder="User Last Name"
                           persistent-hint
                           single-line hint="Please enter your last name">
                       </v-text-field>
                       <v-text-field
                           class="mb-4"
-                          outlined
-                          dense
-                          value="1-555-666-7070"
+                          variant="outlined"
+                          density="compact"
+                          model-value="1-555-666-7070"
                           placeholder="User Number"
                           persistent-hint
                           single-line hint="Please enter your phone number">
@@ -141,9 +141,9 @@
                       <v-select
                           class="mb-4"
                           :items=items
-                          :value="items[1]"
-                          outlined
-                          dense
+                          :model-value="items[1]"
+                          variant="outlined"
+                          density="compact"
                           placeholder="Role"
                           persistent-hint
                           single-line hint="Please choose the role">
@@ -151,27 +151,27 @@
                       <p class="text-h5">Company Information</p>
                       <v-text-field
                           class="mb-4"
-                          outlined
-                          dense
-                          value="Company"
+                          variant="outlined"
+                          density="compact"
+                          model-value="Company"
                           placeholder="Company Name"
                           persistent-hint
                           single-line hint="Please enter your company name">
                       </v-text-field>
                       <v-text-field
                           class="mb-4"
-                          outlined
-                          dense
-                          value="AD123456789"
+                          variant="outlined"
+                          density="compact"
+                          model-value="AD123456789"
                           placeholder="Company ID"
                           persistent-hint
                           single-line hint="Please enter company ID">
                       </v-text-field>
                       <v-text-field
                           class="mb-4"
-                          outlined
-                          dense
-                          value="1-555-666-7070"
+                          variant="outlined"
+                          density="compact"
+                          model-value="1-555-666-7070"
                           placeholder="Company Number"
                           persistent-hint
                           single-line hint="Please enter your company number">
@@ -179,43 +179,43 @@
                       <p class="text-h5">Social</p>
                       <v-text-field
                           class="mb-4"
-                          outlined
-                          dense
-                          value="https://www.facebook.com/janejonson"
+                          variant="outlined"
+                          density="compact"
+                          model-value="https://www.facebook.com/janejonson"
                           placeholder="Facebook Link"
                           persistent-hint
                           single-line hint="Please enter your Facebook link">
                       </v-text-field>
                       <v-text-field
                           class="mb-4"
-                          outlined
-                          dense
-                          value="https://www.twitter.com/janejonson"
+                          variant="outlined"
+                          density="compact"
+                          model-value="https://www.twitter.com/janejonson"
                           placeholder="Twitter Link"
                           persistent-hint
                           single-line hint="Please enter your Twitter link">
                       </v-text-field>
                       <v-text-field
                           class="mb-4"
-                          outlined
-                          dense
-                          value="https://www.instagram.com/janejonson"
+                          variant="outlined"
+                          density="compact"
+                          model-value="https://www.instagram.com/janejonson"
                           placeholder="Instagram Link"
                           persistent-hint
                           single-line hint="Please enter your Instagram link">
                       </v-text-field>
                       <v-text-field
                           class="mb-4"
-                          outlined
-                          dense
-                          value="https://www.github.com/janejonson"
+                          variant="outlined"
+                          density="compact"
+                          model-value="https://www.github.com/janejonson"
                           placeholder="GitHub Link"
                           persistent-hint
                           single-line hint="Please enter your GitHub link">
                       </v-text-field>
                       <div class="d-flex justify-center">
                         <v-btn
-                            outlined
+                            variant="outlined"
                             color="primary"
                         >
                           Reset
@@ -233,8 +233,8 @@
 
               </v-card-text>
             </v-card>
-          </v-tab-item>
-          <v-tab-item
+          </v-tabs-window-item>
+          <v-tabs-window-item
               :value="'tab-password'"
           >
             <v-card
@@ -248,34 +248,34 @@
                       <p class="text-h5">Password</p>
                       <v-text-field
                           class="mb-4"
-                          outlined
-                          dense
-                          value=""
+                          variant="outlined"
+                          density="compact"
+                          model-value=""
                           placeholder="Current Password"
                           persistent-hint
                           single-line hint="Please enter your password">
                       </v-text-field>
                       <v-text-field
                           class="mb-4"
-                          outlined
-                          dense
-                          value=""
+                          variant="outlined"
+                          density="compact"
+                          model-value=""
                           placeholder="New Password"
                           persistent-hint
                           single-line hint="Please enter your new password">
                       </v-text-field>
                       <v-text-field
                           class="mb-4"
-                          outlined
-                          dense
-                          value=""
+                          variant="outlined"
+                          density="compact"
+                          model-value=""
                           placeholder="Verify Password"
                           persistent-hint
                           single-line hint="Please enter your new password">
                       </v-text-field>
                       <div class="d-flex justify-center">
                         <v-btn
-                            outlined
+                            variant="outlined"
                             color="primary"
                         >
                           Reset
@@ -292,8 +292,8 @@
                 </v-row>
               </v-card-text>
             </v-card>
-          </v-tab-item>
-          <v-tab-item
+          </v-tabs-window-item>
+          <v-tabs-window-item
               :value="'tab-settings'"
           >
             <v-card
@@ -308,14 +308,14 @@
                       <v-select
                           class="mb-4"
                           :items=lang
-                          :value="items[0]"
-                          outlined
-                          dense
+                          :model-value="items[0]"
+                          variant="outlined"
+                          density="compact"
                           placeholder="Language"
                           persistent-hint
                           single-line hint="Please choose your language">
                       </v-select>
-                      <p class="body-1">Communication:</p>
+                      <p class="text-body-1">Communication:</p>
 
                         <v-col class="d-flex flex-wrap">
                           <v-checkbox
@@ -333,13 +333,13 @@
                             v-model="checkbox.phone"
                             label="Phone"></v-checkbox>
                         </v-col>
-                      <p class="body-1">Email notification</p>
+                      <p class="text-body-1">Email notification</p>
                       <v-switch v-model="switch1"></v-switch>
-                      <p class="body-1">Send copy to personal email</p>
+                      <p class="text-body-1">Send copy to personal email</p>
                       <v-switch v-model="switch2"></v-switch>
                       <div class="d-flex justify-center">
                         <v-btn
-                          outlined
+                          variant="outlined"
                           color="primary"
                         >
                           Reset
@@ -356,8 +356,8 @@
                 </v-row>
               </v-card-text>
             </v-card>
-          </v-tab-item>
-        </v-tabs>
+          </v-tabs-window-item>
+        </v-tabs-window>
       </v-col>
     </v-row>
   </v-container>
@@ -367,6 +367,7 @@
 export default {
   data () {
     return {
+      accountTab: 'tab-account',
       e1: 1,
       items: ['Admin', 'User'],
       lang: ['English', 'Russian', 'Latin'],

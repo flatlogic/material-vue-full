@@ -1,5 +1,4 @@
-import Vue from 'vue';
-import Router from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 
 import Layout from '@/components/Layout/Layout';
 import Login from '@/pages/Login/Login';
@@ -81,11 +80,11 @@ import Tables from '@/pages/Documentation/pages/Tables/Tables';
 import Structure from '@/pages/Documentation/pages/Structure/Structure';
 import Libs from '@/pages/Documentation/pages/Libs/Libs';
 import { isAuthenticated } from './mixins/auth';
+import config from './config';
 import ChangePassword from './pages/ChangePassword/ChangePassword';
 
-Vue.use(Router);
-
-export default new Router({
+export default createRouter({
+  history: createWebHashHistory(),
   routes: [
     { path: '/', redirect: { name: 'Dashboard' } },
     {
@@ -153,16 +152,19 @@ export default new Router({
     },
     {
       path: '/forgot',
+      beforeEnter: () => config.isBackend || '/login',
       name: 'Forgot',
       component: Forgot,
     },
     {
       path: '/password-reset',
+      beforeEnter: () => config.isBackend || '/login',
       name: 'reset',
       component: Reset,
     },
     {
       path: '/verify-email',
+      beforeEnter: () => config.isBackend || '/login',
       component: VerifyEmail,
     },
     {
@@ -179,6 +181,10 @@ export default new Router({
         isAuthenticated() ? next() : next({ path: '/starter' });
       },
       children: [
+        { path: '/user/list', name: 'UserList', component: () => import('./pages/User/List/List.vue') },
+        { path: '/user/add', name: 'UserAdd', component: () => import('./pages/User/Add/Add.vue') },
+        { path: '/user/edit', name: 'UserEdit', component: () => import('./pages/User/Edit/Edit.vue') },
+        { path: '/user/profile', name: 'UserProfile', component: ProfileView },
         // main pages
         {
           path: 'profile-view',
@@ -382,8 +388,10 @@ export default new Router({
       name: 'Admin',
       redirect: { name: 'Dashboard' },
       component: Layout,
-      beforeEnter: (to, from, next) => {
-        isAuthenticated() ? next() : next({ path: '/login' });
+      beforeEnter: (to) => {
+        if (!isAuthenticated()) return { path: '/login' };
+        if (!config.isBackend) return to.path === '/admin/users/new' ? '/user/add' : '/user/list';
+        return true;
       },
       children: [
         {
@@ -409,7 +417,7 @@ export default new Router({
       ],
     },
     {
-      path: '*',
+      path: '/:pathMatch(.*)*',
       name: 'Error',
       component: Error,
     },

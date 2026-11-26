@@ -10,11 +10,11 @@
   line-height: 32px;
 
   > a {
-    color: var(--v-greyMedium-base);
+    color: rgb(var(--v-theme-greyMedium));
     text-decoration: none;
 
     &:hover {
-      color: var(--v-greyMedium-base);
+      color: rgb(var(--v-theme-greyMedium));
       text-decoration: none;
     }
   }

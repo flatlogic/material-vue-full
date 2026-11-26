@@ -226,26 +226,26 @@ export default {
   },
   images: [
     {
-      src: require('@/assets/img/user/profile/folder-blue.svg'),
-      srcDark: require('@/assets/img/user/profile/folder-dark-blue.svg'),
+      src: new URL('../../../assets/img/user/profile/folder-blue.svg', import.meta.url).href,
+      srcDark: new URL('../../../assets/img/user/profile/folder-dark-blue.svg', import.meta.url).href,
       title: 'UX',
       subtitle: '178 files'
     },
     {
-      src: require('@/assets/img/user/profile/folder-pink.svg'),
-      srcDark: require('@/assets/img/user/profile/folder-dark-pink.svg'),
+      src: new URL('../../../assets/img/user/profile/folder-pink.svg', import.meta.url).href,
+      srcDark: new URL('../../../assets/img/user/profile/folder-dark-pink.svg', import.meta.url).href,
       title: 'Design',
       subtitle: '154 files'
     },
     {
-      src: require('@/assets/img/user/profile/folder-yellow.svg'),
-      srcDark: require('@/assets/img/user/profile/folder-dark-yellow.svg'),
+      src: new URL('../../../assets/img/user/profile/folder-yellow.svg', import.meta.url).href,
+      srcDark: new URL('../../../assets/img/user/profile/folder-dark-yellow.svg', import.meta.url).href,
       title: 'Mobile',
       subtitle: '98 files'
     },
     {
-      src: require('@/assets/img/user/profile/folder-green.svg'),
-      srcDark: require('@/assets/img/user/profile/folder-dark-green.svg'),
+      src: new URL('../../../assets/img/user/profile/folder-green.svg', import.meta.url).href,
+      srcDark: new URL('../../../assets/img/user/profile/folder-dark-green.svg', import.meta.url).href,
       title: 'Illustration',
       subtitle: '68 files'
     },

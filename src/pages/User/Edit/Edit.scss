@@ -2,26 +2,26 @@
   .v-input .v-label {
     height: 23px;
   }
-  .v-item-group.v-slide-group.v-tabs-bar {
+  .v-tabs {
     display: flex;
     align-items: center;
     margin-bottom: 24px;
     height: 70px;
   }
-  .v-slide-group__wrapper {
+  .v-slide-group__container {
     height: 50px;
   }
 
-  .theme--dark.v-tabs > .v-tabs-bar {
+  .v-theme--dark.v-tabs {
     background-color: #23232D;
   }
-  .theme--light.v-tabs > .v-tabs-bar {
+  .v-theme--light.v-tabs {
     background-color: white;
   }
   .v-slide-group__prev.v-slide-group__prev--disabled {
     display: none!important;
   }
-  .v-item-group.v-slide-group.v-tabs-bar {
+  .v-tabs {
     padding: 0 10px;
   }
 }

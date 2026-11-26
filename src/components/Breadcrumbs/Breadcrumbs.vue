@@ -10,7 +10,7 @@
       </template>
       <template v-slot:item="{ item }">
         <v-breadcrumbs-item @click="goTo(item.to)" link class="text-capitalize">
-          {{ item.text }}
+          {{ item.title }}
         </v-breadcrumbs-item>
       </template>
     </v-breadcrumbs>
@@ -32,7 +32,7 @@
               breadcrumbArray[idx - 1].path === 'admin'
                 ? '/' + breadcrumbArray[idx - 1].path + '/' + path
                 : '/' + path,
-            text: path,
+            title: path,
           });
           return breadcrumbArray;
         }, []);
@@ -44,26 +44,26 @@
         return this.$route.path === '/' || this.$route.path === '/dashboard';
       },
       goTo(to) {
-        this.$router.currentRoute.path !== to ? this.$router.push(to) : null;
+        this.$route.path !== to ? this.$router.push(to) : null;
       },
     },
   };
 </script>
 
 <style lang="scss" scoped>
-  ::v-deep.v-breadcrumbs {
+  :deep(.v-breadcrumbs) {
     li:last-child div {
-      color: var(--v-primary-base);
+      color: rgb(var(--v-theme-primary));
     }
     .v-breadcrumbs__item {
       font-size: 1.125rem;
-      color: var(--v-greyMedium-base);
+      color: rgb(var(--v-theme-greyMedium));
       cursor: pointer;
     }
 
-    &.theme--dark {
+    &.v-theme--dark {
       li:last-child div {
-        color: var(--v-primary-base);
+        color: rgb(var(--v-theme-primary));
       }
       .v-breadcrumbs__item {
         color: white;

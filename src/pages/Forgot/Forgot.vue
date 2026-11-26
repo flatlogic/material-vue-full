@@ -63,7 +63,7 @@
                           <v-btn
                             large
                             text
-                            class="text-capitalize primary--text"
+                            class="text-capitalize text-primary"
                             @click="$router.push('/login')"
                           >
                             Enter the account
@@ -77,7 +77,7 @@
             </v-col>
             <v-col cols="12" class="d-flex justify-center">
               <v-footer>
-                <div class="primary--text">
+                <div class="text-primary">
                   {{ new Date().getFullYear() }} &copy; vue material test model
                   - Made by <a href="https://flatlogic.com/">Flatlogic</a>
                 </div>
@@ -124,7 +124,7 @@
   .main-part {
     width: 100%;
     height: 100vh;
-    background-color: var(--v-primary-base);
+    background-color: rgb(var(--v-theme-primary));
     display: flex;
     flex-direction: column;
     justify-content: center;

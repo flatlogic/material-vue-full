@@ -2,11 +2,10 @@
   <v-row>
     <v-col cols='12' md='4' class='d-flex'>
       <div>
-        <v-btn
+        <v-btn variant="text"
           v-for="link in links"
           :key="link.link"
           color="primary"
-          text
           :href="link.link"
           class="text-capitalize mr-1 font-weight-regular"
         >
@@ -15,7 +14,7 @@
       </div>
     </v-col>
     <v-col cols="12" md='5' class="d-flex justify-center">
-      <div class="primary--text">
+      <div class="text-primary">
         {{ new Date().getFullYear() }} &copy; Vue Material Admin - Made by
         <a href="https://flatlogic.com/">Flatlogic</a>
       </div>
@@ -40,7 +39,7 @@
   import config from '../../config';
 
   export default {
-    name: 'Footer',
+    name: 'AppFooter',
     data: () => ({
       config,
       icons: [

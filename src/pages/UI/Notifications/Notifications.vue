@@ -32,7 +32,7 @@
                    block
                    @click="addInfoNotification"
                    color="primaryConst"
-                   class="button-shadow white--text text-capitalize mb-2"
+                   class="button-shadow text-white text-capitalize mb-2"
                  >Info Message</v-btn>
                  <div class="w-100"></div>
                  <v-btn
@@ -61,13 +61,13 @@
              <v-row no-gutters class="">
                <v-col cols="12">
                  <v-col cols="12" class="mt-2">
-                    <pre>
-<span class="primaryConst--text">&lt;v-snackbar</span>
-  <span class="secondaryConst--text">v-model="snackbar"&gt;</span>
+                    <pre v-pre>
+<span class="text-primaryConst">&lt;v-snackbar</span>
+  <span class="text-secondaryConst">v-model="snackbar"&gt;</span>
 
     {{ <span>message</span> }}
 
-<span class="primaryConst--text">&lt;/v-snackbar></span>
+<span class="text-primaryConst">&lt;/v-snackbar></span>
 </pre>
                    <p class="pt-4">For more API information refer to the library documentation</p>
                  </v-col>
@@ -87,14 +87,12 @@
           <v-card-text class="pa-5 pt-0">
             <v-row no-gutters>
               <v-col cols="12">
-                <template v-for="item in notificationsType" >
-                  <v-chip
-                    large
-                    class="d-block mt-4 white--text"
+                <template v-for="item in notificationsType" :key="item.text" >
+                  <v-chip size="large"
+                    class="d-block mt-4 text-white"
                     :color="item.color"
-                    :key="item.text"
                   >
-                    <v-icon left size="26" color="rgba(255,255,255, 0.5)" class="ml-0 mr-2">{{ item.icon }}</v-icon>
+                    <v-icon start size="26" color="rgba(255,255,255, 0.5)" class="ml-0 mr-2">{{ item.icon }}</v-icon>
                     {{  item.text }}
                   </v-chip>
                 </template>
@@ -111,14 +109,12 @@
           <v-card-text class="pa-5 pt-0">
             <v-row no-gutters>
               <v-col cols="12">
-                <template v-for="item in notificationsTypeLight" >
-                  <v-chip
-                    large
-                    class="greyBold--text d-block mt-4 font-weight-regular "
+                <template v-for="item in notificationsTypeLight" :key="item.text" >
+                  <v-chip size="large"
+                    class="text-greyBold d-block mt-4 font-weight-regular "
                     :color="item.color"
-                    :key="item.text"
                   >
-                    <v-icon :color="item.iconColor" left size="26" class="ml-0 mr-2">{{ item.icon }}</v-icon>
+                    <v-icon start :color="item.iconColor" size="26" class="ml-0 mr-2">{{ item.icon }}</v-icon>
                     {{  item.text }}
                   </v-chip>
                 </template>
@@ -135,20 +131,18 @@
           <v-card-text class="pa-5 pt-0">
             <v-row no-gutters >
               <v-col cols="12">
-                <template v-for="item in notificationsTypeButton" >
-                  <div :key="item.text" class="mt-4">
-                  <v-btn
-                    small
+                <template v-for="item in notificationsTypeButton" :key="item.text" >
+                  <div  class="mt-4">
+                  <v-btn icon size="small"
                     height="45"
                     width="45"
                     class="mr-2"
-                    fab
                     elevation="0"
                     :color="item.color"
                   >
                     <v-icon size="26" :color="item.iconColor">{{ item.icon }}</v-icon>
                   </v-btn>
-                  <span class="greyBold--text" >{{ item.text }}</span>
+                  <span class="text-greyBold" >{{ item.text }}</span>
                   </div>
                 </template>
               </v-col>
@@ -158,20 +152,14 @@
       </v-col>
     </v-row>
     <v-snackbar
-        v-model="snackbar"
-        :bottom="y === 'bottom'"
+        v-model="snackbar" :location="[y, x].filter(Boolean).join(' ')"
         :color="color"
-        :left="x === 'left'"
-        :right="x === 'right'"
-        :top="y === 'top'"
     >
       {{ text }}
 
-      <template v-slot:action="{ attrs }">
-        <v-btn
-            dark
-            text
-            v-bind="attrs"
+      <template #actions>
+        <v-btn theme="dark" variant="text"
+
             @click="snackbar = false"
         >
           Close

@@ -2,7 +2,7 @@ export default [
   {
     id: '1',
     select: false,
-    img: require('@/assets/img/e-commerce/low/1.png'),
+    img: new URL('../../assets/img/e-commerce/low/1.png', import.meta.url).href,
     title: 'Trainers',
     subtitle: 'Trainers in white',
     price: '$80',
@@ -12,7 +12,7 @@ export default [
   {
     id: '2',
     select: false,
-    img: require('@/assets/img/e-commerce/low/2.png'),
+    img: new URL('../../assets/img/e-commerce/low/2.png', import.meta.url).href,
     title: 'Boots',
     subtitle: 'Trainers in blue',
     price: '$37',
@@ -22,7 +22,7 @@ export default [
   {
     id: '3',
     select: false,
-    img: require('@/assets/img/e-commerce/low/3.png'),
+    img: new URL('../../assets/img/e-commerce/low/3.png', import.meta.url).href,
     title: 'Flat sandals',
     subtitle: 'Trainers in white',
     price: '$70',
@@ -32,7 +32,7 @@ export default [
   {
     id: '4',
     select: false,
-    img: require('@/assets/img/e-commerce/low/4.png'),
+    img: new URL('../../assets/img/e-commerce/low/4.png', import.meta.url).href,
     title: 'Trainers',
     subtitle: 'Trainers in blue',
     price: '$85',
@@ -42,7 +42,7 @@ export default [
   {
     id: '5',
     select: false,
-    img: require('@/assets/img/e-commerce/low/5.png'),
+    img: new URL('../../assets/img/e-commerce/low/5.png', import.meta.url).href,
     title: 'Flat sandals',
     subtitle: 'Trainers in white',
     price: '$12',
@@ -52,7 +52,7 @@ export default [
   {
     id: '6',
     select: false,
-    img: require('@/assets/img/e-commerce/low/6.png'),
+    img: new URL('../../assets/img/e-commerce/low/6.png', import.meta.url).href,
     title: 'Flat sandals',
     subtitle: 'Trainers in blue',
     price: '$76',
@@ -62,7 +62,7 @@ export default [
   {
     id: '7',
     select: false,
-    img: require('@/assets/img/e-commerce/low/1.png'),
+    img: new URL('../../assets/img/e-commerce/low/1.png', import.meta.url).href,
     title: 'Trainers',
     subtitle: 'Trainers in white',
     price: '$80',
@@ -72,7 +72,7 @@ export default [
   {
     id: '8',
     select: false,
-    img: require('@/assets/img/e-commerce/low/2.png'),
+    img: new URL('../../assets/img/e-commerce/low/2.png', import.meta.url).href,
     title: 'Boots',
     subtitle: 'Trainers in blue',
     price: '$37',
@@ -82,7 +82,7 @@ export default [
   {
     id: '9',
     select: false,
-    img: require('@/assets/img/e-commerce/low/3.png'),
+    img: new URL('../../assets/img/e-commerce/low/3.png', import.meta.url).href,
     title: 'Flat sandals',
     subtitle: 'Trainers in white',
     price: '$70',
@@ -92,7 +92,7 @@ export default [
   {
     id: '10',
     select: false,
-    img: require('@/assets/img/e-commerce/low/4.png'),
+    img: new URL('../../assets/img/e-commerce/low/4.png', import.meta.url).href,
     title: 'Trainers',
     subtitle: 'Trainers in blue',
     price: '$85',
@@ -102,7 +102,7 @@ export default [
   {
     id: '11',
     select: false,
-    img: require('@/assets/img/e-commerce/low/5.png'),
+    img: new URL('../../assets/img/e-commerce/low/5.png', import.meta.url).href,
     title: 'Flat sandals',
     subtitle: 'Trainers in white',
     price: '$12',
@@ -112,7 +112,7 @@ export default [
   {
     id: '12',
     select: false,
-    img: require('@/assets/img/e-commerce/low/6.png'),
+    img: new URL('../../assets/img/e-commerce/low/6.png', import.meta.url).href,
     title: 'Flat sandals',
     subtitle: 'Trainers in blue',
     price: '$76',

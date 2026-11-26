@@ -12,14 +12,14 @@
                   </v-col>
                   <v-col md="3" cols="12">
                     <h4 class="text-left">
-                      <span class="greyBold--text font-weight-bold fs-base">#9.45613 </span><span class="greyBold--text fs-base">/ 17 May 2014</span>
+                      <span class="text-greyBold font-weight-bold fs-base">#9.45613 </span><span class="text-greyBold fs-base">/ 17 May 2014</span>
                     </h4>
-                    <div class="text-left fs-base greyBold--text">
+                    <div class="text-left fs-base text-greyBold">
                       Some Invoice number description or whatever
                     </div>
                   </v-col>
                 </v-row>
-                <v-row class="mb-5 greyBold--text">
+                <v-row class="mb-5 text-greyBold">
                   <v-col cols="6">
                     <h4 class="ma-0">Company Information</h4>
                     <h5 class="mt-5">
@@ -54,7 +54,7 @@
                     </address>
                   </v-col>
                 </v-row>
-                <v-simple-table>
+                <v-table>
                   <template v-slot:default>
                     <thead>
                     <tr>
@@ -108,7 +108,7 @@
                     </tr>
                     </tbody>
                   </template>
-                </v-simple-table>
+                </v-table>
 
                 <v-row>
                   <v-col cols="12" md="8">

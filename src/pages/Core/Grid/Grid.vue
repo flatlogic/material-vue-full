@@ -7,39 +7,39 @@
             <p>How it works</p>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal greyBold--text mb-5">Vuetify's grid system uses a series of containers, rows, and
+            <p class="fs-normal text-greyBold mb-5">Vuetify's grid system uses a series of containers, rows, and
               columns to layout and align content. It’s built with flexbox and is fully responsive.</p>
             <v-row justify="space-between">
               <v-col cols="3" class="primary rounded ma-2 d-flex justify-center">
-                <h6 class="white--text mb-0">One of three</h6>
+                <h6 class="text-white mb-0">One of three</h6>
               </v-col>
               <v-col cols="3" class="secondary rounded ma-2 d-flex justify-center">
-                <h6 class="white--text mb-0">One of three</h6>
+                <h6 class="text-white mb-0">One of three</h6>
               </v-col>
               <v-col cols="3" class="warning rounded ma-2 d-flex justify-center">
-                <h6 class="white--text mb-0">One of three</h6>
+                <h6 class="text-white mb-0">One of three</h6>
               </v-col>
               <v-col cols="12" class="mt-3">
                             <pre>
-<span class="primaryConst--text">&lt;v-row justify="space-between"&gt;</span>
-  <span class="secondaryConst--text">&lt;v-col cols="3" class="primary"&gt;</span>
-    <span class="info--text">&lt;h6 class="white--text"&gt;</span>
+<span class="text-primaryConst">&lt;v-row justify="space-between"&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col cols="3" class="primary"&gt;</span>
+    <span class="text-info">&lt;h6 class="text-white"&gt;</span>
       One of three
-    <span class="info--text">&lt;/h6&gt;</span>
-  <span class="secondaryConst--text">&lt;v-col&gt;</span>
+    <span class="text-info">&lt;/h6&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col&gt;</span>
 
-  <span class="secondaryConst--text">&lt;v-col cols="3" class="secondary"&gt;</span>
-    <span class="info--text">&lt;h6 class="white--text"&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col cols="3" class="secondary"&gt;</span>
+    <span class="text-info">&lt;h6 class="text-white"&gt;</span>
       One of three
-    <span class="info--text">&lt;/h6&gt;</span>
-  <span class="secondaryConst--text">&lt;v-col&gt;</span>
+    <span class="text-info">&lt;/h6&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col&gt;</span>
 
-  <span class="secondaryConst--text">&lt;v-col cols="3" class="warning"&gt;</span>
-    <span class="info--text">&lt;h6 class="white--text"&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col cols="3" class="warning"&gt;</span>
+    <span class="text-info">&lt;h6 class="text-white"&gt;</span>
       One of three
-    <span class="info--text">&lt;/h6&gt;</span>
-  <span class="secondaryConst--text">&lt;v-col&gt;</span>
-<span class="primaryConst--text">&lt;/v-row&gt;</span></pre>
+    <span class="text-info">&lt;/h6&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col&gt;</span>
+<span class="text-primaryConst">&lt;/v-row&gt;</span></pre>
               </v-col>
             </v-row>
           </v-card-text>
@@ -51,31 +51,31 @@
             <p>Equal width</p>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal greyBold--text mb-5">For example, here are two grid layouts that apply to every device
+            <p class="fs-normal text-greyBold mb-5">For example, here are two grid layouts that apply to every device
               and viewport, from xs to xl. Add any number of unit-less classes for each breakpoint you need and every
               column will be the same width.</p>
             <v-row justify="space-between">
               <v-col cols="5" class="primary rounded ma-2 d-flex justify-center">
-                <h6 class="white--text mb-0">1 of 2</h6>
+                <h6 class="text-white mb-0">1 of 2</h6>
               </v-col>
               <v-col cols="5" class="secondary rounded ma-2 d-flex justify-center">
-                <h6 class="white--text mb-0">1 of 2</h6>
+                <h6 class="text-white mb-0">1 of 2</h6>
               </v-col>
               <v-col cols="12" class="mt-3">
                             <pre>
-<span class="primaryConst--text">&lt;v-row justify="space-between"&gt;</span>
-  <span class="secondaryConst--text">&lt;v-col cols="3" class="primary"&gt;</span>
-    <span class="info--text">&lt;h6 class="white--text"&gt;</span>
+<span class="text-primaryConst">&lt;v-row justify="space-between"&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col cols="3" class="primary"&gt;</span>
+    <span class="text-info">&lt;h6 class="text-white"&gt;</span>
       1 of 2
-    <span class="info--text">&lt;/h6&gt;</span>
-  <span class="secondaryConst--text">&lt;/v-col&gt;</span>
+    <span class="text-info">&lt;/h6&gt;</span>
+  <span class="text-secondaryConst">&lt;/v-col&gt;</span>
 
-  <span class="secondaryConst--text">&lt;v-col cols="3" class="secondary"&gt;</span>
-    <span class="info--text">&lt;h6 class="white--text"&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col cols="3" class="secondary"&gt;</span>
+    <span class="text-info">&lt;h6 class="text-white"&gt;</span>
       1 of 2
-    <span class="info--text">&lt;/h6&gt;</span>
-  <span class="secondaryConst--text">&lt;/v-col&gt;</span>
-<span class="primaryConst--text">&lt;/v-row&gt;</span></pre>
+    <span class="text-info">&lt;/h6&gt;</span>
+  <span class="text-secondaryConst">&lt;/v-col&gt;</span>
+<span class="text-primaryConst">&lt;/v-row&gt;</span></pre>
               </v-col>
             </v-row>
           </v-card-text>
@@ -87,7 +87,7 @@
             <p>Grid options</p>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal greyBold--text mb-3">While Material UI grid uses ems or rems for defining most sizes, pxs are used for grid breakpoints and
+            <p class="fs-normal text-greyBold mb-3">While Material UI grid uses ems or rems for defining most sizes, pxs are used for grid breakpoints and
               container widths. This is because the viewport width is in pixels and does not change with the font size.
               See how aspects of the Material UI grid system work across multiple devices with a handy table.</p>
             <div class="mb-6 v-sheet v-sheet--outlined">
@@ -164,7 +164,7 @@
                     <tr>
                       <td colspan="4" class="text-center">
                         <small>
-                          <em class="grey--text">* -16px on Desktop</em>
+                          <em class="text-grey">* -16px on Desktop</em>
                         </small>
                       </td>
                     </tr>
@@ -182,48 +182,48 @@
             <p>Vertical Alignment</p>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal greyBold--text mb-10">Use flexbox alignment utilities to vertically and horizontally align columns.</p>
+            <p class="fs-normal text-greyBold mb-10">Use flexbox alignment utilities to vertically and horizontally align columns.</p>
             <v-row justify="start">
               <v-col cols="3" class="primary rounded ma-2 d-flex justify-center">
-                <h6 class="white--text mb-0">Start</h6>
+                <h6 class="text-white mb-0">Start</h6>
               </v-col>
             </v-row>
             <v-row justify="center">
               <v-col cols="3" class="secondary rounded ma-2 d-flex justify-center">
-                <h6 class="white--text mb-0">Center</h6>
+                <h6 class="text-white mb-0">Center</h6>
               </v-col>
             </v-row>
             <v-row justify="end">
               <v-col cols="3" class="warning rounded ma-2 d-flex justify-center">
-                <h6 class="white--text mb-0">End</h6>
+                <h6 class="text-white mb-0">End</h6>
               </v-col>
             </v-row>
             <v-row>
               <v-col cols="12" class="mt-3">
                             <pre>
-<span class="primaryConst--text">&lt;v-row justify="start"&gt;</span>
-  <span class="secondaryConst--text">&lt;v-col cols="3" class="primary"&gt;</span>
-    <span class="info--text">&lt;h6 class="white--text"&gt;</span>
+<span class="text-primaryConst">&lt;v-row justify="start"&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col cols="3" class="primary"&gt;</span>
+    <span class="text-info">&lt;h6 class="text-white"&gt;</span>
       Start
-    <span class="info--text">&lt;/h6&gt;</span>
-  <span class="secondaryConst--text">&lt;v-col&gt;</span>
-<span class="primaryConst--text">&lt;/v-row&gt;</span>
+    <span class="text-info">&lt;/h6&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col&gt;</span>
+<span class="text-primaryConst">&lt;/v-row&gt;</span>
 
-<span class="primaryConst--text">&lt;v-row justify="center"&gt;</span>
-  <span class="secondaryConst--text">&lt;v-col cols="3" class="secondary"&gt;</span>
-    <span class="info--text">&lt;h6 class="white--text"&gt;</span>
+<span class="text-primaryConst">&lt;v-row justify="center"&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col cols="3" class="secondary"&gt;</span>
+    <span class="text-info">&lt;h6 class="text-white"&gt;</span>
       Center
-    <span class="info--text">&lt;/h6&gt;</span>
-  <span class="secondaryConst--text">&lt;v-col&gt;</span>
-<span class="primaryConst--text">&lt;/v-row&gt;</span>
+    <span class="text-info">&lt;/h6&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col&gt;</span>
+<span class="text-primaryConst">&lt;/v-row&gt;</span>
 
-<span class="primaryConst--text">&lt;v-row justify="end"&gt;</span>
-  <span class="secondaryConst--text">&lt;v-col cols="3" class="warning"&gt;</span>
-    <span class="info--text">&lt;h6 class="white--text"&gt;</span>
+<span class="text-primaryConst">&lt;v-row justify="end"&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col cols="3" class="warning"&gt;</span>
+    <span class="text-info">&lt;h6 class="text-white"&gt;</span>
       End
-    <span class="info--text">&lt;/h6&gt;</span>
-  <span class="secondaryConst--text">&lt;v-col&gt;</span>
-<span class="primaryConst--text">&lt;/v-row&gt;</span></pre>
+    <span class="text-info">&lt;/h6&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col&gt;</span>
+<span class="text-primaryConst">&lt;/v-row&gt;</span></pre>
               </v-col>
             </v-row>
           </v-card-text>
@@ -235,84 +235,84 @@
             <p>Vertical Alignment</p>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal greyBold--text mb-10">Use flexbox alignment utilities to vertically and horizontally align columns.</p>
+            <p class="fs-normal text-greyBold mb-10">Use flexbox alignment utilities to vertically and horizontally align columns.</p>
             <v-row justify="end">
               <v-col cols="3" class="primary rounded ma-2 d-flex justify-center">
-                <h6 class="white--text mb-0">1</h6>
+                <h6 class="text-white mb-0">1</h6>
               </v-col>
               <v-col cols="3" class="secondary rounded ma-2 d-flex justify-center">
-                <h6 class="white--text mb-0">2</h6>
+                <h6 class="text-white mb-0">2</h6>
               </v-col>
             </v-row>
             <v-row justify="space-around">
               <v-col cols="3" class="primary rounded ma-2 d-flex justify-center">
-                <h6 class="white--text mb-0">1</h6>
+                <h6 class="text-white mb-0">1</h6>
               </v-col>
               <v-col cols="3" class="secondary rounded ma-2 d-flex justify-center">
-                <h6 class="white--text mb-0">2</h6>
+                <h6 class="text-white mb-0">2</h6>
               </v-col>
             </v-row>
             <v-row justify="space-between">
               <v-col cols="3" class="primary rounded ma-2 d-flex justify-center" >
-                <h6 class="white--text mb-0">1</h6>
+                <h6 class="text-white mb-0">1</h6>
               </v-col>
               <v-col cols="3" class="secondary rounded ma-2 d-flex justify-center" >
-                <h6 class="white--text mb-0">2</h6>
+                <h6 class="text-white mb-0">2</h6>
               </v-col>
               <v-col cols="3" class="warning rounded ma-2 d-flex justify-center" >
-                <h6 class="white--text mb-0">3</h6>
+                <h6 class="text-white mb-0">3</h6>
               </v-col>
             </v-row>
             <v-row>
               <v-col cols="12" class="mt-3">
                             <pre>
-<span class="primaryConst--text">&lt;v-row justify="end"&gt;</span>
-  <span class="secondaryConst--text">&lt;v-col cols="3" class="primary"&gt;</span>
-    <span class="info--text">&lt;h6 class="white--text"&gt;</span>
+<span class="text-primaryConst">&lt;v-row justify="end"&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col cols="3" class="primary"&gt;</span>
+    <span class="text-info">&lt;h6 class="text-white"&gt;</span>
       1
-    <span class="info--text">&lt;/h6&gt;</span>
-  <span class="secondaryConst--text">&lt;v-col&gt;</span>
+    <span class="text-info">&lt;/h6&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col&gt;</span>
 
-   <span class="secondaryConst--text">&lt;v-col cols="3" class="primary"&gt;</span>
-    <span class="info--text">&lt;h6 class="white--text"&gt;</span>
+   <span class="text-secondaryConst">&lt;v-col cols="3" class="primary"&gt;</span>
+    <span class="text-info">&lt;h6 class="text-white"&gt;</span>
       2
-    <span class="info--text">&lt;/h6&gt;</span>
-  <span class="secondaryConst--text">&lt;v-col&gt;</span>
-<span class="primaryConst--text">&lt;/v-row&gt;</span>
+    <span class="text-info">&lt;/h6&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col&gt;</span>
+<span class="text-primaryConst">&lt;/v-row&gt;</span>
 
-<span class="primaryConst--text">&lt;v-row justify="space-around"&gt;</span>
-  <span class="secondaryConst--text">&lt;v-col cols="3" class="primary"&gt;</span>
-    <span class="info--text">&lt;h6 class="white--text"&gt;</span>
+<span class="text-primaryConst">&lt;v-row justify="space-around"&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col cols="3" class="primary"&gt;</span>
+    <span class="text-info">&lt;h6 class="text-white"&gt;</span>
       1
-    <span class="info--text">&lt;/h6&gt;</span>
-  <span class="secondaryConst--text">&lt;v-col&gt;</span>
+    <span class="text-info">&lt;/h6&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col&gt;</span>
 
-   <span class="secondaryConst--text">&lt;v-col cols="3" class="primary"&gt;</span>
-    <span class="info--text">&lt;h6 class="white--text"&gt;</span>
+   <span class="text-secondaryConst">&lt;v-col cols="3" class="primary"&gt;</span>
+    <span class="text-info">&lt;h6 class="text-white"&gt;</span>
       2
-    <span class="info--text">&lt;/h6&gt;</span>
-  <span class="secondaryConst--text">&lt;v-col&gt;</span>
-<span class="primaryConst--text">&lt;/v-row&gt;</span>
+    <span class="text-info">&lt;/h6&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col&gt;</span>
+<span class="text-primaryConst">&lt;/v-row&gt;</span>
 
-<span class="primaryConst--text">&lt;v-row justify="space-between"&gt;</span>
-  <span class="secondaryConst--text">&lt;v-col cols="3" class="primary"&gt;</span>
-    <span class="info--text">&lt;h6 class="white--text"&gt;</span>
+<span class="text-primaryConst">&lt;v-row justify="space-between"&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col cols="3" class="primary"&gt;</span>
+    <span class="text-info">&lt;h6 class="text-white"&gt;</span>
       1
-    <span class="info--text">&lt;/h6&gt;</span>
-  <span class="secondaryConst--text">&lt;v-col&gt;</span>
+    <span class="text-info">&lt;/h6&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col&gt;</span>
 
-   <span class="secondaryConst--text">&lt;v-col cols="3" class="primary"&gt;</span>
-    <span class="info--text">&lt;h6 class="white--text"&gt;</span>
+   <span class="text-secondaryConst">&lt;v-col cols="3" class="primary"&gt;</span>
+    <span class="text-info">&lt;h6 class="text-white"&gt;</span>
       2
-    <span class="info--text">&lt;/h6&gt;</span>
-  <span class="secondaryConst--text">&lt;v-col&gt;</span>
+    <span class="text-info">&lt;/h6&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col&gt;</span>
 
-   <span class="secondaryConst--text">&lt;v-col cols="3" class="warning"&gt;</span>
-    <span class="info--text">&lt;h6 class="white--text"&gt;</span>
+   <span class="text-secondaryConst">&lt;v-col cols="3" class="warning"&gt;</span>
+    <span class="text-info">&lt;h6 class="text-white"&gt;</span>
       3
-    <span class="info--text">&lt;/h6&gt;</span>
-  <span class="secondaryConst--text">&lt;v-col&gt;</span>
-<span class="primaryConst--text">&lt;/v-row&gt;</span>
+    <span class="text-info">&lt;/h6&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col&gt;</span>
+<span class="text-primaryConst">&lt;/v-row&gt;</span>
 </pre>
               </v-col>
             </v-row>

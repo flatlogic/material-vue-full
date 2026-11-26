@@ -1,8 +1,4 @@
-const hostApi = process.env.NODE_ENV === 'development' ? 'http://localhost' : 'https://sing-generator-node.herokuapp.com';
-const portApi = process.env.NODE_ENV === 'development' ? 8080 : '';
-const baseURLApi = `${hostApi}${portApi ? `:${portApi}` : ``}/api`;
-const redirectUrl = process.env.NODE_ENV === "development" ? 'http://localhost:3000/verify-email' : "https://demo.flatlogic.com/vue-material";
-
+const baseURLApi = (import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:8080/api' : '/api')).replace(/\/$/, '');
 export default {
   light: {
     primary: '#536dfe',
@@ -35,12 +31,8 @@ export default {
     greyTint: '#9b9b9b',
     default: '#e0e0e0',
   },
-  hostApi,
-  portApi,
   baseURLApi,
-  redirectUrl,
-  isBackend: process.env.VUE_APP_BACKEND,
-  remote: 'https://sing-generator-node.herokuapp.com',
+  isBackend: import.meta.env.MODE === 'backend',
   auth: {
     email: 'admin@flatlogic.com',
     password: 'password',

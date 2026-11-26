@@ -8,7 +8,7 @@
           </v-card-title>
           <v-card-text>
             <p>There is a couple of brand colors that we're using.</p>
-            <v-simple-table>
+            <v-table>
               <template v-slot:default>
                 <thead>
                 <tr>
@@ -33,7 +33,7 @@
                 </tr>
                 </tbody>
               </template>
-            </v-simple-table>
+            </v-table>
           </v-card-text>
         </v-card>
       </v-col>
@@ -44,13 +44,13 @@
           </v-card-title>
           <v-card-text class="pa-5">
             <v-row no-gutters class="typography-widget pb-6">
-              <v-col cols="12" class="greyBold--text">
-                <h1 class="primary--text">h1. Heading</h1>
-                <h2 class="success--text">h2. Heading</h2>
-                <h3 class="secondary--text">h3. Heading</h3>
-                <h4 class="warning--text">h4. Heading</h4>
-                <h5 class="primary--text">h5. Heading</h5>
-                <h6 class="info--text">h6. Heading</h6>
+              <v-col cols="12" class="text-greyBold">
+                <h1 class="text-primary">h1. Heading</h1>
+                <h2 class="text-success">h2. Heading</h2>
+                <h3 class="text-secondary">h3. Heading</h3>
+                <h4 class="text-warning">h4. Heading</h4>
+                <h5 class="text-primary">h5. Heading</h5>
+                <h6 class="text-info">h6. Heading</h6>
               </v-col>
             </v-row>
           </v-card-text>
@@ -63,9 +63,8 @@
           </v-card-title>
           <v-card-text>
             <v-btn color="default" class="button-shadow mr-4 mb-4">Default</v-btn>
-            <template v-for="button in statesColors">
+            <template v-for="button in statesColors" :key="button.state">
               <v-btn
-                :key="button.state"
                 :color="button.state.toLocaleLowerCase()"
                 class="button-shadow mr-4 mb-4"
               >{{ button.state }}</v-btn>

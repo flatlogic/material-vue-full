@@ -20,12 +20,13 @@
             >
               <div class="login-wrapper pt-16 pt-sm-0">
                 <v-tabs grow v-model="loginTabs" class="my-16" light>
-                  <v-tabs-slider></v-tabs-slider>
-                  <v-tab :href="`#tab-login`"> LOGIN </v-tab>
-                  <v-tab :href="`#tab-newUser`"> New User </v-tab>
+                  <v-tab value="tab-login"> LOGIN </v-tab>
+                  <v-tab v-if="backendEnabled" value="tab-newUser"> New User </v-tab>
 
-                  <v-tab-item :value="'tab-login'">
-                    <v-form>
+                </v-tabs>
+                <v-window v-model="loginTabs">
+                  <v-window-item :value="'tab-login'">
+                    <div>
                       <v-container>
                         <v-row class="flex-column">
                           <v-col>
@@ -62,7 +63,7 @@
                             class="d-flex align-center my-3 my-sm-8"
                           >
                             <v-divider light></v-divider>
-                            <span class="px-5 black--text"> or </span>
+                            <span class="px-5 text-black"> or </span>
                             <v-divider light></v-divider>
                           </v-col>
                           <v-form ref="log" v-model="valid" lazy-validation>
@@ -106,7 +107,8 @@
                               <v-btn
                                 large
                                 text
-                                class="text-capitalize primary--text"
+                                class="text-capitalize text-primary"
+                                v-if="backendEnabled"
                                 @click="$router.push('/forgot')"
                               >
                                 Forget Password
@@ -115,11 +117,11 @@
                           </v-form>
                         </v-row>
                       </v-container>
-                    </v-form>
-                  </v-tab-item>
+                    </div>
+                  </v-window-item>
 
-                  <v-tab-item :value="'tab-newUser'">
-                    <v-form>
+                  <v-window-item v-if="backendEnabled" value="tab-newUser">
+                    <div>
                       <v-container>
                         <v-row class="flex-column">
                           <v-col>
@@ -193,7 +195,7 @@
                             class="d-flex align-center my-2 my-sm-8"
                           >
                             <v-divider light></v-divider>
-                            <span class="px-5 black--text"> or </span>
+                            <span class="px-5 text-black"> or </span>
                             <v-divider light></v-divider>
                           </v-col>
 
@@ -215,14 +217,14 @@
                           >
                         </v-row>
                       </v-container>
-                    </v-form>
-                  </v-tab-item>
-                </v-tabs>
+                    </div>
+                  </v-window-item>
+                </v-window>
               </div>
             </v-col>
             <v-col cols="12" class="d-flex justify-center">
               <v-footer>
-                <div class="primary--text">
+                <div class="text-primary">
                   {{ new Date().getFullYear() }} &copy; Vue Material Admin
                   - Made by <a href="https://flatlogic.com/">Flatlogic</a>
                 </div>
@@ -234,8 +236,8 @@
     </v-container>
     <v-snackbar v-model="alert" color="error">
       {{ message }}
-      <template v-slot:action="{ attrs }">
-        <v-btn dark text v-bind="attrs" @click="alert = false"> Close </v-btn>
+      <template v-slot:actions>
+        <v-btn variant="text" @click="alert = false"> Close </v-btn>
       </template>
     </v-snackbar>
   </v-app>
@@ -249,9 +251,10 @@
     name: 'Login',
     data() {
       return {
+        backendEnabled: config.isBackend,
         valid: true,
-        loginTabs: '',
-        email: 'admin@flatlogic.com',
+        loginTabs: 'tab-login',
+        email: config.isBackend ? '' : config.auth.email,
         emailRules: [
           (v) => !!v || 'E-mail is required',
           (v) => /.+@.+/.test(v) || 'E-mail must be valid',
@@ -264,7 +267,7 @@
         ],
         createEmail: '',
         createPassword: '',
-        password: 'password',
+        password: config.isBackend ? '' : config.auth.password,
         passRules: [
           (v) => !!v || 'Password is required',
           (v) => v.length >= 6 || 'Min 6 characters',
@@ -288,7 +291,8 @@
         await this.registerUser({
           email: this.createEmail,
           password: this.createPassword,
-        }).then(() => {
+        }).then((registered) => {
+          if (!registered) return;
           this.createEmail = '';
           this.createPassword = '';
           this.loginTabs = 'tab-login';
@@ -328,11 +332,6 @@
         this.receiveLogin();
       }
     },
-    mounted() {
-      const creds = config.auth;
-      this.email = creds.email;
-      this.password = creds.password;
-    },
   };
 </script>
 
@@ -342,7 +341,7 @@
   .main-part {
     width: 100%;
     height: 100vh;
-    background-color: var(--v-primary-base);
+    background-color: rgb(var(--v-theme-primary));
     display: flex;
     flex-direction: column;
     justify-content: center;

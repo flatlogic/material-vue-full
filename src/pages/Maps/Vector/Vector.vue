@@ -125,7 +125,7 @@ export default {
             "longitude": 28.1876,
         } ];
     },
-    beforeDestroy() {
+    beforeUnmount() {
         if (this.map) {
             this.map.dispose()
         }

@@ -8,21 +8,21 @@
           </v-col>
 
           <v-col cols="3" class="d-flex align-center">
-            <p class="fs-normal greyBold--text mb-0">First Name</p>
+            <p class="fs-normal text-greyBold mb-0">First Name</p>
           </v-col>
           <v-col cols="9">
             <v-text-field label="First Name" v-model="firstName"></v-text-field>
           </v-col>
 
           <v-col cols="3" class="d-flex align-center">
-            <p class="fs-normal greyBold--text mb-0">Last Name</p>
+            <p class="fs-normal text-greyBold mb-0">Last Name</p>
           </v-col>
           <v-col cols="9">
             <v-text-field label="Last Name" v-model="lastName"></v-text-field>
           </v-col>
 
           <v-col cols="3" class="d-flex align-center">
-            <p class="fs-normal greyBold--text mb-0">Phone Number</p>
+            <p class="fs-normal text-greyBold mb-0">Phone Number</p>
           </v-col>
           <v-col cols="9">
             <v-text-field
@@ -32,10 +32,10 @@
           </v-col>
 
           <v-col cols="3" class="d-flex align-center">
-            <p class="fs-normal greyBold--text mb-0">Role</p>
+            <p class="fs-normal text-greyBold mb-0">Role</p>
           </v-col>
           <v-col cols="9">
-            <v-radio-group v-model="role" row>
+            <v-radio-group v-model="role" inline>
               <v-col cols="12" sm="4" md="4">
                 <v-radio label="admin" value="admin"></v-radio>
               </v-col>
@@ -47,7 +47,7 @@
           </v-col>
 
           <v-col cols="3" class="d-flex align-center">
-            <p class="fs-normal greyBold--text mb-0">Disabled</p>
+            <p class="fs-normal text-greyBold mb-0">Disabled</p>
           </v-col>
           <v-col cols="9">
             <v-checkbox
@@ -67,7 +67,7 @@
           />
 
           <v-col cols="12 mt-5">
-            <v-btn type="submit" color="primary"> Save </v-btn>
+            <v-btn type="submit" color="primary" :disabled="id == null"> Save </v-btn>
 
             <v-btn @click="formatData" class="ml-2"> Reset </v-btn>
 
@@ -89,6 +89,7 @@
   export default {
     data() {
       return {
+        id: null,
         firstName: '',
 
         lastName: '',
@@ -107,6 +108,7 @@
     computed: {
       ...mapState({
         data: (state) => state.usersForm.data,
+        currentUserId: (state) => state.auth.currentUser?.id,
       }),
 
       cancelUrl() {
@@ -128,21 +130,15 @@
         edit: 'usersForm/edit',
       }),
       async submitHandler() {
-        const data = this.data;
-
-        data.firstName = this.firstName;
-
-        data.lastName = this.lastName;
-
-        data.phoneNumber = this.phoneNumber;
-
-        data.email = this.email;
-
-        data.role = this.role;
-
-        data.disabled = this.disabled;
-
-        data.avatar = this.avatar;
+        const data = {
+          firstName: this.firstName,
+          lastName: this.lastName,
+          phoneNumber: this.phoneNumber,
+          email: this.email,
+          role: this.role,
+          disabled: this.disabled,
+          avatar: this.avatar,
+        };
 
         try {
           await this.edit({ id: this.id, data });
@@ -170,30 +166,28 @@
 
         this.role = this.data.role;
 
-        this.avatar = this.data.avatar;
+        this.disabled = Boolean(this.data.disabled);
+        this.avatar = this.data.avatar || [];
       },
     },
-    async beforeMount() {
-      try {
-        const { user } = JSON.parse(localStorage.getItem('user'));
-        const id = user.id;
-
-        if (id) {
-          this.id = id;
-          await this.getData(id);
-          this.formatData();
-        }
-      } catch (e) {
-        this.showSnackbar(e);
-      }
+    watch: {
+      currentUserId: {
+        immediate: true,
+        async handler(id) {
+          if (id == null) return;
+          try {
+            await this.getData(id);
+            this.id = id;
+            this.formatData();
+          } catch (error) {
+            this.showSnackbar(error.message);
+          }
+        },
+      },
     },
-    watch: {},
-    // eslint-disable-next-line vue/no-unused-components
     components: {
       ImageUploader,
       FileUploader,
-      VDatetimePicker: () =>
-        import('vuetify-datetime-picker/src/components/DatetimePicker.vue'),
     },
   };
 </script>

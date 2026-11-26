@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '@/api';
 
 export default {
   namespaced: true,
@@ -28,8 +28,6 @@ export default {
           root: true,
         });
         commit(`getData`, result.data);
-      } catch (e) {
-        dispatch('snackbar/showSnackbar', e, { root: true });
       } finally {
         commit('finishLoading');
       }
@@ -48,8 +46,6 @@ export default {
           root: true,
         });
         commit(`getData`, result.data);
-      } catch (e) {
-        dispatch('snackbar/showSnackbar', e, { root: true });
       } finally {
         commit('finishLoading');
       }
@@ -59,8 +55,6 @@ export default {
       try {
         const result = await axios.get(`/users/${payload}`);
         commit(`getData`, result.data);
-      } catch (e) {
-        dispatch('snackbar/showSnackbar', e, { root: true });
       } finally {
         commit('finishLoading');
       }

@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '@/api';
 import router from '../router';
 
 export default {
@@ -27,11 +27,12 @@ export default {
         if (payload.email && payload.password) {
           await axios.post('/auth/signup', payload);
           dispatch('receiveRegister');
+          return true;
         } else {
           dispatch('registerError', 'Something was wrong. Try again');
         }
       } catch (e) {
-        dispatch('registerError', e.response.data);
+        dispatch('registerError', e.response?.data?.message || e.response?.data || e.message);
       }
     },
     requestRegister({ commit }) {
@@ -43,10 +44,9 @@ export default {
     registerError({ commit }, payload) {
       commit('REGISTER_FAILURE', payload);
     },
-    // eslint-disable-next-line no-empty-pattern
-    verifyEmail({ dispatch }, payload) {
+    async verifyEmail({ dispatch }, payload) {
       try {
-        const res = axios.put('/auth/verify-email', { token: payload });
+        const res = await axios.put('/auth/verify-email', { token: payload });
         if (res) {
           dispatch('snackbar/showSnackbar', 'Your email was verified', {
             root: true,

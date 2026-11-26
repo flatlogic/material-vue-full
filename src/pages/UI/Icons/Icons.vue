@@ -28,8 +28,8 @@
             >
               <v-card-text>
                 <v-row no-gutters>
-                  <template v-for="icon in materialIcons" >
-                    <v-col md="3" lg="2" sm="6" cols="12" :key="icon" class="mb-5">
+                  <template v-for="icon in materialIcons" :key="icon" >
+                    <v-col md="3" lg="2" sm="6" cols="12"  class="mb-5">
                       <v-icon class="mx-3">{{ icon }}</v-icon>
                       <span>{{ icon }}</span>
                     </v-col>
@@ -47,8 +47,8 @@
             >
               <v-card-text>
                 <v-row no-gutters>
-                  <template v-for="icon in fontAwesome" >
-                    <v-col md="3" lg="2" sm="6" cols="12" :key="icon" class="mb-5">
+                  <template v-for="icon in fontAwesome" :key="icon" >
+                    <v-col md="3" lg="2" sm="6" cols="12"  class="mb-5">
                       <v-icon class="mx-3"> {{ toFontAwesomeText(icon) }} </v-icon>
                       <span> {{ icon }}</span>
                     </v-col>

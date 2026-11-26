@@ -1,72 +1,24 @@
 <template>
   <v-navigation-drawer
-    app
-    clipped
     v-model="DRAWER_STATE"
-    :mini-variant="!DRAWER_STATE"
+    :rail="!DRAWER_STATE"
     :width="sidebarWidth"
-    :permanent="$vuetify.breakpoint.lgAndUp"
-    :temporary="$vuetify.breakpoint.mdAndDown"
-    :mini-variant-width="sidebarMinWidth"
+    :permanent="$vuetify.display.lgAndUp"
+    :temporary="$vuetify.display.mdAndDown"
+    :rail-width="sidebarMinWidth"
     :class="{'drawer-mini': !DRAWER_STATE}"
   >
     <v-list>
-      <template v-for="item in items">
-        <v-list-group
-          color="primary"
-          v-if="item.children && DRAWER_STATE"
-          :key="item.title"
-          v-model="item.model"
-        >
-          <template v-slot:prependIcon>
-            <v-icon size="24" class="mr-0"> {{ item.icon }} </v-icon>
+      <template v-for="item in items" :key="item.title">
+        <v-list-group v-if="item.children && DRAWER_STATE" :value="item.title">
+          <template #activator="{ props }">
+            <v-list-item v-bind="props" :prepend-icon="item.icon" :title="item.title" />
           </template>
-          <template v-slot:activator >
-            <v-list-item-content>
-                <v-list-item-title>
-                  {{ item.title }}
-                </v-list-item-title>
-              </v-list-item-content>
-          </template>
-          <v-list-item
-            v-for="(child, i) in item.children"
-            :key="i"
-            :to="child.link"
-            link
-            class="pl-12"
-          >
-            <v-list-item-action class="mr-2" v-if="child.icon">
-              <v-icon size="">{{ child.icon }}</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>
-                {{ child.title }}
-              </v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
+          <v-list-item v-for="child in item.children" :key="child.link" :to="child.link"
+            :prepend-icon="child.icon" :title="child.title" />
         </v-list-group>
-        <v-list-item
-          color="primary"
-          v-else
-          :key="item.text"
-          :href="item.href"
-          :to="item.link === '#' ? '' : item.link"
-          link
-        >
-          <v-list-item-action class="mr-6">
-            <v-icon
-              size="24"
-              :color="item.color ? item.color : ''"
-            >{{ item.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title
-              link
-            >
-              {{ item.title }}
-            </v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+        <v-list-item v-else :href="item.href" :to="item.link === '#' ? undefined : item.link"
+          :prepend-icon="item.icon" :title="item.title" />
       </template>
     </v-list>
   </v-navigation-drawer>

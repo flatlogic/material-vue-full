@@ -2,18 +2,18 @@
 
 ul.v-breadcrumbs {
   li:last-child div{
-    color: var(--v-primary-base);
+    color: rgb(var(--v-theme-primary));
   }
   .v-breadcrumbs__item {
     font-size: 1.125rem;
-    color: var(--v-greyMedium-base);
+    color: rgb(var(--v-theme-greyMedium));
     cursor: pointer;
   }
 }
-.v-application.theme--dark {
+.v-application.v-theme--dark {
   ul.v-breadcrumbs {
     li:last-child div{
-      color: var(--v-primary-base);
+      color: rgb(var(--v-theme-primary));
     }
     .v-breadcrumbs__item {
       color: white;

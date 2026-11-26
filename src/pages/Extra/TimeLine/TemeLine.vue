@@ -1,45 +1,45 @@
 <template>
   <v-container fluid class="timeline-title-page mt-6">
-    <v-timeline reverse align-top :dense="$vuetify.breakpoint.smAndDown">
+    <v-timeline align="start" :side="$vuetify.display.smAndDown ? 'end' : undefined">
       <v-timeline-item
         v-for="(item, i) in items"
         :key="i"
-        :color="item.subColor"
+        :dot-color="item.subColor"
         fill-dot>
-        <span v-html="item.opposite" slot="opposite"></span>
-        <span slot="icon">
+        <template #opposite><span v-html="item.opposite"></span></template>
+        <template #icon>
           <v-responsive
             :class="'text-center ' + item.color + ' rounded-circle d-inline-flex align-center justify-center'"
             height="28"
             width="28">
-            <v-icon :size="item.iconSize" :color="item.icon" class="white--text">{{ item.icon }}</v-icon>
+            <v-icon :size="item.iconSize" :color="item.icon" class="text-white">{{ item.icon }}</v-icon>
         </v-responsive>
-        </span>
+        </template>
         <v-card>
           <v-card-title class="py-1">
             <v-list-item inactive class="pl-0">
-              <v-list-item-avatar>
+              <template #prepend><v-avatar>
                 <v-img :src="item.avatar"></v-img>
-              </v-list-item-avatar>
-              <v-list-item-content>
+              </v-avatar></template>
+              <div>
                 <v-list-item-title>
-                  <h6 :class="item.color + '--text mb-1'">{{ item.title }} <span class="greyBold--text">{{ item.nick }}</span> </h6>
+                  <h6 :class="item.color + '--text mb-1'">{{ item.title }} <span class="text-greyBold">{{ item.nick }}</span> </h6>
                 </v-list-item-title>
-                <v-list-item-subtitle v-html="item.subtitle"></v-list-item-subtitle>
-              </v-list-item-content>
+                <v-list-item-subtitle><span v-html="item.subtitle"></span></v-list-item-subtitle>
+              </div>
             </v-list-item>
           </v-card-title>
           <v-card-text class="text--primary px-0">
             <p class="mx-5 mb-0"> {{ item.content.text }} </p>
-            <GmapMap v-if="item.content.googleMap"
+            <VueGoogleMap :api-key="$googleMapsKey" v-if="item.content.googleMap"
               :center="{lat: -37.813179, lng: 144.950259}"
               :zoom="12"
               style="width: 100%; height: 200px"
             >
-              <GmapMarker
-                  :position="{lat: -37.813179, lng: 144.950259}"
+              <MapMarker
+                  :options="{ position: {lat: -37.813179, lng: 144.950259} }"
               />
-            </GmapMap>
+            </VueGoogleMap>
             <v-img
               v-else-if="item.content.image"
               class="mt-2"
@@ -55,22 +55,20 @@
             </v-btn>
           </v-card-text>
           <v-list two-line>
-            <template v-for="(item, index) in item.comments">
+            <template v-for="(item, index) in item.comments" :key="index">
               <v-divider
                 v-if="item.divider"
-                :key="index"
               ></v-divider>
               <v-list-item
-                :key="(index + 1) * 2"
               >
-                <v-list-item-avatar>
+                <template #prepend><v-avatar>
                   <v-img :src="item.avatar"></v-img>
-                </v-list-item-avatar>
+                </v-avatar></template>
 
-                <v-list-item-content>
-                  <v-list-item-title v-html="item.title"></v-list-item-title>
-                  <v-list-item-subtitle v-html="item.subtitle"></v-list-item-subtitle>
-                </v-list-item-content>
+                <div>
+                  <v-list-item-title><span v-html="item.title"></span></v-list-item-title>
+                  <v-list-item-subtitle><span v-html="item.subtitle"></span></v-list-item-subtitle>
+                </div>
               </v-list-item>
             </template>
             <v-divider></v-divider>

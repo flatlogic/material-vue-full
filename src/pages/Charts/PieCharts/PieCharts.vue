@@ -4,15 +4,14 @@
       <v-row>
         <v-col cols="12" md="6">
           <v-card class="mx-1 mb-1">
-            <v-card-title class="pa-5 pb-3">
+            <v-card-title class="d-flex align-center pa-5 pb-3">
               <p>Basic Pie Chart</p>
               <v-spacer></v-spacer>
               <v-menu>
-                <template v-slot:activator="{ on, attrs }">
-                  <v-btn
+                <template #activator="{ props }">
+                  <v-btn variant="text"
                       icon
-                      v-bind="attrs"
-                      v-on="on"
+                      v-bind="props"
                   >
                     <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                   </v-btn>
@@ -43,15 +42,14 @@
         </v-col>
         <v-col cols="12" md="6" >
           <v-card class="mx-1 mb-1">
-            <v-card-title class="pa-5 pb-3">
+            <v-card-title class="d-flex align-center pa-5 pb-3">
               <p>Donut Pie Chart</p>
               <v-spacer></v-spacer>
               <v-menu>
-                <template v-slot:activator="{ on, attrs }">
-                  <v-btn
+                <template #activator="{ props }">
+                  <v-btn variant="text"
                       icon
-                      v-bind="attrs"
-                      v-on="on"
+                      v-bind="props"
                   >
                     <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                   </v-btn>
@@ -72,7 +70,7 @@
                 <v-col>
                   <ApexChart
                     type="donut"
-                    :height="$vuetify.breakpoint.smAndDown ? 300 : 350"
+                    :height="$vuetify.display.smAndDown ? 300 : 350"
                     :options="apexPieDonut.options"
                     :series="apexPieDonut.series">
                   </ApexChart>
@@ -83,15 +81,14 @@
         </v-col>
         <v-col cols="12" md="6" >
           <v-card class="mx-1 mb-1">
-            <v-card-title class="pa-5 pb-3">
+            <v-card-title class="d-flex align-center pa-5 pb-3">
               <p>Dynamic Pie Chart</p>
               <v-spacer></v-spacer>
               <v-menu>
-                <template v-slot:activator="{ on, attrs }">
-                  <v-btn
+                <template #activator="{ props }">
+                  <v-btn variant="text"
                       icon
-                      v-bind="attrs"
-                      v-on="on"
+                      v-bind="props"
                   >
                     <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                   </v-btn>
@@ -112,7 +109,7 @@
                 <v-col cols="12" class="my-auto">
                   <ApexChart
                     type="donut"
-                    :height="$vuetify.breakpoint.smAndDown ? 300 : 350"
+                    :height="$vuetify.display.smAndDown ? 300 : 350"
                     :options="apexDynamicChart.options"
                     :series="apexDynamicChart.series">
                   </ApexChart>
@@ -131,15 +128,14 @@
         </v-col>
         <v-col cols="12" md="6">
           <v-card class="mx-1 mb-1">
-            <v-card-title class="pa-5 pb-3">
+            <v-card-title class="d-flex align-center pa-5 pb-3">
               <p>Monochrome Pie Chart</p>
               <v-spacer></v-spacer>
               <v-menu>
-                <template v-slot:activator="{ on, attrs }">
-                  <v-btn
+                <template #activator="{ props }">
+                  <v-btn variant="text"
                       icon
-                      v-bind="attrs"
-                      v-on="on"
+                      v-bind="props"
                   >
                     <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                   </v-btn>
@@ -160,7 +156,7 @@
                 <v-col cols="12" class="pb-7">
                   <ApexChart
                     type="pie"
-                    :height="$vuetify.breakpoint.smAndDown ? 300 : 368"
+                    :height="$vuetify.display.smAndDown ? 300 : 368"
                     :options="apexMonochrome.options"
                     :series="apexMonochrome.series">
                   </ApexChart>
@@ -175,7 +171,7 @@
 </template>
 
 <script>
-import ApexChart from 'vue-apexcharts'
+import ApexChart from 'vue3-apexcharts'
 import config from '@/config';
 
 export default {

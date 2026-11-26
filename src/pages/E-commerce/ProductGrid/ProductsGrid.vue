@@ -9,23 +9,21 @@
           :key="i"
           :items="select.items"
           :label="select.type"
-          :value="select.items[0]"
-          outlined
+          :model-value="select.items[0]"
+          variant="outlined"
         ></v-select>
       </v-col>
     </v-row>
     <v-row>
-      <template v-for="(card, i) in cards">
+      <template v-for="card in cards" :key="card.title">
         <v-col
           cols="12"
           md="6"
-          lg="3"
-          :key="i">
+          lg="3">
           <v-card
             class="ma-1"
             link
-            replace
-            :key="i">
+            replace>
             <v-img
               height="200"
               :src="card.src"
@@ -45,7 +43,7 @@
               <span>{{ '$' + card.price }}</span>
               <v-spacer></v-spacer>
               <div class="d-flex align-center">
-                <span class="warning--text" style="font-size: 1rem">{{ card.rating }}&#160;&#160;</span>
+                <span class="text-warning" style="font-size: 1rem">{{ card.rating }}&#160;&#160;</span>
                 <v-icon size="20" color="warning">mdi-star</v-icon>
               </div>
             </v-card-actions>
@@ -66,7 +64,7 @@ export default {
           id: 1,
           title: 'Trainers',
           subtitle: 'Trainers in white',
-          src: require('@/assets/img/e-commerce/medium/1.png'),
+          src: new URL('../../../assets/img/e-commerce/medium/1.png', import.meta.url).href,
           price: '78',
           rating: '4.6',
           badge: {
@@ -78,7 +76,7 @@ export default {
           id: 2,
           title: 'Boots',
           subtitle: 'Trainers in blue',
-          src: require('@/assets/img/e-commerce/medium/2.png'),
+          src: new URL('../../../assets/img/e-commerce/medium/2.png', import.meta.url).href,
           price: '78',
           rating: '4.6',
           badge: {
@@ -90,7 +88,7 @@ export default {
           id: 3,
           title: 'Flat sandals',
           subtitle: 'Trainers in white',
-          src: require('@/assets/img/e-commerce/medium/3.png'),
+          src: new URL('../../../assets/img/e-commerce/medium/3.png', import.meta.url).href,
           price: '78',
           rating: '4.6',
         },
@@ -98,7 +96,7 @@ export default {
           id: 4,
           title: 'Trainers',
           subtitle: 'Trainers in blue',
-          src: require('@/assets/img/e-commerce/medium/4.png'),
+          src: new URL('../../../assets/img/e-commerce/medium/4.png', import.meta.url).href,
           price: '78',
           rating: '4.6',
           badge: {
@@ -110,7 +108,7 @@ export default {
           id: 5,
           title: 'Flat sandals',
           subtitle: 'Trainers in white',
-          src: require('@/assets/img/e-commerce/medium/5.png'),
+          src: new URL('../../../assets/img/e-commerce/medium/5.png', import.meta.url).href,
           price: '78',
           rating: '4.6',
           badge: {
@@ -122,7 +120,7 @@ export default {
           id: 6,
           title: 'Flat sandals',
           subtitle: 'Trainers in white',
-          src: require('@/assets/img/e-commerce/medium/6.png'),
+          src: new URL('../../../assets/img/e-commerce/medium/6.png', import.meta.url).href,
           price: '78',
           rating: '4.6',
           badge: {
@@ -134,7 +132,7 @@ export default {
           id: 7,
           title: 'Trainers',
           subtitle: 'Trainers in white',
-          src: require('@/assets/img/e-commerce/medium/1.png'),
+          src: new URL('../../../assets/img/e-commerce/medium/1.png', import.meta.url).href,
           price: '78',
           rating: '4.6',
           badge: {
@@ -146,7 +144,7 @@ export default {
           id: 8,
           title: 'Boots',
           subtitle: 'Trainers in blue',
-          src: require('@/assets/img/e-commerce/medium/2.png'),
+          src: new URL('../../../assets/img/e-commerce/medium/2.png', import.meta.url).href,
           price: '78',
           rating: '4.6',
         },
@@ -154,7 +152,7 @@ export default {
           id: 9,
           title: 'Flat sandals',
           subtitle: 'Trainers in white',
-          src: require('@/assets/img/e-commerce/medium/3.png'),
+          src: new URL('../../../assets/img/e-commerce/medium/3.png', import.meta.url).href,
           price: '78',
           rating: '4.6',
           badge: {
@@ -166,7 +164,7 @@ export default {
           id: 10,
           title: 'Flat sandals',
           subtitle: 'Trainers in white',
-          src: require('@/assets/img/e-commerce/medium/4.png'),
+          src: new URL('../../../assets/img/e-commerce/medium/4.png', import.meta.url).href,
           price: '78',
           rating: '4.6',
         },
@@ -174,7 +172,7 @@ export default {
           id: 11,
           title: 'Boots',
           subtitle: 'Trainers in blue',
-          src: require('@/assets/img/e-commerce/medium/5.png'),
+          src: new URL('../../../assets/img/e-commerce/medium/5.png', import.meta.url).href,
           price: '78',
           rating: '4.6',
         },
@@ -182,7 +180,7 @@ export default {
           id: 12,
           title: 'Boots',
           subtitle: 'Trainers in blue',
-          src: require('@/assets/img/e-commerce/medium/6.png'),
+          src: new URL('../../../assets/img/e-commerce/medium/6.png', import.meta.url).href,
           price: '78',
           rating: '4.6',
           badge: {

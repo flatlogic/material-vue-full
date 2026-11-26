@@ -21,7 +21,7 @@
               :headers="mock.employeeTable.headers"
               :items="mock.employeeTable.employee"
               :search="mock.employeeTable.search"
-              item-key="name"
+              item-value="name"
               show-select
             >
             </v-data-table>
@@ -33,11 +33,10 @@
               <p>Material-UI Table</p>
               <v-spacer></v-spacer>
               <v-menu>
-                <template v-slot:activator="{ on, attrs }">
+                <template #activator="{ props }">
                   <v-btn
                     icon
-                    v-bind="attrs"
-                    v-on="on"
+                    v-bind="props"
                   >
                     <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                   </v-btn>
@@ -53,7 +52,7 @@
                 </v-list>
               </v-menu>
             </v-card-title>
-            <v-simple-table class="material-table">
+            <v-table class="material-table">
               <template v-slot:default>
                 <thead>
                   <tr>
@@ -70,7 +69,7 @@
                   <tr v-for="item in mock.materialUITable" :key="item.name">
                   <td class="pa-4">
                     <v-avatar :color="item.avatar.color" size="40" class="mr-2">
-                      <span class="white--text headline">{{ item.avatar.name }}</span>
+                      <span class="text-white headline">{{ item.avatar.name }}</span>
                     </v-avatar>
                     {{ item.name }}</td>
                   <td>{{ item.email }}</td>
@@ -108,7 +107,7 @@
                 </tr>
                 </tbody>
               </template>
-            </v-simple-table>
+            </v-table>
           </v-card>
         </v-col>
       </v-row>

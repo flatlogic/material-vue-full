@@ -7,11 +7,10 @@
             <p>Tabs Example</p>
             <v-spacer></v-spacer>
             <v-menu>
-              <template v-slot:activator="{ on, attrs }">
+              <template #activator="{ props }">
                 <v-btn
                   icon
-                  v-bind="attrs"
-                  v-on="on">
+                  v-bind="props">
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
               </template>
@@ -26,29 +25,31 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal greyBold--text mb-5">The <code>v-tabs</code> component is used for hiding content behind a selectable item. This can also be used as a pseudo-navigation for a page, where the tabs are links and the tab-items are the content.</p>
+            <p class="fs-normal text-greyBold mb-5">The <code>v-tabs</code> component is used for hiding content behind a selectable item. This can also be used as a pseudo-navigation for a page, where the tabs are links and the tab-items are the content.</p>
             <v-tabs
               v-model="tabExample.tab"
               fixed-tabs
               class="tab-example">
-              <v-tabs-slider></v-tabs-slider>
+
 
               <v-tab
                 v-for="i in tabExample.tabs"
                 :key="i"
-                :href="`#tab-${i}`">
+                :value="`tab-${i}`">
                 Tab {{ i }}
               </v-tab>
 
-              <v-tab-item
+              </v-tabs>
+            <v-tabs-window v-model="tabExample.tab">
+              <v-tabs-window-item
                 v-for="i in tabExample.tabs"
                 :key="i"
                 :value="'tab-' + i">
                 <v-sheet class="py-5 px-3">
                   <p>{{ tabExample.text }}</p>
                 </v-sheet>
-              </v-tab-item>
-            </v-tabs>
+              </v-tabs-window-item>
+            </v-tabs-window>
           </v-card-text>
         </v-card>
       </v-col>
@@ -58,11 +59,10 @@
             <p>Icons Tabs</p>
             <v-spacer></v-spacer>
             <v-menu>
-              <template v-slot:activator="{ on, attrs }">
+              <template #activator="{ props }">
                 <v-btn
                     icon
-                    v-bind="attrs"
-                    v-on="on"
+                    v-bind="props"
                 >
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
@@ -79,23 +79,25 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal greyBold--text mb-5"><code>v-tab</code>'s can contain icons as well as text. This increases the <code>v-tabs</code> height to 72px.</p>
+            <p class="fs-normal text-greyBold mb-5"><code>v-tab</code>'s can contain icons as well as text. This increases the <code>v-tabs</code> height to 72px.</p>
             <v-tabs
               v-model="tabWithIcons.tab"
               fixed-tabs
               icons-and-text
               class="tab-icons"
             >
-              <v-tabs-slider></v-tabs-slider>
+
               <v-tab
                 v-for="i in tabWithIcons.tabs"
                 :key="i"
-                :href="`#tab-${i}`"
+                :value="`tab-${i}`"
               >
                 Tab {{ i }}
                 <v-icon> {{ tabWithIcons.icon[i - 1] }} </v-icon>
               </v-tab>
-              <v-tab-item
+              </v-tabs>
+            <v-tabs-window v-model="tabWithIcons.tab">
+              <v-tabs-window-item
                 v-for="i in tabWithIcons.tabs"
                 :key="i"
                 :value="'tab-' + i"
@@ -103,8 +105,8 @@
                 <v-sheet class="py-5 px-3">
                   <p>{{ tabWithIcons.text }}</p>
                 </v-sheet>
-              </v-tab-item>
-            </v-tabs>
+              </v-tabs-window-item>
+            </v-tabs-window>
           </v-card-text>
         </v-card>
       </v-col>
@@ -116,11 +118,10 @@
             <p>Expansion Panel Example</p>
             <v-spacer></v-spacer>
             <v-menu>
-              <template v-slot:activator="{ on, attrs }">
+              <template #activator="{ props }">
                 <v-btn
                   icon
-                  v-bind="attrs"
-                  v-on="on">
+                  v-bind="props">
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
               </template>
@@ -142,10 +143,10 @@
               <v-expansion-panel
                 v-for="(item,i) in 5"
                 :key="i">
-                <v-expansion-panel-header>Header {{ item }}</v-expansion-panel-header>
-                <v-expansion-panel-content>
+                <v-expansion-panel-title>Header {{ item }}</v-expansion-panel-title>
+                <v-expansion-panel-text>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </v-expansion-panel-content>
+                </v-expansion-panel-text>
               </v-expansion-panel>
             </v-expansion-panels>
           </v-card-text>
@@ -157,11 +158,10 @@
             <p>Customize Expansion Panel Example</p>
             <v-spacer></v-spacer>
             <v-menu>
-              <template v-slot:activator="{ on, attrs }">
+              <template #activator="{ props }">
                 <v-btn
                     icon
-                    v-bind="attrs"
-                    v-on="on"
+                    v-bind="props"
                 >
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
@@ -178,20 +178,19 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-              <v-expansion-panels
+              <v-expansion-panels theme="dark"
                       v-model="customizePanel"
                       multiple
-                      dark
               >
                 <v-expansion-panel
                         v-for="(item,i) in 5"
                         :key="i"
                         class="primary"
                 >
-                  <v-expansion-panel-header>Header {{ item }}</v-expansion-panel-header>
-                  <v-expansion-panel-content>
+                  <v-expansion-panel-title>Header {{ item }}</v-expansion-panel-title>
+                  <v-expansion-panel-text>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  </v-expansion-panel-content>
+                  </v-expansion-panel-text>
                 </v-expansion-panel>
               </v-expansion-panels>
             </v-card-text>

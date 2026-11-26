@@ -1,5 +1,4 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import { createStore } from 'vuex';
 
 import layout from './layout';
 import snackbar from './snackbar';
@@ -9,12 +8,11 @@ import changePassword from './changePassword';
 import forgot from './forgot';
 import reset from './reset';
 import users from './lists/usersList';
+import usersList from './usersList';
 import usersForm from './forms/usersForm';
 import products from '@/store/products';
 
-Vue.use(Vuex);
-
-export default new Vuex.Store({
+export default createStore({
   modules: {
     auth,
     register,
@@ -26,5 +24,6 @@ export default new Vuex.Store({
     products,
     users,
     usersForm,
+    usersList,
   },
 });

@@ -7,24 +7,12 @@
             <p class="text-h5">Google Maps</p>
             <p>Run the following command first:</p>
             <code class="d-flex">
-              yarn add vue2-google-maps
+              npm install vue3-google-map
             </code>
-            <p>If you are using Webpack and Vue file components, just add the following to your code!</p>
-            <pre>&lt;<span class="pl-ent">GmapMap</span>
-  :<span class="pl-e">center</span>=<span class="pl-s1"><span class="pl-pds">"</span>{lat<span class="pl-k">:</span><span class="pl-c1">10</span>, lng<span class="pl-k">:</span><span class="pl-c1">10</span>}<span class="pl-pds">"</span></span>
-  :<span class="pl-e">zoom</span>=<span class="pl-s1"><span class="pl-pds">"</span><span class="pl-c1">7</span><span class="pl-pds">"</span></span>
-  <span class="pl-e">map-type-id</span>=<span class="pl-s"><span class="pl-pds">"</span>terrain<span class="pl-pds">"</span></span>
-  <span class="pl-e">style</span>=<span class="pl-s"><span class="pl-pds">"</span>width: 500px; height: 300px<span class="pl-pds">"</span></span>
-&gt;
-  &lt;<span class="pl-ent">GmapMarker</span>
-    :<span class="pl-e">key</span>=<span class="pl-s1"><span class="pl-pds">"</span>index<span class="pl-pds">"</span></span>
-    <span class="pl-e">v-for</span>=<span class="pl-s1"><span class="pl-pds">"</span>(m, index) <span class="pl-k">in</span> markers<span class="pl-pds">"</span></span>
-    :<span class="pl-e">position</span>=<span class="pl-s1"><span class="pl-pds">"</span><span class="pl-smi">m</span>.<span class="pl-smi">position</span><span class="pl-pds">"</span></span>
-    :<span class="pl-e">clickable</span>=<span class="pl-s1"><span class="pl-pds">"</span><span class="pl-c1">true</span><span class="pl-pds">"</span></span>
-    :<span class="pl-e">draggable</span>=<span class="pl-s1"><span class="pl-pds">"</span><span class="pl-c1">true</span><span class="pl-pds">"</span></span>
-    @<span class="pl-e">click</span>=<span class="pl-s1"><span class="pl-pds">"</span>center<span class="pl-k">=</span><span class="pl-smi">m</span>.<span class="pl-smi">position</span><span class="pl-pds">"</span></span>
-  /&gt;
-&lt;/<span class="pl-ent">GmapMap</span>&gt;</pre>
+            <p>Use the map component in a Vue single-file component.</p>
+            <pre v-pre>&lt;VueGoogleMap :api-key="apiKey" :center="center" :zoom="12"&gt;
+  &lt;MapMarker :options="{ position: center }" /&gt;
+&lt;/VueGoogleMap&gt;</pre>
             <v-btn text to="/maps/google" class="text-capitalize font-weight-regular">Example</v-btn>
           </v-card-text>
         </v-card>
@@ -35,11 +23,11 @@
             <p class="text-h5">Vector Map</p>
             <p>Run the following command first:</p>
             <code class="d-flex">
-              yarn add @amcharts/amcharts4
+              npm install @amcharts/amcharts4
               <br>
-              yarn add @amcharts/amcharts4-geodata
+              npm install @amcharts/amcharts4-geodata
             </code>
-            <p>If you are using Webpack and Vue file components, just add the following to your code!</p>
+            <p>Use the map component in a Vue single-file component.</p>
             <pre id="demo-code-javascript" class="code-HTML code-label-JavaScript code" style="display: block;"><code class="pre-scrollable HTML hljs"><span class="hljs-comment">&lt;!-- Styles --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
 <span class="hljs-selector-id">#chartdiv</span> {

@@ -7,7 +7,7 @@
             <p>Drag and Drop</p>
           </v-card-title>
           <v-card-text>
-            <p class="fs-normal greyBold--text mb-5">This is an example of an event calendar where you can drag events, extend their length, and create events.</p>
+            <p class="fs-normal text-greyBold mb-5">This is an example of an event calendar where you can drag events, extend their length, and create events.</p>
             <v-sheet height="686">
               <v-calendar
                 ref="calendar"
@@ -20,12 +20,9 @@
                 @mousedown:time="startTime"
                 @mousemove:time="mouseMove"
                 @mouseup:time="endDrag"
-                @mouseleave.native="cancelDrag">
-                <template #event="{ event, timed, eventSummary }">
-                  <div
-                    class="v-event-draggable"
-                    v-html="eventSummary()">
-                  </div>
+                @mouseleave="cancelDrag">
+                <template #event="{ event, timed }">
+                  <div class="v-event-draggable">{{ event.name }}</div>
                   <div
                     v-if="timed"
                     class="v-event-drag-bottom"
@@ -43,32 +40,30 @@
             <p>Events</p>
           </v-card-title>
           <v-card-text>
-            <p class="fs-normal greyBold--text mb-5">This is an example of a planner with additional event handlers and external components controlling the display of the calendar.</p>
+            <p class="fs-normal text-greyBold mb-5">This is an example of a planner with additional event handlers and external components controlling the display of the calendar.</p>
             <v-sheet height="64">
               <v-toolbar flat>
-                <v-btn outlined class="mr-4" color="greyTint" @click="setToday">
+                <v-btn variant="outlined" class="mr-4" color="greyTint" @click="setToday">
                   Today
                 </v-btn>
                 <v-spacer></v-spacer>
-                <v-btn fab text small color="greyBold" @click="prev">
+                <v-btn icon size="small" variant="text" color="greyBold" @click="prev">
                   <v-icon class="mr-2">mdi-chevron-left</v-icon>
                 </v-btn>
-                <v-toolbar-title v-if="$refs.calendar">
-                  {{ $refs.calendar.title }}
+                <v-toolbar-title v-if="$refs.calendarEvents">
+                  {{ $refs.calendarEvents.title }}
                 </v-toolbar-title>
-                <v-btn fab text small color="greyBold" @click="next">
+                <v-btn icon size="small" variant="text" color="greyBold" @click="next">
                   <v-icon class="ml-2">mdi-chevron-right</v-icon>
                 </v-btn>
                 <v-spacer></v-spacer>
-                <v-menu bottom right>
-                  <template v-slot:activator="{ on, attrs }">
-                    <v-btn
-                      outlined
+                <v-menu location="bottom end">
+                  <template #activator="{ props }">
+                    <v-btn variant="outlined"
                       color="greyTint"
-                      v-bind="attrs"
-                      v-on="on">
+                      v-bind="props">
                       <span>{{ typeToLabel[type] }}</span>
-                      <v-icon right>mdi-menu-down</v-icon>
+                      <v-icon end>mdi-menu-down</v-icon>
                     </v-btn>
                   </template>
                   <v-list>
@@ -100,11 +95,8 @@
                 @click:more="viewDay"
                 @click:date="viewDay"
                 @change="updateRange">
-                <template #event="{ event, timed, eventSummary }">
-                  <div
-                    class="v-event-draggable"
-                    v-html="eventSummary()">
-                  </div>
+                <template #event="{ event, timed }">
+                  <div class="v-event-draggable">{{ event.name }}</div>
                   <div
                     v-if="timed"
                     class="v-event-drag-bottom"
@@ -115,19 +107,17 @@
               <v-menu
                 v-model="selectedOpen"
                 :close-on-content-click="false"
-                :activator="selectedElement"
-                offset-x>
+                :activator="selectedElement">
                 <v-card
                   color="warning"
                   min-width="350px"
                   flat>
-                  <v-toolbar
-                    :color="selectedEvent.color"
-                    dark>
+                  <v-toolbar theme="dark"
+                    :color="selectedEvent.color">
                     <v-btn icon>
                       <v-icon>mdi-pencil</v-icon>
                     </v-btn>
-                    <v-toolbar-title v-html="selectedEvent.name"></v-toolbar-title>
+                    <v-toolbar-title>{{ selectedEvent.name }}</v-toolbar-title>
                     <v-spacer></v-spacer>
                     <v-btn icon>
                       <v-icon>mdi-heart</v-icon>
@@ -137,11 +127,10 @@
                     </v-btn>
                   </v-toolbar>
                   <v-card-text>
-                    <span v-html="selectedEvent.details"></span>
+                    <span>{{ selectedEvent.details }}</span>
                   </v-card-text>
                   <v-card-actions>
-                    <v-btn
-                      text
+                    <v-btn variant="text"
                       color="secondary"
                       @click="selectedOpen = false">
                       Cancel
@@ -161,7 +150,7 @@
   export default {
     name: 'Calendar',
     data: () => ({
-      focus: '',
+      focus: new Date(),
       type: 'month',
       typeToLabel: {
         month: 'Month',
@@ -194,7 +183,7 @@
         return event.color
       },
       setToday () {
-        this.focus = ''
+        this.focus = new Date()
       },
       prev () {
         this.$refs.calendarEvents.prev()

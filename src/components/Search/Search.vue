@@ -16,7 +16,7 @@
   import config from '../../config';
 
   export default {
-    name: 'Search',
+    name: 'AppSearch',
     data() {
       return {
         config,
@@ -30,7 +30,7 @@
   @import '../../styles/_variables.scss';
 
   label {
-    @include media-breakpoint-up(md) {
+    @media (min-width: 960px) {
       display: inline-block;
     }
     display: none;
@@ -53,7 +53,7 @@
       outline: none;
       color: white;
       &::placeholder {
-        color: var(--v-greyTint-base);
+        color: rgb(var(--v-theme-greyTint));
         font-weight: 400;
         font-size: 16px;
       }

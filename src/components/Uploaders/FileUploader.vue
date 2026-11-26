@@ -2,7 +2,7 @@
   <v-col cols="12">
     <v-row>
       <v-col cols="3" class="d-flex align-center">
-        <p class="fs-normal greyBold--text mb-0">{{ label }}</p>
+        <p class="fs-normal text-greyBold mb-0">{{ label }}</p>
       </v-col>
       <v-col cols="9">
         <input
@@ -33,8 +33,7 @@
 </template>
 
 <script>
-  import * as uuid from 'uuid/v4';
-  import axios from 'axios';
+  import axios from '@/api';
   import config from '@/config';
   import { mapMutations } from 'vuex';
 
@@ -78,7 +77,7 @@
         }
         let file = files[0];
         const extension = this.extractExtensionFrom(file.name);
-        const id = uuid();
+        const id = crypto.randomUUID();
         const privateUrl = `/products/image/${id}.${extension}`;
         const publicUrl = `${config.baseURLApi}/file/download?privateUrl=products/image/${id}.${extension}`;
         formData.append('file', file);

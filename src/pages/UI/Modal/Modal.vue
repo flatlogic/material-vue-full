@@ -9,13 +9,13 @@
                 <p>Live Demo</p>
               </v-card-title>
               <v-card-text>
-                <p class="greyBold--text">Toggle a working modal demo by clicking the button below. It will slide down and fade in from the top of the page.</p>
+                <p class="text-greyBold">Toggle a working modal demo by clicking the button below. It will slide down and fade in from the top of the page.</p>
                 <v-btn color="primary button-shadow" class="mr-4" @click="liveDemo = !liveDemo">DEMO</v-btn>
                 <v-dialog
                   v-model="liveDemo"
                   max-width="390">
                   <v-card>
-                    <v-card-title class="headline greyMedium--text">Use Google's location service?</v-card-title>
+                    <v-card-title class="headline text-greyMedium">Use Google's location service?</v-card-title>
 
                     <v-card-text>
                       Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.
@@ -24,9 +24,8 @@
                     <v-card-actions>
                       <v-spacer></v-spacer>
 
-                      <v-btn
+                      <v-btn variant="outlined"
                         color="primary"
-                        outlined
                         @click="liveDemo = false"
                       >
                         Disagree
@@ -42,19 +41,18 @@
                   </v-card>
                 </v-dialog>
                 <v-dialog v-model="scrollingLongContent" width="600px">
-                  <template v-slot:activator="{ on, attrs }">
+                  <template #activator="{ props }">
                     <v-btn
                       class="button-shadow"
                       color="secondary"
-                      v-bind="attrs"
-                      v-on="on"
+                      v-bind="props"
                     >
                       Scrolling long content
                     </v-btn>
                   </template>
                   <v-card>
                     <v-card-title>
-                      <span class="headline greyMedium--text">Use Google's location service?</span>
+                      <span class="headline text-greyMedium">Use Google's location service?</span>
                     </v-card-title>
                     <v-card-text>Lorem ipsum dolor sit amet, semper quis, sapien id natoque elit. Nostra urna at, magna at neque sed sed ante imperdiet, dolor mauris cursus velit, velit non, sem nec. Volutpat sem ridiculus placerat leo, augue in, duis erat proin condimentum in a eget, sed fermentum sed vestibulum varius ac, vestibulum volutpat orci ut elit eget tortor. Ultrices nascetur nulla gravida ante arcu. Pharetra rhoncus morbi ipsum, nunc tempor debitis, ipsum pellentesque, vitae id quam ut mauris dui tempor, aptent non. Quisque turpis. Phasellus quis lectus luctus orci eget rhoncus. Amet donec vestibulum mattis commodo, nulla aliquet, nibh praesent, elementum nulla. Sit lacus pharetra tempus magna neque pellentesque, nulla vel erat.
                       Justo ex quisque nulla accusamus venenatis, sed quis. Nibh phasellus gravida metus in, fusce aenean ut erat commodo eros. Ut turpis, dui integer, nonummy pede placeat nec in sit leo. Faucibus porttitor illo taciti odio, amet viverra scelerisque quis quis et tortor, curabitur morbi a. Enim tempor at, rutrum elit condimentum, amet rutrum vitae tempor torquent nunc. Praesent vestibulum integer maxime felis. Neque aenean quia vitae nostra, tempus elit enim id dui, at egestas pulvinar. Integer libero vestibulum, quis blandit scelerisque mattis fermentum nulla, tortor donec vestibulum dolor amet eget, elit nullam. Aliquam leo phasellus aliquam curabitur metus a, nulla justo mattis duis interdum vel, mollis vitae et id, vestibulum erat ridiculus sit pulvinar justo sed. Vehicula convallis, et nulla wisi, amet vestibulum risus, quam ac egestas.
@@ -69,7 +67,7 @@
                       +</v-card-text>
                     <v-card-actions>
                       <v-spacer></v-spacer>
-                      <v-btn color="primary" outlined @click="scrollingLongContent = false">Disagree</v-btn>
+                      <v-btn variant="outlined" color="primary" @click="scrollingLongContent = false">Disagree</v-btn>
                       <v-btn color="primary" @click="scrollingLongContent = false">Agree</v-btn>
                     </v-card-actions>
                   </v-card>
@@ -83,45 +81,41 @@
                 <p>Optional Sizes</p>
               </v-card-title>
               <v-card-text>
-                <p class="greyBold--text">To appoint modal's width size, by max-width attribute</p>
+                <p class="text-greyBold">To appoint modal's width size, by max-width attribute</p>
                 <v-dialog v-model="largeModal" persistent max-width="690">
-                  <template v-slot:activator="{ on, attrs }">
-                    <v-btn
+                  <template #activator="{ props }">
+                    <v-btn theme="dark"
                       color="primary"
-                      dark
-                      v-bind="attrs"
-                      v-on="on"
+                      v-bind="props"
                       class="button-shadow mr-4">
                       large modal
                     </v-btn>
                   </template>
                   <v-card>
-                    <v-card-title class="headline greyMedium--text">Use Google's location service?</v-card-title>
+                    <v-card-title class="headline text-greyMedium">Use Google's location service?</v-card-title>
                     <v-card-text>Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.</v-card-text>
                     <v-card-actions>
                       <v-spacer></v-spacer>
-                      <v-btn color="primary" outlined @click="largeModal = false">Disagree</v-btn>
+                      <v-btn variant="outlined" color="primary" @click="largeModal = false">Disagree</v-btn>
                       <v-btn color="primary" @click="largeModal = false">Agree</v-btn>
                     </v-card-actions>
                   </v-card>
                 </v-dialog>
                 <v-dialog v-model="smallModal" persistent max-width="290">
-                  <template v-slot:activator="{ on, attrs }">
-                    <v-btn
+                  <template #activator="{ props }">
+                    <v-btn theme="dark"
                       class="button-shadow"
                       color="secondary"
-                      dark
-                      v-bind="attrs"
-                      v-on="on">
+                      v-bind="props">
                       Small modal
                     </v-btn>
                   </template>
                   <v-card>
-                    <v-card-title class="headline greyMedium--text">Use Google's location service?</v-card-title>
+                    <v-card-title class="headline text-greyMedium">Use Google's location service?</v-card-title>
                     <v-card-text>Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.</v-card-text>
                     <v-card-actions>
                       <v-spacer></v-spacer>
-                      <v-btn color="primary" outlined @click="smallModal = false">Disagree</v-btn>
+                      <v-btn variant="outlined" color="primary" @click="smallModal = false">Disagree</v-btn>
                       <v-btn color="primary" @click="smallModal = false">Agree</v-btn>
                     </v-card-actions>
                   </v-card>
@@ -135,23 +129,20 @@
                 <p>Form dialogs</p>
               </v-card-title>
               <v-card-text>
-                <p class="greyBold--text">Form dialogs allow users to fill out form fields within a dialog. For example, if your site prompts for
+                <p class="text-greyBold">Form dialogs allow users to fill out form fields within a dialog. For example, if your site prompts for
                   potential subscribers to fill in their email address, they can fill out the email field and touch
                   Submit</p>
                 <v-dialog v-model="dialog" max-width="600px">
-                  <template v-slot:activator="{ on, attrs }">
-                    <v-btn
+                  <template #activator="{ props }">
+                    <v-btn theme="dark" variant="outlined"
                       color="primary"
-                      dark
-                      outlined
-                      v-bind="attrs"
-                      v-on="on">
+                      v-bind="props">
                       Open form dialog
                     </v-btn>
                   </template>
                   <v-card>
                     <v-card-title>
-                      <span class="headline greyMedium--text">User Profile</span>
+                      <span class="headline text-greyMedium">User Profile</span>
                     </v-card-title>
                     <v-card-text>
                       <v-container>
@@ -160,7 +151,7 @@
                             <v-text-field label="Legal first name*" required></v-text-field>
                           </v-col>
                           <v-col cols="12" sm="6" md="4">
-                            <v-text-field label="Legal middle name" hint="example of helper text only on focus"></v-text-field>
+                            <v-text-field variant="text" label="Legal middle name" hint="example of helper only on focus"></v-text-field>
                           </v-col>
                           <v-col cols="12" sm="6" md="4">
                             <v-text-field
@@ -196,7 +187,7 @@
                     </v-card-text>
                     <v-card-actions>
                       <v-spacer></v-spacer>
-                      <v-btn color="primary" outlined @click="dialog = false">Close</v-btn>
+                      <v-btn variant="outlined" color="primary" @click="dialog = false">Close</v-btn>
                       <v-btn color="primary" @click="dialog = false">Save</v-btn>
                     </v-card-actions>
                   </v-card>
@@ -212,59 +203,59 @@
             <p>Using Grid</p>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="greyBold--text">Utilize the Material UI grid system within a modal by nesting <code>Grid</code> container within the
+            <p class="text-greyBold">Utilize the Material UI grid system within a modal by nesting <code>Grid</code> container within the
                 <code>Dialog</code>. Then, use the normal grid system classes as you would anywhere else.</p>
             <v-btn color="primary" class="button-shadow mb-4" @click="grid = !grid">Grid</v-btn>
             <v-row>
               <v-col cols="12" class="mt-0">
                             <pre>
-<span class="primaryConst--text">&lt;v-row justify="end"&gt;</span>
-  <span class="secondaryConst--text">&lt;v-col cols="3" class="primary"&gt;</span>
-    <span class="info--text">&lt;h6 class="white--text"&gt;</span>
+<span class="text-primaryConst">&lt;v-row justify="end"&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col cols="3" class="primary"&gt;</span>
+    <span class="text-info">&lt;h6 class="text-white"&gt;</span>
       1
-    <span class="info--text">&lt;/h6&gt;</span>
-  <span class="secondaryConst--text">&lt;/v-col&gt;</span>
+    <span class="text-info">&lt;/h6&gt;</span>
+  <span class="text-secondaryConst">&lt;/v-col&gt;</span>
 
-  <span class="secondaryConst--text">&lt;v-col cols="3" class="secondary"&gt;</span>
-    <span class="info--text">&lt;h6 class="white--text"&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col cols="3" class="secondary"&gt;</span>
+    <span class="text-info">&lt;h6 class="text-white"&gt;</span>
       2
-    <span class="info--text">&lt;/h6&gt;</span>
-  <span class="secondaryConst--text">&lt;/v-col&gt;</span>
-<span class="primaryConst--text">&lt;/v-row&gt;</span>
+    <span class="text-info">&lt;/h6&gt;</span>
+  <span class="text-secondaryConst">&lt;/v-col&gt;</span>
+<span class="text-primaryConst">&lt;/v-row&gt;</span>
 
-<span class="primaryConst--text">&lt;v-row justify="space-around"&gt;</span>
-  <span class="secondaryConst--text">&lt;v-col cols="3" class="primary"&gt;</span>
-    <span class="info--text">&lt;h6 class="white--text"&gt;</span>
+<span class="text-primaryConst">&lt;v-row justify="space-around"&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col cols="3" class="primary"&gt;</span>
+    <span class="text-info">&lt;h6 class="text-white"&gt;</span>
       1
-    <span class="info--text">&lt;/h6&gt;</span>
-  <span class="secondaryConst--text">&lt;/v-col&gt;</span>
+    <span class="text-info">&lt;/h6&gt;</span>
+  <span class="text-secondaryConst">&lt;/v-col&gt;</span>
 
-  <span class="secondaryConst--text">&lt;v-col cols="3" class="secondary"&gt;</span>
-    <span class="info--text">&lt;h6 class="white--text"&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col cols="3" class="secondary"&gt;</span>
+    <span class="text-info">&lt;h6 class="text-white"&gt;</span>
       2
-    <span class="info--text">&lt;/h6&gt;</span>
-  <span class="secondaryConst--text">&lt;/v-col&gt;</span>
-<span class="primaryConst--text">&lt;/v-row&gt;</span>
+    <span class="text-info">&lt;/h6&gt;</span>
+  <span class="text-secondaryConst">&lt;/v-col&gt;</span>
+<span class="text-primaryConst">&lt;/v-row&gt;</span>
 
-<span class="primaryConst--text">&lt;v-row justify="space-between"&gt;</span>
-  <span class="secondaryConst--text">&lt;v-col cols="3" class="primary"&gt;</span>
-    <span class="info--text">&lt;h6 class="white--text"&gt;</span>
+<span class="text-primaryConst">&lt;v-row justify="space-between"&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col cols="3" class="primary"&gt;</span>
+    <span class="text-info">&lt;h6 class="text-white"&gt;</span>
       1
-    <span class="info--text">&lt;/h6&gt;</span>
-  <span class="secondaryConst--text">&lt;/v-col&gt;</span>
+    <span class="text-info">&lt;/h6&gt;</span>
+  <span class="text-secondaryConst">&lt;/v-col&gt;</span>
 
-  <span class="secondaryConst--text">&lt;v-col cols="3" class="secondary"&gt;</span>
-    <span class="info--text">&lt;h6 class="white--text"&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col cols="3" class="secondary"&gt;</span>
+    <span class="text-info">&lt;h6 class="text-white"&gt;</span>
       2
-    <span class="info--text">&lt;/h6&gt;</span>
-  <span class="secondaryConst--text">&lt;/v-col&gt;</span>
+    <span class="text-info">&lt;/h6&gt;</span>
+  <span class="text-secondaryConst">&lt;/v-col&gt;</span>
 
-  <span class="secondaryConst--text">&lt;v-col cols="3" class="warning"&gt;</span>
-    <span class="info--text">&lt;h6 class="white--text"&gt;</span>
+  <span class="text-secondaryConst">&lt;v-col cols="3" class="warning"&gt;</span>
+    <span class="text-info">&lt;h6 class="text-white"&gt;</span>
       3
-    <span class="info--text">&lt;/h6&gt;</span>
-  <span class="secondaryConst--text">&lt;/v-col&gt;</span>
-<span class="primaryConst--text">&lt;/v-row&gt;</span></pre>
+    <span class="text-info">&lt;/h6&gt;</span>
+  <span class="text-secondaryConst">&lt;/v-col&gt;</span>
+<span class="text-primaryConst">&lt;/v-row&gt;</span></pre>
               </v-col>
             </v-row>
             <v-dialog
@@ -273,40 +264,40 @@
             >
               <v-card>
                 <v-card-title class="pa-5 pb-3">
-                  <p class="greyMedium--text">Grid system</p>
+                  <p class="text-greyMedium">Grid system</p>
                 </v-card-title>
                 <v-card-text class="pa-5 pt-0">
                   <v-row justify="end">
                     <v-col cols="3" class="primary rounded ma-2 d-flex justify-center" style="height: 50px">
-                      <h5 class="white--text">1</h5>
+                      <h5 class="text-white">1</h5>
                     </v-col>
                     <v-col cols="3" class="secondary rounded ma-2 d-flex justify-center" style="height: 50px">
-                      <h5 class="white--text">2</h5>
+                      <h5 class="text-white">2</h5>
                     </v-col>
                   </v-row>
                   <v-row justify="space-around">
                     <v-col cols="3" class="primary rounded ma-2 d-flex justify-center" style="height: 50px">
-                      <h5 class="white--text">1</h5>
+                      <h5 class="text-white">1</h5>
                     </v-col>
                     <v-col cols="3" class="secondary rounded ma-2 d-flex justify-center" style="height: 50px">
-                      <h5 class="white--text">2</h5>
+                      <h5 class="text-white">2</h5>
                     </v-col>
                   </v-row>
                   <v-row justify="space-between">
                     <v-col cols="3" class="primary rounded ma-2 d-flex justify-center" style="height: 50px">
-                      <h5 class="white--text">1</h5>
+                      <h5 class="text-white">1</h5>
                     </v-col>
                     <v-col cols="3" class="secondary rounded ma-2 d-flex justify-center" style="height: 50px">
-                      <h5 class="white--text">2</h5>
+                      <h5 class="text-white">2</h5>
                     </v-col>
                     <v-col cols="3" class="warning rounded ma-2 d-flex justify-center" style="height: 50px">
-                      <h5 class="white--text">3</h5>
+                      <h5 class="text-white">3</h5>
                     </v-col>
                   </v-row>
                 </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
-                  <v-btn color="primary" outlined>Disagree</v-btn>
+                  <v-btn variant="outlined" color="primary">Disagree</v-btn>
                   <v-btn color="primary" class="button-shadow">Agree</v-btn>
                 </v-card-actions>
               </v-card>

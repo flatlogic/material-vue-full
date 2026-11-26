@@ -1,74 +1,42 @@
-# 🚀 Vue Material Admin - A Free Vue Material Dashboard!
+# Vue Material Admin
 
-[View Demo](https://flatlogic.com/templates/vue-material-template-full/demo) | [Download](https://github.com/flatlogic/material-vue-full/archive/refs/heads/master.zip) | [More Templates](https://flatlogic.com/templates) | [Discord Community](https://discord.gg/flatlogic-community) | [Support Forum](https://flatlogic.com/forum)
+A Material Design dashboard for Vue with user management, e-commerce screens, charts, data tables and a calendar. Run the standalone demo with sample data or connect the dashboard to an API.
 
-**Originally a premium product priced at $69+, made available for free in January 2025!** 🎉
+[Live demo](https://flatlogic.com/templates/vue-material-template-full/demo) · [Release notes](changelog.md) · [Flatlogic templates](https://flatlogic.com/templates)
 
-[![image](https://github.com/flatlogic/material-vue-full/blob/master/src/assets/img/screenshots/1.png)](https://flatlogic.com/templates/vue-material-template-full/demo)
+[![Dashboard preview](src/assets/img/screenshots/1.png)](https://flatlogic.com/templates/vue-material-template-full/demo)
 
-Looking for a perfect codebase generator for your Startup? Try [Flatlogic AI Web App Generator](https://flatlogic.com/generator) - our new tool, sort of a template++.
+## Run locally
 
----
+Use Node.js 22.13 or later in the 22.x line, or Node.js 24 and later.
 
-## 🎯 Why Vue Material Admin?
-- **Ex-Premium**: This template was previously paid. Enjoy it for free now. 😉
-- **Vuetify Framework**: Built using Vue.js and Material Design principles.
-- **Join the Community**: [Flatlogic Discord](https://discord.gg/flatlogic-community) is where the action happens.
-- **Free Node.js Backend**: Pair it up with [this backend](https://github.com/flatlogic/nodejs-backend) to go full-stack.
+```sh
+git clone https://github.com/flatlogic/material-vue-full.git
+cd material-vue-full
+npm ci
+npm start
+```
 
----
+Open [localhost:3000](http://localhost:3000). The standalone sign-in form is prefilled with the demo account. Its session stays in the browser.
 
-## 🚀 Quick Start
+## Connect a backend
 
-1. **Clone the repo**  
-   ```bash
-   git clone https://github.com/flatlogic/material-vue-full.git
-   cd material-vue-full
-   ```
-2. **Install dependencies**  
-   ```bash
-   yarn install  # Or npm install
-   ```
-3. **Run the app**  
-   ```bash
-   yarn start
-   ```
-   Navigate to http://localhost:3000/.
+Run the [Node.js backend](https://github.com/flatlogic/nodejs-backend), then start the frontend with `npm run start:backend`. Development requests go to `http://localhost:8080/api` by default. For another host, set `VITE_API_URL` to the API base URL in `.env.local`. Sign in with an account from that backend.
 
-4. **Backend Support**  
-   ```bash
-   yarn start:backend
-   ```
+| Command | Result |
+| --- | --- |
+| `npm start` | Start the standalone dashboard locally |
+| `npm run start:backend` | Start the dashboard with API authentication |
+| `npm run build:demo` | Build the standalone site in `build/` |
+| `npm run build` | Build the API-backed site in `build/`; the default production API is `/api` |
+| `npm run preview` | Preview the last build locally |
+| `npm run lint` | Check the Vue and JavaScript source |
 
-5. **Build for production**  
-   ```bash
-   yarn build
-   ```
+Both builds use hash routing and relative asset paths, so the output can be served from a subdirectory.
 
----
+## Version 3
 
-## 🧩 Features
-
-- Vuetify-based UI Components
-- Fully Responsive Layout
-- Three Color Themes & Dark Mode
-- Vue 2.6.11
-- Vue Router for Navigation
-- Various Chart Libraries (Highcharts, Apexcharts)
-- User Management Pages
-- Sass and Vuex Integration
-
----
-
-## 🛠 Built With
-- Vue 2.6.11
-- Vuetify
-- Vue Router
-- Sass
-- Vuex
-- Webpack
-
----
+Vue 3.5, Vuetify 3, Vue Router 4, Vuex 4 and Vite 7 power the dashboard. All routes use the same URL fragments as version 1. Custom pages extending the old UI need to adopt the Vuetify 3 component and slot APIs. See the [Vuetify upgrade guide](https://vuetifyjs.com/en/getting-started/upgrade-guide/).
 
 ## 📦 Pages
 - Dashboard
@@ -104,7 +72,7 @@ Additionally, these templates are tailored for specific business needs:
 ## 👨‍💻 How to Contribute
 - **Star this repo ⭐** - show some love.
 - **Report bugs** - but be nice.
-- **Join the [Discord](<insert-discord-invite-link>)** - meet fellow devs.
+- **Join the [Discord](https://discord.gg/flatlogic-community)** - meet fellow devs.
 
 ---
 
@@ -114,7 +82,7 @@ Additionally, these templates are tailored for specific business needs:
 ---
 
 ## 📜 License
-This template is free to use. Modify it, break it, make it your own. Just don’t try to sell it back to us. 😎
+Released under the [MIT License](LICENSE).
 
 ---
 

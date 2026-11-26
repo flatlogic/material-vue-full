@@ -1,20 +1,18 @@
 <template>
   <v-container fluid class="gallery-page mt-6">
     <v-row>
-      <template v-for="card in cards">
+      <template v-for="card in cards" :key="card.id">
         <v-col
           cols="12"
           md="6"
           lg="3"
-          :key="card.id"
           >
           <v-card
             class="mx-1 mb-1"
             link
             :ripple="{class: 'ripple-color' }"
             replace
-            :key="card.id"
-            >
+              >
             <v-img
               height="200"
               :src="card.src"
@@ -49,51 +47,51 @@ export default {
     cards: [
       {
         id: 1,
-        src: require('@/assets/img/gallery/1.png'),
+        src: new URL('../../../assets/img/gallery/1.png', import.meta.url).href,
       },
       {
         id: 2,
-        src: require('@/assets/img/gallery/2.png'),
+        src: new URL('../../../assets/img/gallery/2.png', import.meta.url).href,
       },
       {
         id: 3,
-        src: require('@/assets/img/gallery/3.png'),
+        src: new URL('../../../assets/img/gallery/3.png', import.meta.url).href,
       },
       {
         id: 4,
-        src: require('@/assets/img/gallery/4.png'),
+        src: new URL('../../../assets/img/gallery/4.png', import.meta.url).href,
       },
       {
         id: 5,
-        src: require('@/assets/img/gallery/5.png'),
+        src: new URL('../../../assets/img/gallery/5.png', import.meta.url).href,
       },
       {
         id: 6,
-        src: require('@/assets/img/gallery/6.png'),
+        src: new URL('../../../assets/img/gallery/6.png', import.meta.url).href,
       },
       {
         id: 7,
-        src: require('@/assets/img/gallery/7.png'),
+        src: new URL('../../../assets/img/gallery/7.png', import.meta.url).href,
       },
       {
         id: 8,
-        src: require('@/assets/img/gallery/8.png'),
+        src: new URL('../../../assets/img/gallery/8.png', import.meta.url).href,
       },
       {
         id: 9,
-        src: require('@/assets/img/gallery/9.png'),
+        src: new URL('../../../assets/img/gallery/9.png', import.meta.url).href,
       },
       {
         id: 10,
-        src: require('@/assets/img/gallery/10.png'),
+        src: new URL('../../../assets/img/gallery/10.png', import.meta.url).href,
       },
       {
         id: 11,
-        src: require('@/assets/img/gallery/11.png'),
+        src: new URL('../../../assets/img/gallery/11.png', import.meta.url).href,
       },
       {
         id: 12,
-        src: require('@/assets/img/gallery/12.png'),
+        src: new URL('../../../assets/img/gallery/12.png', import.meta.url).href,
       },
     ]
   }),

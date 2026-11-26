@@ -34,7 +34,7 @@
     }
   }
 
-  .theme--dark {
+  .v-theme--dark {
     &.v-sheet {
       background-color: transparent;
     }
@@ -55,13 +55,13 @@
         background: transparent;
       }
       &::-webkit-scrollbar-thumb {
-        background-color: var(--v-greyTint-base);
+        background-color: rgb(var(--v-theme-greyTint));
         border-radius: 36px;
         border: none;
       }
 
   }
-  .v-calendar-monthly.theme--dark {
+  .v-calendar-monthly.v-theme--dark {
     .v-outside {
       background-color: transparent!important;
     }

@@ -7,11 +7,10 @@
             <p>Simple Validation</p>
             <v-spacer></v-spacer>
             <v-menu>
-              <template v-slot:activator="{ on, attrs }">
+              <template #activator="{ props }">
                 <v-btn
                   icon
-                  v-bind="attrs"
-                  v-on="on">
+                  v-bind="props">
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
               </template>
@@ -32,7 +31,7 @@
               lazy-validation>
               <v-row>
                 <v-col cols="5" class="d-flex align-center">
-                  <p class="fs-normal greyBold--text mb-0">Normal field</p>
+                  <p class="fs-normal text-greyBold mb-0">Normal field</p>
                 </v-col>
                 <v-col cols="7">
                   <v-text-field
@@ -44,7 +43,7 @@
                   ></v-text-field>
                 </v-col>
                 <v-col cols="5" class="d-flex align-center">
-                  <p class="fs-normal greyBold--text mb-0">Email input</p>
+                  <p class="fs-normal text-greyBold mb-0">Email input</p>
                 </v-col>
                 <v-col cols="7"><v-text-field
                   v-model="firstForm.email"
@@ -53,7 +52,7 @@
                   required
                 ></v-text-field></v-col>
                 <v-col cols="5" class="d-flex align-center">
-                  <p class="fs-normal greyBold--text mb-0">Simple select</p>
+                  <p class="fs-normal text-greyBold mb-0">Simple select</p>
                 </v-col>
                 <v-col cols="7"><v-select
                   v-model="firstForm.select"
@@ -70,9 +69,8 @@
                 required
               ></v-checkbox>
               <v-row justify="end">
-                <v-btn
+                <v-btn variant="outlined"
                   color="primary"
-                  outlined
                   class="button-shadow mr-4"
                   @click="reset">
                   Reset Form
@@ -95,11 +93,10 @@
             <p>Custom Validation</p>
             <v-spacer></v-spacer>
             <v-menu>
-              <template v-slot:activator="{ on, attrs }">
+              <template #activator="{ props }">
                 <v-btn
                   icon
-                  v-bind="attrs"
-                  v-on="on">
+                  v-bind="props">
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
               </template>
@@ -160,20 +157,18 @@
             <v-divider></v-divider>
             <v-card-actions class="pt-5 pb-0">
               <v-spacer></v-spacer>
-              <v-btn
+              <v-btn variant="outlined"
                 class="button-shadow mr-4"
-                outlined
                 color="primary"
                 @click="$refs.formS.reset()"
               >
                 Clear
               </v-btn>
-              <v-btn
+              <v-btn variant="flat"
                 :disabled="!secondForm.form"
                 :loading="secondForm.isLoading"
-                class="button-shadow white--text"
+                class="button-shadow text-white"
                 color="primary"
-                depressed
               >Submit</v-btn>
             </v-card-actions>
             <v-dialog
@@ -189,15 +184,14 @@
                 </v-card-text>
                 <v-divider></v-divider>
                 <v-card-actions>
-                  <v-btn
-                    text
+                  <v-btn variant="text"
                     @click="secondForm.agreement = false, secondForm.dialog = false"
                   >
                     No
                   </v-btn>
                   <v-spacer></v-spacer>
                   <v-btn
-                    class="white--text"
+                    class="text-white"
                     color="info"
                     @click="secondForm.agreement = true, secondForm.dialog = false"
                   >

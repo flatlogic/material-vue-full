@@ -1,10 +1,11 @@
-@import '~vuetify/src/styles/styles.sass';
+$spacer: 4px !default;
+$display-breakpoints: ('sm-and-down': '(max-width: 959px)') !default;
 
 // Sidebar //
 $drawer-items-padding: 32px !default;
 $navigation-drawer-mini-variant-width: 96px !important;
 
-$card-title-color: var(--v-greyMedium-base);
+$card-title-color: rgb(var(--v-theme-greyMedium));
 
 // Layout //
 $body-bg-dark: #13131a;

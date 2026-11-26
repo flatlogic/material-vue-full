@@ -4,7 +4,7 @@
       <v-card width="100%" class="breadcrumbs mx-1 mb-6">
         <v-row no-gutters class="d-flex align-center mt-8 mb-3 px-5 py-1 mx-1">
           <v-col cols="12" md="6" class="d-sm-flex justify-md-start justify-space-between align-center">
-            <h2 class="main-page-title greyMedium--text mb-0 mr-2 pt-4 pt-md-0">Dashboard</h2>
+            <h2 class="main-page-title text-greyMedium mb-0 mr-2 pt-4 pt-md-0">Dashboard</h2>
             <div class="ml-0 ml-sm-4">
               <v-tabs color="secondary">
                 <v-tab
@@ -22,37 +22,30 @@
                 v-model="menu"
                 :close-on-content-click="false"
                 transition="scale-transition"
-                offset-y
+                location="bottom"
               >
-                <template v-slot:activator="{ on, attrs }">
+                <template #activator="{ props }">
                   <v-text-field
-                    :value="computedDate"
+                    :model-value="computedDate"
                     prepend-icon="mdi-calendar"
                     color="primary"
-                    full-width
                     style="height: 38px; width: 250px"
                     readonly
                     single-line
-                    solo
+                    variant="solo"
                     flat
-                    dense
+                    density="compact"
                     class="main-date-picker mr-2"
-                    v-bind="attrs"
-                    v-on="on"
+                    v-bind="props"
                   ></v-text-field>
                 </template>
-                <v-date-picker v-model="date" no-title scrollable>
-                  <v-spacer></v-spacer>
-                  <v-btn text color="primary" @click="menu = false">Cancel</v-btn>
-                  <v-btn text color="primary" @click="$refs.menu.save(date)">OK</v-btn>
-                </v-date-picker>
+                <v-date-picker v-model="date" hide-header @update:model-value="menu = false" />
               </v-menu>
             </div>
-            <v-menu offset-y>
-              <template v-slot:activator="{ on, attrs }">
+            <v-menu location="bottom">
+              <template #activator="{ props }">
                 <v-btn
-                  v-bind="attrs"
-                  v-on="on"
+                  v-bind="props"
                   color="error"
                   class="text-capitalize button-shadow mb-3 mb-sm-0"
                 >Latest Reports</v-btn>
@@ -79,11 +72,10 @@
               <p class="text-truncate">Support Tracker</p>
               <v-spacer></v-spacer>
               <v-menu>
-                <template v-slot:activator="{ on, attrs }">
-                  <v-btn
+                <template #activator="{ props }">
+                  <v-btn variant="text"
                     icon
-                    v-bind="attrs"
-                    v-on="on">
+                    v-bind="props">
                     <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                   </v-btn>
                 </template>
@@ -100,8 +92,8 @@
             <v-card-text class="pa-5 pt-0">
               <v-row no-gutters class="pb-0">
                 <v-col cols="5" class="my-auto">
-                  <span class="font-weight-medium greyBold--text" style="font-size: 24px;">543</span>
-                  <p class="greyBold--text mb-0">Tickets</p>
+                  <span class="font-weight-medium text-greyBold" style="font-size: 24px;">543</span>
+                  <p class="text-greyBold mb-0">Tickets</p>
                 </v-col>
                 <v-col cols="6">
                   <ApexChart v-if="apexLoading" height="120" :options="mock.apexPie1.options" :series="mock.apexPie1.series"></ApexChart>
@@ -109,23 +101,23 @@
               </v-row>
               <v-row no-gutters class="pb-0" justify="space-between">
                 <v-col cols="auto" class="d-flex flex-column align-center">
-                  <p class="greyTint--text my-0" style="font-size: 12px">New Tickets</p>
+                  <p class="text-greyTint my-0" style="font-size: 12px">New Tickets</p>
                   <div class="">
-                    <span class="greyBold--text font-weight-regular" style="font-size: 16px">45</span>
+                    <span class="text-greyBold font-weight-regular" style="font-size: 16px">45</span>
                     <v-icon size="30" color="success" class="mt-n1">mdi-circle-small</v-icon>
                   </div>
                 </v-col>
                 <v-col cols="auto" class="d-flex flex-column align-center">
-                  <p class="greyTint--text my-0" style="font-size: 12px">Open</p>
+                  <p class="text-greyTint my-0" style="font-size: 12px">Open</p>
                   <div class="d-flex flex-row justify-start">
-                    <span class="greyBold--text font-weight-regular"  style="font-size: 16px">147</span>
+                    <span class="text-greyBold font-weight-regular"  style="font-size: 16px">147</span>
                     <v-icon size="30" color="warning" class="mt-n1">mdi-circle-small</v-icon>
                   </div>
                 </v-col>
                 <v-col cols="auto" class="d-flex flex-column align-center">
-                  <p class="greyTint--text my-0" style="font-size: 12px">Rate</p>
+                  <p class="text-greyTint my-0" style="font-size: 12px">Rate</p>
                   <div class="">
-                    <span class="greyBold--text font-weight-regular" style="font-size: 16px">351</span>
+                    <span class="text-greyBold font-weight-regular" style="font-size: 16px">351</span>
                     <v-icon size="30" class="pl-0 mt-n1" color="primary">mdi-circle-small</v-icon>
                   </div>
                 </v-col>
@@ -139,11 +131,10 @@
               <p class="text-truncate">App Performance</p>
               <v-spacer></v-spacer>
               <v-menu>
-                <template v-slot:activator="{ on, attrs }">
-                  <v-btn
+                <template #activator="{ props }">
+                  <v-btn variant="text"
                     icon
-                    v-bind="attrs"
-                    v-on="on">
+                    v-bind="props">
                     <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                   </v-btn>
                 </template>
@@ -162,18 +153,18 @@
               <v-row no-gutters class="pb-6">
                 <div class="mr-4">
                   <v-icon color="primaryConst" class="ml-n2"> mdi-circle-medium </v-icon>
-                  <span class="greyTint--text">Integration</span>
+                  <span class="text-greyTint">Integration</span>
                 </div>
                 <div>
                   <v-icon color="warning"> mdi-circle-medium </v-icon>
-                  <span class="greyTint--text">SDK</span>
+                  <span class="text-greyTint">SDK</span>
                 </div>
               </v-row>
               <v-row no-gutters class="pb-4">
                 <v-col>
-                  <div class="text-h6 greyBold--text font-weight-regular">Integration</div>
+                  <div class="text-h6 text-greyBold font-weight-regular">Integration</div>
                   <v-progress-linear
-                    :value=value
+                    :model-value=value
                     background-color="#ececec"
                     color="primaryConst"
                   ></v-progress-linear>
@@ -181,9 +172,9 @@
               </v-row>
               <v-row no-gutters class="pb-4">
                 <v-col>
-                  <div class="text-h6 greyBold--text font-weight-regular">SDK</div>
+                  <div class="text-h6 text-greyBold font-weight-regular">SDK</div>
                   <v-progress-linear
-                    :value=value2
+                    :model-value=value2
                     background-color="#ececec"
                     color="warning"
                   ></v-progress-linear>
@@ -198,11 +189,10 @@
               <p class="text-truncate">Server Overview</p>
               <v-spacer></v-spacer>
               <v-menu>
-                <template v-slot:activator="{ on, attrs }">
-                  <v-btn
+                <template #activator="{ props }">
+                  <v-btn variant="text"
                     icon
-                    v-bind="attrs"
-                    v-on="on">
+                    v-bind="props">
                     <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                   </v-btn>
                 </template>
@@ -220,7 +210,7 @@
             <v-card-text class="pa-5 pt-0">
               <v-row class="mb-2" no-gutters>
                 <v-col cols="8" class="my-auto">
-                  <span class="greyBold--text">60% / 37°С / 3.3 Ghz</span>
+                  <span class="text-greyBold">60% / 37°С / 3.3 Ghz</span>
                 </v-col>
                 <v-col cols="4">
                   <ApexChart v-if="apexLoading" ref="apexArea1" height="43" type="area" :options="mock.apexArea1.options" :series="mock.apexArea1.series"></ApexChart>
@@ -228,7 +218,7 @@
               </v-row>
               <v-row class="mb-2" no-gutters>
                 <v-col cols="8" class="my-auto">
-                  <span class="greyBold--text">54% / 31°С / 3.3 Ghz</span>
+                  <span class="text-greyBold">54% / 31°С / 3.3 Ghz</span>
                 </v-col >
                 <v-col cols="4">
                   <ApexChart v-if="apexLoading" ref="apexArea2" height="43" type="area" :options="mock.apexArea2.options" :series="mock.apexArea2.series"></ApexChart>
@@ -236,7 +226,7 @@
               </v-row>
               <v-row class="mb-2" no-gutters>
                 <v-col cols="8" class="my-auto">
-                  <span class="greyBold--text">57% / 21°С / 3.3 Ghz</span>
+                  <span class="text-greyBold">57% / 21°С / 3.3 Ghz</span>
                 </v-col>
                 <v-col cols="4">
                   <ApexChart v-if="apexLoading" ref="apexArea3" height="43" type="area" :options="mock.apexArea3.options" :series="mock.apexArea3.series"></ApexChart>
@@ -251,11 +241,10 @@
               <p class="text-truncate">Revenue Breakdown</p>
               <v-spacer></v-spacer>
               <v-menu>
-                <template v-slot:activator="{ on, attrs }">
-                  <v-btn
+                <template #activator="{ props }">
+                  <v-btn variant="text"
                     icon
-                    v-bind="attrs"
-                    v-on="on"
+                    v-bind="props"
                     class="ml-n1"
                   >
                     <v-icon color="greyTint">mdi-dots-vertical</v-icon>
@@ -289,31 +278,24 @@
         </v-col>
         <v-col cols=12>
           <v-card class="daily-line ma-1">
-            <v-card-title class="pa-5 pb-0">
+            <v-card-title class="d-flex align-center pa-5 pb-0">
               <p>Daily Line Chart</p>
               <v-spacer></v-spacer>
               <div class="main-chart-legend">
-                <v-icon size="30" color="warning">mdi-circle-small</v-icon><span class="greyBold--text font-weight-regular fs-medium">Tablet</span>
-                <v-icon size="30" color="primaryConst">mdi-circle-small</v-icon><span class="greyBold--text font-weight-regular fs-medium">Mobile</span>
-                <v-icon size="30" color="secondaryConst">mdi-circle-small</v-icon><span class="greyBold--text font-weight-regular fs-medium">Desktop</span>
+                <v-icon size="30" color="warning">mdi-circle-small</v-icon><span class="text-greyBold font-weight-regular fs-medium">Tablet</span>
+                <v-icon size="30" color="primaryConst">mdi-circle-small</v-icon><span class="text-greyBold font-weight-regular fs-medium">Mobile</span>
+                <v-icon size="30" color="secondaryConst">mdi-circle-small</v-icon><span class="text-greyBold font-weight-regular fs-medium">Desktop</span>
               </div>
               <v-spacer></v-spacer>
-              <v-menu>
-                <template v-slot:activator="{ on, attrs }">
-                  <v-select
-                    class="main-chart-select font-weight-regular greyBold--text"
+              <v-select
+                    class="main-chart-select font-weight-regular text-greyBold"
                     v-model="mainApexAreaSelect"
-                    :value="mock.select[0]"
-                    v-bind="attrs"
-                    v-on="on"
-                    dense
+                    density="compact"
                     flat
                     single-line
                     hide-details
                     :items="mock.select"
                   ></v-select>
-                </template>
-              </v-menu>
             </v-card-title>
             <v-card-text class="pa-4 pb-0">
               <v-row>
@@ -335,30 +317,23 @@
         </v-col>
         <v-col lg=4 sm=6 cols=12>
           <v-card class="ma-1">
-            <v-card-title class="pa-5 pb-3">
+            <v-card-title class="d-flex align-center pa-5 pb-3">
               <p>Light Blue</p>
               <v-spacer></v-spacer>
-              <v-menu>
-                <template v-slot:activator="{ on, attrs }">
-                  <v-select
-                    class="main-chart-select font-weight-regular greyBold--text"
+              <v-select
+                    class="main-chart-select font-weight-regular text-greyBold"
                     v-model="sel"
-                    :value="mock.select[0]"
-                    v-bind="attrs"
-                    v-on="on"
-                    dense
+                    density="compact"
                     flat
                     single-line
                     hide-details
                     :items="mock.select"
                   ></v-select>
-                </template>
-              </v-menu>
             </v-card-title>
             <v-card-text class="pa-5 pt-0">
               <v-row no-gutters>
                 <v-col cols="6" md="8" lg="7" class="my-auto">
-                  <span class="greyBold--text" style="font-size: 42px">199 <span class="caption error--text">-3.7%</span> </span>
+                  <span class="text-greyBold" style="font-size: 42px">199 <span class="text-caption text-error">-3.7%</span> </span>
                 </v-col>
                 <v-col cols="6" md="4" lg="5"  >
                   <ApexChart
@@ -373,16 +348,16 @@
               </v-row>
               <v-row no-gutters class="justify-space-between">
                 <div>
-                  <div class="greyMedium--text fs-large">33<v-icon color="success">mdi-arrow-top-right</v-icon></div>
-                  <div class="greyTint--text fs-index">Registrations</div>
+                  <div class="text-greyMedium fs-large">33<v-icon color="success">mdi-arrow-top-right</v-icon></div>
+                  <div class="text-greyTint fs-index">Registrations</div>
                 </div>
                 <div>
-                  <div class="greyMedium--text fs-large">3.25%<v-icon color="success"> mdi-arrow-top-right</v-icon></div>
-                  <div class="greyTint--text fs-index">Bounce Rate</div>
+                  <div class="text-greyMedium fs-large">3.25%<v-icon color="success"> mdi-arrow-top-right</v-icon></div>
+                  <div class="text-greyTint fs-index">Bounce Rate</div>
                 </div>
                 <div >
-                  <div class="greyMedium--text fs-large">330<v-icon color="error"> mdi-arrow-bottom-right</v-icon></div>
-                  <div  class="greyTint--text fs-index">Views</div>
+                  <div class="text-greyMedium fs-large">330<v-icon color="error"> mdi-arrow-bottom-right</v-icon></div>
+                  <div  class="text-greyTint fs-index">Views</div>
                 </div>
               </v-row>
             </v-card-text>
@@ -390,30 +365,23 @@
         </v-col>
         <v-col lg=4 sm=6 cols=12>
           <v-card class="ma-1">
-            <v-card-title class="pa-5 pb-3">
+            <v-card-title class="d-flex align-center pa-5 pb-3">
               <p>Sing App</p>
               <v-spacer></v-spacer>
-              <v-menu>
-                <template v-slot:activator="{ on, attrs }">
-                  <v-select
-                    class="main-chart-select font-weight-regular greyBold--text"
+              <v-select
+                    class="main-chart-select font-weight-regular text-greyBold"
                     v-model="sel0"
-                    :value="mock.select[0]"
-                    v-bind="attrs"
-                    v-on="on"
-                    dense
+                    density="compact"
                     flat
                     single-line
                     hide-details
                     :items="mock.select"
                   ></v-select>
-                </template>
-              </v-menu>
             </v-card-title>
             <v-card-text class="pa-5 pt-0">
               <v-row no-gutters>
                 <v-col cols="6" md="8" lg="8" class="my-auto">
-                  <span class="greyBold--text" style="font-size: 42px">121 <span class="error--text caption">-3.2%</span> </span>
+                  <span class="text-greyBold" style="font-size: 42px">121 <span class="text-error text-caption">-3.2%</span> </span>
                 </v-col>
                 <v-col cols="6" md="4" lg="4">
                   <ApexChart
@@ -428,16 +396,16 @@
               </v-row>
               <v-row no-gutters class="justify-space-between">
                 <div>
-                  <div class="greyMedium--text fs-large">15<v-icon color="success"> mdi-arrow-top-right</v-icon></div>
-                  <div class="greyTint--text fs-index">Registrations</div>
+                  <div class="text-greyMedium fs-large">15<v-icon color="success"> mdi-arrow-top-right</v-icon></div>
+                  <div class="text-greyTint fs-index">Registrations</div>
                 </div>
                 <div>
-                  <div class="greyMedium--text fs-large">3.01%<v-icon color="success"> mdi-arrow-top-right</v-icon></div>
-                  <div class="greyTint--text fs-index">Bounce Rate</div>
+                  <div class="text-greyMedium fs-large">3.01%<v-icon color="success"> mdi-arrow-top-right</v-icon></div>
+                  <div class="text-greyTint fs-index">Bounce Rate</div>
                 </div>
                 <div>
-                  <div class="greyMedium--text fs-large">302<v-icon color="success"> mdi-arrow-top-right</v-icon></div>
-                  <div class="greyTint--text fs-index">Views</div>
+                  <div class="text-greyMedium fs-large">302<v-icon color="success"> mdi-arrow-top-right</v-icon></div>
+                  <div class="text-greyTint fs-index">Views</div>
                 </div>
               </v-row>
             </v-card-text>
@@ -445,29 +413,23 @@
         </v-col>
         <v-col lg=4 sm=6 cols=12>
           <v-card class="ma-1">
-            <v-card-title class="pa-5 pb-3">
+            <v-card-title class="d-flex align-center pa-5 pb-3">
               <p>RNS</p>
               <v-spacer></v-spacer>
-              <v-menu>
-                <template v-slot:activator="{ on, attrs }">
-                  <v-select
-                    class="main-chart-select font-weight-regular greyBold--text"
+              <v-select
+                    class="main-chart-select font-weight-regular text-greyBold"
                     v-model="sel1"
-                    v-bind="attrs"
-                    v-on="on"
-                    dense
+                    density="compact"
                     flat
                     single-line
                     hide-details
                     :items="mock.select"
                   ></v-select>
-                </template>
-              </v-menu>
             </v-card-title>
             <v-card-text class="pa-5 pt-0">
               <v-row no-gutters>
                 <v-col cols="6" md="8" lg="8" class="my-auto">
-                  <span class="greyBold--text" style="font-size: 42px">175 <span class="error--text caption">-3.1%</span> </span>
+                  <span class="text-greyBold" style="font-size: 42px">175 <span class="text-error text-caption">-3.1%</span> </span>
                 </v-col>
                 <v-col cols="6" md="4" lg="4">
                   <ApexChart
@@ -482,16 +444,16 @@
               </v-row>
               <v-row no-gutters class="justify-space-between">
                 <div>
-                  <div class="greyMedium--text fs-large">31 <v-icon color="error"> mdi-arrow-bottom-right</v-icon></div>
-                  <div class="greyTint--text fs-index">Registrations</div>
+                  <div class="text-greyMedium fs-large">31 <v-icon color="error"> mdi-arrow-bottom-right</v-icon></div>
+                  <div class="text-greyTint fs-index">Registrations</div>
                 </div>
                 <div>
-                  <div class="greyMedium--text fs-large">3.23%<v-icon color="success"> mdi-arrow-top-right</v-icon></div>
-                  <div class="greyTint--text fs-index">Bounce Rate</div>
+                  <div class="text-greyMedium fs-large">3.23%<v-icon color="success"> mdi-arrow-top-right</v-icon></div>
+                  <div class="text-greyTint fs-index">Bounce Rate</div>
                 </div>
                 <div>
-                  <div class="greyMedium--text fs-large">301<v-icon color="success"> mdi-arrow-top-right</v-icon></div>
-                  <div class="greyTint--text fs-index">Views</div>
+                  <div class="text-greyMedium fs-large">301<v-icon color="success"> mdi-arrow-top-right</v-icon></div>
+                  <div class="text-greyTint fs-index">Views</div>
                 </div>
               </v-row>
             </v-card-text>
@@ -499,15 +461,14 @@
         </v-col>
         <v-col cols=12>
           <v-card class="support-table ma-1">
-            <v-card-title class="pa-5 pb-4">
+            <v-card-title class="d-flex align-center pa-5 pb-4">
               <p>Recent Orders</p>
               <v-spacer></v-spacer>
               <v-menu>
-                <template v-slot:activator="{ on, attrs }">
-                  <v-btn
+                <template #activator="{ props }">
+                  <v-btn variant="text"
                     icon
-                    v-bind="attrs"
-                    v-on="on">
+                    v-bind="props">
                     <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                   </v-btn>
                 </template>
@@ -526,11 +487,10 @@
                 show-select
                 :headers="headers"
                 :items="products"
-                sort-by="calories"
                 :items-per-page="itemPerPage">
-                <template v-slot:item.name="{ item }">
+                <template #item.name="{ item }">
                   <div class="d-flex align-center">
-                    <v-avatar size="40" :color="item.avatar.color + ' ma-5 ml-0'" class="d-none d-sm-flex">
+                    <v-avatar size="40" :color="item.avatar.color" class="ma-5 ml-0 d-none d-sm-flex">
                       <span class="font-weight-medium">{{ item.avatar.name }}</span>
                     </v-avatar>
                     <div>
@@ -538,16 +498,15 @@
                     </div>
                   </div>
                 </template>
-                <template v-slot:item.status="{ item }">
-                  <v-chip :color="item.avatar.color" small>{{ item.status }}</v-chip>
+                <template #item.status="{ item }">
+                  <v-chip :color="item.avatar.color" size="small">{{ item.status }}</v-chip>
                 </template>
-                <template v-slot:item.actions="{}">
+                <template #item.actions="{}">
                   <v-menu>
-                    <template v-slot:activator="{ on, attrs }">
-                      <v-btn
+                    <template #activator="{ props }">
+                      <v-btn variant="text"
                         icon
-                        v-bind="attrs"
-                        v-on="on">
+                        v-bind="props">
                         <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                       </v-btn>
                     </template>
@@ -561,7 +520,7 @@
                     </v-list>
                   </v-menu>
                 </template>
-                <template v-slot:no-data>
+                <template #no-data>
                   <v-btn color="primary" @click="initialize">Reset</v-btn>
                 </template>
               </v-data-table>
@@ -579,7 +538,7 @@
   import moment from 'moment';
   import config from "@/config";
   import mock from './mock';
-  import ApexChart from 'vue-apexcharts';
+  import ApexChart from 'vue3-apexcharts';
 
   export default {
     name: 'Dashboard',
@@ -589,33 +548,31 @@
     data() {
       return {
         mock,
-        mode: this.$vuetify.theme.dark ? 'dark' : 'light',
         apexLoading: false,
         value: this.getRandomInt(10,90),
         value2: this.getRandomInt(10,90),
         mainApexAreaSelect: 'Daily',
         tabs: ['Today', 'This week', 'This month', 'This year'],
-        date: new Date().toISOString().substr(0, 10),
+        date: new Date(),
         menu: false,
         headers: [
           {
-            text: 'ORDER ID',
+            title: 'ORDER ID',
             align: 'start',
             sortable: false,
-            value: 'id',
+            key: 'id',
           },
-          { text: 'CUSTOMER', value: 'name' },
-          { text: 'OFFICE', value: 'role' },
-          { text: 'NETTO WEIGHT', value: 'weight' },
-          { text: 'PRICE', value: 'price' },
-          { text: 'DATE OF PURCHASE', value: 'create' },
-          { text: 'DATE OF DELIVERY', value: 'end' },
-          { text: 'STATUS', value: 'status' },
-          { text: 'ACTIONS', value: 'actions', sortable: false },
+          { title: 'CUSTOMER', key: 'name' },
+          { title: 'OFFICE', key: 'role' },
+          { title: 'NETTO WEIGHT', key: 'weight' },
+          { title: 'PRICE', key: 'price' },
+          { title: 'DATE OF PURCHASE', key: 'create' },
+          { title: 'DATE OF DELIVERY', key: 'end' },
+          { title: 'STATUS', key: 'status' },
+          { title: 'ACTIONS', key: 'actions', sortable: false },
         ],
         products: [],
         itemPerPage: 5,
-        themeState: false,
         apexDarkTheme: {
           theme: {
             mode: 'dark'
@@ -846,15 +803,12 @@
     },
 
     mounted() {
-      setTimeout(() => {
-        this.apexLoading = true
-      })
+      this.apexLoading = true
     },
 
     watch: {
-      theme(){
-        this.themeState = this.theme
-        if (this.themeState) {
+      '$vuetify.theme.current.dark'(dark) {
+        if (dark) {
           this.$refs.apexArea1.updateOptions(this.apexDarkTheme, false, true)
           this.$refs.apexArea2.updateOptions(this.apexDarkTheme, false, true)
           this.$refs.apexArea3.updateOptions(this.apexDarkTheme, false, true)
@@ -877,7 +831,6 @@
 
     created () {
       this.initialize()
-      this.themeState = this.theme
     },
   };
 </script>

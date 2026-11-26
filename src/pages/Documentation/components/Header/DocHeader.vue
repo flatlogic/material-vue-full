@@ -30,13 +30,13 @@
     </v-btn>
 
     <v-btn
-      href="https://templates-flatlogic.herokuapp.com/vue-material/#/dashboard"
+      href="https://templates.flatlogic.com/vue-material/#/app/dashboard"
       text
       class="mr-3"
     >Live Preview
     </v-btn>
 
-    <v-btn outlined class="mr-3" color="secondary" href="https://flatlogic.com/templates/vue-material-template-full">Buy</v-btn>
+    <v-btn outlined class="mr-3" color="secondary" href="https://flatlogic.com/templates/vue-material-template-full">Template</v-btn>
 
   </v-app-bar>
 </template>
@@ -46,7 +46,7 @@
   import config from '@/config';
 
   export default {
-    name: 'Header',
+    name: 'AppHeader',
     data: () => ({
       config,
       searchCollapse: true,

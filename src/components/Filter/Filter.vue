@@ -4,7 +4,7 @@
       <v-row>
         <v-col cols="3">
           <v-autocomplete
-            @change="apply"
+            @update:model-value="apply"
             v-model="selectedFilters"
             :items="filters.map((item) => item.label)"
             label="Filter"
@@ -13,20 +13,20 @@
 
         <v-col cols="3" v-if="filterType !== 'number'">
           <v-text-field
-            @input="apply"
+            @update:model-value="apply"
             label="Contains"
             v-model="filterValue"
           ></v-text-field>
         </v-col>
         <v-col cols="3" v-else class="d-flex">
           <v-text-field
-            @input="apply"
+            @update:model-value="apply"
             class="mx-3"
             label="From"
             v-model="filterValueFrom"
           />
 
-          <v-text-field @input="apply" label="To" v-model="filterValueTo" />
+          <v-text-field @update:model-value="apply" label="To" v-model="filterValueTo" />
         </v-col>
 
         <v-col cols="3" class="align-self-center">
@@ -39,7 +39,7 @@
 
 <script>
   export default {
-    name: 'Filter',
+    name: 'RecordFilter',
     props: {
       id: Number,
       filters: Array,
@@ -61,6 +61,7 @@
         let index = this.filters
           .map((item) => item.label)
           .indexOf(this.selectedFilters);
+        if (index < 0) return;
         this.$emit('apply', {
           id: this.id,
           number: !!this.filters[index].number,

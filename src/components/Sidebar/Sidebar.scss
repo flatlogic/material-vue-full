@@ -1,4 +1,4 @@
-@import "src/styles/variables";
+@import "@/styles/variables";
 
 .v-navigation-drawer {
   top: 64px!important;
@@ -21,7 +21,7 @@
       background: transparent;
     }
     &::-webkit-scrollbar-thumb {
-      background-color: var(--v-greyTint-base);
+      background-color: rgb(var(--v-theme-greyTint));
       border-radius: 36px;
       border: none;
     }
@@ -49,24 +49,24 @@
 
   .v-list-item .v-list-item__title {
     font-size: 0.875rem;
-    color: var(--v-greyMedium-base) !important;
+    color: rgb(var(--v-theme-greyMedium)) !important;
   }
   .v-list-item--active {
     .v-list-item__content {
       .v-list-item__title {
-        color: var(--v-greyBold-base)!important;
+        color: rgb(var(--v-theme-greyBold))!important;
       }
     }
     .v-list-item__action {
       i {
-        color: var(--v-primary-base) !important;
+        color: rgb(var(--v-theme-primary)) !important;
       }
     }
   }
   .v-list-group--active .v-list-item--active i {
-    color: var(--v-primary-base) !important;
+    color: rgb(var(--v-theme-primary)) !important;
     &.mdi-chevron-down {
-      color: var(--v-greyTint-base)!important;
+      color: rgb(var(--v-theme-greyTint))!important;
     }
   }
 
@@ -74,7 +74,7 @@
     .v-list {
       div, a {
         &.v-list-item {
-          color: var(--v-greyMedium-base);
+          color: rgb(var(--v-theme-greyMedium));
           transition: 300ms all;
         }
       }
@@ -91,7 +91,7 @@
     }
   }
   .subheader {
-    color: var(--v-greyTint-base);
+    color: rgb(var(--v-theme-greyTint));
     transition: 300ms all;
   }
   .hide {
@@ -123,7 +123,7 @@
   }
 }
 
-.v-navigation-drawer.theme--dark {
+.v-navigation-drawer.v-theme--dark {
   background-color: #23232D!important;
 
   .v-navigation-drawer__content {
@@ -136,7 +136,7 @@
 
   .v-list-item:not(.v-list-item--active) {
     .v-icon {
-      color: var(--v-greyBold-base);
+      color: rgb(var(--v-theme-greyBold));
     }
   }
   .v-list-item {
@@ -144,14 +144,14 @@
       background-color: #13131A!important;
     }
     .v-list-item__title {
-      color: var(--v-greyTint-base)!important;
+      color: rgb(var(--v-theme-greyTint))!important;
     }
   }
   .v-list-item--active {
     background-color: #23232D!important;
     .v-list-item__content {
       .v-list-item__title {
-        color: var(--v-greyTint-base)!important;
+        color: rgb(var(--v-theme-greyTint))!important;
       }
     }
   }

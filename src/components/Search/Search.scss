@@ -1,7 +1,7 @@
 @import '../../styles/app';
 
 label {
-    @include media-breakpoint-up(md) {
+    @media (min-width: 960px) {
       display: inline-block;
     }
     display: none;
@@ -25,7 +25,7 @@ label {
       outline: none;
       color: white;
       &::placeholder {
-        color: var(--v-greyTint-base);
+        color: rgb(var(--v-theme-greyTint));
         font-weight: 400;
         font-size: 16px;
       }

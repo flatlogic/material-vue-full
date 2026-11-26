@@ -1,39 +1,27 @@
 <template>
   <v-navigation-drawer
-    app
-    clipped
     v-model="DRAWER_STATE"
-    :mini-variant="!DRAWER_STATE"
+    :rail="!DRAWER_STATE"
     :width="sidebarWidth"
-    :permanent="$vuetify.breakpoint.lgAndUp"
-    :temporary="$vuetify.breakpoint.mdAndDown"
-    :mini-variant-width="sidebarMinWidth"
+    :permanent="$vuetify.display.lgAndUp"
+    :temporary="$vuetify.display.mdAndDown"
+    :rail-width="sidebarMinWidth"
     :class="{ 'drawer-mini': !DRAWER_STATE }"
   >
     <v-list>
       <v-list-item link color="primary" :to="'/app/profile-view'">
-        <v-list-item-action class="mr-6">
-          <v-icon :size="24" color="mdi-account-circle">mdi-account-circle</v-icon>
-        </v-list-item-action>
-        <v-list-item-content>
-          <v-list-item-title link> Profile </v-list-item-title>
-        </v-list-item-content>
+        <template #prepend><v-icon>mdi-account-circle</v-icon></template>
+        <v-list-item-title>Profile</v-list-item-title>
       </v-list-item>
 
       <v-list-item link color="primary" :to="'/app/dashboard'">
-        <v-list-item-action class="mr-6">
-          <v-icon :size="24" color="mdi-home">mdi-home</v-icon>
-        </v-list-item-action>
-        <v-list-item-content>
-          <v-list-item-title link> Dashboard </v-list-item-title>
-        </v-list-item-content>
+        <template #prepend><v-icon>mdi-home</v-icon></template>
+        <v-list-item-title>Dashboard</v-list-item-title>
       </v-list-item>
 
-      <v-list-group
-        prepend-icon="mdi-cart"
-      >
-        <template v-slot:activator>
-            <v-list-item-title>E-commerce</v-list-item-title>
+      <v-list-group value="E-commerce">
+        <template #activator="{ props }">
+          <v-list-item v-bind="props" prepend-icon="mdi-cart" title="E-commerce" />
         </template>
 
         <v-list-item
@@ -42,25 +30,14 @@
           link
           :to="item.link"
         >
-          <v-icon>{{item.icon}}</v-icon>
+          <template #prepend><v-icon :icon="item.icon" /></template>
           <v-list-item-title>{{item.title}}</v-list-item-title>
         </v-list-item>
       </v-list-group>
 
-<!--      <v-list-item link color="primary" :to="'/admin/users'">-->
-<!--        <v-list-item-action class="mr-6">-->
-<!--          <v-icon :size="24">mdi-animation</v-icon>-->
-<!--        </v-list-item-action>-->
-<!--        <v-list-item-content>-->
-<!--          <v-list-item-title link> Users </v-list-item-title>-->
-<!--        </v-list-item-content>-->
-<!--      </v-list-item>-->
-
-      <v-list-group
-        prepend-icon="mdi-account"
-      >
-        <template v-slot:activator>
-          <v-list-item-title>User</v-list-item-title>
+      <v-list-group value="User">
+        <template #activator="{ props }">
+          <v-list-item v-bind="props" prepend-icon="mdi-account" title="User" />
         </template>
 
         <v-list-item
@@ -69,47 +46,28 @@
           link
           :to="item.link"
         >
-          <v-icon>{{item.icon}}</v-icon>
+          <template #prepend><v-icon :icon="item.icon" /></template>
           <v-list-item-title>{{item.title}}</v-list-item-title>
         </v-list-item>
       </v-list-group>
 
-<!--      <v-list-item link color="primary" :to="'/app/profile'">-->
-<!--        <v-list-item-action class="mr-6">-->
-<!--          <v-icon :size="24">mdi-account</v-icon>-->
-<!--        </v-list-item-action>-->
-<!--        <v-list-item-content>-->
-<!--          <v-list-item-title link> Profile </v-list-item-title>-->
-<!--        </v-list-item-content>-->
-<!--      </v-list-item>-->
-
       <v-list-item link color="primary" :to="'/app/password'">
-        <v-list-item-action class="mr-6">
-          <v-icon :size="24">mdi-lock</v-icon>
-        </v-list-item-action>
-        <v-list-item-content>
-          <v-list-item-title link> Change password </v-list-item-title>
-        </v-list-item-content>
+        <template #prepend><v-icon>mdi-lock</v-icon></template>
+        <v-list-item-title>Change password</v-list-item-title>
       </v-list-item>
 
       <v-list-item link color="primary" :to="'/documentation'">
-        <v-list-item-action class="mr-6">
-          <v-icon :size="24">mdi-file-document</v-icon>
-        </v-list-item-action>
-        <v-list-item-content>
-          <v-list-item-title link> Documentation </v-list-item-title>
-        </v-list-item-content>
+        <template #prepend><v-icon>mdi-file-document</v-icon></template>
+        <v-list-item-title>Documentation</v-list-item-title>
       </v-list-item>
 
       <v-divider></v-divider>
 
-      <v-subheader class='ml-5'>TEMPLATE</v-subheader>
+      <v-list-subheader class='ml-5'>TEMPLATE</v-list-subheader>
 
-      <v-list-group
-        prepend-icon="mdi-apps"
-      >
-        <template v-slot:activator>
-          <v-list-item-title>Core</v-list-item-title>
+      <v-list-group value="Core">
+        <template #activator="{ props }">
+          <v-list-item v-bind="props" prepend-icon="mdi-apps" title="Core" />
         </template>
 
         <v-list-item
@@ -118,16 +76,14 @@
           link
           :to="item.link"
         >
-          <v-icon v-text="item.icon"></v-icon>
-          <v-list-item-title v-text="item.title"></v-list-item-title>
+          <template #prepend><v-icon :icon="item.icon" /></template>
+          <v-list-item-title>{{ item.title }}</v-list-item-title>
         </v-list-item>
       </v-list-group>
 
-      <v-list-group
-        prepend-icon="mdi-grid-large"
-      >
-        <template v-slot:activator>
-          <v-list-item-title>Tables</v-list-item-title>
+      <v-list-group value="Tables">
+        <template #activator="{ props }">
+          <v-list-item v-bind="props" prepend-icon="mdi-grid-large" title="Tables" />
         </template>
 
         <v-list-item
@@ -136,16 +92,14 @@
           link
           :to="item.link"
         >
-          <v-icon v-text="item.icon"></v-icon>
-          <v-list-item-title v-text="item.title"></v-list-item-title>
+          <template #prepend><v-icon :icon="item.icon" /></template>
+          <v-list-item-title>{{ item.title }}</v-list-item-title>
         </v-list-item>
       </v-list-group>
 
-      <v-list-group
-        prepend-icon="mdi-image-filter-none"
-      >
-        <template v-slot:activator>
-          <v-list-item-title>UI Elements</v-list-item-title>
+      <v-list-group value="UI Elements">
+        <template #activator="{ props }">
+          <v-list-item v-bind="props" prepend-icon="mdi-image-filter-none" title="UI Elements" />
         </template>
 
         <v-list-item
@@ -154,16 +108,14 @@
           link
           :to="item.link"
         >
-          <v-icon v-text="item.icon"></v-icon>
-          <v-list-item-title v-text="item.title"></v-list-item-title>
+          <template #prepend><v-icon :icon="item.icon" /></template>
+          <v-list-item-title>{{ item.title }}</v-list-item-title>
         </v-list-item>
       </v-list-group>
 
-      <v-list-group
-        prepend-icon="mdi-file-document"
-      >
-        <template v-slot:activator>
-          <v-list-item-title>Forms</v-list-item-title>
+      <v-list-group value="Forms">
+        <template #activator="{ props }">
+          <v-list-item v-bind="props" prepend-icon="mdi-file-document" title="Forms" />
         </template>
 
         <v-list-item
@@ -172,16 +124,14 @@
           link
           :to="item.link"
         >
-          <v-icon v-text="item.icon"></v-icon>
-          <v-list-item-title v-text="item.title"></v-list-item-title>
+          <template #prepend><v-icon :icon="item.icon" /></template>
+          <v-list-item-title>{{ item.title }}</v-list-item-title>
         </v-list-item>
       </v-list-group>
 
-      <v-list-group
-        prepend-icon="mdi-chart-bar"
-      >
-        <template v-slot:activator>
-          <v-list-item-title>Charts</v-list-item-title>
+      <v-list-group value="Charts">
+        <template #activator="{ props }">
+          <v-list-item v-bind="props" prepend-icon="mdi-chart-bar" title="Charts" />
         </template>
 
         <v-list-item
@@ -190,16 +140,14 @@
           link
           :to="item.link"
         >
-          <v-icon v-text="item.icon"></v-icon>
-          <v-list-item-title v-text="item.title"></v-list-item-title>
+          <template #prepend><v-icon :icon="item.icon" /></template>
+          <v-list-item-title>{{ item.title }}</v-list-item-title>
         </v-list-item>
       </v-list-group>
 
-      <v-list-group
-        prepend-icon="mdi-map"
-      >
-        <template v-slot:activator>
-          <v-list-item-title>Maps</v-list-item-title>
+      <v-list-group value="Maps">
+        <template #activator="{ props }">
+          <v-list-item v-bind="props" prepend-icon="mdi-map" title="Maps" />
         </template>
 
         <v-list-item
@@ -208,16 +156,14 @@
           link
           :to="item.link"
         >
-          <v-icon v-text="item.icon"></v-icon>
-          <v-list-item-title v-text="item.title"></v-list-item-title>
+          <template #prepend><v-icon :icon="item.icon" /></template>
+          <v-list-item-title>{{ item.title }}</v-list-item-title>
         </v-list-item>
       </v-list-group>
 
-      <v-list-group
-        prepend-icon="mdi-star"
-      >
-        <template v-slot:activator>
-          <v-list-item-title>Extra</v-list-item-title>
+      <v-list-group value="Extra">
+        <template #activator="{ props }">
+          <v-list-item v-bind="props" prepend-icon="mdi-star" title="Extra" />
         </template>
 
         <v-list-item
@@ -227,37 +173,32 @@
           :to="item.link"
           @click="item.action ? item.action() : null"
         >
-          <v-icon v-text="item.icon"></v-icon>
-          <v-list-item-title v-text="item.title"></v-list-item-title>
+          <template #prepend><v-icon :icon="item.icon" /></template>
+          <v-list-item-title>{{ item.title }}</v-list-item-title>
         </v-list-item>
       </v-list-group>
 
-      <v-list-group
-        prepend-icon="mdi-folder"
-      >
-        <template v-slot:activator>
-          <v-list-item-title>Menu Levels</v-list-item-title>
+      <v-list-group value="Menu Levels">
+        <template #activator="{ props }">
+          <v-list-item v-bind="props" prepend-icon="mdi-folder" title="Menu Levels" />
         </template>
 
         <v-list-group
           v-for="(item, i) in levelsChildren"
           :key='i'
-          no-action
-          sub-group
+           :value="item.title" subgroup
         >
-            <template v-slot:activator>
-              <v-list-item-content>
-                <v-list-item-title v-text='item.title'></v-list-item-title>
-              </v-list-item-content>
+            <template #activator="{ props }">
+              <v-list-item v-bind="props" :title="item.title" />
             </template>
 
             <v-list-item
               v-for="(items, i) in item.children"
               :key="i"
-              :link='items.link'
+              :to='items.link'
             >
-              <v-icon v-text="items.icon"></v-icon>
-              <v-list-item-title v-text="items.title"></v-list-item-title>
+              <template #prepend><v-icon :icon="items.icon" /></template>
+          <v-list-item-title>{{ items.title }}</v-list-item-title>
             </v-list-item>
         </v-list-group>
 
@@ -265,79 +206,66 @@
 
       <v-divider></v-divider>
 
-      <v-subheader class='ml-5'>HELP</v-subheader>
+      <v-list-subheader class='ml-5'>HELP</v-list-subheader>
 
       <v-list-item link color="primary" href="https://flatlogic.com/templates">
-        <v-list-item-action class="mr-6">
-          <v-icon :size="24" color="mdi-book-variant-multiple">mdi-book-variant-multiple</v-icon>
-        </v-list-item-action>
-        <v-list-item-content>
-          <v-list-item-title link> Library </v-list-item-title>
-        </v-list-item-content>
+        <template #prepend><v-icon>mdi-book-variant-multiple</v-icon></template>
+        <v-list-item-title>Library</v-list-item-title>
       </v-list-item>
 
       <v-list-item link color="primary" href="https://flatlogic.com/forum/">
-        <v-list-item-action class="mr-6">
-          <v-icon :size="24">mdi-forum</v-icon>
-        </v-list-item-action>
-        <v-list-item-content>
-          <v-list-item-title link> Support </v-list-item-title>
-        </v-list-item-content>
+        <template #prepend><v-icon>mdi-forum</v-icon></template>
+        <v-list-item-title>Support</v-list-item-title>
       </v-list-item>
 
       <v-list-item link color="primary" href="https://flatlogic.com/templates/vue-material-template">
-        <v-list-item-action class="mr-6">
-          <v-icon :size="24">mdi-help-circle-outline</v-icon>
-        </v-list-item-action>
-        <v-list-item-content>
-          <v-list-item-title link> FAQ </v-list-item-title>
-        </v-list-item-content>
+        <template #prepend><v-icon>mdi-help-circle-outline</v-icon></template>
+        <v-list-item-title>FAQ</v-list-item-title>
       </v-list-item>
 
       <v-divider></v-divider>
 
-      <v-subheader class='ml-5'>PROJECTS</v-subheader>
+      <v-list-subheader class='ml-5'>PROJECTS</v-list-subheader>
 
       <v-list-item>
-        <v-list-item-action class="mr-6">
+        <div class="mr-6">
           <v-icon color="warning" size="24">mdi-circle-medium</v-icon>
-        </v-list-item-action>
-        <v-list-item-content>
+        </div>
+        <div>
           <v-list-item-title> My recent </v-list-item-title>
-        </v-list-item-content>
+        </div>
       </v-list-item>
 
       <v-list-item>
-        <v-list-item-action class="mr-6">
+        <div class="mr-6">
           <v-icon color="primaryConst" size="24">mdi-circle-medium</v-icon>
-        </v-list-item-action>
-        <v-list-item-content>
+        </div>
+        <div>
           <v-list-item-title> Starred </v-list-item-title>
-        </v-list-item-content>
+        </div>
       </v-list-item>
 
       <v-list-item>
-        <v-list-item-action class="mr-6">
+        <div class="mr-6">
           <v-icon color="error" size="24">mdi-circle-medium</v-icon>
-        </v-list-item-action>
-        <v-list-item-content>
+        </div>
+        <div>
           <v-list-item-title> Background </v-list-item-title>
-        </v-list-item-content>
+        </div>
       </v-list-item>
 
       <v-divider></v-divider>
 
       <v-list-item @click='this.addSection'>
-        <v-list-item-action class="mr-6">
+        <div class="mr-6">
           <v-icon color="secondary" size="36">mdi-plus-circle</v-icon>
-        </v-list-item-action>
-        <v-list-item-content>
+        </div>
+        <div>
           <v-list-item-title> Add section </v-list-item-title>
-        </v-list-item-content>
+        </div>
       </v-list-item>
 
-      <v-divider
-        dark
+      <v-divider theme="dark"
         style="margin-top: 240px"
       ></v-divider>
 
@@ -345,9 +273,9 @@
         color="primary"
         link
         @click="chat = true">
-        <v-list-item-action class="mr-6">
+        <div class="mr-6">
           <v-responsive
-            class="text-center primary rounded-pill d-inline-flex align-center justify-center my-2"
+            class="text-center bg-primary rounded-pill d-inline-flex align-center justify-center my-2"
             height="44"
             width="44"
             max-width="200%">
@@ -356,27 +284,14 @@
               color="white"
             >mdi-message-text</v-icon>
           </v-responsive>
-        </v-list-item-action>
-        <v-list-item-content>
+        </div>
+        <div>
           <v-list-item-title
             link>
             Chat
           </v-list-item-title>
-        </v-list-item-content>
+        </div>
       </v-list-item>
-
-<!--      <a-->
-<!--        :href="externalLink"-->
-<!--        target="_blank"-->
-<!--        class="v-list-item v-list-item&#45;&#45;link theme&#45;&#45;light"-->
-<!--      >-->
-<!--        <v-list-item-action class="mr-6">-->
-<!--          <v-icon :size="24">mdi-file</v-icon>-->
-<!--        </v-list-item-action>-->
-<!--        <v-list-item-content>-->
-<!--          <v-list-item-title link> API docs </v-list-item-title>-->
-<!--        </v-list-item-content>-->
-<!--      </a>-->
     </v-list>
     <v-dialog
       v-model="dialog"
@@ -386,10 +301,9 @@
     >
       <v-card class="primary pt-5">
         <v-card-text>
-          <p class="text-h6 white--text">Add section</p>
-          <v-text-field
-            class="white--text"
-            dark
+          <p class="text-h6 text-white">Add section</p>
+          <v-text-field theme="dark"
+            class="text-white"
             single-line
             label="Section name"
           ></v-text-field>
@@ -401,9 +315,8 @@
             >
               Add
             </v-btn>
-            <v-btn
-              text
-              class="white--text"
+            <v-btn variant="text"
+              class="text-white"
               @click="dialog = false"
             >
               Agree
@@ -419,22 +332,21 @@
     >
       <v-card class="pt-5">
         <v-card-text>
-          <p class="fs-large font-weight-medium greyBold--text mb-0">Chat</p>
+          <p class="fs-large font-weight-medium text-greyBold mb-0">Chat</p>
           <v-list two-line>
-            <template v-for="(item, i) in chatItems">
+            <template v-for="(item, i) in chatItems" :key="i">
               <v-list-item
                 class="px-0"
                 style="min-height: 55px"
-                :key="i"
               >
-                <v-list-item-avatar class="my-0">
+                <v-avatar class="my-0">
                   <v-img :src="item.avatar"></v-img>
-                </v-list-item-avatar>
+                </v-avatar>
 
-                <v-list-item-content class="py-0">
-                  <v-list-item-title class="font-weight-bold greyBold--text" v-html="item.title"></v-list-item-title>
-                  <v-list-item-subtitle class="greyBold--text fs-base" v-html="item.subtitle"></v-list-item-subtitle>
-                </v-list-item-content>
+                <div class="py-0">
+                  <v-list-item-title class="font-weight-bold text-greyBold">{{ item.title }}</v-list-item-title>
+                  <v-list-item-subtitle class="text-greyBold fs-base">{{ item.subtitle }}</v-list-item-subtitle>
+                </div>
               </v-list-item>
             </template>
           </v-list>
@@ -462,6 +374,7 @@
 
 <script>
   import { mapActions, mapState } from 'vuex';
+  import config from '@/config';
 
   export default {
     name: 'Sidebar',
@@ -473,8 +386,8 @@
         sidebarWidth: 240,
         sidebarMinWidth: 96,
         usersChildren: [
-          { title: 'User List', icon: 'mdi-circle-small', link: '/admin/users'},
-          { title: 'User Add', icon: 'mdi-circle-small', link: '/admin/users/new' },
+          { title: 'User List', icon: 'mdi-circle-small', link: config.isBackend ? '/admin/users' : '/user/list'},
+          { title: 'User Add', icon: 'mdi-circle-small', link: config.isBackend ? '/admin/users/new' : '/user/add' },
           { title: 'User Edit', icon: 'mdi-circle-small', link: '/app/profile' }
         ],
         ecommerceLinks: [
@@ -546,19 +459,19 @@
         ],
         chatItems: [
           {
-            avatar: require('@/assets/img/time-line/a1.jpg'),
+            avatar: new URL('../../assets/img/time-line/a1.jpg', import.meta.url).href,
             title: 'Jane Hew',
-            subtitle: "<span>Hey! How it's going?</span>",
+            subtitle: "Hey! How it's going?",
           },
           {
-            avatar: require('@/assets/img/time-line/a2.jpg'),
+            avatar: new URL('../../assets/img/time-line/a2.jpg', import.meta.url).href,
             title: 'Axel Pittman',
-            subtitle: "<span class='text--primary'>I'll definitely buy this template</span>",
+            subtitle: "I'll definitely buy this template",
           },
           {
-            avatar: require('@/assets/img/time-line/a3.jpg'),
+            avatar: new URL('../../assets/img/time-line/a3.jpg', import.meta.url).href,
             title: 'Sophia Fernandez',
-            subtitle: "<span class='text--primary'>What's the font-family?</span>",
+            subtitle: "What's the font-family?",
           },
         ],
         dialog: false,
@@ -580,7 +493,7 @@
         },
       },
       // externalLink: () => {
-      //   return process.env.NODE_ENV === 'production'
+      //   return import.meta.env.PROD
       //     ? window.location.origin + '/api-docs'
       //     : 'http://localhost:8080/api-docs';
       // },
@@ -588,16 +501,14 @@
     methods: {
       ...mapActions('layout', ['TOGGLE_DRAWER']),
       logOut: function () {
-        window.localStorage.setItem('authenticated', false);
-        window.localStorage.removeItem('token');
-        this.$router.push('/login');
+        return this.$store.dispatch('auth/logoutUser');
       },
       addSection: function () {
         this.dialog = true;
       },
       newMessage: function () {
         let post = {
-          avatar: require('@/assets/img/user/avatars/avatar.png'),
+          avatar: new URL('../../assets/img/user/avatars/avatar.png', import.meta.url).href,
           title: 'John Smith',
           subtitle: ''
         };
@@ -612,7 +523,7 @@
 </script>
 
 <style lang="scss">
-  @import 'src/styles/variables';
+  @import '@/styles/variables';
 
   .v-navigation-drawer {
     top: 64px !important;
@@ -635,7 +546,7 @@
         background: transparent;
       }
       &::-webkit-scrollbar-thumb {
-        background-color: var(--v-greyTint-base);
+        background-color: rgb(var(--v-theme-greyTint));
         border-radius: 36px;
         border: none;
       }
@@ -663,24 +574,24 @@
 
     .v-list-item .v-list-item__title {
       font-size: 0.875rem;
-      color: var(--v-greyMedium-base) !important;
+      color: rgb(var(--v-theme-greyMedium)) !important;
     }
     .v-list-item--active {
       .v-list-item__content {
         .v-list-item__title {
-          color: var(--v-greyBold-base) !important;
+          color: rgb(var(--v-theme-greyBold)) !important;
         }
       }
       .v-list-item__action {
         i {
-          color: var(--v-primary-base) !important;
+          color: rgb(var(--v-theme-primary)) !important;
         }
       }
     }
     .v-list-group--active .v-list-item--active i {
-      color: var(--v-primary-base) !important;
+      color: rgb(var(--v-theme-primary)) !important;
       &.mdi-chevron-down {
-        color: var(--v-greyTint-base) !important;
+        color: rgb(var(--v-theme-greyTint)) !important;
       }
     }
 
@@ -689,7 +600,7 @@
         div,
         a {
           &.v-list-item {
-            color: var(--v-greyMedium-base);
+            color: rgb(var(--v-theme-greyMedium));
             transition: 300ms all;
           }
         }
@@ -707,7 +618,7 @@
       }
     }
     .subheader {
-      color: var(--v-greyTint-base);
+      color: rgb(var(--v-theme-greyTint));
       transition: 300ms all;
     }
     .hide {
@@ -739,7 +650,7 @@
     }
   }
 
-  .v-navigation-drawer.theme--dark {
+  .v-navigation-drawer.v-theme--dark {
     background-color: #23232d !important;
 
     .v-navigation-drawer__content {
@@ -752,7 +663,7 @@
 
     .v-list-item:not(.v-list-item--active) {
       .v-icon {
-        color: var(--v-greyBold-base);
+        color: rgb(var(--v-theme-greyBold));
       }
     }
     .v-list-item {
@@ -760,14 +671,14 @@
         background-color: #13131a !important;
       }
       .v-list-item__title {
-        color: var(--v-greyTint-base) !important;
+        color: rgb(var(--v-theme-greyTint)) !important;
       }
     }
     .v-list-item--active {
       background-color: #23232d !important;
       .v-list-item__content {
         .v-list-item__title {
-          color: var(--v-greyTint-base) !important;
+          color: rgb(var(--v-theme-greyTint)) !important;
         }
       }
     }

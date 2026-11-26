@@ -7,11 +7,10 @@
             <p>Navbar Example</p>
             <v-spacer></v-spacer>
             <v-menu>
-              <template v-slot:activator="{ on, attrs }">
+              <template #activator="{ props }">
                 <v-btn
                   icon
-                  v-bind="attrs"
-                  v-on="on">
+                  v-bind="props">
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
               </template>
@@ -26,12 +25,11 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="overflow-x-auto pa-6 pt-0">
-            <p class="fs-normal greyBold--text mb-5">App bar displays yours app links by importing and inserting AppBar component.
+            <p class="fs-normal text-greyBold mb-5">App bar displays yours app links by importing and inserting AppBar component.
               To swap links style add attribute within Button component.</p>
-            <v-app-bar
+            <v-app-bar theme="dark"
               flat
               color="primaryConst"
-              dark
               class="mb-10">
                 <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
@@ -39,37 +37,33 @@
 
                 <v-spacer></v-spacer>
 
-                <v-btn text>
+                <v-btn variant="text">
                   Link
                 </v-btn>
 
-                <v-btn text>
+                <v-btn variant="text">
                   link 2
                 </v-btn>
 
-                <v-btn text disabled>
+                <v-btn variant="text" disabled>
                   Disabled link
                 </v-btn>
 
               </v-app-bar>
-            <p class="fs-normal greyBold--text mb-5">With menu</p>
-            <v-app-bar
+            <p class="fs-normal text-greyBold mb-5">With menu</p>
+            <v-app-bar theme="dark"
               flat
               color="secondary"
-              dark
               class="mb-6">
               <v-app-bar-nav-icon></v-app-bar-nav-icon>
               <v-toolbar-title>Navbar menu</v-toolbar-title>
               <v-spacer></v-spacer>
-              <v-menu
-                left
-                bottom
+              <v-menu location="bottom start"
               >
-                <template v-slot:activator="{ on, attrs }">
+                <template #activator="{ props }">
                   <v-btn
                     icon
-                    v-bind="attrs"
-                    v-on="on"
+                    v-bind="props"
                   >
                     <v-icon>mdi-account</v-icon>
                   </v-btn>
@@ -95,11 +89,10 @@
             <p>Navbar Search</p>
             <v-spacer></v-spacer>
             <v-menu>
-              <template v-slot:activator="{ on, attrs }">
+              <template #activator="{ props }">
                 <v-btn
                   icon
-                  v-bind="attrs"
-                  v-on="on">
+                  v-bind="props">
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
               </template>
@@ -114,23 +107,21 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-6 pt-0">
-            <p class="fs-normal greyBold--text mb-5">Search icon makes UX more flexible. To start using search icon,
+            <p class="fs-normal text-greyBold mb-5">Search icon makes UX more flexible. To start using search icon,
               make sure you got all relative functions.</p>
-            <v-app-bar
+            <v-app-bar theme="dark"
               color="primaryConst"
               flat
-              dark
               class="mb-10">
                 <v-app-bar-nav-icon></v-app-bar-nav-icon>
                 <v-toolbar-title>Navbar search</v-toolbar-title>
                 <v-spacer></v-spacer>
-                <Search />
+                <AppSearch />
               </v-app-bar>
-            <p class="fs-normal greyBold--text mb-5">Navbar can contain background images. You can set source via the src prop.</p>
-            <v-app-bar
+            <p class="fs-normal text-greyBold mb-5">Navbar can contain background images. You can set source via the src prop.</p>
+            <v-app-bar theme="dark"
               flat
               color="primary"
-              dark
               class="mb-6"
               src="https://picsum.photos/1920/1080?random">
               <template v-slot:img="{ props }">
@@ -142,19 +133,16 @@
               <v-app-bar-nav-icon></v-app-bar-nav-icon>
               <v-toolbar-title>Navbar with image</v-toolbar-title>
               <v-spacer></v-spacer>
-              <Search />
+              <AppSearch />
               <v-btn icon>
                 <v-icon>mdi-heart</v-icon>
               </v-btn>
-              <v-menu
-                  left
-                  bottom
+              <v-menu location="bottom start"
               >
-                <template v-slot:activator="{ on, attrs }">
+                <template #activator="{ props }">
                   <v-btn
                       icon
-                      v-bind="attrs"
-                      v-on="on"
+                      v-bind="props"
                   >
                     <v-icon>mdi-dots-vertical</v-icon>
                   </v-btn>
@@ -179,11 +167,11 @@
 </template>
 
 <script>
-import Search from "@/components/Search/Search"
+import AppSearch from "@/components/Search/Search"
 
 export default {
   name: 'Navbar',
-  components: { Search },
+  components: { AppSearch },
   data () {
     return {
       menu: [

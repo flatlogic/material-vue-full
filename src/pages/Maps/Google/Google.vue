@@ -5,15 +5,15 @@
         <v-card>
           <v-card-text class="pa-0 rounded overflow-hidden">
             <div class="mapContainer">
-              <GmapMap
+              <VueGoogleMap :api-key="$googleMapsKey"
                       :center="{lat: -37.813179, lng: 144.950259}"
                       :zoom="12"
                       style="width: 100%; height: inherit"
               >
-                <GmapMarker
-                        :position="{lat: -37.813179, lng: 144.950259}"
+                <MapMarker
+                        :options="{ position: {lat: -37.813179, lng: 144.950259} }"
                 />
-              </GmapMap>
+              </VueGoogleMap>
             </div>
           </v-card-text>
         </v-card>

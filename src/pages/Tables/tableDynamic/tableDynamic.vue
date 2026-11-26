@@ -8,12 +8,12 @@
               <p>Sorting & Selecting</p>
             </v-card-title>
             <v-card-text>
-              <p class="fs-normal greyBold--text mb-5 pl-1">This example demonstrates the use of Checkbox and clickable rows for selection, with a custom Toolbar.</p>
+              <p class="fs-normal text-greyBold mb-5 pl-1">This example demonstrates the use of Checkbox and clickable rows for selection, with a custom Toolbar.</p>
               <v-data-table
                 v-model="mock.first.selected"
                 :headers="mock.first.headers"
                 :items="mock.first.desserts"
-                item-key="name"
+                item-value="name"
                 show-select>
               </v-data-table>
             </v-card-text>
@@ -25,62 +25,31 @@
               <p>Custom Table Action</p>
             </v-card-title>
             <v-card-text>
-              <p class="fs-normal greyBold--text mb-5 pl-1">The
+              <p class="fs-normal text-greyBold mb-5 pl-1">The
                 Action property of the TablePagination component allows the implementation of custom actions.</p>
               <v-data-table
                 :headers="second.headers"
                 :items="second.desserts">
-                <template v-slot:item.name="props">
-                  <v-edit-dialog
-                      :return-value.sync="props.item.name"
-                      @save="save"
-                      @cancel="cancel"
-                      @open="open"
-                      @close="close"
-                  > {{ props.item.name }}
-                    <template v-slot:input>
-                      <v-text-field
-                          v-model="props.item.name"
-                          :rules="[second.max25chars]"
-                          label="Edit"
-                          single-line
-                          counter
-                      ></v-text-field>
-                    </template>
-                  </v-edit-dialog>
-                </template>
-                <template v-slot:item.iron="props">
-                  <v-edit-dialog
-                      :return-value.sync="props.item.iron"
-                      large
-                      persistent
-                      @save="save"
-                      @cancel="cancel"
-                      @open="open"
-                      @close="close"
-                  >
-                    <div>{{ props.item.iron }}</div>
-                    <template v-slot:input>
-                      <div class="mt-4 title">Update Iron</div>
-                    </template>
-                    <template v-slot:input>
-                      <v-text-field
-                          v-model="props.item.iron"
-                          :rules="[second.max25chars]"
-                          label="Edit"
-                          single-line
-                          counter
-                          autofocus
-                      ></v-text-field>
-                    </template>
-                  </v-edit-dialog>
+                <template v-for="field in ['name', 'iron']" :key="field" #[`item.${field}`]="{ item }">
+                  <v-btn variant="text" @click="beginEdit(item, field)">{{ item[field] }}</v-btn>
                 </template>
               </v-data-table>
+              <v-dialog v-model="editing" max-width="400">
+                <v-card title="Edit value">
+                  <v-card-text>
+                    <v-text-field v-model="editValue" :label="editField" :rules="[second.max25chars]" counter="25" autofocus @keyup.enter="save" />
+                  </v-card-text>
+                  <v-card-actions>
+                    <v-btn @click="editing = false">Cancel</v-btn>
+                    <v-btn color="primary" :disabled="second.max25chars(editValue) !== true" @click="save">Save</v-btn>
+                  </v-card-actions>
+                </v-card>
+              </v-dialog>
               <v-snackbar v-model="second.snack" :timeout="3000" :color="second.snackColor">
                 {{ second.snackText }}
 
-                <template v-slot:action="{ attrs }">
-                  <v-btn v-bind="attrs" text @click="snack = false">Close</v-btn>
+                <template #actions>
+                  <v-btn variant="text" @click="second.snack = false">Close</v-btn>
                 </template>
               </v-snackbar>
             </v-card-text>
@@ -95,32 +64,32 @@
 import mock from './mock'
 
 export default {
-  name: 'tablesBasic',
+  name: 'TablesDynamic',
   data() {
     return {
       mock,
       first: mock.first,
-      second: mock.second
+      second: mock.second,
+      editing: false,
+      editItem: null,
+      editField: '',
+      editValue: ''
     }
   },
   methods: {
-    save () {
-      this.snack = true
-      this.snackColor = 'success'
-      this.snackText = 'Data saved'
+    beginEdit(item, field) {
+      this.editItem = item;
+      this.editField = field;
+      this.editValue = item[field];
+      this.editing = true;
     },
-    cancel () {
-      this.snack = true
-      this.snackColor = 'error'
-      this.snackText = 'Canceled'
-    },
-    open () {
-      this.snack = true
-      this.snackColor = 'info'
-      this.snackText = 'Dialog opened'
-    },
-    close () {
-      console.log('Dialog closed')
+    save() {
+      if (this.second.max25chars(this.editValue) !== true) return;
+      this.editItem[this.editField] = this.editValue;
+      this.editing = false;
+      this.second.snackColor = 'success';
+      this.second.snackText = 'Data saved';
+      this.second.snack = true;
     },
   },
 }

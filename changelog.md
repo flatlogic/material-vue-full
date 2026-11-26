@@ -1,5 +1,19 @@
 # Changelog
 
+## [v.3.0.0] - 26/11/2026
+
+### Updated
+
+- Upgraded to Vue 3.5, Vuetify 3, Vue Router 4 and Vuex 4. Ported the dashboard, authentication forms, tables, galleries, maps and calendar to their supported APIs.
+- Updated Axios to 1.21.1 and added an npm lockfile for reproducible installations.
+- Replaced Vue CLI and webpack with Vite. The standalone and API-backed builds use relative URLs for subdirectory deployments.
+- Updated the setup instructions and migration notes for applications extending the template.
+
+### Fixed
+
+- Send automatic session headers only to the configured API origin. Support a configurable backend URL and keep standalone sessions and user management entirely local.
+- Render selected calendar event names and details as text.
+
 ## [v.1.1.2] - 22/11/2024
 
 - Updated dependencies

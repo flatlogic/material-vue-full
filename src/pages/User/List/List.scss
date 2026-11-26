@@ -1,22 +1,22 @@
-@import "../../../styles/app";
+@import "../../../styles/variables";
 
 .user-list  {
-  .v-text-field--outlined .v-label {
+  .v-field--variant-outlined .v-label {
     top: 6px;
   }
   .users-table {
-    .v-data-table-header th{
+    thead th{
       font-size: $fs-medium;
-      color: var(--v-greyTint-base)!important;
+      color: rgb(var(--v-theme-greyTint))!important;
       font-weight: 400;
     }
-    &.theme--dark {
+    &.v-theme--dark {
       .v-data-table {
         background-color: transparent;
       }
     }
   }
-  .theme--dark {
+  .v-theme--dark {
     &.v-data-table {
       background-color: transparent;
     }

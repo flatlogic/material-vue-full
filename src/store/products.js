@@ -1,11 +1,11 @@
-import axios from "axios";
+import api from "@/api";
 import mock from "../pages/E-commerce/mock";
 import config from "../config";
 
 export default {
   namespaced: true,
   state: {
-    products: [],
+    products: config.isBackend ? [] : mock.map(item => ({ ...item })),
     images: [],
     isReceiving: false,
     isUpdating: false,
@@ -14,6 +14,9 @@ export default {
     productMessage: ''
   },
   mutations: {
+    FINISHED_PRODUCT_REQUEST(state, flag) {
+      state[flag] = false;
+    },
     RECEIVED_PRODUCTS(state, payload) {
       state.products = payload;
       state.isReceiving = false;
@@ -40,21 +43,18 @@ export default {
           return p;
         }),
         isUpdating: false,
-        productMessage: 'Products has been updating!',
+        productMessage: 'Product updated.',
       })
     },
     UPDATING_PRODUCT(state) {
       state.isUpdating = true;
     },
     DELETED_PRODUCT(state, payload) {
-      let indexToDelete = state.products.findIndex(p => p.id === payload.id);
-      let products = [...state.products];
-      products.splice(indexToDelete, 1);
-      state = Object.assign(state, {
-        products: [...products],
+      Object.assign(state, {
+        products: state.products.filter(item => item.id !== payload.id),
         isDeleting: false,
         idToDelete: null,
-        productMessage: 'Product has been Deleted!',
+        productMessage: 'Product deleted.',
       });
     },
     DELETING_PRODUCT(state, payload) {
@@ -63,61 +63,51 @@ export default {
     },
   },
   actions: {
-    getProductsRequest({dispatch}) {
-      // We check if app runs with backend mode
-      if (!config.isBackend) {
-        dispatch("receiveProducts", mock);
-      }
-      else {
-        dispatch("receivingProducts");
-        axios.get('/products').then(res => {
-          console.log(res.data)
-          dispatch("receiveProducts", res.data);
-        })
-          .catch((e) => {
-            console.log(e);
-            dispatch("receiveProducts", mock);
-          })
+    async getProductsRequest({ state, commit }) {
+      if (!config.isBackend) return state.products;
+      commit('RECEIVING_PRODUCTS');
+      try {
+        const { data } = await api.get('/products');
+        commit('RECEIVED_PRODUCTS', data);
+      } finally {
+        commit('FINISHED_PRODUCT_REQUEST', 'isReceiving');
       }
     },
-    loadProductRequest({dispatch}, id) {
-      // We check if app runs with backend mode
-      if (!config.isBackend) {
-        dispatch("receiveProduct", mock.find(arr => arr.id === id));
+    async loadProductRequest({ state }, id) {
+      if (!config.isBackend) return state.products.find(item => item.id === id);
+      const { data } = await api.get(`/products/${id}`);
+      return data;
+    },
+    async updateProductRequest({ commit }, payload) {
+      commit('UPDATING_PRODUCT');
+      try {
+        const item = config.isBackend
+          ? (await api.put(`/products/${payload.id}`, payload)).data
+          : payload;
+        commit('UPDATED_PRODUCT', item);
+      } finally {
+        commit('FINISHED_PRODUCT_REQUEST', 'isUpdating');
       }
-      else {
-        dispatch("receivingProduct");
-        axios.get('/products/' + id).then(res => {
-          dispatch("receiveProduct", res.data);
-        })
+    },
+    async createProductRequest({ commit }, payload) {
+      commit('RECEIVING_PRODUCT');
+      try {
+        const item = config.isBackend
+          ? (await api.post('/products', payload)).data
+          : { ...payload, id: crypto.randomUUID(), createdAt: new Date().toISOString() };
+        commit('RECEIVED_PRODUCT', item);
+      } finally {
+        commit('FINISHED_PRODUCT_REQUEST', 'isReceiving');
       }
     },
-    updateProductRequest({dispatch}, payload) {
-      // We check if app runs with backend mode
-      if (!config.isBackend) return;
-
-      dispatch("updatingProduct");
-      axios.put('/products/' + payload.id, payload).then(res => {
-        dispatch("updateProduct", res.data);
-      })
-    },
-    createProductRequest({dispatch}, payload) {
-      // We check if app runs with backend mode
-      if (!config.isBackend) return;
-
-      dispatch("receivingProducts");
-      axios.post('/products', payload).then(res => {
-        dispatch("receiveProduct", res.data);
-      })
-    },
-    deleteProductRequest({dispatch}, payload) {
-      // We check if app runs with backend mode
-      if (!config.isBackend) return;
-
-      dispatch("deletingProduct", payload);
-      axios.delete('/products/' + payload.id).then(() => {
-        dispatch("deleteProduct", {id: payload.id});
-      })
+    async deleteProductRequest({ commit }, payload) {
+      commit('DELETING_PRODUCT', payload);
+      try {
+        if (config.isBackend) await api.delete(`/products/${payload.id}`);
+        commit('DELETED_PRODUCT', payload);
+      } finally {
+        commit('FINISHED_PRODUCT_REQUEST', 'isDeleting');
+      }
     },
     receiveProducts({commit}, payload) {
       commit("RECEIVED_PRODUCTS", payload)

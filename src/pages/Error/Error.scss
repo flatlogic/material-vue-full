@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--v-primary-base);
+  background-color: rgb(var(--v-theme-primary));
   .logo-wrapper {
     align-items: center;
     margin-bottom: 30px;
@@ -28,30 +28,30 @@
     flex-direction: column;
     justify-content: space-around;
 
-    @include media-breakpoint-up(md) {
+    @media (min-width: 960px) {
       padding: 0 50px;
     }
     .error-logo {
-      color: var(--v-primary-base);
+      color: rgb(var(--v-theme-primary));
       font-size: 110px;
       font-weight: 600;
-      @include media-breakpoint-up(md) {
+      @media (min-width: 960px) {
         font-size: 148px;
       }
     }
     .error-text {
-      color: var(--v-primary-base);
+      color: rgb(var(--v-theme-primary));
       text-align: center;
       font-size: $h4-font-size;
-      @include media-breakpoint-up(md) {
+      @media (min-width: 960px) {
         font-size: $h3-font-size;
       }
     }
     .error-subtext {
       text-align: center;
-      color: var(--v-greyTint-base);
+      color: rgb(var(--v-theme-greyTint));
       font-size: $h5-font-size;
-      @include media-breakpoint-up(md) {
+      @media (min-width: 960px) {
         font-size: $h4-font-size;
       }
     }

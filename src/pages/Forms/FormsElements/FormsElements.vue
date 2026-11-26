@@ -7,11 +7,10 @@
             <p>Inputs</p>
             <v-spacer></v-spacer>
             <v-menu>
-              <template v-slot:activator="{ on, attrs }">
+              <template #activator="{ props }">
                 <v-btn
                   icon
-                  v-bind="attrs"
-                  v-on="on"
+                  v-bind="props"
                 >
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
@@ -28,11 +27,11 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal greyBold--text mb-5">A simple text field with placeholder and/or label.</p>
+            <p class="fs-normal text-greyBold mb-5">A simple text field with placeholder and/or label.</p>
             <v-form ref="form">
               <v-row>
                 <v-col cols="5" class="d-flex align-center">
-                  <p class="fs-normal greyBold--text mb-0">Normal field</p>
+                  <p class="fs-normal text-greyBold mb-0">Normal field</p>
                 </v-col>
                 <v-col cols="7">
                   <v-text-field
@@ -40,7 +39,7 @@
                 ></v-text-field>
                 </v-col>
                 <v-col cols="5" class="d-flex align-center">
-                  <p class="fs-normal greyBold--text mb-0">Label hint</p>
+                  <p class="fs-normal text-greyBold mb-0">Label hint</p>
                 </v-col>
                 <v-col cols="7">
                   <v-text-field
@@ -50,7 +49,7 @@
                 ></v-text-field>
                 </v-col>
                 <v-col cols="5" class="d-flex align-center">
-                  <p class="fs-normal greyBold--text mb-0">Disable input</p>
+                  <p class="fs-normal text-greyBold mb-0">Disable input</p>
                 </v-col>
                 <v-col cols="7">
                   <v-text-field
@@ -58,7 +57,7 @@
                     label="Disable"
                 ></v-text-field></v-col>
                 <v-col cols="5" class="d-flex align-center">
-                  <p class="fs-normal greyBold--text mb-0">Prepended input</p>
+                  <p class="fs-normal text-greyBold mb-0">Prepended input</p>
                 </v-col>
                 <v-col cols="7">
                   <v-text-field
@@ -67,7 +66,7 @@
                   ></v-text-field>
                 </v-col>
                 <v-col cols="5" class="d-flex align-center">
-                  <p class="fs-normal greyBold--text mb-0">Password</p>
+                  <p class="fs-normal text-greyBold mb-0">Password</p>
                 </v-col>
                 <v-col cols="7">
                   <v-text-field
@@ -77,7 +76,7 @@
                   ></v-text-field>
                 </v-col>
                 <v-col cols="5" class="d-flex align-center">
-                  <p class="fs-normal greyBold--text mb-0">Appended input</p>
+                  <p class="fs-normal text-greyBold mb-0">Appended input</p>
                 </v-col>
                 <v-col cols="7">
                   <v-text-field
@@ -96,11 +95,10 @@
             <p>Dense</p>
             <v-spacer></v-spacer>
             <v-menu>
-              <template v-slot:activator="{ on, attrs }">
+              <template #activator="{ props }">
                 <v-btn
                     icon
-                    v-bind="attrs"
-                    v-on="on"
+                    v-bind="props"
                 >
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
@@ -117,69 +115,58 @@
             </v-menu>
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
-            <p class="fs-normal greyBold--text mb-5">You can reduces the text field height with <code>dense</code> prop.</p>
+            <p class="fs-normal text-greyBold mb-5">You can reduces the text field height with <code>dense</code> prop.</p>
             <v-row>
               <v-col cols="5" class="d-flex align-center">
-                <p class="fs-normal greyBold--text mb-0">Normal field</p>
+                <p class="fs-normal text-greyBold mb-0">Normal field</p>
               </v-col>
               <v-col cols="7">
-                <v-text-field
-                  dense
+                <v-text-field density="compact"
                   label="Regular"
                 ></v-text-field>
               </v-col>
               <v-col cols="5" class="d-flex align-center">
-                <p class="fs-normal greyBold--text mb-0">Filled field</p>
+                <p class="fs-normal text-greyBold mb-0">Filled field</p>
               </v-col>
               <v-col cols="7">
-                <v-text-field
+                <v-text-field density="compact" variant="filled"
                   label="Filled"
-                  filled
-                  dense
                 ></v-text-field>
               </v-col>
               <v-col cols="5" class="d-flex align-center">
-                <p class="fs-normal greyBold--text mb-0">Dense & Rounded</p>
+                <p class="fs-normal text-greyBold mb-0">Dense & Rounded</p>
               </v-col>
               <v-col cols="7">
-                <v-text-field
+                <v-text-field density="compact" variant="filled"
                   label="Filled"
                   placeholder="Dense & Rounded"
-                  filled
                   rounded
-                  dense
                 ></v-text-field>
               </v-col>
               <v-col cols="5" class="d-flex align-center">
-                <p class="fs-normal greyBold--text mb-0">Solo</p>
+                <p class="fs-normal text-greyBold mb-0">Solo</p>
               </v-col>
               <v-col cols="7">
-                <v-text-field
+                <v-text-field density="compact" variant="solo"
                   class="dense-elements"
                   label="Solo"
-                  solo
-                  dense
                 ></v-text-field>
               </v-col>
               <v-col cols="5" class="d-flex align-center">
-                <p class="fs-normal greyBold--text mb-0">Outlined</p>
+                <p class="fs-normal text-greyBold mb-0">Outlined</p>
               </v-col>
               <v-col cols="7">
-                <v-text-field
+                <v-text-field density="compact" variant="outlined"
                   label="Outlined"
-                  outlined
-                  dense
                 ></v-text-field>
               </v-col>
               <v-col cols="5" class="d-flex align-center">
-                <p class="fs-normal greyBold--text mb-0">Outlined</p>
+                <p class="fs-normal text-greyBold mb-0">Outlined</p>
               </v-col>
               <v-col cols="7">
-                <v-text-field
+                <v-text-field density="compact" variant="outlined"
                   label="Outlined"
                   placeholder="Placeholder"
-                  outlined
-                  dense
                 ></v-text-field>
               </v-col>
             </v-row>
@@ -192,11 +179,10 @@
             <p>Selects</p>
             <v-spacer></v-spacer>
             <v-menu>
-              <template v-slot:activator="{ on, attrs }">
+              <template #activator="{ props }">
                 <v-btn
                   icon
-                  v-bind="attrs"
-                  v-on="on"
+                  v-bind="props"
                 >
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
@@ -222,26 +208,23 @@
               </v-col>
 
               <v-col class="d-flex" cols="12" sm="6">
-                <v-select
+                <v-select variant="filled"
                   :items="items"
-                  filled
                   label="Filled style"
                 ></v-select>
               </v-col>
 
               <v-col class="d-flex" cols="12" sm="6">
-                <v-select
+                <v-select variant="outlined"
                   :items="items"
                   label="Outlined style"
-                  outlined
                 ></v-select>
               </v-col>
 
               <v-col class="solo-select d-flex" cols="12" sm="6">
-                <v-select
+                <v-select variant="solo"
                   :items="items"
                   label="Solo field"
-                  solo
                 ></v-select>
               </v-col>
             </v-row>
@@ -254,11 +237,10 @@
             <p>Input Variants</p>
             <v-spacer></v-spacer>
             <v-menu>
-              <template v-slot:activator="{ on, attrs }">
+              <template #activator="{ props }">
                 <v-btn
                     icon
-                    v-bind="attrs"
-                    v-on="on"
+                    v-bind="props"
                 >
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
@@ -276,14 +258,14 @@
           </v-card-title>
           <v-card-text class="pa-5 pt-0">
             <v-row>
-              <template v-for="item in checkbox">
-                <v-col cols="12" sm="4" md="4" :key="item">
+              <template v-for="item in checkbox" :key="item">
+                <v-col cols="12" sm="4" md="4" >
                   <v-checkbox
                     v-model="checkboxModel"
                     :key="item"
                     :label="item"
                     :color="item.toLocaleLowerCase()"
-                    :value="item"
+                    :model-value="item"
                     hide-details
                   ></v-checkbox>
                 </v-col>
@@ -291,8 +273,8 @@
             </v-row>
             <v-row>
               <v-radio-group v-model="radioModel" row>
-                <template v-for="item in radio">
-                  <v-col cols="12" sm="4" md="4" :key="item">
+                <template v-for="item in radio" :key="item">
+                  <v-col cols="12" sm="4" md="4" >
                     <v-radio
                       :label="item"
                       :color="item.toLocaleLowerCase()"
@@ -322,11 +304,10 @@
             <p>Textareas</p>
             <v-spacer></v-spacer>
             <v-menu>
-              <template v-slot:activator="{ on, attrs }">
+              <template #activator="{ props }">
                 <v-btn
                   icon
-                  v-bind="attrs"
-                  v-on="on">
+                  v-bind="props">
                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                 </v-btn>
               </template>
@@ -352,29 +333,26 @@
                 ></v-textarea>
               </v-col>
               <v-col cols="12" md="6">
-                <v-textarea
+                <v-textarea variant="solo"
                   class="mb-4"
                   hide-details
-                  solo
                   value="“What a curious feeling!” said Alice; “I must be shutting up like a telescope.”"
                   label="Solo textarea"
                 ></v-textarea>
               </v-col>
               <v-col cols="12" md="6">
-                <v-textarea
+                <v-textarea variant="filled"
                   hide-details
-                  filled
                   label="Filled textarea"
                   value="And so it was indeed: she was now only ten inches high, and her face brightened up at the thought that she was now the right size for going through the little door into that lovely garden. First, however, she waited for a few minutes to see if she was going to shrink any further: she felt a little nervous about this; “for it might end, you know,” said Alice to herself, “in my going out altogether, like a candle. I wonder what I should be like then?”"
                 ></v-textarea>
               </v-col>
               <v-col cols="12" md="6">
-                <v-textarea
-                  outlined
+                <v-textarea size="small" variant="outlined"
                   height="166"
                   hide-details
                   label="Outlined textarea"
-                  value="Soon her eye fell on a little glass box that was lying under the table: she opened it, and found in it a very small cake, on which the words “EAT ME” were beautifully marked in currants. “Well, I’ll eat it,” said Alice, “and if it makes me grow larger, I can reach the key; and if it makes me grow smaller, I can creep under the door; so either way I’ll get into the garden, and I don’t care which happens!”"
+                  value="Soon her eye fell on a little glass box that was lying under the table: she opened it, and found in it a very cake, on which the words “EAT ME” were beautifully marked in currants. “Well, I’ll eat it,” said Alice, “and if it makes me grow larger, I can reach the key; and if it makes me grow smaller, I can creep under the door; so either way I’ll get into the garden, and I don’t care which happens!”"
                 ></v-textarea>
               </v-col>
             </v-row>

@@ -4,7 +4,7 @@
   .v-card__title {
     .v-input {
       max-width: 45%;
-      @include media-breakpoint-up(md) {
+      @media (min-width: 960px) {
         max-width: 20%;
       }
     }
@@ -21,7 +21,7 @@
         thead tr th {
           font-size: 15px;
           font-weight: 500;
-          color: var(--v-greyBold-base);
+          color: rgb(var(--v-theme-greyBold));
         }
         tbody tr td {
           height: 58px;
@@ -31,7 +31,7 @@
     .v-data-footer {
       font-size: $fs-medium;
     }
-    &.theme--dark {
+    &.v-theme--dark {
       .v-data-table__wrapper {
         table {
           thead tr th {
@@ -49,7 +49,7 @@ div.material-table {
       thead tr th {
         font-size: 15px;
         font-weight: 500;
-        color: var(--v-greyBold-base)!important;
+        color: rgb(var(--v-theme-greyBold))!important;
       }
       tbody tr td {
         height: 58px;
@@ -59,7 +59,7 @@ div.material-table {
   .v-data-footer {
     font-size: $fs-medium;
   }
-  &.theme--dark {
+  &.v-theme--dark {
     .v-data-table__wrapper {
       table {
         thead tr th {

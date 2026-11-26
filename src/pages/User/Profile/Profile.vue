@@ -17,26 +17,26 @@
                           src="@/assets/img/user/profile/photo.png"></v-img>
                       </div>
                       <v-chip
-                        small
+                        size="small"
                         class="mr-2 mt-4 mb-4 mb-sm-0"
                         color="error"
                       >Pro</v-chip>
                     </v-col>
                     <v-col cols="12" sm="7" xl="6" class="pl-0 pl-sm-4 d-flex flex-column align-center align-sm-start"  >
-                      <p class="user-name greyMedium--text font-weight-regular">Julee Cruise</p>
-                      <p class="user-work greyTint--text ma-0">Product Designer</p>
-                      <a class="body-1">Flatlogic.com</a>
+                      <p class="user-name text-greyMedium font-weight-regular">Julee Cruise</p>
+                      <p class="user-work text-greyTint ma-0">Product Designer</p>
+                      <a class="text-body-1">Flatlogic.com</a>
                       <div class="d-flex justify-center justify-sm-start flex-wrap mt-5">
                         <v-chip v-for="(chip, i) in mock.chips"
                           :key="i"
-                          small
+                          size="small"
                           :style=bgStyle(chip.bgColor)
                           :class="chip.color + '--text font-weight-bold mr-2 mr-lg-1 mr-lg-2 my-1 px-2'"
                           label
                         >{{ chip.title }}</v-chip>
                       </div>
                       <div class="mt-5">
-                        <v-btn v-for="(btn, i) in mock.buttons"
+                        <v-btn variant="text" v-for="(btn, i) in mock.buttons"
                            :key="i"
                            icon
                            class="mr-0 mr-sm-n2 mr-lg-0"
@@ -51,46 +51,40 @@
             </v-col>
             <v-col cols="12" md="6">
               <v-card class="media-card ma-1" min-height="296">
-                <v-card-title class="pa-5 pb-3">
+                <v-card-title class="d-flex align-center pa-5 pb-3">
                   <p>Media</p>
                   <v-spacer></v-spacer>
-                  <v-menu>
-                    <template v-slot:activator="{ on, attrs }">
-                      <v-select
-                        class="main-chart-select greyBold--text"
+                  <v-select
+                        class="main-chart-select text-greyBold"
                         v-model="mock.sel"
-                        :value="mock.select[0]"
-                        v-bind="attrs"
-                        v-on="on"
-                        dense
+                        :model-value="mock.select[0]"
+                        density="compact"
                         flat
                         single-line
                         hide-details
                         :items="mock.select"
                       ></v-select>
-                    </template>
-                  </v-menu>
                 </v-card-title>
                 <v-card-text class="pa-5 pb-0 pt-5">
                   <v-row no-gutters class="pb-6">
                     <v-col cols="6" class="d-flex align-center flex-column">
                       <v-img src="@/assets/img/user/profile/media/posts.svg" height="30" width="30"></v-img>
-                      <p class="greyBold--text text-h6 mb-n2">198</p>
+                      <p class="text-greyBold text-h6 mb-n2">198</p>
                       <p class="media-subtitle">Posts</p>
                     </v-col>
                     <v-col cols="6" class="d-flex align-center flex-column">
                       <v-img src="@/assets/img/user/profile/media/projects.svg" height="30" width="30"></v-img>
-                      <p class="greyBold--text text-h6 mb-n2">554</p>
+                      <p class="text-greyBold text-h6 mb-n2">554</p>
                       <p class="media-subtitle">Projects</p>
                     </v-col>
                     <v-col cols="6" class="d-flex align-center flex-column">
                       <v-img src="@/assets/img/user/profile/media/followers.svg" height="30" width="30"></v-img>
-                      <p class="greyBold--text text-h6 mb-n2">12.8k</p>
+                      <p class="text-greyBold text-h6 mb-n2">12.8k</p>
                       <p class="media-subtitle">Followers</p>
                     </v-col>
                     <v-col cols="6" class="d-flex align-center flex-column">
                       <v-img src="@/assets/img/user/profile/media/following.svg" height="30" width="30"></v-img>
-                      <p class="greyBold--text text-h6 mb-n2">1.1k</p>
+                      <p class="text-greyBold text-h6 mb-n2">1.1k</p>
                       <p class="media-subtitle">Following</p>
                     </v-col>
                   </v-row>
@@ -99,25 +93,19 @@
             </v-col>
             <v-col cols="12" md="6">
               <v-card class="pie-card ma-1" min-height="296">
-                <v-card-title class="pa-5 pb-3">
+                <v-card-title class="d-flex align-center pa-5 pb-3">
                   <p>Projects</p>
                   <v-spacer></v-spacer>
-                  <v-menu>
-                    <template v-slot:activator="{ on, attrs }">
-                      <v-select
+                  <v-select
                         class="main-chart-select"
                         v-model="mock.sel1"
-                        :value="mock.select[0]"
-                        v-bind="attrs"
-                        v-on="on"
-                        dense
+                        :model-value="mock.select[0]"
+                        density="compact"
                         flat
                         single-line
                         hide-details
                         :items="mock.select"
                       ></v-select>
-                    </template>
-                  </v-menu>
                 </v-card-title>
                 <v-card-text class="pa-5 pt-0">
                   <v-row no-gutters class="pb-0">
@@ -133,7 +121,7 @@
                     <v-col cols="12" class="d-flex flex-column align-end mt-3">
                       <v-btn
                         color="primaryConst"
-                        outlined
+                        variant="outlined"
                       >Detail</v-btn>
                     </v-col>
                   </v-row>
@@ -151,10 +139,10 @@
                       <v-img src="@/assets/img/user/profile/article-logo.png"></v-img>
                     </v-col>
                     <v-col cols="7">
-                      <p class="article-writer greyTint--text">Nastassia Ovchinnikova</p>
-                      <p class="article-text greyBold--text">React Native allows us to create a boilerplate that have been crafted for both platforms.
+                      <p class="article-writer text-greyTint">Nastassia Ovchinnikova</p>
+                      <p class="article-text text-greyBold">React Native allows us to create a boilerplate that have been crafted for both platforms.
                         The ability to create an app both for Android and iOS...</p>
-                      <p class="article-info greyTint--text"> 11 Feb 2019 | 5 min read</p>
+                      <p class="article-info text-greyTint"> 11 Feb 2019 | 5 min read</p>
                     </v-col>
                   </v-row>
                 </v-card-text>
@@ -170,16 +158,17 @@
                   <p>Files</p>
                 </v-card-title>
                 <v-card-text class="pa-5 pt-0">
-                  <v-tabs color="secondary">
-                    <v-tabs-slider></v-tabs-slider>
+                  <v-tabs v-model="galleryTab" color="secondary">
                     <v-tab
                       v-for="(tab, i) in mock.tabs"
                       class="text-capitalize font-weight-regular"
                       :key="i"
-                      :href="'#tab-' + tab.tabName.toLocaleLowerCase()">
+                      :value="'tab-' + tab.tabName.toLocaleLowerCase()">
                       {{ tab.tabName }}
                     </v-tab>
-                    <v-tab-item
+                    </v-tabs>
+          <v-tabs-window v-model="galleryTab">
+          <v-tabs-window-item
                       v-for="(tab, i) in mock.tabs"
                       :key="i"
                       :value="'tab-' + tab.tabName.toLocaleLowerCase()"
@@ -191,7 +180,7 @@
                            v-for="(img, i) in mock.images"
                            :key="i">
                           <v-img
-                            :src="$vuetify.theme.dark ? img.srcDark : img.src"
+                            :src="$vuetify.theme.current.dark ? img.srcDark : img.src"
                             width="141" height="106" contain
                             class="folder-image mr-3"
                           >
@@ -200,8 +189,8 @@
                           </v-img>
                         </div>
                       </v-row>
-                    </v-tab-item>
-                  </v-tabs>
+                    </v-tabs-window-item>
+                  </v-tabs-window>
                 </v-card-text>
               </v-card>
             </v-col>
@@ -209,38 +198,33 @@
           <v-row>
             <v-col cols="12" md="7">
               <v-card class="tasks-card ma-1">
-                <v-card-title class="pa-5 pb-3">
+                <v-card-title class="d-flex align-center pa-5 pb-3">
                   <p>Tasks</p>
                   <v-spacer></v-spacer>
-                  <v-menu>
-                    <template v-slot:activator="{ on, attrs }">
-                      <v-select
-                        class="main-chart-select font-weight-regular greyMedium--text"
+                  <v-select
+                        class="main-chart-select font-weight-regular text-greyMedium"
                         v-model="mock.sel2"
-                        :value="mock.taskSelect[0]"
-                        v-bind="attrs"
-                        v-on="on"
-                        dense
+                        :model-value="mock.taskSelect[0]"
+                        density="compact"
                         flat
                         single-line
                         hide-details
                         :items="mock.taskSelect"
                       ></v-select>
-                    </template>
-                  </v-menu>
                 </v-card-title>
                 <v-card-text class="pa-5 pt-0 pb-2">
                   <v-row no-gutters>
-                    <v-tabs color="secondary">
-                      <v-tabs-slider></v-tabs-slider>
+                    <v-tabs v-model="tasksTab" color="secondary">
                       <v-tab
                         v-for="(tab, i) in mock.taskTabs"
                         :key="i"
-                        :href="'#tab-' + tab.tabLink"
+                        :value="'tab-' + tab.tabLink"
                         class="text-capitalize font-weight-regular">
                         {{ tab.tabName }}
                       </v-tab>
-                      <v-tab-item
+                      </v-tabs>
+          <v-tabs-window v-model="tasksTab">
+          <v-tabs-window-item
                         value="tab-today"
                         class="pt-0">
                         <v-row no-gutters class="flex-column flex-nowrap overflow-hidden pr-0"
@@ -252,19 +236,18 @@
                           <v-col
                             cols="12"
                             class="d-flex justify-space-between align-center py-3">
-                            <div class="d-flex align-center" @click="$set(task, 'done', !task.done)">
+                            <div class="d-flex align-center" @click="task.done = !task.done">
                               <p
                                 class="task-time mb-0 "
                                 style="font-size: 10px">{{ task.time }}</p>
                               <v-icon class="task-circle ml-1" :color="task.color">mdi-circle-medium</v-icon>
-                              <p class="task-text greyBold--text mb-0 font-weight-medium" style="line-height: 25px;">{{ task.task }}</p>
+                              <p class="task-text text-greyBold mb-0 font-weight-medium" style="line-height: 25px;">{{ task.task }}</p>
                             </div>
                             <v-menu>
-                              <template v-slot:activator="{ on, attrs }">
-                                <v-btn
+                              <template #activator="{ props }">
+                                <v-btn variant="text"
                                   icon
-                                  v-bind="attrs"
-                                  v-on="on">
+                                  v-bind="props">
                                   <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                                 </v-btn>
                               </template>
@@ -279,8 +262,8 @@
                             </v-menu>
                           </v-col>
                         </v-row>
-                      </v-tab-item>
-                      <v-tab-item
+                      </v-tabs-window-item>
+                      <v-tabs-window-item
                         value="tab-week"
                         class="pt-0">
                         <v-row no-gutters class="flex-column flex-nowrap overflow-hidden pr-0"
@@ -288,7 +271,7 @@
                          :key="i * 10"
                          style="width: 100%; cursor:pointer;"
                          :class="{ done:task.done }"
-                         @click="$set(task, 'done', !task.done)">
+                         @click="task.done = !task.done">
                           <v-divider></v-divider>
                           <v-col
                             cols="12"
@@ -298,17 +281,17 @@
                                 class="task-time mb-0 "
                                 style="font-size: 10px">{{ task.time }}</p>
                               <v-icon class="task-circle ml-1" :color="task.color">mdi-circle-medium</v-icon>
-                              <p class="task-text greyBold--text mb-0 font-weight-medium" style="line-height: 25px;">{{ task.task }}</p>
+                              <p class="task-text text-greyBold mb-0 font-weight-medium" style="line-height: 25px;">{{ task.task }}</p>
                             </div>
                             <div>
-                              <v-btn icon>
+                              <v-btn variant="text" icon>
                                 <v-icon color="greyTint" class="right">mdi-dots-vertical</v-icon>
                               </v-btn>
                             </div>
                           </v-col>
                         </v-row>
-                      </v-tab-item>
-                      <v-tab-item
+                      </v-tabs-window-item>
+                      <v-tabs-window-item
                         value="tab-month"
                         class="pt-0">
                         <v-row no-gutters class="flex-column flex-nowrap overflow-hidden"
@@ -316,7 +299,7 @@
                          :key="i * 100"
                          style="width: 100%; cursor:pointer;"
                          :class="{ done:task.done }"
-                         @click="$set(task, 'done', !task.done)">
+                         @click="task.done = !task.done">
                           <v-divider></v-divider>
                           <v-col
                               cols="12"
@@ -327,18 +310,18 @@
                                 style="font-size: 10px"
                               >{{ task.time }}</p>
                               <v-icon class="task-circle ml-1" :color="task.color">mdi-circle-medium</v-icon>
-                              <p class="task-text greyBold--text mb-0 font-weight-medium">{{ task.task }}</p>
+                              <p class="task-text text-greyBold mb-0 font-weight-medium">{{ task.task }}</p>
                             </div>
                             <div>
-                              <v-btn icon>
+                              <v-btn variant="text" icon>
                                 <v-icon color="greyTint" class="right">mdi-dots-vertical</v-icon>
                               </v-btn>
                             </div>
                           </v-col>
 
                         </v-row>
-                      </v-tab-item>
-                    </v-tabs>
+                      </v-tabs-window-item>
+                    </v-tabs-window>
                   </v-row>
                 </v-card-text>
               </v-card>
@@ -352,24 +335,22 @@
                         v-model="picker"
                         :events="dateFunctionEvents"
                         color="primaryConst"
-                        full-width
                         flat
-                        no-title
+                        hide-header
                       ></v-date-picker>
                     </v-col>
                   </v-card>
                 </v-col>
                 <v-col cols="12" class="mb-6">
                   <v-card class="view-card ma-1">
-                    <v-card-title class="pa-5 pb-3">
+                    <v-card-title class="d-flex align-center pa-5 pb-3">
                       <p>Views</p>
                       <v-spacer></v-spacer>
                       <v-menu>
-                        <template v-slot:activator="{ on, attrs }">
-                          <v-btn
+                        <template #activator="{ props }">
+                          <v-btn variant="text"
                             icon
-                            v-bind="attrs"
-                            v-on="on"
+                            v-bind="props"
                           >
                             <v-icon color="greyTint">mdi-dots-vertical</v-icon>
                           </v-btn>
@@ -388,12 +369,12 @@
                     <v-card-text class="pa-5 pt-0">
                       <v-row no-gutters>
                         <v-col cols="5" sm="6" md="5" lg="5" xl="3">
-                          <p class="views-value greyBold--text text-h5 mb-0">7,156</p>
-                          <p class="views-percent success--text mb-4">7.2%</p>
+                          <p class="views-value text-greyBold text-h5 mb-0">7,156</p>
+                          <p class="views-percent text-success mb-4">7.2%</p>
                           <v-btn
                             color="primary"
-                            outlined
-                            small
+                            variant="outlined"
+                            size="small"
                             class="text-capitalize"
                           >See More</v-btn>
                         </v-col>
@@ -414,11 +395,11 @@
                             contain
                           ></v-img>
                         </div>
-                        <p class="upd-text text-truncate white--text mb-0 ml-3">Updates</p>
+                        <p class="upd-text text-truncate text-white mb-0 ml-3">Updates</p>
                         <v-spacer></v-spacer>
                         <v-btn
-                          outlined
-                          class="white--text text-capitalize"
+                          variant="outlined"
+                          class="text-white text-capitalize"
                           >Detail</v-btn>
                       </v-col>
                     </v-row>
@@ -436,7 +417,7 @@
 <script>
 import mock from './mock'
 import config from "@/config"
-import ApexChart from 'vue-apexcharts'
+import ApexChart from 'vue3-apexcharts'
 
 export default {
   name: 'Profile',
@@ -445,9 +426,11 @@ export default {
   },
   data() {
     return {
+      tasksTab: 'tab-today',
+      galleryTab: 'tab-work',
       mock,
       config,
-      arrayEvents: null,
+
       apexLoading: false,
       apexPie: {
         options: {
@@ -493,7 +476,7 @@ export default {
           }
         ],
       },
-      picker: new Date().toISOString().substr(0, 10),
+      picker: new Date(),
     }
   },
   methods: {
@@ -511,12 +494,6 @@ export default {
       }
       return series;
     },
-    prev () {
-      this.$refs.calendar.prev()
-    },
-    next () {
-      this.$refs.calendar.next()
-    },
     dateFunctionEvents (date) {
       const [,, day] = date.split('-')
       if ([12, 17, 28].includes(parseInt(day, 10))) return true
@@ -525,10 +502,7 @@ export default {
     },
   },
   mounted() {
-    setTimeout(() => {
-      this.apexLoading = true
-      }
-    )
+    this.apexLoading = true
   }
 }
 </script>

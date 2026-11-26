@@ -1,14 +1,14 @@
 <template>
   <v-col cols="12">
-    <CoolLightBox
-      :items="coolLightBoxItems"
-      :index="coolLightBoxIdx"
-      @close="coolLightBoxIdx = null"
-    >
-    </CoolLightBox>
+    <VueEasyLightbox
+      :imgs="coolLightBoxItems"
+      :visible="coolLightBoxIdx !== null"
+      :index="coolLightBoxIdx ?? 0"
+      @hide="coolLightBoxIdx = null"
+    />
     <v-row>
       <v-col cols="3" class="d-flex align-center">
-        <p class="fs-normal greyBold--text mb-0">{{ label }}</p>
+        <p class="fs-normal text-greyBold mb-0">{{ label }}</p>
       </v-col>
       <v-col cols="9">
         <input
@@ -55,15 +55,13 @@
 </template>
 
 <script>
-  import * as uuid from 'uuid/v4';
-  import axios from 'axios';
+  import axios from '@/api';
   import config from '@/config';
-  import CoolLightBox from 'vue-cool-lightbox';
-  import 'vue-cool-lightbox/dist/vue-cool-lightbox.min.css';
+  import VueEasyLightbox from 'vue-easy-lightbox';
   import { mapMutations } from 'vuex';
 
   export default {
-    components: { CoolLightBox },
+    components: { VueEasyLightbox },
     props: {
       id: {
         type: String,
@@ -110,7 +108,7 @@
         }
         let file = files[0];
         const extension = this.extractExtensionFrom(file.name);
-        const id = uuid();
+        const id = crypto.randomUUID();
         const privateUrl = `/products/image/${id}.${extension}`;
         const publicUrl = `${config.baseURLApi}/file/download?privateUrl=${this.url}/${id}.${extension}`;
         formData.append('file', file);
